@@ -1,10 +1,12 @@
+import Header from "../components/Header";
 import styles from "./page.module.css";
-import Header from "@/components/Header";
+import "../assets/styles/globalStyles.scss";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <>
       <Header />
-    </main>
+      <main className={styles.main}></main>
+    </>
   );
 }

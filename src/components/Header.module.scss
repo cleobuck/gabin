@@ -1,0 +1,32 @@
+@import "@styles/variables";
+
+.mainMenu,
+.secondaryMenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+
+  &[aria-expanded="true"] {
+    max-height: 1000px;
+  }
+  position: absolute;
+}
+
+.mainTitle {
+  display: none;
+}
+
+.upperLogo {
+  path {
+    fill: $teal;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 50px;
+}

@@ -1,13 +1,6 @@
 const path = require("path");
-const withLess = require("next-with-less");
 
-module.exports = withLess({
-  // reactStrictMode: true,
-  lessLoaderOptions: {
-    lessOptions: {
-      javascriptEnabled: true,
-    },
-  },
+module.exports = {
   webpack(config) {
     // Define path alias for styles directory
     config.resolve.alias["@styles"] = path.join(__dirname, "src/assets/styles");
@@ -22,4 +15,4 @@ module.exports = withLess({
 
     return config;
   },
-});
+};

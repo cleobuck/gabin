@@ -1,22 +1,25 @@
 // components/Header.js
 import React from "react";
-import styling from "./Header.module.less";
+import styling from "./Header.module.scss";
 import UpperLogo from "@/assets/images/upper-logo.svg?react";
+
+import MenuButton from "@/assets/images/menu-button.svg?react";
+
 import MenuToggle from "./MenuToggle";
 
 const Header = () => {
   return (
-    <header>
-      <h1>Gabinouze events</h1>
+    <header className={styling.header}>
+      <h1 className={styling.mainTitle}>Gabinouze events</h1>
       <UpperLogo className={styling.upperLogo} />
 
       {/* Menu Toggle Button */}
-      <MenuToggle menuId="main-menu" />
+      <MenuToggle menuId="main-menu">Menu</MenuToggle>
 
       <nav
         id="main-menu"
         aria-label="Primary Navigation"
-        // className={styling.mainMenu}
+        className={styling.mainMenu}
       >
         <ul>
           <li>
@@ -68,12 +71,14 @@ const Header = () => {
       </nav>
 
       {/* Secondary Menu Toggle Button */}
-      <MenuToggle menuId="secondary-menu" />
+      <MenuToggle menuId="secondary-menu">
+        <MenuButton />
+      </MenuToggle>
 
       <nav
         id="secondary-menu"
         aria-label="Secondary Navigation"
-        // className={styling.secondaryMenu}
+        className={styling.secondaryMenu}
       >
         <ul>
           <li>

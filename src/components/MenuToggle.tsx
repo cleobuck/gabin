@@ -3,13 +3,13 @@
 
 import React, { useState, useEffect } from "react";
 
-const MenuToggle = ({ menuId }) => {
+const MenuToggle = ({ menuId, children }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const menu = document.getElementById(menuId);
     if (menu) {
-      menu.setAttribute("aria-expanded", isVisible);
+      menu.setAttribute("aria-expanded", isVisible ? "true" : "false");
       menu.classList.toggle("menuVisible", isVisible);
     }
   }, [isVisible, menuId]);
@@ -24,7 +24,7 @@ const MenuToggle = ({ menuId }) => {
       aria-expanded={isVisible}
       onClick={toggleMenu}
     >
-      Menu
+      {children}
     </button>
   );
 };
