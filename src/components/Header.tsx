@@ -6,6 +6,7 @@ import UpperLogo from "@/assets/images/upper-logo.svg?react";
 import MenuButton from "@/assets/images/menu-button.svg?react";
 
 import MenuToggle from "./MenuToggle";
+import { mainMenuData } from "./HeaderData";
 
 const Header = () => {
   return (
@@ -14,7 +15,9 @@ const Header = () => {
       <UpperLogo className={styling.upperLogo} />
 
       {/* Menu Toggle Button */}
-      <MenuToggle menuId="main-menu">Menu</MenuToggle>
+      <MenuToggle className={styling.mainMenuToggle} menuId="main-menu">
+        MENU
+      </MenuToggle>
 
       <nav
         id="main-menu"
@@ -22,51 +25,28 @@ const Header = () => {
         className={styling.mainMenu}
       >
         <ul>
-          <li>
-            <a href="#home">Accueil</a>
-          </li>
-          <li>
-            <a href="#about">Nos services</a>
-            <ul>
-              <li>
-                <a href="#about">Mariages</a>
-              </li>
-              <li>
-                <a href="#about">Entreprises</a>
-              </li>
-              <li>
-                <a href="#about">Collectivités</a>
-              </li>
-              <li>
-                <a href="#about">Évenements</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#services">Nos tentes</a>
-            <ul>
-              <li>
-                <a href="#about">Strecht</a>
-              </li>
-              <li>
-                <a href="#about">Silhouette</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#contact">Á propos</a>
-            <ul>
-              <li>
-                <a href="#about">Qui Sommes nous</a>
-              </li>
-              <li>
-                <a href="#about">Nos valeurs</a>
-              </li>
-              <li>
-                <a href="#about">FAQ</a>
-              </li>
-            </ul>
-          </li>
+          {mainMenuData.map((item) => (
+            <li>
+              <a href={item.href} className={styling.mainMenuItem}>
+                {item.label.toUpperCase()}
+              </a>
+              {item.children && (
+                <ul className={styling.subMenu}>
+                  {item.children.map((child) => (
+                    <li>
+                      <a
+                        href={child.href}
+                        className={styling.secondaryMenuItem}
+                      >
+                        <span className={styling.circle}></span>{" "}
+                        {child.label.toUpperCase()}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
         </ul>
       </nav>
 

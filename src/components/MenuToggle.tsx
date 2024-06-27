@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from "react";
 
-const MenuToggle = ({ menuId, children }) => {
+const MenuToggle = ({ menuId, children, className }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -23,6 +23,7 @@ const MenuToggle = ({ menuId, children }) => {
       aria-controls={menuId}
       aria-expanded={isVisible}
       onClick={toggleMenu}
+      className={className}
     >
       {children}
     </button>
