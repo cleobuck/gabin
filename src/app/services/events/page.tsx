@@ -1,16 +1,19 @@
 import React from "react";
 import styling from "./events.module.scss";
-import PageHeader from "@/components/PageHeader/PageHeader";
+import PageLayout from "@/components/PageLayout/PageLayout";
 
 const Events = () => {
   return (
     <div>
-      <PageHeader
+      <PageLayout
         title="organi-sateur
 d’éven-ements /
 planner"
         className={styling.events}
-      />
+      >
+        {" "}
+        Evénements{" "}
+      </PageLayout>
     </div>
   );
 };

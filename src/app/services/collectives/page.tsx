@@ -1,12 +1,15 @@
-import PageHeader from "@/components/PageHeader/PageHeader";
 import React from "react";
 import styling from "./collectives.module.scss";
+import PageLayout from "@/components/PageLayout/PageLayout";
 
 const Collectives = () => {
   return (
     <div>
       {" "}
-      <PageHeader title="collecti- vités" className={styling.collectives} />
+      <PageLayout title="collecti- vités" className={styling.collectives}>
+        {" "}
+        Collectivités
+      </PageLayout>
     </div>
   );
 };

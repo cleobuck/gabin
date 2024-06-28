@@ -1,12 +1,14 @@
-import PageHeader from "@/components/PageHeader/PageHeader";
 import React from "react";
 
 import styling from "./weddings.module.scss";
+import PageLayout from "@/components/PageLayout/PageLayout";
 
 const Weddings = () => {
   return (
     <div>
-      <PageHeader title="Mariages" className={styling.weddings} />
+      <PageLayout title="Mariages" className={styling.weddings}>
+        Weddings
+      </PageLayout>
     </div>
   );
 };

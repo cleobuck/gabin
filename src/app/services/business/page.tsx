@@ -1,11 +1,13 @@
 import React from "react";
 import styling from "./business.module.scss";
-import PageHeader from "@/components/PageHeader/PageHeader";
+import PageLayout from "@/components/PageLayout/PageLayout";
 
 const Business = () => {
   return (
     <div>
-      <PageHeader title="Entre- prise" className={styling.business} />
+      <PageLayout title="Entre- prise" className={styling.business}>
+        Business
+      </PageLayout>
     </div>
   );
 };
