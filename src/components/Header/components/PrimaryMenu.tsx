@@ -16,7 +16,7 @@ export default function PrimaryMenu({ openMenu, whichMenuOpen, style }: Props) {
           whichMenuOpen ? styling.menuOpen : ""
         } ${style === "white" ? styling.white : ""}`}
       >
-        MENU
+        <span>MENU </span>
       </button>
 
       <nav
@@ -28,7 +28,10 @@ export default function PrimaryMenu({ openMenu, whichMenuOpen, style }: Props) {
         <ul>
           {PrimaryMenuData.map((item) => (
             <li>
-              <a href={item.href} className={styling.mainMenuItem}>
+              <a
+                href={`${process.env.BASE_URL}${item.href}`}
+                className={styling.mainMenuItem}
+              >
                 {item.label.toUpperCase()}
               </a>
               {item.children && (

@@ -9,19 +9,19 @@ export const PrimaryMenuData = [
     children: [
       {
         label: "Mariages",
-        href: "#about",
+        href: "/services/weddings",
       },
       {
         label: "Entreprises",
-        href: "#about",
+        href: "/services/business",
       },
       {
         label: "Collectivités",
-        href: "#about",
+        href: "/services/collectives",
       },
       {
         label: "Événements",
-        href: "#about",
+        href: "/services/events",
       },
     ],
   },
@@ -31,11 +31,11 @@ export const PrimaryMenuData = [
     children: [
       {
         label: "Strecht",
-        href: "#about",
+        href: "/services/stretch",
       },
       {
         label: "Silhouette",
-        href: "#about",
+        href: "/services/silhouette",
       },
     ],
   },
@@ -45,15 +45,15 @@ export const PrimaryMenuData = [
     children: [
       {
         label: "Qui Sommes nous",
-        href: "#about",
+        href: "/about/whoarewe",
       },
       {
         label: "Nos valeurs",
-        href: "#about",
+        href: "/about/values",
       },
       {
         label: "FAQ",
-        href: "#about",
+        href: "/about/FAQ",
       },
     ],
   },
