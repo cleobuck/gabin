@@ -8,52 +8,58 @@ import LinkedIn from "@/assets/images/linkedin.svg?react";
 
 import Facebook from "@/assets/images/facebook.svg?react";
 
+import TentImage from "@/assets/images/placeholder.jpeg";
+import Image from "next/image";
+
 type Props = {};
 
 export default function Footer({}: Props) {
   return (
-    <div className={styling.footer}>
-      <Sun className={styling.sun} />
-      <Logo className={styling.logo} />
-      <nav className={styling.footerNav}>
-        <ul>
-          <li>
-            <a href="#">QUI SOMMES NOUS? </a>
-          </li>
-          <li>
-            <a href="#"> CONTACT </a>
-          </li>
-          <li>
-            <a href="#"> MENTIONS LÉGALES </a>
-          </li>
-          <li>
-            <a href="#"> PLAN DU SITE </a>
-          </li>
-        </ul>
-      </nav>
+    <>
+      <Image className={styling.image} src={TentImage} />
+      <div className={styling.footer}>
+        <Sun className={styling.sun} />
+        <Logo className={styling.logo} />
+        <nav className={styling.footerNav}>
+          <ul>
+            <li>
+              <a href="#">QUI SOMMES NOUS? </a>
+            </li>
+            <li>
+              <a href="#"> CONTACT </a>
+            </li>
+            <li>
+              <a href="#"> MENTIONS LÉGALES </a>
+            </li>
+            <li>
+              <a href="#"> PLAN DU SITE </a>
+            </li>
+          </ul>
+        </nav>
 
-      <nav>
-        <ul className={styling.socialNav}>
-          <li>
-            <a href="#">
-              {" "}
-              <Insta />{" "}
-            </a>
-          </li>
-          <div>
+        <nav>
+          <ul className={styling.socialNav}>
             <li>
               <a href="#">
-                <Facebook />
+                {" "}
+                <Insta />{" "}
               </a>
             </li>
-            <li>
-              <a href="#">
-                <LinkedIn />
-              </a>
-            </li>
-          </div>
-        </ul>
-      </nav>
-    </div>
+            <div>
+              <li>
+                <a href="#">
+                  <Facebook />
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <LinkedIn />
+                </a>
+              </li>
+            </div>
+          </ul>
+        </nav>
+      </div>
+    </>
   );
 }
