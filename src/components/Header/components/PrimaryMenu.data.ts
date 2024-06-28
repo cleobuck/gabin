@@ -1,4 +1,4 @@
-export const mainMenuData = [
+export const PrimaryMenuData = [
   {
     label: "Accueil",
     href: "#home",

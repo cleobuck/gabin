@@ -1,0 +1,57 @@
+@import "@styles/variables";
+
+.mainMenu {
+  max-height: 0;
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+
+  position: absolute;
+  top: 95px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0;
+  font-size: 13px;
+  width: 54vw;
+  max-width: 250px;
+  background: $beige;
+  &[aria-expanded="true"] {
+    max-height: 1000px;
+    border: 1px solid $strongGreen;
+    .mainMenuItem {
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid black;
+      border-radius: 0;
+    }
+  }
+}
+
+.mainMenuToggle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.subMenu {
+  border-bottom: 1px solid black;
+  border-radius: 0;
+  padding: 20px 0;
+  list-style-type: disc;
+}
+
+.secondaryMenuItem {
+  margin-left: 30px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  line-height: 26px;
+  .circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    border: 1px solid black;
+    margin-right: 10px;
+  }
+}

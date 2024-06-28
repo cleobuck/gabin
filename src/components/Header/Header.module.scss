@@ -1,0 +1,20 @@
+@import "@styles/variables";
+
+.upperLogo {
+  path {
+    fill: $teal;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.mainTitle {
+  display: none;
+}
