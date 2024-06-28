@@ -1,0 +1,54 @@
+@import "@styles/variables";
+
+.footer {
+  height: 127px;
+  width: 100vw;
+  position: relative;
+
+  background: $strongGreen;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 7.4vw;
+
+  .sun {
+    position: absolute;
+    height: 44px;
+    right: 56px;
+    top: -22px;
+    fill: $lightYellow;
+  }
+
+  .logo {
+    fill: $dirtyWhite;
+    width: 18vw;
+  }
+
+  .footerNav {
+    color: $dirtyWhite;
+    font-size: 13px;
+    a {
+      line-height: 20px;
+    }
+  }
+
+  .socialNav {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    ul {
+      list-style-type: none;
+      li {
+        height: 23px;
+        width: 22px;
+      }
+    }
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 64px;
+    }
+  }
+}
