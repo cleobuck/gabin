@@ -4,6 +4,12 @@
   path {
     fill: $teal;
   }
+
+  &.white {
+    path {
+      fill: white;
+    }
+  }
 }
 
 .header {
@@ -13,6 +19,7 @@
   width: 85%;
   margin: 0 auto;
   margin-top: 50px;
+  position: relative;
 }
 
 .mainTitle {

@@ -3,10 +3,28 @@
 .secondaryMenu {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  border-radius: 0;
 
   &[aria-expanded="true"] {
     max-height: 1000px;
   }
   position: absolute;
+  top: 37px;
+  right: 0;
+  background: $beige;
+
+  .SecondaryMenuItem {
+    height: 50px;
+    display: flex;
+    border-radius: 0;
+    width: 150px;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid black;
+    border-radius: 0;
+  }
+}
+.button {
+  position: relative;
+  z-index: 10;
 }

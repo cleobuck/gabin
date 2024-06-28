@@ -1,0 +1,42 @@
+.overlay {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 0;
+
+  &.main {
+    display: block;
+
+    background: linear-gradient(
+      10.87deg,
+      rgba(20, 48, 27, 0.84) 1.61%,
+      rgba(156, 214, 242, 0.84) 100%
+    );
+  }
+
+  &.secondary {
+    display: block;
+    background: linear-gradient(
+      175.14deg,
+      rgba(20, 48, 27, 0.84) 33.82%,
+      rgba(156, 214, 242, 0.84) 136.17%
+    );
+  }
+
+  button {
+    position: absolute;
+    top: 35px;
+    left: 25px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    svg {
+      height: 15px;
+      fill: white;
+    }
+  }
+}

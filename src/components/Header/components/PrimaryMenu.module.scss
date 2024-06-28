@@ -2,11 +2,11 @@
 
 .mainMenu {
   max-height: 0;
-  transition: max-height 0.3s ease;
+  // transition: max-height 0.3s ease;
   overflow: hidden;
 
   position: absolute;
-  top: 95px;
+  top: 37px;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 0;
@@ -17,6 +17,8 @@
   &[aria-expanded="true"] {
     max-height: 1000px;
     border: 1px solid $strongGreen;
+    box-shadow: 0px 0px 10px 5px #00000040;
+
     .mainMenuItem {
       height: 50px;
       display: flex;
@@ -32,6 +34,11 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  font-size: 15px;
+  &.menuOpen,
+  &.white {
+    color: white;
+  }
 }
 
 .subMenu {

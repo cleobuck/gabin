@@ -1,19 +1,20 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { PrimaryMenuData } from "./PrimaryMenu.data";
 import styling from "./PrimaryMenu.module.scss";
 type Props = {};
 
-export default function PrimaryMenu({}: Props) {
-  const [isVisible, setVisible] = useState(false);
+export default function PrimaryMenu({ openMenu, whichMenuOpen, style }: Props) {
   return (
     <>
       <button
         aria-controls="main-menu"
-        aria-expanded={isVisible}
-        onClick={() => setVisible((isVisible) => !isVisible)}
-        className={styling.mainMenuToggle}
+        aria-expanded={whichMenuOpen === "main"}
+        onClick={openMenu}
+        className={`${styling.mainMenuToggle} ${
+          whichMenuOpen ? styling.menuOpen : ""
+        } ${style === "white" ? styling.white : ""}`}
       >
         MENU
       </button>
@@ -21,7 +22,7 @@ export default function PrimaryMenu({}: Props) {
       <nav
         id="main-menu"
         aria-label="Primary Navigation"
-        aria-expanded={isVisible}
+        aria-expanded={whichMenuOpen === "main"}
         className={styling.mainMenu}
       >
         <ul>
