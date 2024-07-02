@@ -1,0 +1,49 @@
+@import "@styles/variables";
+
+.sliderContainer {
+  width: 90vw; /* Adjust as needed */
+  margin: 20px auto; /* Center align */
+  overflow: hidden; /* Hide overflow */
+}
+
+.imageFixedContainer {
+  transition: transform 0.3s ease;
+  white-space: nowrap;
+}
+
+.image {
+  width: 150px;
+  display: inline-block;
+  margin-right: 13px;
+}
+
+.sliderBarContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 10px;
+  background: lightgreen;
+  border-radius: 33px;
+}
+
+.sliderBar {
+  position: relative;
+  width: calc(90% - 20px); /* Subtract padding */
+  margin: 0 20px; /* Add padding to the sides */
+  height: 20px;
+  background: lightgreen;
+  border-radius: 33px;
+}
+
+.sliderDot {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  top: 50%;
+  background: $beige;
+  border-radius: 50%;
+  cursor: pointer;
+  transform: translateY(-50%);
+}

@@ -26,8 +26,8 @@ export default function PrimaryMenu({ openMenu, whichMenuOpen, style }: Props) {
         className={styling.mainMenu}
       >
         <ul>
-          {PrimaryMenuData.map((item) => (
-            <li>
+          {PrimaryMenuData.map((item, key) => (
+            <li key={key}>
               <a
                 href={`${process.env.BASE_URL}${item.href}`}
                 className={styling.mainMenuItem}
@@ -36,8 +36,8 @@ export default function PrimaryMenu({ openMenu, whichMenuOpen, style }: Props) {
               </a>
               {item.children && (
                 <ul className={styling.subMenu}>
-                  {item.children.map((child) => (
-                    <li>
+                  {item.children.map((child, index) => (
+                    <li key={index}>
                       <a
                         href={child.href}
                         className={styling.secondaryMenuItem}
