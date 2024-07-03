@@ -9,22 +9,36 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: 0.5s left;
+  transition: opacity 1s;
   height: 50%;
+  opacity: 0;
+  left: -1000px;
 
-  &.active {
+  &.initialActive {
     left: 50%;
-    transition: 0.5 left;
+    opacity: 1;
   }
 
-  &.beforeActive {
-    left: -1000px;
-    transition: 0.5s left;
+  &.activeright {
+    left: 50%;
+    opacity: 1;
+    transition: opacity 1s;
+    animation: fromLeftToMiddle 0.5s linear forwards;
   }
 
-  &.afterActive {
-    left: 3000px;
-    transition: 0.5s left;
+  &.activeleft {
+    opacity: 1;
+    transition: opacity 1s;
+
+    animation: fromRightToMiddle 0.5s linear forwards;
+  }
+
+  &.prevright {
+    animation: fromMiddleToRight 0.5s linear forwards;
+  }
+
+  &.prevleft {
+    animation: fromMiddleToLeft 0.5s linear forwards;
   }
 
   h3 {
@@ -41,4 +55,40 @@
 
 .icon {
   fill: $teal;
+}
+
+@keyframes fromMiddleToRight {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 300%;
+  }
+}
+
+@keyframes fromLeftToMiddle {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes fromRightToMiddle {
+  from {
+    left: 300%;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes fromMiddleToLeft {
+  from {
+    left: 50%;
+  }
+  to {
+    left: -100%;
+  }
 }

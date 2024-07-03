@@ -8,34 +8,63 @@ import ImageTest1 from "@/assets/images/sun.svg?react";
 
 import Drops from "@/assets/images/drops.svg?react";
 import styling from "./CaracSlider.module.scss";
+import { createClassNameString } from "@/utils";
 type Props = {};
 
 export default function CaracSlider({}: Props) {
   const sliderData = [
     { title: "imperméable", Icon: Drops },
-    { title: "imperméable", Icon: imageTest2 },
-    { title: "imperméable", Icon: ImageTest1 },
+    { title: "deuxieme", Icon: imageTest2 },
+    { title: "troisieme", Icon: ImageTest1 },
   ];
 
-  const [activeImage, setActiveImage] = useState(0);
+  const [imageData, setImageData] = useState({ active: 0, previous: 0 });
+
+  const [direction, setDirection] = useState("right");
 
   return (
-    <SecondSlider slide={setActiveImage} length={sliderData.length}>
+    <SecondSlider
+      slide={setImageData}
+      setDirection={setDirection}
+      length={sliderData.length}
+    >
       {sliderData.map((elem, index) => (
-        <article
-          key={index}
-          className={`${
-            activeImage === index
-              ? styling.active
-              : index > activeImage
-              ? styling.afterActive
-              : styling.beforeActive
-          } ${styling.sliderElem}`}
-        >
-          <elem.Icon className={styling.icon} />
-          <h3> {elem.title}</h3>
-        </article>
+        <Article
+          imageData={imageData}
+          elem={elem}
+          index={index}
+          direction={direction}
+        />
       ))}
     </SecondSlider>
   );
 }
+
+const Article = ({ imageData, elem, index, direction }) => {
+  const classNames = [
+    {
+      condition:
+        imageData.active === index && imageData.active !== imageData.previous,
+      name: styling[`active${direction}`],
+    },
+
+    {
+      condition:
+        imageData.previous === index && imageData.previous !== imageData.active,
+      name: styling[`prev${direction}`],
+    },
+    {
+      condition: imageData.previous === imageData.active && index === 0,
+      name: styling.initialActive,
+    },
+  ];
+  return (
+    <article
+      key={index}
+      className={` ${styling.sliderElem} ${createClassNameString(classNames)}`}
+    >
+      <elem.Icon className={styling.icon} />
+      <h3> {elem.title}</h3>
+    </article>
+  );
+};

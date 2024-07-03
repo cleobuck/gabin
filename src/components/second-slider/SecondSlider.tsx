@@ -6,7 +6,12 @@ import styling from "./SecondSlider.module.scss";
 
 type Props = {};
 
-export default function SecondSlider({ slide, length, children }: Props) {
+export default function SecondSlider({
+  slide,
+  length,
+  children,
+  setDirection,
+}: Props) {
   return (
     <section className={styling.secondSlider}>
       <h2> Caractéristiques</h2>
@@ -14,7 +19,11 @@ export default function SecondSlider({ slide, length, children }: Props) {
       <div
         className={styling.leftArrows}
         onClick={() => {
-          slide((active) => (active === 0 ? length - 1 : active - 1));
+          slide((prev) => ({
+            active: prev.active === 0 ? length - 1 : prev.active - 1,
+            previous: prev.active,
+          }));
+          setDirection("left");
         }}
       >
         <Arrows />
@@ -22,9 +31,13 @@ export default function SecondSlider({ slide, length, children }: Props) {
       {children}
       <div
         className={styling.rightArrows}
-        onClick={() =>
-          slide((active) => (active === length - 1 ? 0 : active + 1))
-        }
+        onClick={() => {
+          slide((prev) => ({
+            active: prev.active === length - 1 ? 0 : prev.active + 1,
+            previous: prev.active,
+          }));
+          setDirection("right");
+        }}
       >
         <Arrows />
       </div>
