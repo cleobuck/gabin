@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import styling from "./Slider.module.scss";
 
-const DraggableSlider = ({ images }) => {
+const DraggableSlider = ({ elements, type = "image" }) => {
   const [position, setPosition] = useState(0);
   const sliderBarRef = useRef(null);
   const isDraggingRef = useRef(false);
@@ -77,11 +77,15 @@ const DraggableSlider = ({ images }) => {
         ref={imageContainerRef}
         style={{ transform: getTransformValue() }}
       >
-        {images.map((image, index) => (
-          <figure key={index} className={styling.image}>
-            <img src={image} alt={`Image ${index + 1}`} />
-          </figure>
-        ))}
+        {elements.map((element, index) =>
+          type === "image" ? (
+            <figure key={index} className={styling.image}>
+              <img src={element} alt={`Image ${index + 1}`} />
+            </figure>
+          ) : (
+            element
+          )
+        )}
       </div>
       <div className={styling.sliderBarContainer}>
         <div
