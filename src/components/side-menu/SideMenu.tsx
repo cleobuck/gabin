@@ -11,8 +11,6 @@ export default function SideMenu({}: Props) {
       const scrollPosition = document.body.scrollTop;
       const viewportHeight = window.innerHeight;
 
-      console.log(scrollPosition);
-
       if (scrollPosition >= viewportHeight) {
         setVisible(true);
       } else {
