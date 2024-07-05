@@ -24,17 +24,26 @@ export default function SecondaryMenu({ whichMenuOpen, openMenu }: Props) {
       >
         <ul>
           <li>
-            <a className={styling.SecondaryMenuItem} href="#home">
+            <a
+              className={styling.SecondaryMenuItem}
+              href={`${process.env.BASE_URL}/devis`}
+            >
               Devis
             </a>
           </li>
           <li>
-            <a className={styling.SecondaryMenuItem} href="#about">
+            <a
+              className={styling.SecondaryMenuItem}
+              href={`${process.env.BASE_URL}/about`}
+            >
               Accueil
             </a>
           </li>
           <li>
-            <a className={styling.SecondaryMenuItem} href="#services">
+            <a
+              className={styling.SecondaryMenuItem}
+              href={`${process.env.BASE_URL}/news`}
+            >
               Actualités
             </a>
           </li>

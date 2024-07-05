@@ -1,0 +1,35 @@
+@import "@styles/variables";
+
+.sideMenu {
+  position: fixed;
+  right: -47px;
+  top: 50vw;
+  transform: rotate(-90deg);
+  z-index: 10000;
+  width: 125px;
+  border: 0.5px solid $darkBlue;
+  opacity: 0;
+  background: $beige;
+  &.menuVisible {
+    opacity: 1;
+  }
+  ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+
+    width: 100%;
+    li {
+      height: 30px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $strongGreen;
+      padding: 7px 5px;
+      &:first-child {
+        border-right: 0.5px solid $darkBlue;
+      }
+    }
+  }
+}
