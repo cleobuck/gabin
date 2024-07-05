@@ -29,3 +29,15 @@
     right: 10%;
   }
 }
+
+.rightArrowContainer {
+  position: absolute;
+  width: 100vw;
+  left: 0;
+  bottom: 25px;
+  .rightArrowLine {
+    width: 100vw;
+    height: 0.5px;
+    background: $teal;
+  }
+}

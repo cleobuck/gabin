@@ -11,35 +11,43 @@ export default function SecondSlider({
   length,
   children,
   setDirection,
+  oneWay = false,
 }: Props) {
   return (
     <section className={styling.secondSlider}>
       <h2> Caractéristiques</h2>
 
-      <div
-        className={styling.leftArrows}
-        onClick={() => {
-          slide((prev) => ({
-            active: prev.active === 0 ? length - 1 : prev.active - 1,
-            previous: prev.active,
-          }));
-          setDirection("left");
-        }}
-      >
-        <Arrows />
-      </div>
+      {!oneWay && (
+        <div
+          className={styling.leftArrows}
+          onClick={() => {
+            slide((prev) => ({
+              active: prev.active === 0 ? length - 1 : prev.active - 1,
+              previous: prev.active,
+            }));
+            setDirection("left");
+          }}
+        >
+          <Arrows />
+        </div>
+      )}
+
       {children}
-      <div
-        className={styling.rightArrows}
-        onClick={() => {
-          slide((prev) => ({
-            active: prev.active === length - 1 ? 0 : prev.active + 1,
-            previous: prev.active,
-          }));
-          setDirection("right");
-        }}
-      >
-        <Arrows />
+
+      <div className={oneWay ? styling.rightArrowContainer : ""}>
+        <div
+          className={styling.rightArrows}
+          onClick={() => {
+            slide((prev) => ({
+              active: prev.active === length - 1 ? 0 : prev.active + 1,
+              previous: prev.active,
+            }));
+            setDirection("right");
+          }}
+        >
+          <Arrows />
+        </div>
+        {oneWay && <div className={styling.rightArrowLine}></div>}
       </div>
     </section>
   );

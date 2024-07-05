@@ -11,6 +11,8 @@ import styling from "./CaracSlider.module.scss";
 import { createClassNameString } from "@/utils";
 type Props = {};
 
+//https://stackoverflow.com/questions/76614923/how-to-pass-a-component-as-a-prop-using-next-13
+
 export default function CaracSlider({}: Props) {
   const sliderData = [
     { title: "imperméable", Icon: Drops },
@@ -27,6 +29,7 @@ export default function CaracSlider({}: Props) {
       slide={setImageData}
       setDirection={setDirection}
       length={sliderData.length}
+      oneWay
     >
       {sliderData.map((elem, index) => (
         <Article
