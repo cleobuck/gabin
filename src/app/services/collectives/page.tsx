@@ -1,15 +1,14 @@
 import React from "react";
 import styling from "./collectives.module.scss";
-import PageLayout from "@/components/PageLayout/PageLayout";
-import SideMenu from "@/components/side-menu/SideMenu";
-import Trust from "@/components/Trust/Trust";
-import Banner from "@/components/Banner/Banner";
-import Text from "@/components/Text/Text";
+import SideMenu from "@/components/structure/side-menu/SideMenu";
+import Trust from "@/components/blocks/Trust/Trust";
+import Banner from "@/components/blocks/Banner/Banner";
+import Text from "@/components/blocks/Text/Text";
+import PageLayout from "@/components/structure/PageLayout/PageLayout";
 
 const Collectives = () => {
   return (
     <>
-      <SideMenu />
       <PageLayout title="collecti- vités" className={styling.collectives}>
         <Trust />
 

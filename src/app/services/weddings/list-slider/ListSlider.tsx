@@ -1,7 +1,7 @@
 "use client";
 
-import ListItem from "@/components/listItem/listItem";
-import SecondSlider from "@/components/second-slider/SecondSlider";
+import ListItem from "@/components/blocks/listItem/listItem";
+import SecondSlider from "@/components/blocks/second-slider/SecondSlider";
 import React, { useState } from "react";
 
 type Props = {};

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import SecondSlider from "@/components/second-slider/SecondSlider";
+import SecondSlider from "@/components/blocks/second-slider/SecondSlider";
 import imageTest2 from "@/assets/images/linkedin.svg?react";
 
 import ImageTest1 from "@/assets/images/sun.svg?react";

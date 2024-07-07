@@ -1,15 +1,18 @@
 import React from "react";
-import Header from "../Header/Header";
 import styling from "./PageLayout.module.scss";
 
 import BackgroundImage from "@/assets/images/placeholder.jpeg";
+import Head from "next/head";
+import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import SideMenu from "../side-menu/SideMenu";
 
 type Props = {};
 
 export default function PageLayout({ className, title, children }: Props) {
   return (
     <>
+      <SideMenu />
       <div
         className={`${className} ${styling.pageHeader}`}
         style={{ backgroundImage: `url(${BackgroundImage})` }}

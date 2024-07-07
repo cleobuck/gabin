@@ -1,5 +1,5 @@
 import React from "react";
-import DraggableSlider from "@/components/Slider/Slider";
+import DraggableSlider from "@/components/blocks/Slider/Slider";
 
 type Props = {};
 
