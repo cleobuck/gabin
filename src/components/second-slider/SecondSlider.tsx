@@ -12,10 +12,16 @@ export default function SecondSlider({
   children,
   setDirection,
   oneWay = false,
+  title,
+  noSetHeight,
 }: Props) {
   return (
-    <section className={styling.secondSlider}>
-      <h2> Caractéristiques</h2>
+    <section
+      className={`${styling.secondSlider} ${
+        noSetHeight ? "" : styling.setHeight
+      }`}
+    >
+      {title && <h2> {title}</h2>}
 
       {!oneWay && (
         <div

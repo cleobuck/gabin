@@ -33,6 +33,7 @@ export default function CaracSlider({}: Props) {
     >
       {sliderData.map((elem, index) => (
         <Article
+          key={index}
           imageData={imageData}
           elem={elem}
           index={index}

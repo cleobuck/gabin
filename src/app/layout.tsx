@@ -1,8 +1,12 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import "@styles/global.scss";
 
-const raleway = Raleway({ weight: ["400", "500", "700"], subsets: ["latin"] });
+const raleway = Raleway({
+  display: "swap",
+  weight: ["400", "500", "700"],
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",

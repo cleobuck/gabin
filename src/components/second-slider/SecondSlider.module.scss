@@ -5,7 +5,14 @@
   margin: 0 auto;
   position: relative;
   padding: 0 10%;
-  height: 250px;
+
+  &.setHeight {
+    height: 250px;
+  }
+
+  &:not(.setHeight) {
+    padding-bottom: 60px;
+  }
 
   .leftArrows,
   .rightArrows {
