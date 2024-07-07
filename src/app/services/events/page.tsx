@@ -1,6 +1,6 @@
 import React from "react";
 import styling from "./events.module.scss";
-import PageLayout from "@/components/PageLayout/PageLayout";
+import PageLayout from "@/components/structure/PageLayout/PageLayout";
 
 const Events = () => {
   return (

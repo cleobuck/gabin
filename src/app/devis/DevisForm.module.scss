@@ -1,0 +1,75 @@
+// DevisForm.module.scss
+$form-background-color: #f9f9f9;
+$form-border-color: #ccc;
+$button-background-color: #28a745;
+$button-hover-background-color: #218838;
+$text-color: #333;
+$label-font-weight: bold;
+$error-color: red;
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid $form-border-color;
+  border-radius: 10px;
+  background-color: $form-background-color;
+  font-family: Arial, sans-serif;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.infoText {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.sectionLabel {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.label {
+  display: block;
+  font-weight: $label-font-weight;
+  margin-bottom: 5px;
+}
+
+.field {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid $form-border-color;
+  border-radius: 4px;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: $button-background-color;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $button-hover-background-color;
+  }
+}
+
+.errorMessage {
+  color: $error-color;
+  font-size: 12px;
+}

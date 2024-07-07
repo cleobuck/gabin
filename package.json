@@ -7,16 +7,19 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "create-component": "node createComponent.js"
+    "create-component": "node createComponent.js",
+    "tsc": "tsc --watch"
   },
   "dependencies": {
     "axios": "^1.7.2",
     "cookie": "^0.6.0",
+    "formik": "^2.4.6",
     "less": "^4.2.0",
     "less-loader": "^12.2.0",
     "next": "14.2.3",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",

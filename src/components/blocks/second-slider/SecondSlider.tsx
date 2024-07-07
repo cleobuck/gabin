@@ -1,10 +1,23 @@
 "use client";
 
-import React from "react";
+import React, { ReactNode } from "react";
 import Arrows from "@/assets/images/arrows.svg?react";
 import styling from "./SecondSlider.module.scss";
 
-type Props = {};
+type Props = {
+  slide: (
+    callback: (value: { previous: number; active: number }) => {
+      previous: number;
+      active: number;
+    }
+  ) => void;
+  length: number;
+  setDirection?: (value: string) => void;
+  oneWay?: boolean;
+  title?: string;
+  height?: number;
+  children: ReactNode;
+};
 
 export default function SecondSlider({
   slide,
@@ -13,13 +26,12 @@ export default function SecondSlider({
   setDirection,
   oneWay = false,
   title,
-  noSetHeight,
+  height,
 }: Props) {
   return (
     <section
-      className={`${styling.secondSlider} ${
-        noSetHeight ? "" : styling.setHeight
-      }`}
+      className={`${styling.secondSlider} ${!height ? "" : styling.setHeight}`}
+      style={{ height: height || 250 }}
     >
       {title && <h2> {title}</h2>}
 
@@ -31,7 +43,10 @@ export default function SecondSlider({
               active: prev.active === 0 ? length - 1 : prev.active - 1,
               previous: prev.active,
             }));
-            setDirection("left");
+
+            if (setDirection) {
+              setDirection("left");
+            }
           }}
         >
           <Arrows />
@@ -48,7 +63,10 @@ export default function SecondSlider({
               active: prev.active === length - 1 ? 0 : prev.active + 1,
               previous: prev.active,
             }));
-            setDirection("right");
+
+            if (setDirection) {
+              setDirection("right");
+            }
           }}
         >
           <Arrows />

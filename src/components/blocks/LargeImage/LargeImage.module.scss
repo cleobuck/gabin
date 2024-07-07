@@ -1,0 +1,23 @@
+@import "@styles/variables";
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 275px;
+  img {
+    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+  }
+
+  .sun {
+    position: absolute;
+    right: 50px;
+    top: 0;
+    transform: translateY(-50%);
+    &.wedding {
+      fill: $lightYellow;
+    }
+  }
+}

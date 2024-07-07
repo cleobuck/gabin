@@ -1,7 +1,7 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styles from "./Button.module.scss";
 
-type Props = {};
+type Props = { children: ReactNode; href: string };
 
 const Button: React.FC<Props> = ({ children, href }) => {
   return (

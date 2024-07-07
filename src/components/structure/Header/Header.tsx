@@ -9,7 +9,7 @@ import PrimaryMenu from "./components/PrimaryMenu";
 import SecondaryMenu from "./components/SecondaryMenu";
 import Overlay from "./components/Overlay";
 
-const Header = ({ style }) => {
+const Header = ({ style }: { style?: string }) => {
   const [whichMenuOpen, setWhichMenuOpen] = useState("");
 
   return (

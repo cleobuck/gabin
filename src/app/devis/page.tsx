@@ -1,7 +1,13 @@
 import React from "react";
+import DevisForm from "./DevisForm";
 
-type Props = {};
+const DevisPage = () => {
+  return (
+    <div>
+      <h1>Demande de Devis</h1>
+      <DevisForm />
+    </div>
+  );
+};
 
-export default function Devis({}: Props) {
-  return <div>devis</div>;
-}
+export default DevisPage;

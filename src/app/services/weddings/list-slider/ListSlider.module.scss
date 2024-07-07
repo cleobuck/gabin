@@ -1,0 +1,78 @@
+@import "@styles/variables";
+
+.sliderElem {
+  width: 100%;
+
+  padding: 0 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+
+  transition: opacity 1s;
+  opacity: 0;
+  left: -1000px;
+  top: 0;
+  left: 0;
+
+  &.initialActive {
+    opacity: 1;
+  }
+
+  &.activeright {
+    opacity: 1;
+    transition: opacity 1s;
+    animation: fromLeftToMiddle 0.5s linear forwards;
+  }
+
+  &.activeleft {
+    opacity: 1;
+    transition: opacity 1s;
+
+    animation: fromRightToMiddle 0.5s linear forwards;
+  }
+
+  &.prevright {
+    animation: fromMiddleToRight 0.5s linear forwards;
+  }
+
+  &.prevleft {
+    animation: fromMiddleToLeft 0.5s linear forwards;
+  }
+}
+
+@keyframes fromMiddleToRight {
+  from {
+    left: 0%;
+  }
+  to {
+    left: 300%;
+  }
+}
+
+@keyframes fromLeftToMiddle {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0%;
+  }
+}
+
+@keyframes fromRightToMiddle {
+  from {
+    left: 300%;
+  }
+  to {
+    left: 0%;
+  }
+}
+
+@keyframes fromMiddleToLeft {
+  from {
+    left: 0%;
+  }
+  to {
+    left: -100%;
+  }
+}

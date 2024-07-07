@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import styling from "./Overlay.module.scss";
 import Xmark from "@/assets/images/xmark.svg?react";
 
-type Props = {};
+type Props = { whichMenuOpen: string; closeMenu: () => void };
 
 export default function Overlay({ whichMenuOpen, closeMenu }: Props) {
   useEffect(() => {

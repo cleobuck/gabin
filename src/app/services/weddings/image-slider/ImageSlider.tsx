@@ -1,13 +1,14 @@
 import React from "react";
 import DraggableSlider from "@/components/blocks/Slider/Slider";
+import TentImage from "@/assets/images/placeholder.jpeg";
 
 type Props = {};
 
 export default function ImageSlider({}: Props) {
   const images = [
-    "https://via.placeholder.com/500x300.png?text=Image+1",
-    "https://via.placeholder.com/500x300.png?text=Image+2",
-    "https://via.placeholder.com/500x300.png?text=Image+3",
+    { image: TentImage, alt: "tent" },
+    { image: TentImage, alt: "tent" },
+    { image: TentImage, alt: "tent" },
   ];
   return <DraggableSlider elements={images} />;
 }

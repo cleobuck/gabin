@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styling from "./PageLayout.module.scss";
 
 import BackgroundImage from "@/assets/images/placeholder.jpeg";
@@ -7,7 +7,7 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import SideMenu from "../side-menu/SideMenu";
 
-type Props = {};
+type Props = { children: ReactNode; title: string; className?: string };
 
 export default function PageLayout({ className, title, children }: Props) {
   return (

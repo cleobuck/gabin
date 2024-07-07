@@ -29,7 +29,7 @@ export default function CaracSlider({}: Props) {
       slide={setImageData}
       setDirection={setDirection}
       length={sliderData.length}
-      oneWay
+      title="Caractéristiques"
     >
       {sliderData.map((elem, index) => (
         <Article
@@ -44,7 +44,17 @@ export default function CaracSlider({}: Props) {
   );
 }
 
-const Article = ({ imageData, elem, index, direction }) => {
+const Article = ({
+  imageData,
+  elem,
+  index,
+  direction,
+}: {
+  imageData: { active: number; previous: number };
+  elem: any;
+  index: number;
+  direction: string;
+}) => {
   const classNames = [
     {
       condition:

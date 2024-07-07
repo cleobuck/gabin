@@ -1,7 +1,7 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styles from "./Text.module.scss";
 
-type Props = {};
+type Props = { children: ReactNode; title?: string; slogan?: boolean };
 
 const Text: React.FC<Props> = ({ title, children, slogan }) => {
   return (

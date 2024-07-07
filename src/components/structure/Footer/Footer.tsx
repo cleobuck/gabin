@@ -16,7 +16,7 @@ type Props = {};
 export default function Footer({}: Props) {
   return (
     <>
-      <Image className={styling.image} src={TentImage} />
+      <Image alt="tente" className={styling.image} src={TentImage} />
       <div className={styling.footer}>
         <Sun className={styling.sun} />
         <Logo className={styling.logo} />

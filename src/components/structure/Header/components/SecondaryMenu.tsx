@@ -3,9 +3,13 @@
 import React, { useEffect, useState } from "react";
 import MenuButton from "@/assets/images/menu-button.svg?react";
 import styling from "./SecondaryMenu.module.scss";
-type Props = {};
+type Props = { whichMenuOpen: string; openMenu: () => void; style?: string };
 
-export default function SecondaryMenu({ whichMenuOpen, openMenu }: Props) {
+export default function SecondaryMenu({
+  whichMenuOpen,
+  openMenu,
+  style,
+}: Props) {
   return (
     <>
       <button

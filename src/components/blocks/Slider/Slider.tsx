@@ -1,23 +1,54 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, ReactNode } from "react";
 import styling from "./Slider.module.scss";
+import Image, { StaticImageData } from "next/image";
 
-const DraggableSlider = ({ elements, type = "image" }) => {
-  const [position, setPosition] = useState(0);
-  const sliderBarRef = useRef(null);
-  const isDraggingRef = useRef(false);
+type ImageData = { image: StaticImageData; alt: string };
 
-  const imageContainerRef = useRef(null);
-
-  const [sliderBarInfo, setSliderBarInfo] = useState(null);
+const DraggableSlider = ({
+  elements,
+  type = "image",
+}: {
+  elements: (ReactNode | ImageData)[];
+  type?: string;
+}) => {
+  const [position, setPosition] = useState<number>(0);
+  const sliderBarRef = useRef<HTMLDivElement>(null);
+  const isDraggingRef = useRef<boolean>(false);
+  const imageContainerRef = useRef<HTMLDivElement>(null);
+  const [sliderBarInfo, setSliderBarInfo] = useState<DOMRect | null>(null);
 
   useEffect(() => {
-    if (sliderBarRef.current) {
-      setSliderBarInfo(sliderBarRef.current.getBoundingClientRect());
-    }
+    const updateSliderBarInfo = () => {
+      if (sliderBarRef.current) {
+        setSliderBarInfo(sliderBarRef.current.getBoundingClientRect());
+      }
+    };
+
+    updateSliderBarInfo();
+    window.addEventListener("resize", updateSliderBarInfo);
+
+    return () => {
+      window.removeEventListener("resize", updateSliderBarInfo);
+      removeEventListeners();
+    };
   }, []);
 
-  const handleMouseMove = (e) => {
+  const addEventListeners = () => {
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+    document.addEventListener("touchmove", handleTouchMove);
+    document.addEventListener("touchend", handleMouseUp);
+  };
+
+  const removeEventListeners = () => {
+    document.removeEventListener("mousemove", handleMouseMove);
+    document.removeEventListener("mouseup", handleMouseUp);
+    document.removeEventListener("touchmove", handleTouchMove);
+    document.removeEventListener("touchend", handleMouseUp);
+  };
+
+  const handleMouseMove = (e: MouseEvent) => {
     if (!isDraggingRef.current || !sliderBarInfo) return;
 
     const x = e.clientX - sliderBarInfo.left;
@@ -25,7 +56,7 @@ const DraggableSlider = ({ elements, type = "image" }) => {
     setPosition(newPosition);
   };
 
-  const handleTouchMove = (e) => {
+  const handleTouchMove = (e: TouchEvent) => {
     if (!isDraggingRef.current || !sliderBarInfo) return;
 
     const touch = e.touches[0];
@@ -36,30 +67,15 @@ const DraggableSlider = ({ elements, type = "image" }) => {
 
   const handleMouseUp = () => {
     isDraggingRef.current = false;
-    document.removeEventListener("mousemove", handleMouseMove);
-    document.removeEventListener("mouseup", handleMouseUp);
-    document.removeEventListener("touchmove", handleTouchMove);
-    document.removeEventListener("touchend", handleMouseUp);
+    removeEventListeners();
   };
 
   const handleMouseDown = () => {
     isDraggingRef.current = true;
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseup", handleMouseUp);
-    document.addEventListener("touchmove", handleTouchMove);
-    document.addEventListener("touchend", handleMouseUp);
+    addEventListeners();
   };
 
-  useEffect(() => {
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
-      document.removeEventListener("touchmove", handleTouchMove);
-      document.removeEventListener("touchend", handleMouseUp);
-    };
-  }, []);
-
-  const getTransformValue = () => {
+  const getTransformValue = (): string => {
     if (!sliderBarInfo || !imageContainerRef.current) return `translateX(0)`;
 
     const percentage = position / sliderBarInfo.width;
@@ -77,13 +93,21 @@ const DraggableSlider = ({ elements, type = "image" }) => {
         ref={imageContainerRef}
         style={{ transform: getTransformValue() }}
       >
-        {elements.map((element, index) =>
+        {elements!.map((element, index) =>
           type === "image" ? (
             <figure key={index} className={styling.image}>
-              <img src={element} alt={`Image ${index + 1}`} />
+              <Image
+                alt={(element as ImageData)!.alt}
+                className={styling.image}
+                src={(element as ImageData)!.image}
+                layout="fixed"
+                width={150}
+              />
             </figure>
           ) : (
-            element
+            <div key={index} className={styling.customElement}>
+              {element as ReactNode}
+            </div>
           )
         )}
       </div>
@@ -98,11 +122,7 @@ const DraggableSlider = ({ elements, type = "image" }) => {
             className={styling.sliderDot}
             style={{
               left: sliderBarInfo
-                ? `${
-                    position / sliderBarInfo.width > 0.9
-                      ? ((position - 11) / sliderBarInfo.width) * 100
-                      : (position / sliderBarInfo.width) * 100
-                  }%`
+                ? `${(position / sliderBarInfo.width) * 100}%`
                 : `0px`,
             }}
           />
