@@ -8,6 +8,7 @@ import CaracSlider from "./carac-slider/CaracSlider";
 import ListItem from "@/components/listItem/listItem";
 import SecondSlider from "@/components/second-slider/SecondSlider";
 import ListSlider from "./list-slider/ListSlider";
+import TentQuote from "@/components/tentQuote/tentQuote";
 
 const Weddings = () => {
   return (
@@ -17,6 +18,7 @@ const Weddings = () => {
         <ImageSlider />
         <CaracSlider />
         <ListSlider />
+        <TentQuote />
       </PageLayout>
     </div>
   );
