@@ -54,6 +54,8 @@ exports.handler = async (event) => {
 
       console.log(fields);
 
+      console.log("client type is ", clientType[0]);
+
       // Handle attachment (if any)
       const attachmentFile = files.attachment;
       let attachment = null;
