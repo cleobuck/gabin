@@ -51,11 +51,11 @@ exports.handler = async (event) => {
         place,
         additionalInfo,
         attachment,
-      } = fields;
+      } = Object.fromEntries(
+        Object.entries(fields).map(([key, value]) => [key, value[0]])
+      );
 
-      console.log(fields);
-
-      console.log("client type is ", clientType[0]);
+      console.log(attachment);
 
       const msg = {
         to: "kaizenpixie@gmail.com", // Replace with your client's email
@@ -81,16 +81,19 @@ exports.handler = async (event) => {
           Lieu: ${place}\n
           Infos complémentaires: ${additionalInfo}
         `,
-        attachments: attachment
-          ? [
-              {
-                filename: files.attachment.name,
-                path: files.attachment.path,
-                contentType: files.attachment.type,
-              },
-            ]
-          : [],
+        attachments:
+          attachment !== "null"
+            ? [
+                {
+                  filename: attachment.name,
+                  path: attachment.path,
+                  contentType: attachment.type,
+                },
+              ]
+            : [],
       };
+
+      console.log(msg);
 
       try {
         // Set up your SMTP server credentials
