@@ -72,8 +72,8 @@ exports.handler = async (event) => {
       }
 
       const msg = {
-        to: "cleo.buck@gmail.com", // Replace with your client's email
-        from: "sender@example.com", // Replace with your verified sender email
+        to: "kaizenpixie@gmail.com", // Replace with your client's email
+        from: "kaizenpixie@gmail.com", // Replace with your verified sender email
         subject: "New Form Submission with Attachment",
         text: `
           Client Type: ${clientType}\n
