@@ -8,7 +8,7 @@ import Title from "./components/Title/Title";
 import RadioGroup from "./components/RadioGroup/RadioGroup";
 import Input from "./components/Input/Input";
 import TextArea from "./components/TextArea/TextArea";
-import { fetchData, sendEmail } from "./DevisAPI";
+import { sendEmail } from "./DevisAPI";
 
 const validationSchema = Yup.object().shape({
   clientType: Yup.string().required("Sélectionnez le type de client"),

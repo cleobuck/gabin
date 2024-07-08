@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const sendEmail = async (values) => {
+export const sendEmail = async (values: any) => {
   const formData = new FormData();
   formData.append("clientType", values.clientType);
   formData.append("civilite", values.civilite);
@@ -20,7 +20,7 @@ export const sendEmail = async (values) => {
   formData.append("dates", values.dates);
   formData.append("place", values.place);
   formData.append("additionalInfo", values.additionalInfo);
-  formData.append("attachment", file);
+  formData.append("attachment", values.file);
 
   try {
     const response = await axios.post(
