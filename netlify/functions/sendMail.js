@@ -86,9 +86,9 @@ exports.handler = async (event) => {
         attachments: files.attachment
           ? [
               {
-                filename: files.attachment.name,
-                path: files.attachment.path,
-                contentType: files.attachment.type,
+                filename: files.attachment.originalFilename,
+                path: files.attachment.filepath,
+                contentType: files.attachment.mimetype,
               },
             ]
           : [],
