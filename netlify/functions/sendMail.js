@@ -1,6 +1,8 @@
-const sgMail = require("@sendgrid/mail");
 const formidable = require("formidable");
 const { Readable } = require("stream");
+
+const nodemailer = require("nodemailer");
+const fs = require("fs");
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
@@ -20,7 +22,7 @@ exports.handler = async (event) => {
   });
 
   return new Promise((resolve, reject) => {
-    form.parse(req, (err, fields, files) => {
+    form.parse(req, async (err, fields, files) => {
       if (err) {
         console.error("Error parsing form data:", err);
         reject({
@@ -50,28 +52,12 @@ exports.handler = async (event) => {
         dates,
         place,
         additionalInfo,
+        attachment,
       } = fields;
 
       console.log(fields);
 
       console.log("client type is ", clientType[0]);
-
-      // Handle attachment (if any)
-      const attachmentFile = files.attachment;
-      let attachment = null;
-      if (attachmentFile) {
-        const fs = require("fs");
-        const path = require("path");
-        const attachmentContent = fs.readFileSync(attachmentFile.path, {
-          encoding: "base64",
-        });
-        attachment = {
-          content: attachmentContent,
-          filename: path.basename(attachmentFile.name),
-          type: attachmentFile.type,
-          disposition: "attachment",
-        };
-      }
 
       const msg = {
         to: "kaizenpixie@gmail.com", // Replace with your client's email
@@ -97,24 +83,48 @@ exports.handler = async (event) => {
           Lieu: ${place}\n
           Infos complémentaires: ${additionalInfo}
         `,
-        attachments: attachment ? [attachment] : [],
+        attachments: attachment
+          ? [
+              {
+                filename: files.attachment.name,
+                path: files.attachment.path,
+                contentType: files.attachment.type,
+              },
+            ]
+          : [],
       };
 
-      sgMail
-        .send(msg)
-        .then(() => {
-          resolve({
-            statusCode: 200,
-            body: JSON.stringify({ message: "Email sent successfully" }),
-          });
-        })
-        .catch((error) => {
-          console.error("Error sending email:", error);
-          reject({
-            statusCode: 500,
-            body: JSON.stringify({ error: "Failed to send email" }),
-          });
+      console.log(msg);
+      try {
+        // Set up your SMTP server credentials
+        const transporter = nodemailer.createTransport({
+          host: "smtp.gmail.com", // e.g., 'smtp.gmail.com' for Gmail
+          port: 587,
+          auth: {
+            user: process.env.EMAIL_USERNAME,
+            pass: process.env.EMAIL_PASSWORD,
+          },
         });
+
+        await transporter.sendMail(msg);
+
+        // Clean up the temporary file after sending the email
+        if (files.attachment) {
+          fs.unlink(files.attachment.path, (err) => {
+            if (err) console.error("Failed to delete temporary file:", err);
+          });
+        }
+
+        resolve({
+          statusCode: 200,
+          body: JSON.stringify({ message: "Email sent successfully" }),
+        });
+      } catch (error) {
+        resolve({
+          statusCode: 500,
+          body: JSON.stringify({ error: "Failed to send email" }),
+        });
+      }
     });
   });
 };
