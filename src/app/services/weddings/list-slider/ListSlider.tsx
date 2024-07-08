@@ -66,7 +66,7 @@ export default function ListSlider({}: Props) {
       setDirection={setDirection}
       length={sliderData.length}
       oneWay
-      height={articleRef.current ? articleRef.current.clientHeight : null}
+      height={articleRef.current ? articleRef.current.clientHeight : undefined}
     >
       {sliderData.map((elem, index) => (
         <Article
@@ -110,7 +110,7 @@ const Article = forwardRef<HTMLElement, ArticleProps>(
 
     return (
       <ListItem
-        ref={elemData.active === index ? ref : undefined}
+        ref={elemData.active == index ? ref : undefined}
         className={` ${styling.sliderElem} ${createClassNameString(
           classNames
         )}`}
