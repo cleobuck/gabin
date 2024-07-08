@@ -4,7 +4,6 @@ const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 exports.handler = async (event) => {
-  console.log(event.body);
   // const {
   //   clientType,
   //   civilite,
@@ -61,16 +60,16 @@ exports.handler = async (event) => {
   //   ],
   // };
 
-  // try {
-  //   await sgMail.send(msg);
-  //   return {
-  //     statusCode: 200,
-  //     body: "Email sent successfully!",
-  //   };
-  // } catch (error) {
-  //   return {
-  //     statusCode: 500,
-  //     body: JSON.stringify({ error: "Failed to send email" }),
-  //   };
-  // }
+  try {
+    // await sgMail.send(msg);
+    return {
+      statusCode: 200,
+      body: event.body,
+    };
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "Failed to send email" }),
+    };
+  }
 };
