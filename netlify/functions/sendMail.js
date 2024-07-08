@@ -89,8 +89,6 @@ exports.handler = async (event) => {
           : [],
       };
 
-      console.log("message data is ", msg);
-
       try {
         // Set up your SMTP server credentials
         const transporter = nodemailer.createTransport({
@@ -105,8 +103,8 @@ exports.handler = async (event) => {
         await transporter.sendMail(msg);
 
         // Clean up the temporary file after sending the email
-        if (files.attachment) {
-          fs.unlink(files.attachment.path, (err) => {
+        if (files.attachment[0]) {
+          fs.unlink(files.attachment[0].filepath, (err) => {
             if (err) console.error("Failed to delete temporary file:", err);
           });
         }
