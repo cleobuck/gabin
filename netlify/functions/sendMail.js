@@ -32,7 +32,7 @@ exports.handler = async (event) => {
         // Set up your SMTP server credentials
         const transporter = nodemailer.createTransport({
           host: "smtp.your-email-provider.com", // e.g., 'smtp.gmail.com' for Gmail
-          port: 587,
+          port: 465,
           auth: {
             user: process.env.EMAIL_USERNAME,
             pass: process.env.EMAIL_PASSWORD,
