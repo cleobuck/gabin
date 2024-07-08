@@ -74,6 +74,8 @@ exports.handler = async (event) => {
             : [],
         };
 
+        console.log(mailOptions);
+
         await transporter.sendMail(mailOptions);
 
         // Clean up the temporary file after sending the email
