@@ -32,7 +32,7 @@ exports.handler = async (event) => {
 
       let imageAttachment = "";
 
-      if (files.attachement[0]) {
+      if (files.attachment[0]) {
         imageAttachment = await readFileAsync(files.attachment[0].filepath);
       }
 
