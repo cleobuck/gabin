@@ -31,8 +31,8 @@ exports.handler = async (event) => {
       }
 
       console.log(
-        "attachment is",
-        files.attachment || "there is no attachment"
+        "attachment  is",
+        typeof files.attachment[0] || "there is no attachment"
       );
 
       // Access form fields
@@ -86,9 +86,9 @@ exports.handler = async (event) => {
         attachments: files.attachment
           ? [
               {
-                filename: files.attachment.originalFilename,
-                path: files.attachment.filepath,
-                contentType: files.attachment.mimetype,
+                filename: files.attachment[0].originalFilename,
+                path: files.attachment[0].filepath,
+                contentType: files.attachment[0].mimetype,
               },
             ]
           : [],
