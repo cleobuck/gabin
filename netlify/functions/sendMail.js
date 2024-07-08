@@ -5,8 +5,6 @@ const { Readable } = require("stream");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 exports.handler = async (event) => {
-  console.log(event);
-
   const form = new formidable.IncomingForm();
 
   const buffer = Buffer.from(event.body, "base64"); // Assuming the body is base64 encoded
@@ -53,6 +51,8 @@ exports.handler = async (event) => {
         place,
         additionalInfo,
       } = fields;
+
+      console.log(fields);
 
       // Handle attachment (if any)
       const attachmentFile = files.attachment;
