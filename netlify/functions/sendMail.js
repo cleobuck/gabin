@@ -1,118 +1,86 @@
-const sgMail = require("@sendgrid/mail");
 const formidable = require("formidable");
-const { Readable } = require("stream");
+const nodemailer = require("nodemailer");
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+exports.handler = async (event, context) => {
+  if (event.httpMethod !== "POST") {
+    return {
+      statusCode: 405,
+      body: "Method Not Allowed",
+    };
+  }
 
-exports.handler = async (event) => {
   const form = new formidable.IncomingForm();
-
-  const buffer = Buffer.from(event.body, "base64"); // Assuming the body is base64 encoded
-  const stream = new Readable();
-  stream.push(buffer);
-  stream.push(null);
-
-  // Mock request object
-  const req = Object.assign(stream, {
-    headers: event.headers,
-    method: event.httpMethod,
-    url: event.path,
-  });
+  form.encoding = "utf-8";
+  form.keepExtensions = true;
+  form.maxFileSize = 10 * 1024 * 1024; // 10 MB limit for uploaded files
 
   return new Promise((resolve, reject) => {
-    form.parse(req, (err, fields, files) => {
+    form.parse(event, async (err, fields, files) => {
       if (err) {
-        console.error("Error parsing form data:", err);
-        reject({
+        return resolve({
           statusCode: 500,
           body: JSON.stringify({ error: "Failed to parse form data" }),
         });
-        return;
       }
 
-      // Access form fields
-      const {
-        clientType,
-        civilite,
-        name,
-        prenom,
-        telephone,
-        email,
-        profType,
-        projectType,
-        projectDescription,
-        guestsNumber,
-        configuration,
-        tentChoice,
-        paroisLaterales,
-        subfloor,
-        climatiseur,
-        dates,
-        place,
-        additionalInfo,
-      } = fields;
-
-      console.log(fields);
-
-      // Handle attachment (if any)
-      const attachmentFile = files.attachment;
-      let attachment = null;
-      if (attachmentFile) {
-        const fs = require("fs");
-        const path = require("path");
-        const attachmentContent = fs.readFileSync(attachmentFile.path, {
-          encoding: "base64",
+      try {
+        // Set up your SMTP server credentials
+        const transporter = nodemailer.createTransport({
+          host: "smtp.gmail.com", // e.g., 'smtp.gmail.com' for Gmail
+          port: 587,
+          auth: {
+            user: process.env.EMAIL_USERNAME,
+            pass: process.env.EMAIL_PASSWORD,
+          },
         });
-        attachment = {
-          content: attachmentContent,
-          filename: path.basename(attachmentFile.name),
-          type: attachmentFile.type,
-          disposition: "attachment",
+
+        const mailOptions = {
+          from: "kaizenpixie@gmail.com",
+          to: "kaizenpixie@gmail.com", // Replace with your recipient email
+          subject: "New Form Submission",
+          text: `
+            Client Type: ${fields.clientType}\n
+            Civilité: ${fields.civilite}\n
+            Name: ${fields.name}\n
+            Prénom: ${fields.prenom}\n
+            Téléphone: ${fields.telephone}\n
+            Email: ${fields.email}\n
+            Type Professionnel: ${fields.profType}\n
+            Type d'événement: ${fields.projectType}\n
+            Description du projet: ${fields.projectDescription}\n
+            Nombre de personnes: ${fields.guestsNumber}\n
+            Configuration souhaitée: ${fields.configuration}\n
+            Choix de la tente: ${fields.tentChoice}\n
+            Parois latérales: ${fields.paroisLaterales}\n
+            Plancher: ${fields.subfloor}\n
+            Climatiseur: ${fields.climatiseur}\n
+            Dates: ${fields.dates}\n
+            Lieu: ${fields.place}\n
+            Infos complémentaires: ${fields.additionalInfo}
+          `,
+          attachments: files.attachment
+            ? [
+                {
+                  filename: files.attachment.name,
+                  path: files.attachment.path,
+                  contentType: files.attachment.type,
+                },
+              ]
+            : [],
         };
-      }
 
-      const msg = {
-        to: "cleo.buck@gmail.com", // Replace with your client's email
-        from: "sender@example.com", // Replace with your verified sender email
-        subject: "New Form Submission with Attachment",
-        text: `
-          Client Type: ${clientType}\n
-          Civilité: ${civilite}\n
-          Name: ${name}\n
-          Prénom: ${prenom}\n
-          Téléphone: ${telephone}\n
-          Email: ${email}\n
-          Type Professionnel: ${profType}\n
-          Type d'événement: ${projectType}\n
-          Description du projet: ${projectDescription}\n
-          Nombre de personnes: ${guestsNumber}\n
-          Configuration souhaitée: ${configuration}\n
-          Choix de la tente: ${tentChoice}\n
-          Parois latérales: ${paroisLaterales}\n
-          Plancher: ${subfloor}\n
-          Climatiseur: ${climatiseur}\n
-          Dates: ${dates}\n
-          Lieu: ${place}\n
-          Infos complémentaires: ${additionalInfo}
-        `,
-        attachments: attachment ? [attachment] : [],
-      };
+        await transporter.sendMail(mailOptions);
 
-      sgMail
-        .send(msg)
-        .then(() => {
-          resolve({
-            statusCode: 200,
-            body: JSON.stringify({ message: "Email sent successfully" }),
-          });
-        })
-        .catch((error) => {
-          console.error("Error sending email:", error);
-          reject({
-            statusCode: 500,
-            body: JSON.stringify({ error: "Failed to send email" }),
-          });
+        resolve({
+          statusCode: 200,
+          body: JSON.stringify({ message: "Email sent successfully" }),
         });
+      } catch (error) {
+        resolve({
+          statusCode: 500,
+          body: JSON.stringify({ error: "Failed to send email" }),
+        });
+      }
     });
   });
 };
