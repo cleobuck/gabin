@@ -4,8 +4,6 @@ const { Readable } = require("stream");
 const nodemailer = require("nodemailer");
 const fs = require("fs");
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-
 exports.handler = async (event) => {
   const form = new formidable.IncomingForm();
 
@@ -94,7 +92,6 @@ exports.handler = async (event) => {
           : [],
       };
 
-      console.log(msg);
       try {
         // Set up your SMTP server credentials
         const transporter = nodemailer.createTransport({
