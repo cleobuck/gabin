@@ -40,8 +40,8 @@ exports.handler = async (event) => {
         });
 
         const mailOptions = {
-          from: process.env.EMAIL_FROM,
-          to: "your-email@example.com", // Replace with your recipient email
+          from: process.env.EMAIL_USERNAME,
+          to: process.env.EMAIL_USERNAME, // Replace with your recipient email
           subject: "New Form Submission",
           text: `
             Client Type: ${fields.clientType}\n
