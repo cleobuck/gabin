@@ -8,7 +8,7 @@ import Title from "./components/Title/Title";
 import RadioGroup from "./components/RadioGroup/RadioGroup";
 import Input from "./components/Input/Input";
 import TextArea from "./components/TextArea/TextArea";
-import { fetchData } from "./DevisAPI";
+import { fetchData, sendEmail } from "./DevisAPI";
 
 const validationSchema = Yup.object().shape({
   clientType: Yup.string().required("Sélectionnez le type de client"),
@@ -49,10 +49,6 @@ const validationSchema = Yup.object().shape({
 const DevisForm = () => {
   const [file, setFile] = useState<File | null>(null);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   const initialValues = {
     clientType: "",
     civilite: "",
@@ -75,7 +71,7 @@ const DevisForm = () => {
   };
 
   const handleSubmit = (values: any) => {
-    console.log("Form data:", { ...values, file });
+    sendEmail({ ...values, file });
   };
 
   return (
