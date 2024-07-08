@@ -122,3 +122,5 @@ const Article = forwardRef<HTMLElement, ArticleProps>(
     );
   }
 );
+
+Article.displayName = "Article";

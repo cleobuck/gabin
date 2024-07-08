@@ -32,15 +32,15 @@ const Weddings = () => {
 
         <Text title="Un espace tout en élégance pour le jour J">
           <p>
-            Idéales pour créer une atmosphère unique, nos structures s'intègrent
+            {` Idéales pour créer une atmosphère unique, nos structures s'intègrent
             naturellement au lieu de votre mariage et le subliment pour vous
-            assurer un espace chic et élégant.
+            assurer un espace chic et élégant.`}
           </p>
           <p>
-            Que vous optiez pour la tente stretch, à la modularité infinie, ou
+            {`  Que vous optiez pour la tente stretch, à la modularité infinie, ou
             la tente silhouette, tout en élégance, nos structures s’adaptent à
             vos envies et vos besoins pour une ambiance à l’image de votre
-            amour.
+            amour.`}
           </p>
         </Text>
 

@@ -20,4 +20,6 @@ const ListItem = forwardRef<HTMLElement, Props>(
   }
 );
 
+ListItem.displayName = "ListItem";
+
 export default ListItem;
