@@ -30,7 +30,10 @@ exports.handler = async (event) => {
         return;
       }
 
-      console.log(files);
+      console.log(
+        "attachment is",
+        files.attachment || "there is no attachment"
+      );
 
       // Access form fields
       const {
@@ -52,12 +55,9 @@ exports.handler = async (event) => {
         dates,
         place,
         additionalInfo,
-        attachment,
       } = Object.fromEntries(
         Object.entries(fields).map(([key, value]) => [key, value[0]])
       );
-
-      console.log("attachment is", attachment || "no attachment");
 
       const msg = {
         to: "kaizenpixie@gmail.com", // Replace with your client's email
@@ -83,19 +83,18 @@ exports.handler = async (event) => {
           Lieu: ${place}\n
           Infos complémentaires: ${additionalInfo}
         `,
-        attachments:
-          attachment !== "null"
-            ? [
-                {
-                  filename: attachment.name,
-                  path: attachment.path,
-                  contentType: attachment.type,
-                },
-              ]
-            : [],
+        attachments: files.attachment
+          ? [
+              {
+                filename: files.attachment.name,
+                path: files.attachment.path,
+                contentType: files.attachment.type,
+              },
+            ]
+          : [],
       };
 
-      console.log(msg);
+      console.log("message data is ", msg);
 
       try {
         // Set up your SMTP server credentials
