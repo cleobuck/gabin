@@ -30,6 +30,8 @@ exports.handler = async (event) => {
         return;
       }
 
+      console.log(files);
+
       // Access form fields
       const {
         clientType,
@@ -55,7 +57,7 @@ exports.handler = async (event) => {
         Object.entries(fields).map(([key, value]) => [key, value[0]])
       );
 
-      console.log(attachment);
+      console.log("attachment is", attachment || "no attachment");
 
       const msg = {
         to: "kaizenpixie@gmail.com", // Replace with your client's email
