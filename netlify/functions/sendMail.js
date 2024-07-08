@@ -1,5 +1,6 @@
 const sgMail = require("@sendgrid/mail");
 const formidable = require("formidable");
+const { Readable } = require("stream");
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
@@ -8,8 +9,20 @@ exports.handler = async (event) => {
 
   const form = new formidable.IncomingForm();
 
+  const buffer = Buffer.from(event.body, "base64"); // Assuming the body is base64 encoded
+  const stream = new Readable();
+  stream.push(buffer);
+  stream.push(null);
+
+  // Mock request object
+  const req = Object.assign(stream, {
+    headers: event.headers,
+    method: event.httpMethod,
+    url: event.path,
+  });
+
   return new Promise((resolve, reject) => {
-    form.parse(event, (err, fields, files) => {
+    form.parse(req, (err, fields, files) => {
       if (err) {
         console.error("Error parsing form data:", err);
         reject({
