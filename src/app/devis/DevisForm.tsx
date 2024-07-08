@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import styles from "./DevisForm.module.scss";
@@ -8,6 +8,7 @@ import Title from "./components/Title/Title";
 import RadioGroup from "./components/RadioGroup/RadioGroup";
 import Input from "./components/Input/Input";
 import TextArea from "./components/TextArea/TextArea";
+import { fetchData } from "./DevisAPI";
 
 const validationSchema = Yup.object().shape({
   clientType: Yup.string().required("Sélectionnez le type de client"),
@@ -47,6 +48,10 @@ const validationSchema = Yup.object().shape({
 
 const DevisForm = () => {
   const [file, setFile] = useState<File | null>(null);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const initialValues = {
     clientType: "",
