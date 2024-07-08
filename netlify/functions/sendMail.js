@@ -30,10 +30,11 @@ exports.handler = async (event) => {
         return;
       }
 
-      console.log(
-        "attachment  is",
-        typeof files.attachment[0] || "there is no attachment"
-      );
+      let imageAttachment = "";
+
+      if (files.attachement[0]) {
+        imageAttachment = await readFileAsync(files.attachment[0].filepath);
+      }
 
       // Access form fields
       const {
@@ -87,8 +88,8 @@ exports.handler = async (event) => {
           ? [
               {
                 filename: files.attachment[0].originalFilename,
-                path: files.attachment[0].filepath,
-                contentType: files.attachment[0].mimetype,
+                content: imageAttachment,
+                encoding: "base64",
               },
             ]
           : [],
