@@ -1,7 +1,8 @@
 const formidable = require("formidable");
 const nodemailer = require("nodemailer");
+const fs = require("fs");
 
-exports.handler = async (event, context) => {
+exports.handler = async (event) => {
   if (event.httpMethod !== "POST") {
     return {
       statusCode: 405,
@@ -15,7 +16,11 @@ exports.handler = async (event, context) => {
   form.maxFileSize = 10 * 1024 * 1024; // 10 MB limit for uploaded files
 
   return new Promise((resolve, reject) => {
-    form.parse(event, async (err, fields, files) => {
+    // Create a readable stream from the event body
+    const bufferStream = require("stream").Readable.from(event.body);
+
+    // Parse the form data
+    form.parse(bufferStream, async (err, fields, files) => {
       if (err) {
         return resolve({
           statusCode: 500,
@@ -26,7 +31,7 @@ exports.handler = async (event, context) => {
       try {
         // Set up your SMTP server credentials
         const transporter = nodemailer.createTransport({
-          host: "smtp.gmail.com", // e.g., 'smtp.gmail.com' for Gmail
+          host: "smtp.your-email-provider.com", // e.g., 'smtp.gmail.com' for Gmail
           port: 587,
           auth: {
             user: process.env.EMAIL_USERNAME,
@@ -35,8 +40,8 @@ exports.handler = async (event, context) => {
         });
 
         const mailOptions = {
-          from: "kaizenpixie@gmail.com",
-          to: "kaizenpixie@gmail.com", // Replace with your recipient email
+          from: process.env.EMAIL_FROM,
+          to: "your-email@example.com", // Replace with your recipient email
           subject: "New Form Submission",
           text: `
             Client Type: ${fields.clientType}\n
@@ -70,6 +75,13 @@ exports.handler = async (event, context) => {
         };
 
         await transporter.sendMail(mailOptions);
+
+        // Clean up the temporary file after sending the email
+        if (files.attachment) {
+          fs.unlink(files.attachment.path, (err) => {
+            if (err) console.error("Failed to delete temporary file:", err);
+          });
+        }
 
         resolve({
           statusCode: 200,
