@@ -30,12 +30,6 @@ exports.handler = async (event) => {
         return;
       }
 
-      let imageAttachment = "";
-
-      if (files.attachment[0]) {
-        imageAttachment = await fs.readFileAsync(files.attachment[0].filepath);
-      }
-
       // Access form fields
       const {
         clientType,
@@ -88,7 +82,7 @@ exports.handler = async (event) => {
           ? [
               {
                 filename: files.attachment[0].originalFilename,
-                content: imageAttachment,
+                content: fs.createReadStream(files.attachment[0].filepath),
                 encoding: "base64",
               },
             ]
