@@ -33,7 +33,7 @@ exports.handler = async (event) => {
       let imageAttachment = "";
 
       if (files.attachment[0]) {
-        imageAttachment = await readFileAsync(files.attachment[0].filepath);
+        imageAttachment = await fs.readFileAsync(files.attachment[0].filepath);
       }
 
       // Access form fields
