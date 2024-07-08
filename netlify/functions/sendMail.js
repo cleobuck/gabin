@@ -68,7 +68,7 @@ exports.handler = async (event) => {
     // await sgMail.send(msg);
     return {
       statusCode: 200,
-      body: event.body,
+      body: JSON.stringify({ message: "Data received successfully!", data }),
     };
   } catch (error) {
     return {
