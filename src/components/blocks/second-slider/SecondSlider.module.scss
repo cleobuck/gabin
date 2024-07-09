@@ -30,10 +30,22 @@
     width: 35px;
     height: 35px;
     border-radius: 100%;
-    background: $lightGreen;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  &.weddings {
+    &.oneWay {
+      background: rgba(255, 252, 229, 0.5);
+      h3 {
+        padding-top: 20px;
+      }
+    }
+    .leftArrows,
+    .rightArrows {
+      background: $lightGreen;
+    }
   }
 
   .leftArrows {

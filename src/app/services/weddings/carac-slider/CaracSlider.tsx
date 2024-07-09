@@ -9,11 +9,11 @@ import ImageTest1 from "@/assets/images/sun.svg?react";
 import Drops from "@/assets/images/drops.svg?react";
 import styling from "./CaracSlider.module.scss";
 import { createClassNameString } from "@/utils";
-type Props = {};
+type Props = { style: string };
 
 //https://stackoverflow.com/questions/76614923/how-to-pass-a-component-as-a-prop-using-next-13
 
-export default function CaracSlider({}: Props) {
+export default function CaracSlider({ style }: Props) {
   const sliderData = [
     { title: "imperméable", Icon: Drops },
     { title: "deuxieme", Icon: imageTest2 },
@@ -30,6 +30,7 @@ export default function CaracSlider({}: Props) {
       setDirection={setDirection}
       length={sliderData.length}
       title="Caractéristiques"
+      style={style}
     >
       {sliderData.map((elem, index) => (
         <Article

@@ -6,9 +6,9 @@ import SecondSlider from "@/components/blocks/second-slider/SecondSlider";
 import styling from "./ListSlider.module.scss";
 import { createClassNameString } from "@/utils";
 import ListItem from "@/components/blocks/listItem/listItem";
-type Props = {};
+type Props = { style: string };
 
-export default function ListSlider({}: Props) {
+export default function ListSlider({ style }: Props) {
   const sliderData = [
     {
       number: 1,
@@ -61,6 +61,7 @@ export default function ListSlider({}: Props) {
       length={sliderData.length}
       oneWay
       height={330}
+      style={style}
     >
       {sliderData.map((elem, index) => (
         <Article

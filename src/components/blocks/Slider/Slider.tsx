@@ -101,7 +101,8 @@ const DraggableSlider = ({
                 className={styling.image}
                 src={(element as ImageData)!.image}
                 layout="fixed"
-                width={150}
+                width={276}
+                height={250}
               />
             </figure>
           ) : (

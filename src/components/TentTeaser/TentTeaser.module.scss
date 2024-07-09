@@ -9,8 +9,13 @@
     height: 44px;
     display: block;
     margin: 32px auto;
-    path {
-      fill: $leafGreen;
+  }
+
+  &.weddings {
+    .sun {
+      path {
+        fill: $leafGreen;
+      }
     }
   }
   .imagesContainer {

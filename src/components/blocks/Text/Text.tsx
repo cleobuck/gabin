@@ -5,7 +5,9 @@ type Props = { children: ReactNode; title?: string; slogan?: boolean };
 
 const Text: React.FC<Props> = ({ title, children, slogan }) => {
   return (
-    <section className={styles.container}>
+    <section
+      className={`${styles.container} ${slogan ? styles.sloganSection : ""}`}
+    >
       {title && <h2>{title}</h2>}
 
       <div className={slogan ? styles.slogan : ""}>{children}</div>

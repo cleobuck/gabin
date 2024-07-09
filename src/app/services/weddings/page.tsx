@@ -15,6 +15,7 @@ import Trust from "@/components/blocks/Trust/Trust";
 import TentTeaser from "@/components/TentTeaser/TentTeaser";
 
 const Weddings = () => {
+  const style = "weddings";
   return (
     <div className={styling.pageWrapper}>
       <PageLayout title="Mariages" className={styling.weddings}>
@@ -47,7 +48,7 @@ const Weddings = () => {
 
         <LargeImage image={{ src: TentImage, alt: "" }} style="wedding" />
 
-        <Banner />
+        <Banner style={style} />
 
         <Text>
           <p>
@@ -62,7 +63,7 @@ const Weddings = () => {
           </p>
         </Text>
 
-        <CaracSlider />
+        <CaracSlider style={style} />
 
         <Text slogan>
           <p>
@@ -72,9 +73,9 @@ const Weddings = () => {
           </p>
         </Text>
 
-        <TentTeaser />
+        <TentTeaser style={style} />
 
-        <ListSlider />
+        <ListSlider style={style} />
 
         <Trust />
       </PageLayout>

@@ -1,8 +1,9 @@
 @import "@styles/variables";
 
 .sliderContainer {
-  width: 90vw; /* Adjust as needed */
-  margin: 20px auto; /* Center align */
+  width: 100vw; /* Adjust as needed */
+  margin: 20px 0; /* Center align */
+
   overflow: hidden; /* Hide overflow */
 }
 
@@ -12,7 +13,7 @@
 }
 
 .image {
-  width: 150px;
+  width: 276px;
   display: inline-block;
   margin-right: 13px;
   position: relative;

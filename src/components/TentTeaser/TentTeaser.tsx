@@ -4,11 +4,11 @@ import TentImage from "@/assets/images/placeholder.jpeg";
 import Sun from "@/assets/images/sun.svg?react";
 import Image from "next/image";
 
-type Props = {};
+type Props = { style: string };
 
-const TentTeaser: React.FC<Props> = ({}) => {
+const TentTeaser: React.FC<Props> = ({ style }) => {
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${styles[style]}`}>
       <div className={styles.imagesContainer}>
         <div>
           <figure>
