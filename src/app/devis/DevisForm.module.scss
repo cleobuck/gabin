@@ -1,75 +1,105 @@
-// DevisForm.module.scss
-$form-background-color: #f9f9f9;
-$form-border-color: #ccc;
-$button-background-color: #28a745;
-$button-hover-background-color: #218838;
-$text-color: #333;
-$label-font-weight: bold;
-$error-color: red;
+@import "@styles/variables";
 
 .container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid $form-border-color;
-  border-radius: 10px;
-  background-color: $form-background-color;
-  font-family: Arial, sans-serif;
-}
+  .infoText {
+    color: $leafGreen;
+    margin: 16px 13px;
+    p {
+      @include paragraph;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  }
 
-.sectionTitle {
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
+  .vous {
+    justify-content: space-between;
+    align-items: center;
 
-.infoText {
-  text-align: center;
-  font-size: 14px;
-  margin-bottom: 20px;
-}
+    @include paragraph;
 
-.section {
-  margin-bottom: 20px;
-}
+    h2 {
+      flex: 1;
+      @include center;
+      border-right: $devis-border;
+      height: 100%;
+      font-family: "Sporting Grotesque";
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 32.6px;
+      text-align: center;
+    }
 
-.sectionLabel {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
+    span {
+      flex: 0;
+      padding: 0 10px;
+    }
+  }
 
-.label {
-  display: block;
-  font-weight: $label-font-weight;
-  margin-bottom: 5px;
-}
-
-.field {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid $form-border-color;
-  border-radius: 4px;
-}
-
-.button {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  background-color: $button-background-color;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-
-  &:hover {
-    background-color: $button-hover-background-color;
+  .section {
+    margin: 0 auto;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 30px;
+    padding-bottom: 22px;
   }
 }
 
-.errorMessage {
-  color: $error-color;
-  font-size: 12px;
+.files {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  input[type="file"] {
+    display: none;
+  }
+
+  .uploadButton {
+    font-family: "Raleway";
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24.45px;
+    text-align: center;
+    border: $devis-border;
+    height: 25px;
+    padding: 0 10px;
+    @include center;
+    margin-left: 15px;
+
+    cursor: pointer;
+  }
+}
+
+.button {
+  font-family: "Sporting Grotesque";
+  border-top: $devis-border;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 35.2px;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  height: 60px;
+  border-bottom: $devis-border;
+
+  .sunContainer {
+    width: 60px;
+    border-right: $devis-border;
+    border-left: $devis-border;
+    @include center;
+    height: 100%;
+  }
+  .sun {
+    fill: $lightYellow;
+  }
+  span.title {
+    padding: 0 10px;
+
+    display: inline-block;
+    // width: 50%;
+    margin: 0 auto;
+    height: 100%;
+    @include center;
+  }
 }

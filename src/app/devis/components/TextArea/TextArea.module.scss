@@ -1,5 +1,37 @@
 @import "@styles/variables";
 
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 20px; /* Add some spacing between the textarea fields */
+}
+
+.label {
+  margin-bottom: 5px; /* Add some space between the label and the textarea field */
+  font-size: 14px; /* Adjust the font size as needed */
+  color: #333; /* Adjust the color as needed */
+}
+
+.field {
+  border: 0;
+  background-attachment: local;
+  background-image: linear-gradient(to right, $beige 10px, transparent 10px),
+    linear-gradient(to left, $beige 10px, transparent 10px),
+    repeating-linear-gradient(
+      $beige,
+      $beige 30px,
+      $strongGreen 30px,
+      $strongGreen 31px,
+      $beige 31px
+    );
+  line-height: 31px;
+  padding: 8px 10px;
+  outline: none;
+}
+
 .errorMessage {
   color: red;
+  font-size: 12px; /* Adjust the font size as needed */
+  margin-top: 5px; /* Add some space above the error message */
 }

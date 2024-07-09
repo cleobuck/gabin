@@ -9,6 +9,7 @@ import RadioGroup from "./components/RadioGroup/RadioGroup";
 import Input from "./components/Input/Input";
 import TextArea from "./components/TextArea/TextArea";
 import { sendEmail } from "./DevisAPI";
+import Sun from "@/assets/images/sun.svg?react";
 
 const validationSchema = Yup.object().shape({
   clientType: Yup.string().required("Sélectionnez le type de client"),
@@ -82,14 +83,21 @@ const DevisForm = () => {
     >
       {({ isSubmitting }) => (
         <Form className={styles.container}>
-          <h2 className={styles.sectionTitle}>DEMANDE DE DEVIS</h2>
-          <p className={styles.infoText}>
-            Vous êtes intéressé par nos structures et souhaitez obtenir un devis
-            personnalisé ? Remplissez le formulaire ci-dessous et nous vous
-            contacterons dès que possible.
-          </p>
+          <div className={styles.infoText}>
+            <p>
+              {`Vous êtes intéréssé.e par nos structures 
+haut de gamme pour votre événement ? `}
+            </p>
 
-          <Title title="Vous">
+            <p>
+              {`
+Racontez-nous votre projet et nous vous recontactons dans 48h pour vous conseiller 
+au mieux. Soyez le plus précis possible, 
+cela nous permettra d’imaginer la meilleure configuration pour votre événement. `}
+            </p>
+          </div>
+
+          <Title title="Vous" className={styles.vous}>
             <>
               <RadioGroup
                 name="clientType"
@@ -111,6 +119,7 @@ const DevisForm = () => {
             <Input name="email" label="Email" />
 
             <RadioGroup
+              noWrap
               name="profType"
               title="Si professionel"
               values={[
@@ -124,10 +133,8 @@ const DevisForm = () => {
               ]}
             />
           </div>
-
+          <Title title="Votre projet" />
           <div className={styles.section}>
-            <Title title="Votre projet" />
-
             <Input name="projectType" label="Type d’événement:" />
 
             <TextArea
@@ -143,10 +150,8 @@ const DevisForm = () => {
 (conférence, cérémonie, diner assis, diner debout, cocktail…)"
             />
           </div>
-
+          <Title title="La tente" />
           <div className={styles.section}>
-            <Title title="La tente" />
-
             <RadioGroup
               name="tentChoice"
               title="Le choix de la tente"
@@ -174,18 +179,24 @@ const DevisForm = () => {
               values={[{ value: "oui" }, { value: "non" }]}
             />
           </div>
+          <Title title="Info Pratiques" />
 
           <div className={styles.section}>
-            <Title title="Info Pratiques" />
             <Input
               name="dates"
               label="Date de l’événement: (Date de début et de fin)"
             />
             <Input name="place" label="Lieu de l’événement:" />
 
-            <div>
+            <div className={styles.files}>
               <label htmlFor="file">Photos</label>
+              <input type="file" />
+
+              <label htmlFor="file-upload" className={styles.uploadButton}>
+                Choisir un fichier
+              </label>
               <input
+                id="file-upload"
                 type="file"
                 onChange={(event) => {
                   if (event.currentTarget.files) {
@@ -202,7 +213,13 @@ const DevisForm = () => {
             disabled={isSubmitting}
             className={styles.button}
           >
-            Envoyer
+            <span className={styles.sunContainer}>
+              <Sun className={styles.sun} />
+            </span>
+            <span className={styles.title}> ENVOYER</span>
+            <span className={styles.sunContainer}>
+              <Sun className={styles.sun} />
+            </span>
           </button>
         </Form>
       )}

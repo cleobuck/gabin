@@ -5,3 +5,9 @@
   line-height: 17.25px;
   text-align: left;
 }
+
+@mixin center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

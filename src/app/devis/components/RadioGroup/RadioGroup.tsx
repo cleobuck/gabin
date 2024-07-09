@@ -6,9 +6,10 @@ type Props = {
   values: { label?: string; value: string }[];
   name: string;
   title?: string;
+  noWrap?: boolean;
 };
 
-const RadioGroup: React.FC<Props> = ({ values, name, title }) => {
+const RadioGroup: React.FC<Props> = ({ values, name, title, noWrap }) => {
   const [field, meta, helpers] = useField(name);
 
   const handleChange = (value: string) => {
@@ -16,7 +17,7 @@ const RadioGroup: React.FC<Props> = ({ values, name, title }) => {
   };
 
   return (
-    <div className={styles.radioGroup}>
+    <div className={`${noWrap ? styles.noWrap : ""} ${styles.radioGroup}`}>
       {title && <label className={styles.label}>{title}</label>}
 
       {values.map((value, index) => (

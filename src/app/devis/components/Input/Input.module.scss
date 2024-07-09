@@ -2,7 +2,32 @@
 
 .container {
   display: flex;
+  align-items: center;
+  margin-bottom: 20px; /* Add some spacing between the input fields */
 }
+
+.label {
+  margin-right: 10px; /* Add some space between the label and the input field */
+  font-size: 14px; /* Adjust the font size as needed */
+  color: #333; /* Adjust the color as needed */
+}
+
+.field {
+  border: none;
+  border-bottom: 1px solid #000; /* Create a thin bottom border */
+  outline: none; /* Remove the default outline on focus */
+  padding: 5px 0; /* Add some padding */
+  font-size: 16px; /* Adjust the font size as needed */
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
+  background: none; /* Remove white background */
+
+  &:focus {
+    border-bottom: 1px solid #007bff; /* Change border color on focus */
+  }
+}
+
 .errorMessage {
   color: red;
+  font-size: 12px; /* Adjust the font size as needed */
+  margin-left: 10px; /* Add some space to the left of the error message */
 }

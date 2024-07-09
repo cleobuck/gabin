@@ -1,11 +1,15 @@
 import React from "react";
 import DevisForm from "./DevisForm";
-
+import styles from "./page.module.scss";
 const DevisPage = () => {
   return (
-    <div>
-      <h1>Demande de Devis</h1>
-      <DevisForm />
+    <div className={styles.devis}>
+      <div className={styles.formBox}>
+        <h1>
+          <span> DEVIS</span>
+        </h1>
+        <DevisForm />
+      </div>
     </div>
   );
 };

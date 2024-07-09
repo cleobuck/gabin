@@ -1,5 +1,12 @@
 @import "@styles/variables";
 .radioGroup {
+  display: flex;
+
+  &.noWrap {
+    flex-wrap: wrap;
+  }
+  align-items: center;
+  height: 100%;
   .label {
     margin-bottom: 8px;
     display: block;
@@ -7,7 +14,7 @@
   }
 
   .radioOption {
-    margin-bottom: 6px;
+    margin-right: 10px;
   }
 
   .radioLabel {
