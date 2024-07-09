@@ -113,10 +113,10 @@ cela nous permettra d’imaginer la meilleure configuration pour votre événeme
               values={[{ value: "Mme" }, { value: "Mr" }, { value: "Autre" }]}
             />
 
-            <Input name="name" label="nom" />
-            <Input name="prenom" label="prénom" />
-            <Input name="telephone" label="Téléphone" />
-            <Input name="email" label="Email" />
+            <Input name="name" label="Nom :" />
+            <Input name="prenom" label="Prénom :" />
+            <Input name="telephone" label="Téléphone : " />
+            <Input name="email" label="Email :" />
 
             <RadioGroup
               noWrap
@@ -153,6 +153,7 @@ cela nous permettra d’imaginer la meilleure configuration pour votre événeme
           <Title title="La tente" />
           <div className={styles.section}>
             <RadioGroup
+              noWrap
               name="tentChoice"
               title="Le choix de la tente"
               values={[

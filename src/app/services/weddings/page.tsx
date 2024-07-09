@@ -12,10 +12,11 @@ import Banner from "@/components/blocks/Banner/Banner";
 import CaracSlider from "./carac-slider/CaracSlider";
 import ListSlider from "./list-slider/ListSlider";
 import Trust from "@/components/blocks/Trust/Trust";
+import TentTeaser from "@/components/TentTeaser/TentTeaser";
 
 const Weddings = () => {
   return (
-    <div>
+    <div className={styling.pageWrapper}>
       <PageLayout title="Mariages" className={styling.weddings}>
         <Text title="Une atmosphère unique pour votre grand jour">
           <p>
@@ -70,6 +71,8 @@ const Weddings = () => {
             invités.
           </p>
         </Text>
+
+        <TentTeaser />
 
         <ListSlider />
 

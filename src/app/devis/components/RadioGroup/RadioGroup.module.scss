@@ -1,17 +1,20 @@
 @import "@styles/variables";
 .radioGroup {
   display: flex;
-
-  &.noWrap {
-    flex-wrap: wrap;
-  }
-  align-items: center;
-  height: 100%;
+  gap: 5px;
   .label {
-    margin-bottom: 8px;
     display: block;
     font-weight: bold;
   }
+
+  &.noWrap {
+    flex-wrap: wrap;
+    .label {
+      flex: 0 0 100%;
+    }
+  }
+  align-items: center;
+  height: 100%;
 
   .radioOption {
     margin-right: 10px;

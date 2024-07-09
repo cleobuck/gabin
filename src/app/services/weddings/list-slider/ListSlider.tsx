@@ -1,12 +1,6 @@
 "use client";
 
-import React, {
-  forwardRef,
-  useEffect,
-  useReducer,
-  useRef,
-  useState,
-} from "react";
+import React, { forwardRef, useRef, useState } from "react";
 import SecondSlider from "@/components/blocks/second-slider/SecondSlider";
 
 import styling from "./ListSlider.module.scss";
@@ -66,7 +60,7 @@ export default function ListSlider({}: Props) {
       setDirection={setDirection}
       length={sliderData.length}
       oneWay
-      height={articleRef.current ? articleRef.current.clientHeight : undefined}
+      height={330}
     >
       {sliderData.map((elem, index) => (
         <Article
