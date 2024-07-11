@@ -2,7 +2,8 @@
 
 .borders {
   margin-top: 25px;
-  &.business {
+  &.business,
+  &.home {
     border-bottom: 0.5px solid $teal;
     border-top: 0.5px solid $teal;
     color: $teal;
