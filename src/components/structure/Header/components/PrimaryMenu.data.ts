@@ -45,15 +45,15 @@ export const PrimaryMenuData = [
     children: [
       {
         label: "Qui Sommes nous",
-        href: "/about/whoarewe",
+        href: "/about#who",
       },
       {
         label: "Nos valeurs",
-        href: "/about/values",
+        href: "/about#values",
       },
       {
         label: "FAQ",
-        href: "/about/FAQ",
+        href: "/about#FAQ",
       },
     ],
   },

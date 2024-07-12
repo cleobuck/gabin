@@ -16,13 +16,31 @@ const Question: React.FC<Props> = ({
       <h2> {question} </h2>
       {children}
 
+      {buttons !== "none" && <Buttons type={buttons} />}
+    </div>
+  );
+};
+
+export default Question;
+
+const Buttons = ({ type }) => {
+  return (
+    <>
+      {type === "devis" ? (
+        <p> Faire une demande de devis</p>
+      ) : (
+        <p> Pour plus de détails</p>
+      )}
+
       <div
         className={`${styles.button} ${
-          buttons === "devis" ? "" : styles.twoButtons
+          type === "devis" ? "" : styles.twoButtons
         }`}
       >
-        {buttons === "devis" ? (
-          <DevisButton />
+        {type === "devis" ? (
+          <>
+            <DevisButton />
+          </>
         ) : (
           <>
             <StretchTentButton />
@@ -30,8 +48,6 @@ const Question: React.FC<Props> = ({
           </>
         )}
       </div>
-    </div>
+    </>
   );
 };
-
-export default Question;

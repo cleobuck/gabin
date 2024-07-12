@@ -1,4 +1,6 @@
-.faq {
+@import "@styles/variables";
+
+.about {
   h1 {
     font-family: "Sporting Grotesque";
     font-size: 32px;
@@ -7,14 +9,5 @@
     text-align: center;
     margin-top: 34px;
     margin-bottom: 5px;
-  }
-
-  h2 {
-    font-family: "Sporting Grotesque";
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 32.6px;
-    text-align: center;
-    margin-bottom: 34px;
   }
 }

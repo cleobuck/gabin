@@ -1,13 +1,16 @@
 import React from "react";
-import styles from "./FirstSection.module.scss";
-import TentImage from "@/assets/images/placeholder.jpeg";
+import styles from "./WhoAreWe.module.scss";
+import Text from "@/components/blocks/Text/Text";
 import Image from "next/image";
+import TentImage from "@/assets/images/placeholder.jpeg";
 
 type Props = {};
 
-const FirstSection: React.FC<Props> = ({}) => {
+export default function WhoAreWe({}: Props) {
   return (
-    <div className={styles.container}>
+    <section id="who" className={styles.whoarewe}>
+      <h2>Qui sommes-nous? </h2>
+
       <figure className={styles.image}>
         <Image src={TentImage} alt="tent" fill={true} />
       </figure>
@@ -50,8 +53,14 @@ const FirstSection: React.FC<Props> = ({}) => {
           l’idée s’affine et Inouze est alors officiellement créé en 2024.
         </p>
       </div>
-    </div>
-  );
-};
 
-export default FirstSection;
+      <Text slogan author="Gabin, fondateur d’Inouze">
+        <p>
+          “Inouze c’est finalement un projet très simple : proposer à chacun de
+          retrouver la magie et le merveilleux qu’il y a à créer un événement
+          sous une tente !”
+        </p>
+      </Text>
+    </section>
+  );
+}

@@ -8,6 +8,9 @@
   text-align: center;
   p {
     margin-bottom: 10px;
+    color: $beige;
+    padding-left: 7vw;
+    padding-right: 10px;
   }
   h2 {
     color: $yellow;
@@ -16,9 +19,12 @@
     font-weight: 400;
     line-height: 16.9px;
     text-align: center;
+    padding: 5px 10px;
   }
 
-  .buttons {
+  .button {
+    margin-top: 24px;
+    margin-bottom: 50px;
     display: flex;
     justify-content: center;
     &.twoButtons {

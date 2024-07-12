@@ -9,6 +9,17 @@
     #217a99 42.89%,
     #fffce5 100.31%
   );
+  position: relative;
+  .button {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    z-index: 10;
+    width: 167px;
+    height: 61px;
+  }
+
   .title {
     font-family: "Sporting Grotesque";
     color: $beige;
