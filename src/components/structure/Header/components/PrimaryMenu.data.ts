@@ -31,11 +31,11 @@ export const PrimaryMenuData = [
     children: [
       {
         label: "Strecht",
-        href: "/services/stretch",
+        href: "/tents/stretch",
       },
       {
         label: "Silhouette",
-        href: "/services/silhouette",
+        href: "/tents/silhouette",
       },
     ],
   },

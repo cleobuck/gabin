@@ -28,26 +28,17 @@ export default function SecondaryMenu({
       >
         <ul>
           <li>
-            <a
-              className={styling.SecondaryMenuItem}
-              href={`${process.env.BASE_URL}/devis`}
-            >
+            <a className={styling.SecondaryMenuItem} href={`/devis`}>
               Devis
             </a>
           </li>
           <li>
-            <a
-              className={styling.SecondaryMenuItem}
-              href={`${process.env.BASE_URL}/about`}
-            >
+            <a className={styling.SecondaryMenuItem} href={`/about`}>
               Accueil
             </a>
           </li>
           <li>
-            <a
-              className={styling.SecondaryMenuItem}
-              href={`${process.env.BASE_URL}/news`}
-            >
+            <a className={styling.SecondaryMenuItem} href={`/news`}>
               Actualités
             </a>
           </li>

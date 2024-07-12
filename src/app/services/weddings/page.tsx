@@ -9,10 +9,11 @@ import Text from "@/components/blocks/Text/Text";
 import TentImage from "@/assets/images/placeholder.jpeg";
 import LargeImage from "@/components/blocks/LargeImage/LargeImage";
 import Banner from "@/components/blocks/Banner/Banner";
-import CaracSlider from "./carac-slider/CaracSlider";
+import CaracSlider from "./wedding-carac-slider/WeddingCaracSlider";
 import ListSlider from "./list-slider/ListSlider";
 import Trust from "@/components/blocks/Trust/Trust";
 import TentTeaser from "@/components/TentTeaser/TentTeaser";
+import WeddingCaracSlider from "./wedding-carac-slider/WeddingCaracSlider";
 
 const Weddings = () => {
   const style = "weddings";
@@ -63,7 +64,7 @@ const Weddings = () => {
           </p>
         </Text>
 
-        <CaracSlider style={style} />
+        <WeddingCaracSlider />
 
         <Text slogan>
           <p>

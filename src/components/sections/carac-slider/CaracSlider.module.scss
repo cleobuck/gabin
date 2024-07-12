@@ -1,0 +1,93 @@
+@import "@styles/variables";
+
+.sliderElem {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 1s;
+  height: 50%;
+  opacity: 0;
+  left: -1000px;
+
+  &.initialActive {
+    left: 50%;
+    opacity: 1;
+  }
+
+  &.activeright {
+    left: 50%;
+    opacity: 1;
+    transition: opacity 1s;
+    animation: fromLeftToMiddle 0.5s linear forwards;
+  }
+
+  &.activeleft {
+    opacity: 1;
+    transition: opacity 1s;
+
+    animation: fromRightToMiddle 0.5s linear forwards;
+  }
+
+  &.prevright {
+    animation: fromMiddleToRight 0.5s linear forwards;
+  }
+
+  &.prevleft {
+    animation: fromMiddleToLeft 0.5s linear forwards;
+  }
+
+  h3 {
+    position: absolute;
+    bottom: -20px;
+  }
+
+  svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    path {
+      fill: $teal;
+    }
+  }
+}
+
+@keyframes fromMiddleToRight {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 300%;
+  }
+}
+
+@keyframes fromLeftToMiddle {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes fromRightToMiddle {
+  from {
+    left: 300%;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes fromMiddleToLeft {
+  from {
+    left: 50%;
+  }
+  to {
+    left: -100%;
+  }
+}

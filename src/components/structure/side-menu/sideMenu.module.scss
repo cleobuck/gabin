@@ -3,7 +3,9 @@
 .sideMenu {
   position: fixed;
   right: -47px;
-  top: 50vw;
+
+  top: 50vh;
+
   transform: rotate(-90deg);
   z-index: 100;
   width: 125px;
@@ -29,6 +31,16 @@
       padding: 7px 5px;
       &:first-child {
         border-right: 0.5px solid $darkBlue;
+      }
+    }
+  }
+
+  &.singleButton {
+    ul {
+      li {
+        &:first-child {
+          border-right: none;
+        }
       }
     }
   }

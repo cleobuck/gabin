@@ -1,25 +1,18 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import SecondSlider from "@/components/blocks/second-slider/SecondSlider";
-import imageTest2 from "@/assets/images/linkedin.svg?react";
 
-import ImageTest1 from "@/assets/images/sun.svg?react";
-
-import Drops from "@/assets/images/drops.svg?react";
 import styling from "./CaracSlider.module.scss";
 import { createClassNameString } from "@/utils";
-type Props = { style: string };
+type Props = {
+  style: string;
+  sliderData: { title: string; Icon: ReactNode }[];
+};
 
 //https://stackoverflow.com/questions/76614923/how-to-pass-a-component-as-a-prop-using-next-13
 
-export default function CaracSlider({ style }: Props) {
-  const sliderData = [
-    { title: "imperméable", Icon: Drops },
-    { title: "deuxieme", Icon: imageTest2 },
-    { title: "troisieme", Icon: ImageTest1 },
-  ];
-
+export default function CaracSlider({ style, sliderData }: Props) {
   const [imageData, setImageData] = useState({ active: 0, previous: 0 });
 
   const [direction, setDirection] = useState("right");
@@ -78,7 +71,8 @@ const Article = ({
       key={index}
       className={` ${styling.sliderElem} ${createClassNameString(classNames)}`}
     >
-      <elem.Icon className={styling.icon} />
+      {elem.Icon}
+      {/* <elem.Icon className={styling.icon} /> */}
       <h3> {elem.title}</h3>
     </article>
   );

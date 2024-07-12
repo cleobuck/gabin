@@ -11,14 +11,16 @@ import Facebook from "@/assets/images/facebook.svg?react";
 import TentImage from "@/assets/images/placeholder.jpeg";
 import Image from "next/image";
 
-type Props = {};
+type Props = { noImage?: boolean };
 
-export default function Footer({}: Props) {
+export default function Footer({ noImage }: Props) {
   return (
     <>
-      <Image alt="tente" className={styling.image} src={TentImage} />
+      {!noImage && (
+        <Image alt="tente" className={styling.image} src={TentImage} />
+      )}
       <div className={styling.footer}>
-        <Sun className={styling.sun} />
+        {!noImage && <Sun className={styling.sun} />}
         <Logo className={styling.logo} />
         <nav className={styling.footerNav}>
           <ul>
