@@ -1,21 +1,25 @@
 import React from "react";
-import styles from "./HomeSlider.module.scss";
+import styles from "./ValueSlider.module.scss";
 import DraggableSlider from "@/components/blocks/Slider/Slider";
 
-type Props = {};
+type Props = { style: string };
 
-const HomeSlider: React.FC<Props> = ({}) => {
+const ValueSlider: React.FC<Props> = ({ style }) => {
   return (
     <DraggableSlider
+      style="home"
       type="nodes"
-      elements={[<FirstElement />, <SecondElement />]}
+      elements={[
+        <FirstElement style={style} />,
+        <SecondElement style={style} />,
+      ]}
     />
   );
 };
 
-const FirstElement = () => {
+const FirstElement = ({ style }) => {
   return (
-    <article>
+    <article className={`${styles.article} ${styles[style]}`}>
       <h3> 1. Service</h3>
 
       <p>
@@ -27,9 +31,9 @@ const FirstElement = () => {
   );
 };
 
-const SecondElement = () => {
+const SecondElement = ({ style }) => {
   return (
-    <article>
+    <article className={`${styles.article} ${styles[style]}`}>
       <h3> 2. Humain</h3>
 
       <p>
@@ -41,4 +45,4 @@ const SecondElement = () => {
   );
 };
 
-export default HomeSlider;
+export default ValueSlider;

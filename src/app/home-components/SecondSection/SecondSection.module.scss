@@ -1,0 +1,82 @@
+@import "@styles/variables";
+.image {
+  position: relative;
+}
+.secondSection {
+  color: $beige;
+  width: 100vw;
+  position: relative;
+
+  background: linear-gradient(
+    180.12deg,
+    #0d293d 15.54%,
+    #217a99 42.89%,
+    #fffce5 100.31%
+  );
+  color: white;
+  padding: 50px 40px;
+  blockquote,
+  figcaption {
+    text-align: center;
+  }
+
+  blockquote {
+    font-family: Sporting Grotesque;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 17.92px;
+    text-align: center;
+  }
+
+  figcaption {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 13.44px;
+    text-align: center;
+    padding: 15px 0;
+    display: block;
+  }
+
+  ul {
+    list-style-type: none;
+    width: 140px;
+    margin: 0 auto;
+    margin-bottom: 43px;
+  }
+  p {
+    color: $strongGreen;
+    width: 85vw;
+    margin: 0 auto;
+  }
+
+  .secondSectionImage {
+    margin-top: 21px;
+    margin-bottom: 43px;
+    display: flex;
+    justify-content: center;
+
+    .logoImage {
+      width: 37px;
+      height: 36px;
+      position: relative;
+      position: absolute;
+      left: 10px;
+      img {
+        object-fit: cover;
+      }
+    }
+
+    .image {
+      width: 225px;
+      height: 176px;
+      img {
+        object-fit: cover;
+      }
+    }
+  }
+
+  .bulletPoint {
+    width: 10px;
+    margin-right: 5px;
+  }
+}

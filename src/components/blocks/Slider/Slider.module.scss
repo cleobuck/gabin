@@ -22,6 +22,14 @@
     min-height: 100%;
   }
 }
+.sliderBar {
+  position: relative;
+  width: calc(90% - 20px); /* Subtract padding */
+  margin: 0 20px; /* Add padding to the sides */
+  height: 20px;
+  background: lightgreen;
+  border-radius: 33px;
+}
 
 .sliderBarContainer {
   display: flex;
@@ -31,16 +39,15 @@
   margin: 0 auto;
   margin-top: 10px;
   background: lightgreen;
-  border-radius: 33px;
-}
 
-.sliderBar {
-  position: relative;
-  width: calc(90% - 20px); /* Subtract padding */
-  margin: 0 20px; /* Add padding to the sides */
-  height: 20px;
-  background: lightgreen;
   border-radius: 33px;
+  &.home {
+    background: $teal;
+
+    .sliderBar {
+      background: $teal;
+    }
+  }
 }
 
 .sliderDot {
@@ -52,4 +59,10 @@
   border-radius: 50%;
   cursor: pointer;
   transform: translateY(-50%);
+}
+
+.customElement {
+  width: 100vw;
+  display: inline-flex;
+  text-align: top;
 }

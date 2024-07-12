@@ -8,9 +8,11 @@ type ImageData = { image: StaticImageData; alt: string };
 const DraggableSlider = ({
   elements,
   type = "image",
+  style,
 }: {
   elements: (ReactNode | ImageData)[];
   type?: string;
+  style: string;
 }) => {
   const [position, setPosition] = useState<number>(0);
   const sliderBarRef = useRef<HTMLDivElement>(null);
@@ -112,9 +114,9 @@ const DraggableSlider = ({
           )
         )}
       </div>
-      <div className={styling.sliderBarContainer}>
+      <div className={`${styling.sliderBarContainer} ${styling[style]}`}>
         <div
-          className={styling.sliderBar}
+          className={`${styling.sliderBar}`}
           ref={sliderBarRef}
           onMouseDown={handleMouseDown}
           onTouchStart={handleMouseDown}

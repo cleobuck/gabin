@@ -1,0 +1,49 @@
+@import "@styles/variables";
+
+.image {
+  position: relative;
+}
+.firstSection {
+  padding-bottom: 14px;
+  h1 {
+    font-family: "Sporting Grotesque";
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 24.2px;
+    text-align: center;
+    color: $strongGreen;
+    margin-top: 40px;
+  }
+  .sun {
+    margin-left: auto;
+    path {
+      fill: $yellow;
+    }
+  }
+  .image {
+    height: 275px;
+    width: 275px;
+    margin: 16px auto;
+
+    img {
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .buttonPart {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    .devisButton {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      background: none;
+      border: 1px solid var(--BLEU-FONCE, rgba(13, 41, 61, 1));
+      color: $strongGreen;
+    }
+  }
+}

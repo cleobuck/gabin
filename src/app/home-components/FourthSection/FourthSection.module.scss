@@ -1,0 +1,51 @@
+@import "@styles/variables";
+
+.Leftimage,
+.Rightimage {
+  position: relative;
+}
+
+.Leftimage {
+  width: 40vw;
+  height: 53vw;
+  img {
+    object-fit: cover;
+  }
+}
+
+.Rightimage {
+  width: 40vw;
+  height: 34vw;
+  img {
+    object-fit: cover;
+  }
+}
+
+.leftSection {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+
+  .sun {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.imageSection {
+  display: flex;
+  gap: 25px;
+  padding: 0 6vw;
+  align-items: flex-end;
+}
+
+.sun {
+  width: 44px;
+  height: 44px;
+  path {
+    fill: $teal;
+  }
+}

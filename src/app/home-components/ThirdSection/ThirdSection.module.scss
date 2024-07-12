@@ -1,0 +1,26 @@
+@import "@styles/variables";
+
+.thirdSection {
+  padding: 80px 50px 70px 50px;
+  p {
+    margin-bottom: 15px;
+  }
+  .images {
+    display: flex;
+    margin-bottom: 35px;
+    justify-content: space-between;
+
+    .image {
+      width: 125px;
+      height: 126px;
+
+      img {
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.image {
+  position: relative;
+}
