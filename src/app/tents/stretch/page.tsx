@@ -12,6 +12,8 @@ import CaracSlider from "@/components/sections/carac-slider/CaracSlider";
 import DraggableSlider from "@/components/blocks/Slider/Slider";
 import TentConfig from "@/components/sections/tents/TentConfig/TentConfig";
 import Button from "@/components/items/Button/Button";
+import LogoSection from "@/components/sections/tents/LogoSection/LogoSection";
+import Footer from "@/components/structure/Footer/Footer";
 const TentStretch = () => {
   const caracSliderData = [
     { title: "imperméable", Icon: <Drops /> },
@@ -30,30 +32,35 @@ const TentStretch = () => {
 
       <FirstSection
         data={{
-          title: `La tente Silhouette,
-le choix d’une élégance assumée
+          title: `La tente Stretch, 
+le choix de la modularité
 `,
           description: <Description />,
         }}
         type="stretch"
       />
 
-      <CaracSlider style="weddings" sliderData={caracSliderData} />
-      <DraggableSlider elements={images} />
+      <CaracSlider style="tent" sliderData={caracSliderData} />
+      <DraggableSlider elements={images} style="tent" />
 
       <TentConfig
         title="Configurations possibles 
-avec une tente silhouette 
-10 x 16 m (134 m²)"
+avec une tente Stretch 
+10 x 15 m (150 m²)
+"
         list={[
-          "Cérémonie : 220 personnes",
-          "Cocktail : 160 personnes",
-          "Walking dinner : 130 personnes",
-          "Diner assis : 85 personnes",
+          "Cérémonie : 250 personnes",
+          "Cocktail : 180 personnes",
+          "Walking dinner : 150 personnes",
+          "Diner assis : 100 personnes",
         ]}
       />
 
       <Button href=""> SIMULER MON PLAN DE TABLE</Button>
+
+      <LogoSection />
+
+      <Footer />
     </div>
   );
 };
@@ -62,28 +69,29 @@ const Description = () => {
   return (
     <>
       <p>
-        {" "}
-        {`Impressionnante par son envergure 
-et son élégance, la tente silhouette séduit par son incroyable prestance.`}{" "}
+        {`Une flexibilité extrême avec classe 
+et élégance, c’est ce que vous apportera 
+la tente stretch ! `}
       </p>
       <p>
-        {" "}
-        {`Elle se distingue par sa toile de voile ivoire translucide et ses poteaux en bois massifs. Soutenues par des poteaux centraux, 
-elle se déploie telle une vague 
-qui lui donne son aspect si unique.`}{" "}
+        {` 
+Ultra modulaire, elle peut être fixée sur tout type de sol ou rattachée facilement 
+à toutes sortes de murs ou bâtiments 
+pour créer un espace extérieur. 
+
+`}
       </p>
       <p>
-        {" "}
-        {`Fruit d’un savoir-faire d’excellence, chaque tente silhouette est fabriquée à la main 
-par des voiliers spécialisés. Cette qualité ainsi que ses poteaux en bois massifs 
-lui confèrent une solidité à l’épreuve 
-des éléments. Elles se déclinent en plus 
-de quinze tailles différentes afin de s’adapter à vos projets`}{" "}
+        {`Sa flexibilité ne s’arrête pas là, la tente stretch est disponible dans un large panel de tailles, de formes et de combinaisons. Les toiles étant connectables entre elles, 
+la tente Stretch pousse encore les limites de la modularité et vient véritablement s’adapter à vos envies et vos besoins.`}
       </p>
       <p>
-        {" "}
-        {`Totalement personnalisable, la tente silhouette vous laisse la main pour imaginer le rendu de votre choix : 
-ouverte ou fermée avec des parois latérales, avec ou sans plancher en bois, des allées pour connecter vos différentes tentes, une décoration à votre image…`}{" "}
+        {`
+Totalement ouverte, complètement 
+ou partiellement fermée, avec 
+ou sans plancher en bois, avec système 
+de chauffage ou de climatisation, 
+pour un comité réduit ou plusieurs centaines de personnes, la tente stretch offre des possibilités infinies où la seule limite est votre imagination ! `}
       </p>
     </>
   );

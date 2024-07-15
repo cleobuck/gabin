@@ -10,14 +10,14 @@ const ValueSlider: React.FC<Props> = ({ style }) => {
       style="home"
       type="nodes"
       elements={[
-        <FirstElement style={style} />,
-        <SecondElement style={style} />,
+        <FirstElement style={style} key={1} />,
+        <SecondElement style={style} key={2} />,
       ]}
     />
   );
 };
 
-const FirstElement = ({ style }) => {
+const FirstElement = ({ style }: { style: string }) => {
   return (
     <article className={`${styles.article} ${styles[style]}`}>
       <h3> 1. Service</h3>
@@ -31,7 +31,7 @@ const FirstElement = ({ style }) => {
   );
 };
 
-const SecondElement = ({ style }) => {
+const SecondElement = ({ style }: { style: string }) => {
   return (
     <article className={`${styles.article} ${styles[style]}`}>
       <h3> 2. Humain</h3>

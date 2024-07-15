@@ -32,6 +32,7 @@ export default function CaracSlider({ style, sliderData }: Props) {
           elem={elem}
           index={index}
           direction={direction}
+          style={style}
         />
       ))}
     </SecondSlider>
@@ -43,11 +44,13 @@ const Article = ({
   elem,
   index,
   direction,
+  style,
 }: {
   imageData: { active: number; previous: number };
   elem: any;
   index: number;
   direction: string;
+  style: string;
 }) => {
   const classNames = [
     {
@@ -55,6 +58,8 @@ const Article = ({
         imageData.active === index && imageData.active !== imageData.previous,
       name: styling[`active${direction}`],
     },
+
+    { condition: !!style, name: styling[style] },
 
     {
       condition:

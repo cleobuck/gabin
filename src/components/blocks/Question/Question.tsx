@@ -23,7 +23,7 @@ const Question: React.FC<Props> = ({
 
 export default Question;
 
-const Buttons = ({ type }) => {
+const Buttons = ({ type }: { type: string }) => {
   return (
     <>
       {type === "devis" ? (

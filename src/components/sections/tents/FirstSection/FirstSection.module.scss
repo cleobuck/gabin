@@ -36,7 +36,29 @@
     margin-bottom: 24px;
   }
 
+  h4 {
+    width: 75vw;
+    margin: 0 auto;
+    font-family: "Sporting Grotesque";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20.8px;
+    text-align: center;
+  }
+
   .devisButton {
-    margin: 0 24px;
+    margin: 24px 0;
+    background: $beige;
+    color: $strongGreen;
+  }
+
+  .description {
+    width: 73vw;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 60px;
+    p {
+      margin-bottom: 15px;
+    }
   }
 }

@@ -3,17 +3,22 @@ import React from "react";
 import styling from "./weddings.module.scss";
 
 import PageLayout from "@/components/structure/PageLayout/PageLayout";
-import ImageSlider from "./image-slider/ImageSlider";
+import ImageSlider from "../../../components/sections/image-slider/ImageSlider";
 import Text from "@/components/blocks/Text/Text";
 
 import TentImage from "@/assets/images/placeholder.jpeg";
 import LargeImage from "@/components/blocks/LargeImage/LargeImage";
 import Banner from "@/components/blocks/Banner/Banner";
-import CaracSlider from "./wedding-carac-slider/WeddingCaracSlider";
-import ListSlider from "./list-slider/ListSlider";
+import ListSlider from "../../../components/sections/list-slider/ListSlider";
 import Trust from "@/components/blocks/Trust/Trust";
 import TentTeaser from "@/components/TentTeaser/TentTeaser";
-import WeddingCaracSlider from "./wedding-carac-slider/WeddingCaracSlider";
+
+import ImageTest2 from "@/assets/images/linkedin.svg?react";
+
+import ImageTest1 from "@/assets/images/sun.svg?react";
+
+import Drops from "@/assets/images/drops.svg?react";
+import CaracSlider from "@/components/sections/carac-slider/CaracSlider";
 
 const Weddings = () => {
   const style = "weddings";
@@ -31,7 +36,7 @@ const Weddings = () => {
           </p>
         </Text>
 
-        <ImageSlider />
+        <ImageSlider style={style} />
 
         <Text title="Un espace tout en élégance pour le jour J">
           <p>
@@ -64,7 +69,14 @@ const Weddings = () => {
           </p>
         </Text>
 
-        <WeddingCaracSlider />
+        <CaracSlider
+          style="weddings"
+          sliderData={[
+            { title: "imperméable", Icon: <Drops /> },
+            { title: "deuxieme", Icon: <ImageTest2 /> },
+            { title: "troisieme", Icon: <ImageTest1 /> },
+          ]}
+        />
 
         <Text slogan>
           <p>

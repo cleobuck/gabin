@@ -31,25 +31,6 @@
   border-radius: 33px;
 }
 
-.sliderBarContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 90%;
-  margin: 0 auto;
-  margin-top: 10px;
-  background: lightgreen;
-
-  border-radius: 33px;
-  &.home {
-    background: $teal;
-
-    .sliderBar {
-      background: $teal;
-    }
-  }
-}
-
 .sliderDot {
   position: absolute;
   width: 11px;
@@ -59,6 +40,62 @@
   border-radius: 50%;
   cursor: pointer;
   transform: translateY(-50%);
+}
+
+.sliderBarContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 10px;
+
+  border-radius: 33px;
+  &.home {
+    background: $teal;
+
+    .sliderBar {
+      background: $teal;
+    }
+  }
+
+  &.weddings {
+    background: $lightGreen;
+    .sliderBar {
+      background: $lightGreen;
+    }
+  }
+
+  &.events {
+    background: $brown;
+    .sliderBar {
+      background: $brown;
+    }
+  }
+
+  &.collectives {
+    background: $yellow;
+    .sliderBar {
+      background: $yellow;
+    }
+  }
+
+  &.business {
+    background: $lightBlue;
+    .sliderBar {
+      background: $lightBlue;
+    }
+  }
+
+  &.tent {
+    background: $beige;
+    .sliderBar {
+      background: $beige;
+    }
+    .sliderDot {
+      background: $leafGreen;
+    }
+  }
 }
 
 .customElement {

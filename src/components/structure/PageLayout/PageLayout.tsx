@@ -7,6 +7,8 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import SideMenu from "../side-menu/SideMenu";
 
+import Sun from "@/assets/images/sun.svg?react";
+
 type Props = { children: ReactNode; title: string; className?: string };
 
 export default function PageLayout({ className, title, children }: Props) {
@@ -17,10 +19,12 @@ export default function PageLayout({ className, title, children }: Props) {
         className={`${className} ${styling.pageHeader}`}
         style={{ backgroundImage: `url(${BackgroundImage})` }}
       >
+        <Sun className={styling.sun} />
+
         <Header style="white" />
 
         <div className={styling.content}>
-          <h2> {title.toUpperCase()} </h2>
+          <h2>{title.toUpperCase()}</h2>
 
           <nav>
             <ul>

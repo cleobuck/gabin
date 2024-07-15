@@ -1,11 +1,11 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styles from "./FirstSection.module.scss";
 import TentImage from "@/assets/images/placeholder.jpeg";
 import Image from "next/image";
 import DevisButton from "@/components/items/Button/DevisButton";
 import BulletPoint from "@/assets/images/bullet-point.svg?react";
 
-type Props = { type: string; data };
+type Props = { type: string; data: { title: string; description: ReactNode } };
 
 const FirstSection: React.FC<Props> = ({ type, data }) => {
   return (

@@ -1,5 +1,32 @@
 @import "@styles/variables";
 
 .container {
-  /* Add your styles here */
+  background: $beige;
+  padding-top: 35px;
+  padding-bottom: 50px;
+  position: relative;
+  h4 {
+    width: 85vw;
+    margin: 0 auto 19px auto;
+    font-family: "Sporting Grotesque";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20.8px;
+    text-align: center;
+  }
+  ul {
+    width: 84vw;
+    margin: 0 auto;
+  }
+
+  .simulateButton {
+    width: 168px;
+    height: 62px;
+    @include center;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
 }

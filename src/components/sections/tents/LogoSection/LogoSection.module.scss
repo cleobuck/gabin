@@ -1,0 +1,15 @@
+@import "@styles/variables";
+
+.container {
+  @include center;
+  height: 165px;
+  .logoImage {
+    width: 55px;
+    height: 55px;
+    position: relative;
+
+    img {
+      object-fit: cover;
+    }
+  }
+}

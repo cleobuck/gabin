@@ -48,6 +48,16 @@
     }
   }
 
+  &.tent {
+    h2 {
+      color: $beige;
+    }
+    .leftArrows,
+    .rightArrows {
+      background: $lightGreen;
+    }
+  }
+
   .leftArrows {
     left: 10%;
     transform: translateY(-50%) rotate(180deg);
