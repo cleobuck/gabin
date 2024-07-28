@@ -3,6 +3,7 @@
 .mainMenu {
   max-height: 0;
   overflow: hidden;
+
   z-index: 100;
   position: absolute;
   top: 95px;
@@ -12,7 +13,58 @@
   font-size: 13px;
   width: 54vw;
   max-width: 250px;
-  background: $beige;
+
+  @media #{$tablet} {
+    max-height: none;
+    max-width: none;
+    overflow: visible;
+    top: 50px;
+    .subMenu {
+      display: none;
+    }
+    ul.mainMenuList {
+      display: flex;
+      list-style-type: none;
+      justify-content: space-between;
+
+      li.mainMenuItemLi {
+        position: relative;
+        cursor: pointer;
+        .subMenu {
+          border-bottom: none;
+          margin-left: 0;
+
+          list-style-type: none;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          padding: 10px 5px;
+          display: none;
+          z-index: 10000;
+
+          li {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3px;
+          }
+
+          a {
+            margin-left: 0;
+            background: $beige;
+            white-space: nowrap;
+            padding: 5px;
+            border: 0.5px solid $darkBlue;
+          }
+        }
+        &:hover {
+          .subMenu {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
   &[aria-expanded="true"] {
     max-height: 1000px;
     border: 1px solid $strongGreen;
@@ -34,6 +86,9 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
+  @media #{$tablet} {
+    display: none;
+  }
 
   span {
     font-size: 15px;

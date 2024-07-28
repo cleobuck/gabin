@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { PrimaryMenuData } from "./PrimaryMenu.data";
 import styling from "./PrimaryMenu.module.scss";
+import { isPhone } from "@/utils";
 type Props = { style?: string; openMenu: () => void; whichMenuOpen: string };
 
 export default function PrimaryMenu({ openMenu, whichMenuOpen, style }: Props) {
@@ -25,9 +26,9 @@ export default function PrimaryMenu({ openMenu, whichMenuOpen, style }: Props) {
         aria-expanded={whichMenuOpen === "main"}
         className={styling.mainMenu}
       >
-        <ul>
+        <ul className={styling.mainMenuList}>
           {PrimaryMenuData.map((item, key) => (
-            <li key={key}>
+            <li key={key} className={styling.mainMenuItemLi}>
               <a
                 href={`${process.env.BASE_URL}${item.href}`}
                 className={styling.mainMenuItem}
@@ -42,7 +43,7 @@ export default function PrimaryMenu({ openMenu, whichMenuOpen, style }: Props) {
                         href={child.href}
                         className={styling.secondaryMenuItem}
                       >
-                        <span className={styling.circle}></span>{" "}
+                        {isPhone() && <span className={styling.circle}></span>}
                         {child.label.toUpperCase()}
                       </a>
                     </li>

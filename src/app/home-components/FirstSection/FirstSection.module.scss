@@ -13,6 +13,9 @@
     text-align: center;
     color: $strongGreen;
     margin-top: 40px;
+    @media #{$tablet} {
+      width: 532px;
+    }
   }
   .sun {
     margin-left: auto;
