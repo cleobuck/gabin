@@ -1,0 +1,62 @@
+@import "@styles/variables";
+
+.container {
+  height: 400px;
+  width: 600px;
+  margin-left: 90px;
+  margin-top: 95px;
+  display: flex;
+  gap: 60px;
+
+  .draggableList {
+    overflow: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    height: 100%;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+$ball: 23px;
+$slider-padding: 10px;
+$slider-width: 34px;
+
+.sliderBar {
+  position: relative;
+  width: $slider-width;
+  margin: $slider-padding 0;
+  margin-bottom: calc(#{$slider-padding} + #{$ball});
+  height: calc(90% - #{$slider-padding});
+  background: lightgreen;
+  border-radius: 33px;
+}
+
+.sliderDot {
+  position: absolute;
+  width: $ball;
+  height: $ball;
+  left: 0%;
+  background: $beige;
+  border-radius: 50%;
+  cursor: pointer;
+  transform: translateX(25%);
+}
+
+.sliderBarContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  margin-top: 10px;
+
+  background: $teal;
+  width: $slider-width;
+  border-radius: 33px;
+
+  .sliderBar {
+    background: $teal;
+  }
+}

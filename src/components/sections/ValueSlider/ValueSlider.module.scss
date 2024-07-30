@@ -1,11 +1,12 @@
 @import "@styles/variables";
 
-.container {
-  /* Add your styles here */
-}
-
 .article {
   width: 100vw;
+
+  @media #{$tablet} {
+    width: 100%;
+  }
+
   padding: 10px 20px;
 
   &.values {
@@ -22,8 +23,17 @@
     line-height: 20.8px;
 
     margin-bottom: 15px;
+    @media #{$tablet} {
+      font-size: 32px;
+      line-height: 47px;
+      margin-bottom: 10px;
+    }
   }
   p {
     text-wrap: wrap;
+    margin-bottom: 23px;
+    @media #{$tablet} {
+      width: 400px;
+    }
   }
 }

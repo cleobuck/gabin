@@ -14,10 +14,17 @@
   width: 100vw;
 }
 
-.sideMenu {
+.desktopSideMenu {
   display: none;
   @media #{$tablet} {
     display: block;
+    top: 150px !important;
+  }
+}
+
+.mobileSideMenu {
+  @media #{$tablet} {
+    display: none;
     top: 150px !important;
   }
 }

@@ -15,7 +15,8 @@
     margin: 0 auto;
     margin-top: 40px;
     @media #{$tablet} {
-      width: 532px;
+      width: calc(61vw);
+      height: 72px;
     }
   }
   .sun {
@@ -37,7 +38,7 @@
     width: 275px;
 
     @media #{$tablet} {
-      width: 674px;
+      width: calc(80vw);
       height: 638px;
     }
     margin: 16px auto;
@@ -69,6 +70,9 @@
       @media #{$tablet} {
         position: static;
         transform: none;
+        width: 113px;
+        height: 54px;
+        font-size: 20px;
       }
     }
   }

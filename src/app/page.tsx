@@ -14,12 +14,12 @@ import ValueSlider from "../components/sections/ValueSlider/ValueSlider";
 export default function Home() {
   return (
     <>
-      <SideMenu />
+      <SideMenu className={styles.mobileSideMenu} />
       <Header />
       <main className={styles.main}>
         <FirstSection />
 
-        <SideMenu topView className={styles.sideMenu} />
+        <SideMenu topView className={styles.desktopSideMenu} />
 
         <SecondSection />
         <div className={styles.blueGradientBackground}>

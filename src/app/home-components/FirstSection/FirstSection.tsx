@@ -6,12 +6,12 @@ import Image from "next/image";
 import DevisButton from "@/components/items/Button/DevisButton";
 import Sun from "@/assets/images/sun.svg?react";
 import TentImage from "@/assets/images/placeholder.jpeg";
-import { isItAPhone } from "@/utils";
+import { IsItAPhone } from "@/utils";
 
 type Props = {};
 
 const FirstSection: React.FC<Props> = ({}) => {
-  const isPhone = isItAPhone();
+  const isPhone = IsItAPhone();
   return (
     <section className={styles.firstSection}>
       <h1> Location et installation de tentes de réception sur mesure </h1>

@@ -16,17 +16,13 @@ export const createClassNameString = (
   return string;
 };
 
-export const isItAPhone = () => {
+export const IsItAPhone = () => {
   const [isPhone, setPhone] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setPhone(
-        window.innerWidth < 768 ||
-          (window.innerHeight < 768 && window.innerWidth >= 768)
-      );
+      setPhone(window.screen.width < 768);
     }
   }, []);
-
   return isPhone;
 };

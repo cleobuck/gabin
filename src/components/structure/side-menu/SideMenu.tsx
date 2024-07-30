@@ -8,7 +8,7 @@ type Props = {
   type?: string;
   topView?: boolean;
   className?: string;
-  style: string;
+  style?: string;
 };
 
 export default function SideMenu({

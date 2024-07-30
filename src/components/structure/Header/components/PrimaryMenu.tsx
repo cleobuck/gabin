@@ -3,11 +3,11 @@
 import React from "react";
 import { PrimaryMenuData } from "./PrimaryMenu.data";
 import styling from "./PrimaryMenu.module.scss";
-import { isItAPhone } from "@/utils";
+import { IsItAPhone } from "@/utils";
 type Props = { style?: string; openMenu: () => void; whichMenuOpen: string };
 
 export default function PrimaryMenu({ openMenu, whichMenuOpen, style }: Props) {
-  const isPhone = isItAPhone();
+  const isPhone = IsItAPhone();
 
   return (
     <>
