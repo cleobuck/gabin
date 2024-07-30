@@ -4,6 +4,8 @@ import React, {
   useEffect,
   useRef,
   useState,
+  MouseEvent as ReactMouseEvent,
+  TouchEvent as ReactTouchEvent,
 } from "react";
 import styles from "./VerticalSlider.module.scss";
 
@@ -49,11 +51,11 @@ const VerticalSlider: React.FC<Props> = ({ elements }) => {
       <div className={`${styles.sliderBarContainer}`}>
         <div
           className={`${styles.sliderBar}`}
-          onMouseMove={(e: MouseEvent) => {
+          onMouseMove={(e: ReactMouseEvent<HTMLDivElement>) => {
             const position = e.clientY;
             handleMove(position);
           }}
-          onTouchMove={(e: TouchEvent) => {
+          onTouchMove={(e: ReactTouchEvent) => {
             const position = e.touches[0].clientY;
             handleMove(position);
           }}
