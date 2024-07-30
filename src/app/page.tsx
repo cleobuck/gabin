@@ -19,6 +19,8 @@ export default function Home() {
       <main className={styles.main}>
         <FirstSection />
 
+        <SideMenu topView className={styles.sideMenu} />
+
         <SecondSection />
         <div className={styles.blueGradientBackground}>
           <Banner style="home" />

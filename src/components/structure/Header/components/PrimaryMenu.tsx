@@ -3,10 +3,12 @@
 import React from "react";
 import { PrimaryMenuData } from "./PrimaryMenu.data";
 import styling from "./PrimaryMenu.module.scss";
-import { isPhone } from "@/utils";
+import { isItAPhone } from "@/utils";
 type Props = { style?: string; openMenu: () => void; whichMenuOpen: string };
 
 export default function PrimaryMenu({ openMenu, whichMenuOpen, style }: Props) {
+  const isPhone = isItAPhone();
+
   return (
     <>
       <button
@@ -30,7 +32,9 @@ export default function PrimaryMenu({ openMenu, whichMenuOpen, style }: Props) {
           {PrimaryMenuData.map((item, key) => (
             <li key={key} className={styling.mainMenuItemLi}>
               <a
-                href={`${process.env.BASE_URL}${item.href}`}
+                href={
+                  item.href ? `${process.env.BASE_URL}${item.href}` : undefined
+                }
                 className={styling.mainMenuItem}
               >
                 {item.label.toUpperCase()}
@@ -43,7 +47,7 @@ export default function PrimaryMenu({ openMenu, whichMenuOpen, style }: Props) {
                         href={child.href}
                         className={styling.secondaryMenuItem}
                       >
-                        {isPhone() && <span className={styling.circle}></span>}
+                        {isPhone && <span className={styling.circle}></span>}
                         {child.label.toUpperCase()}
                       </a>
                     </li>

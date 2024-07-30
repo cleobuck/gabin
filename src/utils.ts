@@ -1,3 +1,6 @@
+"use client";
+import { useEffect, useState } from "react";
+
 export const createClassNameString = (
   builder: {
     condition: boolean;
@@ -13,6 +16,17 @@ export const createClassNameString = (
   return string;
 };
 
-export const isPhone = () =>
-  window.innerWidth < 768 ||
-  (window.innerHeight < 768 && window.innerWidth >= 768);
+export const isItAPhone = () => {
+  const [isPhone, setPhone] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setPhone(
+        window.innerWidth < 768 ||
+          (window.innerHeight < 768 && window.innerWidth >= 768)
+      );
+    }
+  }, []);
+
+  return isPhone;
+};

@@ -12,6 +12,7 @@
     line-height: 24.2px;
     text-align: center;
     color: $strongGreen;
+    margin: 0 auto;
     margin-top: 40px;
     @media #{$tablet} {
       width: 532px;
@@ -19,6 +20,14 @@
   }
   .sun {
     margin-left: auto;
+
+    @media #{$tablet} {
+      position: absolute;
+      right: 26px;
+      bottom: 0;
+      transform: translateY(50%);
+      z-index: 2;
+    }
     path {
       fill: $yellow;
     }
@@ -26,6 +35,11 @@
   .image {
     height: 275px;
     width: 275px;
+
+    @media #{$tablet} {
+      width: 674px;
+      height: 638px;
+    }
     margin: 16px auto;
 
     img {
@@ -40,13 +54,26 @@
     display: flex;
     justify-content: center;
 
+    @media #{$tablet} {
+      height: 70px;
+      @include center;
+    }
     .devisButton {
       position: absolute;
+
       left: 50%;
       transform: translateX(-50%);
       background: none;
       border: 1px solid var(--BLEU-FONCE, rgba(13, 41, 61, 1));
       color: $strongGreen;
+      @media #{$tablet} {
+        position: static;
+        transform: none;
+      }
     }
   }
+}
+
+.hide {
+  display: none;
 }

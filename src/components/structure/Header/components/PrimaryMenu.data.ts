@@ -5,7 +5,7 @@ export const PrimaryMenuData = [
   },
   {
     label: "Nos services",
-    href: "#about",
+
     children: [
       {
         label: "Mariages",
@@ -27,7 +27,6 @@ export const PrimaryMenuData = [
   },
   {
     label: "Nos tentes",
-    href: "#services",
     children: [
       {
         label: "Strecht",
@@ -41,7 +40,6 @@ export const PrimaryMenuData = [
   },
   {
     label: "À propos",
-    href: "#contact",
     children: [
       {
         label: "Qui Sommes nous",

@@ -13,3 +13,11 @@
   background: linear-gradient(179.36deg, #fffce5 12.41%, #9cd6f2 116.6%);
   width: 100vw;
 }
+
+.sideMenu {
+  display: none;
+  @media #{$tablet} {
+    display: block;
+    top: 150px !important;
+  }
+}

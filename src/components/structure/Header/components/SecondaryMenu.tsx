@@ -34,12 +34,7 @@ export default function SecondaryMenu({
           </li>
           <li>
             <a className={styling.SecondaryMenuItem} href={`/about`}>
-              Accueil
-            </a>
-          </li>
-          <li>
-            <a className={styling.SecondaryMenuItem} href={`/news`}>
-              Actualités
+              Contact
             </a>
           </li>
         </ul>

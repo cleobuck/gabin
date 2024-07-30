@@ -3,9 +3,20 @@
 import React, { useEffect, useState } from "react";
 import styling from "./sideMenu.module.scss";
 import { useRouter } from "next/navigation";
-type Props = { type?: string; topView?: boolean };
+import { createClassNameString } from "@/utils";
+type Props = {
+  type?: string;
+  topView?: boolean;
+  className?: string;
+  style: string;
+};
 
-export default function SideMenu({ type = "menu", topView }: Props) {
+export default function SideMenu({
+  type = "menu",
+  topView,
+  className,
+  style = "home",
+}: Props) {
   const [isVisible, setVisible] = useState(topView);
   useEffect(() => {
     if (!topView) {
@@ -31,11 +42,27 @@ export default function SideMenu({ type = "menu", topView }: Props) {
 
   const router = useRouter();
 
+  const classNames = [
+    {
+      condition: !!isVisible,
+      name: styling.menuVisible,
+    },
+    {
+      condition: type !== "menu",
+      name: styling.singleButton,
+    },
+    {
+      condition: !!topView,
+      name: styling.topView,
+    },
+    { condition: !!className, name: className! },
+    { condition: !!style, name: styling[style!] },
+  ];
+
   return (
     <nav
-      className={`${isVisible ? styling.menuVisible : ""} ${styling.sideMenu} ${
-        type !== "menu" ? styling.singleButton : ""
-      } ${topView ? styling.topView : ""}`}
+      aria-hidden={true}
+      className={`${styling.sideMenu}  ${createClassNameString(classNames)}`}
     >
       <ul>
         {type === "menu" ? (
