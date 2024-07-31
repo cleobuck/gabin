@@ -10,10 +10,21 @@ import SecondSection from "./home-components/SecondSection/SecondSection";
 import ThirdSection from "./home-components/ThirdSection/ThirdSection";
 import FourthSection from "./home-components/FourthSection/FourthSection";
 import ValueSlider from "../components/sections/ValueSlider/ValueSlider";
+import Script from "next/script";
 
 export default function Home() {
   return (
     <>
+      <Script
+        id="resize-reload"
+        strategy="afterInteractive" // Ensure this script runs only on the client side
+      >
+        {`
+          window.addEventListener('resize', () => {
+            window.location.reload();
+          });
+        `}
+      </Script>
       <SideMenu className={styles.mobileSideMenu} />
       <Header />
       <main className={styles.main}>

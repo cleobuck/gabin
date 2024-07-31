@@ -8,6 +8,9 @@ export default function Banner({ style }: Props) {
       <section className={styling.banner}>
         <div className={styling.text}>
           {"Mariages, Entreprises, Collectivités, Planner".toUpperCase()}
+          {", "}
+          {"Mariages, Entreprises, Collectivités, Planner".toUpperCase()} {", "}
+          {"Mariages, Entreprises, Collectivités, Planner".toUpperCase()}
         </div>
       </section>
     </div>

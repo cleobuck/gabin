@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./ThankYou.module.scss";
+import Sun from "@/assets/images/sun.svg?react";
 
 type Props = {};
 
@@ -7,11 +8,15 @@ const ThankYou: React.FC<Props> = ({}) => {
   return (
     <div className={styles.container}>
       <h3> MERCI </h3>
-      <p>
+
+      <Sun className={styles.svg} />
+      <p className={styles.mainText}>
         Merci pour votre message, nous l’avons bien reçu et nous engageons à
         vous répondre dans les 48h !
       </p>
-      <p>Voici ensuite comment se déroule une collaboration avec Inouze :</p>
+      <p className={styles.description}>
+        Voici ensuite comment se déroule une collaboration avec Inouze :
+      </p>
 
       <ul>
         <li>

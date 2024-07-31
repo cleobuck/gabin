@@ -55,9 +55,16 @@
 
 .image {
   height: 359px;
+
+  @media #{$tablet} {
+    height: 390px;
+  }
   display: block;
-  width: auto;
   position: relative;
+  img {
+    object-fit: cover;
+  }
+  width: 100vw;
   left: 50%;
   transform: translateX(-50%);
 }

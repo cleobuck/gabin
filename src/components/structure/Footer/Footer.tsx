@@ -17,7 +17,9 @@ export default function Footer({ noImage }: Props) {
   return (
     <>
       {!noImage && (
-        <Image alt="tente" className={styling.image} src={TentImage} />
+        <figure className={styling.image}>
+          <Image alt="tente" className={styling.image} src={TentImage} />
+        </figure>
       )}
       <div className={styling.footer}>
         {!noImage && <Sun className={styling.sun} />}
