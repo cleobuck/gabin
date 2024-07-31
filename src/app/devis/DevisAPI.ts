@@ -20,7 +20,10 @@ export const sendEmail = async (values: any) => {
   formData.append("dates", values.dates);
   formData.append("place", values.place);
   formData.append("additionalInfo", values.additionalInfo);
-  formData.append("attachment", values.file);
+
+  values.files.forEach((file: File) => {
+    formData.append("attachments", file);
+  });
 
   try {
     const response = await axios.post(

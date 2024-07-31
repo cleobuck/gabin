@@ -12,6 +12,7 @@ import { sendEmail } from "./DevisAPI";
 import Sun from "@/assets/images/sun.svg?react";
 import Image from "next/image";
 import Xmark from "@/assets/images/xmark.svg?react";
+import ThankYou from "./components/ThankYou/ThankYou";
 
 const validationSchema = Yup.object().shape({
   clientType: Yup.string().required("Sélectionnez le type de client"),
@@ -54,6 +55,8 @@ const DevisForm = () => {
 
   const [preview, setPreview] = useState<{ blob: string; id: string }[]>([]);
 
+  const [isFormSubmitted, setFormSubmitted] = useState(false);
+
   const initialValues = {
     clientType: "",
     civilite: "",
@@ -75,13 +78,20 @@ const DevisForm = () => {
     additionalInfo: "",
   };
 
-  const handleSubmit = (values: any) => {
+  const handleSubmit = async (values: any) => {
     const payload = { ...values, files: files.map((file) => file.file) };
-    console.log(payload);
-    sendEmail(payload);
+
+    try {
+      await sendEmail(payload);
+      setFormSubmitted(true); // Set formSubmitted to true upon successful submission
+    } catch (error) {
+      console.error("Failed to send email:", error);
+    }
   };
 
-  return (
+  return isFormSubmitted ? (
+    <ThankYou />
+  ) : (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}

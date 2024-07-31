@@ -53,14 +53,6 @@ exports.handler = async (event) => {
         Object.entries(fields).map(([key, value]) => [key, value[0]])
       );
 
-      console.log(files);
-      // Prepare attachments
-      const attachments = files.attachment
-        ? Array.isArray(files.attachment)
-          ? files.attachment
-          : [files.attachment]
-        : [];
-
       const msg = {
         to: "kaizenpixie@gmail.com", // Replace with your client's email
         from: "kaizenpixie@gmail.com", // Replace with your verified sender email
@@ -104,14 +96,20 @@ exports.handler = async (event) => {
           },
         });
 
-        await transporter.sendMail(msg);
-
-        // Clean up the temporary files after sending the email
-        attachments.forEach((file) => {
-          fs.unlink(file.filepath, (err) => {
-            if (err) console.error("Failed to delete temporary file:", err);
+        if (files.attachments) {
+          const attachmentsArray = Array.isArray(files.attachments)
+            ? files.attachments
+            : [files.attachments];
+          attachmentsArray.forEach((file) => {
+            msg.attachments.push({
+              filename: file.originalFilename,
+              content: fs.createReadStream(file.filepath),
+              encoding: "base64",
+            });
           });
-        });
+        }
+
+        await transporter.sendMail(msg);
 
         resolve({
           statusCode: 200,
