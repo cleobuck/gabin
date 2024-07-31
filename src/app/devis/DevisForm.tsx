@@ -11,6 +11,7 @@ import TextArea from "./components/TextArea/TextArea";
 import { sendEmail } from "./DevisAPI";
 import Sun from "@/assets/images/sun.svg?react";
 import Image from "next/image";
+import Xmark from "@/assets/images/xmark.svg?react";
 
 const validationSchema = Yup.object().shape({
   clientType: Yup.string().required("Sélectionnez le type de client"),
@@ -49,9 +50,9 @@ const validationSchema = Yup.object().shape({
 });
 
 const DevisForm = () => {
-  const [files, setFiles] = useState<File[]>([]);
+  const [files, setFiles] = useState<{ file: File; id: string }[]>([]);
 
-  const [preview, setPreview] = useState<string[]>([]);
+  const [preview, setPreview] = useState<{ blob: string; id: string }[]>([]);
 
   const initialValues = {
     clientType: "",
@@ -75,7 +76,7 @@ const DevisForm = () => {
   };
 
   const handleSubmit = (values: any) => {
-    sendEmail({ ...values, files });
+    sendEmail({ ...values, files: files.map((file) => file.file) });
   };
 
   return (
@@ -206,10 +207,19 @@ cela nous permettra d’imaginer la meilleure configuration pour votre événeme
 
                   if (fileList && fileList[0]) {
                     const newFile = fileList[0];
+
+                    const id = `${newFile.name}${Date.now()}`;
+
                     const newPreview = URL.createObjectURL(newFile);
 
-                    setFiles((prevFiles) => [...prevFiles, newFile]);
-                    setPreview((prevPreviews) => [...prevPreviews, newPreview]);
+                    setFiles((prevFiles) => [
+                      ...prevFiles,
+                      { file: newFile, id },
+                    ]);
+                    setPreview((prevPreviews) => [
+                      ...prevPreviews,
+                      { blob: newPreview, id: `${newFile.name}${Date.now()}` },
+                    ]);
                   }
                 }}
               />
@@ -219,11 +229,21 @@ cela nous permettra d’imaginer la meilleure configuration pour votre événeme
               {preview.map((image, key) => (
                 <figure className={styles.imagePreview} key={key}>
                   <Image
-                    src={image}
+                    src={image.blob}
                     width={200}
                     height={0}
                     layout="intrinsic"
                     alt=""
+                  />
+                  <Xmark
+                    onClick={() => {
+                      setFiles((prevFiles) =>
+                        prevFiles.filter((file) => file.id != image.id)
+                      );
+                      setPreview((images) =>
+                        images.filter((image) => image.id != image.id)
+                      );
+                    }}
                   />
                 </figure>
               ))}
