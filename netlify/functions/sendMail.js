@@ -77,6 +77,7 @@ exports.handler = async (event) => {
           Lieu: ${place}\n
           Infos complémentaires: ${additionalInfo}
         `,
+        attachments: [],
       };
 
       try {
