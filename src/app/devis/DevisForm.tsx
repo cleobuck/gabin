@@ -13,6 +13,7 @@ import Sun from "@/assets/images/sun.svg?react";
 import Image from "next/image";
 import Xmark from "@/assets/images/xmark.svg?react";
 import ThankYou from "./components/ThankYou/ThankYou";
+import TinyLoader from "./components/tiny-loader/TinyLoader";
 
 const validationSchema = Yup.object().shape({
   clientType: Yup.string().required("Sélectionnez le type de client"),
@@ -273,7 +274,10 @@ cela nous permettra d’imaginer la meilleure configuration pour votre événeme
             <span className={styles.sunContainer}>
               <Sun className={styles.sun} />
             </span>
-            <span className={styles.title}> ENVOYER</span>
+            <span className={styles.title}>
+              {" "}
+              {isSubmitting ? <TinyLoader /> : "ENVOYER"}
+            </span>
             <span className={styles.sunContainer}>
               <Sun className={styles.sun} />
             </span>

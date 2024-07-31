@@ -77,11 +77,6 @@ exports.handler = async (event) => {
           Lieu: ${place}\n
           Infos complémentaires: ${additionalInfo}
         `,
-        attachments: attachments.map((fileAttachment) => ({
-          filename: fileAttachment.originalFilename,
-          content: fs.createReadStream(fileAttachment.filepath),
-          encoding: "base64",
-        })),
       };
 
       try {

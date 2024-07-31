@@ -25,20 +25,11 @@ export const sendEmail = async (values: any) => {
     formData.append("attachments", file);
   });
 
-  try {
-    const response = await axios.post(
-      "/.netlify/functions/sendMail",
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    );
-    console.log("Server response:", response.data);
-    // Handle success, e.g., show a success message to the user
-  } catch (error) {
-    console.error("Error sending email:", error);
-    // Handle error, e.g., show an error message to the user
-  }
+  const response = await axios.post("/.netlify/functions/sendMail", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+
+  return response;
 };
