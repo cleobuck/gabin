@@ -216,8 +216,8 @@ cela nous permettra d’imaginer la meilleure configuration pour votre événeme
             </div>
 
             <div className={styles.imagePreviewList}>
-              {preview.map((image) => (
-                <figure className={styles.imagePreview}>
+              {preview.map((image, key) => (
+                <figure className={styles.imagePreview} key={key}>
                   <Image
                     src={image}
                     width={200}
