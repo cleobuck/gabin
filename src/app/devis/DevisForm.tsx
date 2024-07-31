@@ -54,6 +54,8 @@ const DevisForm = () => {
 
   const [preview, setPreview] = useState<{ blob: string; id: string }[]>([]);
 
+  console.log(files, preview);
+
   const initialValues = {
     clientType: "",
     civilite: "",
@@ -76,7 +78,9 @@ const DevisForm = () => {
   };
 
   const handleSubmit = (values: any) => {
-    sendEmail({ ...values, files: files.map((file) => file.file) });
+    const payload = { ...values, files: files.map((file) => file.file) };
+    console.log(payload);
+    sendEmail(payload);
   };
 
   return (
@@ -218,7 +222,7 @@ cela nous permettra d’imaginer la meilleure configuration pour votre événeme
                     ]);
                     setPreview((prevPreviews) => [
                       ...prevPreviews,
-                      { blob: newPreview, id: `${newFile.name}${Date.now()}` },
+                      { blob: newPreview, id },
                     ]);
                   }
                 }}
@@ -238,10 +242,12 @@ cela nous permettra d’imaginer la meilleure configuration pour votre événeme
                   <Xmark
                     onClick={() => {
                       setFiles((prevFiles) =>
-                        prevFiles.filter((file) => file.id != image.id)
+                        prevFiles.filter((file) => file.id !== image.id)
                       );
                       setPreview((images) =>
-                        images.filter((image) => image.id != image.id)
+                        images.filter(
+                          (arrayImage) => arrayImage.id !== image.id
+                        )
                       );
                     }}
                   />

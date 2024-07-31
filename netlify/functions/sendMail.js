@@ -54,7 +54,11 @@ exports.handler = async (event) => {
         Object.entries(fields).map(([key, value]) => [key, value[0]])
       );
 
-      console.log(files.attachment);
+      const attachments = files.attachment
+        ? Array.isArray(files.attachment)
+          ? files.attachment
+          : [files.attachment]
+        : [];
 
       const msg = {
         to: "kaizenpixie@gmail.com", // Replace with your client's email
@@ -80,13 +84,12 @@ exports.handler = async (event) => {
           Lieu: ${place}\n
           Infos complémentaires: ${additionalInfo}
         `,
-        attachments: files.attachment
-          ? files.attachment.map((fileAttachment) => ({
-              filename: fileAttachment.originalFilename,
-              content: fs.createReadStream(fileAttachment.filepath),
-              encoding: "base64",
-            }))
-          : [],
+
+        attachments: attachments.map((fileAttachment) => ({
+          filename: fileAttachment.originalFilename,
+          content: fs.createReadStream(fileAttachment.filepath),
+          encoding: "base64",
+        })),
       };
 
       try {
@@ -102,12 +105,12 @@ exports.handler = async (event) => {
 
         await transporter.sendMail(msg);
 
-        // Clean up the temporary file after sending the email
-        if (files.attachment[0]) {
-          fs.unlink(files.attachment[0].filepath, (err) => {
+        // Clean up the temporary files after sending the email
+        attachments.forEach((file) => {
+          fs.unlink(file.filepath, (err) => {
             if (err) console.error("Failed to delete temporary file:", err);
           });
-        }
+        });
 
         resolve({
           statusCode: 200,
