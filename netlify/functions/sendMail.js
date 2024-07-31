@@ -54,6 +54,8 @@ exports.handler = async (event) => {
         Object.entries(fields).map(([key, value]) => [key, value[0]])
       );
 
+      console.log(files.attachment);
+
       const msg = {
         to: "kaizenpixie@gmail.com", // Replace with your client's email
         from: "kaizenpixie@gmail.com", // Replace with your verified sender email
