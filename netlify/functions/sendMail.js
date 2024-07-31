@@ -1,6 +1,5 @@
 const formidable = require("formidable");
 const { Readable } = require("stream");
-
 const nodemailer = require("nodemailer");
 const fs = require("fs");
 
@@ -54,6 +53,8 @@ exports.handler = async (event) => {
         Object.entries(fields).map(([key, value]) => [key, value[0]])
       );
 
+      console.log(files);
+      // Prepare attachments
       const attachments = files.attachment
         ? Array.isArray(files.attachment)
           ? files.attachment
@@ -84,7 +85,6 @@ exports.handler = async (event) => {
           Lieu: ${place}\n
           Infos complémentaires: ${additionalInfo}
         `,
-
         attachments: attachments.map((fileAttachment) => ({
           filename: fileAttachment.originalFilename,
           content: fs.createReadStream(fileAttachment.filepath),
@@ -97,6 +97,7 @@ exports.handler = async (event) => {
         const transporter = nodemailer.createTransport({
           host: "smtp.gmail.com", // e.g., 'smtp.gmail.com' for Gmail
           port: 587,
+          secure: false, // true for 465, false for other ports
           auth: {
             user: process.env.EMAIL_USERNAME,
             pass: process.env.EMAIL_PASSWORD,
@@ -117,6 +118,7 @@ exports.handler = async (event) => {
           body: JSON.stringify({ message: "Email sent successfully" }),
         });
       } catch (error) {
+        console.error("Failed to send email:", error);
         resolve({
           statusCode: 500,
           body: JSON.stringify({ error: "Failed to send email" }),

@@ -54,8 +54,6 @@ const DevisForm = () => {
 
   const [preview, setPreview] = useState<{ blob: string; id: string }[]>([]);
 
-  console.log(files, preview);
-
   const initialValues = {
     clientType: "",
     civilite: "",
