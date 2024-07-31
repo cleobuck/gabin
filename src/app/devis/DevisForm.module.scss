@@ -103,3 +103,18 @@
     @include center;
   }
 }
+
+.imagePreviewList {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.imagePreview {
+  position: relative;
+  width: 200px;
+  img {
+    height: auto; /* Set image height to auto */
+    width: 100%;
+  }
+}

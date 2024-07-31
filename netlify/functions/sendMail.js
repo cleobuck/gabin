@@ -79,13 +79,11 @@ exports.handler = async (event) => {
           Infos complémentaires: ${additionalInfo}
         `,
         attachments: files.attachment
-          ? [
-              {
-                filename: files.attachment[0].originalFilename,
-                content: fs.createReadStream(files.attachment[0].filepath),
-                encoding: "base64",
-              },
-            ]
+          ? files.attachment.map((fileAttachment) => ({
+              filename: fileAttachment.originalFilename,
+              content: fs.createReadStream(fileAttachment.filepath),
+              encoding: "base64",
+            }))
           : [],
       };
 

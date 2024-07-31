@@ -10,6 +10,7 @@ import Input from "./components/Input/Input";
 import TextArea from "./components/TextArea/TextArea";
 import { sendEmail } from "./DevisAPI";
 import Sun from "@/assets/images/sun.svg?react";
+import Image from "next/image";
 
 const validationSchema = Yup.object().shape({
   clientType: Yup.string().required("Sélectionnez le type de client"),
@@ -48,7 +49,9 @@ const validationSchema = Yup.object().shape({
 });
 
 const DevisForm = () => {
-  const [file, setFile] = useState<File | null>(null);
+  const [files, setFiles] = useState<File[]>([]);
+
+  const [preview, setPreview] = useState<string[]>([]);
 
   const initialValues = {
     clientType: "",
@@ -72,7 +75,7 @@ const DevisForm = () => {
   };
 
   const handleSubmit = (values: any) => {
-    sendEmail({ ...values, file });
+    sendEmail({ ...values, files });
   };
 
   return (
@@ -191,7 +194,6 @@ cela nous permettra d’imaginer la meilleure configuration pour votre événeme
 
             <div className={styles.files}>
               <label htmlFor="file">Photos</label>
-              <input type="file" />
 
               <label htmlFor="file-upload" className={styles.uploadButton}>
                 Choisir un fichier
@@ -200,11 +202,31 @@ cela nous permettra d’imaginer la meilleure configuration pour votre événeme
                 id="file-upload"
                 type="file"
                 onChange={(event) => {
-                  if (event.currentTarget.files) {
-                    setFile(event.currentTarget.files[0]);
+                  const fileList = event.currentTarget.files;
+
+                  if (fileList && fileList[0]) {
+                    const newFile = fileList[0];
+                    const newPreview = URL.createObjectURL(newFile);
+
+                    setFiles((prevFiles) => [...prevFiles, newFile]);
+                    setPreview((prevPreviews) => [...prevPreviews, newPreview]);
                   }
                 }}
               />
+            </div>
+
+            <div className={styles.imagePreviewList}>
+              {preview.map((image) => (
+                <figure className={styles.imagePreview}>
+                  <Image
+                    src={image}
+                    width={200}
+                    height={0}
+                    layout="intrinsic"
+                    alt=""
+                  />
+                </figure>
+              ))}
             </div>
             <TextArea name="additionalInfo" label="Infos complémentaires:" />
           </div>
