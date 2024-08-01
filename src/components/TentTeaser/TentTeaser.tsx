@@ -35,9 +35,9 @@ const TentTeaser: React.FC<Props> = ({ style }) => {
         </div>
       </div>
 
-      <Sun className={styles.sun} />
+      <Sun className={`${styles.sun} onlyMobile`} />
 
-      <p>
+      <p className="onlyMobile">
         {`Comment se déroule la création 
 de votre solution avec Inouze ?`}
       </p>

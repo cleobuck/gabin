@@ -6,12 +6,21 @@ type Props = {
   title?: string;
   slogan?: boolean;
   author?: string;
+  className?: string;
 };
 
-const Text: React.FC<Props> = ({ title, children, slogan, author }) => {
+const Text: React.FC<Props> = ({
+  title,
+  children,
+  slogan,
+  author,
+  className,
+}) => {
   return (
     <section
-      className={`${styles.container} ${slogan ? styles.sloganSection : ""}`}
+      className={`${styles.container} ${slogan ? styles.sloganSection : ""} ${
+        className ? className : ""
+      }`}
     >
       {title && <h2>{title}</h2>}
 

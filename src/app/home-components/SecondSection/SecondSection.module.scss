@@ -15,17 +15,29 @@
   );
   color: white;
   padding: 50px 40px;
+
+  @media #{$tablet} {
+    padding: 0;
+    padding-top: 50px;
+  }
   blockquote,
   figcaption {
     text-align: center;
   }
 
   blockquote {
-    font-family: Sporting Grotesque;
+    font-family: "Sporting Grotesque";
     font-size: 16px;
     font-weight: 400;
     line-height: 17.92px;
     text-align: center;
+
+    @media #{$tablet} {
+      font-size: 20px;
+      line-height: 25px;
+      width: 83%;
+      margin: 0 auto;
+    }
   }
 
   figcaption {
@@ -39,9 +51,14 @@
 
   ul {
     list-style-type: none;
-    width: 140px;
+    width: 167px;
     margin: 0 auto;
     margin-bottom: 43px;
+    font-family: "Sporting Grotesque";
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 32.6px;
+    text-align: left;
   }
   p {
     color: $strongGreen;
@@ -78,5 +95,83 @@
   .bulletPoint {
     width: 10px;
     margin-right: 5px;
+    @media #{$tablet} {
+      width: 20px;
+    }
+  }
+}
+
+.subSection {
+  @media #{$tablet} {
+    margin-top: 80px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-left: 50vw;
+    height: 770px;
+    .secondSectionImage {
+      margin: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      .image {
+        width: 50vw;
+        height: 770px;
+      }
+    }
+    .text {
+      order: 1;
+      margin: 0;
+      margin-left: 40px;
+
+      margin-bottom: 37px;
+      color: $beige;
+      font-size: 16px;
+      font-weight: 400;
+      padding-right: 30px;
+      padding-bottom: 50px;
+      line-height: 18.4px;
+      text-align: left;
+      width: 38vw;
+      position: relative;
+      .sun {
+        position: absolute;
+        width: 58px;
+        height: 55px;
+        right: 0;
+        bottom: 0;
+        path {
+          fill: $yellow;
+        }
+      }
+    }
+    ul {
+      order: 2;
+      font-size: 32px;
+      line-height: 52.16px;
+      margin: 0;
+      width: auto;
+      margin-left: 40px;
+      position: relative;
+      z-index: 2;
+    }
+  }
+}
+
+.desktopImages {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1;
+  right: 3%;
+  bottom: 9%;
+  order: 3;
+  gap: 12px;
+  .desktopImage {
+    position: relative;
+    width: 200px;
+    height: 155px;
+    object-fit: cover;
   }
 }

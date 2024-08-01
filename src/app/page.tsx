@@ -11,20 +11,13 @@ import ThirdSection from "./home-components/ThirdSection/ThirdSection";
 import FourthSection from "./home-components/FourthSection/FourthSection";
 import ValueSlider from "../components/sections/ValueSlider/ValueSlider";
 import Script from "next/script";
+import ThirdTabletSection from "./home-components/ThirdTabletSection/ThirdTabletSection";
+import { ResizeScript } from "@/components/ResizeScript";
 
 export default function Home() {
   return (
     <>
-      <Script
-        id="resize-reload"
-        strategy="afterInteractive" // Ensure this script runs only on the client side
-      >
-        {`
-          window.addEventListener('resize', () => {
-            window.location.reload();
-          });
-        `}
-      </Script>
+      <ResizeScript />
       <SideMenu className={styles.mobileSideMenu} />
       <Header />
       <main className={styles.main}>
@@ -36,6 +29,7 @@ export default function Home() {
         <div className={styles.blueGradientBackground}>
           <Banner style="home" />
 
+          <ThirdTabletSection />
           <ThirdSection />
           <FourthSection />
 

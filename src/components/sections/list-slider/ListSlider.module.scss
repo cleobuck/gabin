@@ -76,3 +76,15 @@
     left: -100%;
   }
 }
+
+.pair {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 108px;
+  max-width: 724px;
+  article {
+    flex: 1 0 44%;
+  }
+}

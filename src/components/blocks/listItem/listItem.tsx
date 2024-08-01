@@ -5,7 +5,7 @@ type Props = {
   number: number;
   children: ReactNode;
   title: string;
-  className: string;
+  className?: string;
 };
 
 const ListItem = forwardRef<HTMLElement, Props>(

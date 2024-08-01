@@ -1,0 +1,63 @@
+@import "@styles/variables";
+
+.container {
+  display: none;
+  @media #{$tablet} {
+    display: flex;
+  }
+  gap: 50px;
+
+  justify-content: stretch;
+
+  figure {
+    position: relative;
+    img {
+      object-fit: cover;
+    }
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  padding: 6vw;
+  padding-bottom: 0;
+
+  .leftSection,
+  .rightSection {
+    flex: 1;
+  }
+
+  .topImage {
+    width: calc(100%);
+    height: 333px;
+  }
+
+  .textImage {
+    width: calc(100%);
+    height: 319px;
+  }
+
+  .bottomSection {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .bottomImage {
+    width: calc(58%);
+    height: 286px;
+  }
+
+  .sun {
+    width: 44px;
+    height: 44px;
+
+    transform: translate(100%, -175%);
+
+    path {
+      fill: $teal;
+    }
+  }
+}

@@ -40,6 +40,10 @@
   gap: 25px;
   padding: 0 6vw;
   align-items: flex-end;
+
+  @media #{$tablet} {
+    display: none;
+  }
 }
 
 .sun {

@@ -4,38 +4,62 @@ import React, { ReactNode, useEffect, useState } from "react";
 import SecondSlider from "@/components/blocks/second-slider/SecondSlider";
 
 import styling from "./CaracSlider.module.scss";
-import { createClassNameString } from "@/utils";
+import { IsItAPhone, createClassNameString } from "@/utils";
+import Text from "@/components/blocks/Text/Text";
 type Props = {
   style: string;
   sliderData: { title: string; Icon: ReactNode }[];
 };
 
-//https://stackoverflow.com/questions/76614923/how-to-pass-a-component-as-a-prop-using-next-13
-
 export default function CaracSlider({ style, sliderData }: Props) {
   const [imageData, setImageData] = useState({ active: 0, previous: 0 });
+
+  const isPhone = IsItAPhone();
 
   const [direction, setDirection] = useState("right");
 
   return (
-    <SecondSlider
-      slide={setImageData}
-      setDirection={setDirection}
-      length={sliderData.length}
-      title="Caractéristiques"
-      style={style}
-    >
-      {sliderData.map((elem, index) => (
-        <Article
-          key={index}
-          imageData={imageData}
-          elem={elem}
-          index={index}
-          direction={direction}
+    <div className={styling.caracSlider}>
+      {!isPhone && (
+        <div className={styling.desktopTitle}>
+          <h2 className={styling.desktopTitle}>Caractéristiques </h2>
+          <h3> {sliderData[imageData.active].title}</h3>
+        </div>
+      )}
+      <Text className={styling.text}>
+        <p>
+          Fortes de leur identité propre, nos tentes offrent toutes deux
+          flexibilité et liberté dans l’installation et la réalisation de votre
+          projet.
+        </p>
+        <p>
+          À l’écoute, nous saurons vous conseiller sur la solution la plus
+          adaptée tout en se laissant guider par votre imagination pour aménager
+          la structure de vos rêves.
+        </p>
+      </Text>
+
+      <div className={styling.bitch}>
+        <SecondSlider
+          slide={setImageData}
+          setDirection={setDirection}
+          length={sliderData.length}
+          title={isPhone ? "Caractéristiques" : undefined}
           style={style}
-        />
-      ))}
-    </SecondSlider>
+        >
+          {sliderData.map((elem, index) => (
+            <Article
+              key={index}
+              imageData={imageData}
+              elem={elem}
+              index={index}
+              direction={direction}
+              style={style}
+            />
+          ))}
+        </SecondSlider>
+      </div>
+    </div>
   );
 }
 
@@ -77,7 +101,6 @@ const Article = ({
       className={` ${styling.sliderElem} ${createClassNameString(classNames)}`}
     >
       {elem.Icon}
-      {/* <elem.Icon className={styling.icon} /> */}
       <h3> {elem.title}</h3>
     </article>
   );

@@ -2,6 +2,10 @@
 
 .thirdSection {
   padding: 80px 50px 70px 50px;
+
+  @media #{$tablet} {
+    display: none;
+  }
   p {
     margin-bottom: 15px;
   }

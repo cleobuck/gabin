@@ -14,6 +14,7 @@ import TentConfig from "@/components/sections/tents/TentConfig/TentConfig";
 import Button from "@/components/items/Button/Button";
 import LogoSection from "@/components/sections/tents/LogoSection/LogoSection";
 import Footer from "@/components/structure/Footer/Footer";
+import { ResizeScript } from "@/components/ResizeScript";
 const TentStretch = () => {
   const caracSliderData = [
     { title: "imperméable", Icon: <Drops /> },
@@ -28,6 +29,7 @@ const TentStretch = () => {
   ];
   return (
     <div className={styles.tent}>
+      <ResizeScript />
       <Header style="white" />
 
       <FirstSection
@@ -56,7 +58,7 @@ avec une tente Stretch
         ]}
       />
 
-      <Button href=""> SIMULER MON PLAN DE TABLE</Button>
+      <Button href=""> SIMULER MON PLAN DE TABLE </Button>
 
       <LogoSection />
 

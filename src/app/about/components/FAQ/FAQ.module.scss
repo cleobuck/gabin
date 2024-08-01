@@ -1,6 +1,18 @@
 @import "@styles/variables";
 
 .container {
+  @media #{$tablet} {
+    padding: 50px 43px;
+  }
+  .questions {
+    @media #{$tablet} {
+      display: flex;
+      gap: 50px;
+      div {
+        flex: 1;
+      }
+    }
+  }
   padding-top: 51px;
   background: linear-gradient(
     180.12deg,
@@ -17,6 +29,7 @@
     font-weight: 400;
     line-height: 32.6px;
     text-align: center;
+    margin-bottom: 30px;
   }
 
   .sun {
@@ -36,6 +49,12 @@
     line-height: 14.95px;
     margin-bottom: 15px;
     text-align: center;
+
+    @media #{$tablet} {
+      width: 60vw;
+      margin: 0 auto;
+      margin-bottom: 10px;
+    }
   }
 
   .introText:last-of-type {

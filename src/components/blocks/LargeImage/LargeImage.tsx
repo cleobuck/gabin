@@ -5,7 +5,7 @@ import Image, { StaticImageData } from "next/image";
 
 type Props = {
   image: {
-    src: StaticImageData;
+    image: StaticImageData;
     alt: string;
   };
   style: string;
@@ -14,7 +14,7 @@ type Props = {
 const LargeImage: React.FC<Props> = ({ image, style }) => {
   return (
     <div className={styles.container}>
-      <Image src={image.src} alt={image.alt} fill={true} />
+      <Image src={image.image} alt={image.alt} fill={true} />
 
       <Sun className={`${styles[style]} ${styles.sun}`} />
     </div>

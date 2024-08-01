@@ -18,6 +18,7 @@ type Props = {
   height?: number;
   children: ReactNode;
   style: string;
+  className?: string;
 };
 
 export default function SecondSlider({
@@ -29,12 +30,13 @@ export default function SecondSlider({
   title,
   height,
   style,
+  className,
 }: Props) {
   return (
     <section
       className={`${styling.secondSlider} ${!height ? "" : styling.setHeight} ${
         styling[style]
-      } ${oneWay ? styling.oneWay : ""}`}
+      } ${oneWay ? styling.oneWay : ""} ${className ? className : ""}`}
       style={{ height: height || 250 }}
     >
       {title && <h2> {title}</h2>}

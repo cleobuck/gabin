@@ -14,6 +14,7 @@ import TentConfig from "@/components/sections/tents/TentConfig/TentConfig";
 import Button from "@/components/items/Button/Button";
 import LogoSection from "@/components/sections/tents/LogoSection/LogoSection";
 import Footer from "@/components/structure/Footer/Footer";
+import { ResizeScript } from "@/components/ResizeScript";
 const TentSilhouette = () => {
   const caracSliderData = [
     { title: "imperméable", Icon: <Drops /> },
@@ -29,7 +30,7 @@ const TentSilhouette = () => {
   return (
     <div className={styles.tent}>
       <Header style="white" />
-
+      <ResizeScript />
       <FirstSection
         data={{
           title: `La tente Silhouette,

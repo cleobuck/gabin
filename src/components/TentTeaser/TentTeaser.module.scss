@@ -9,6 +9,7 @@
     height: 44px;
     display: block;
     margin: 32px auto;
+    @extend .onlyMobile;
   }
 
   &.weddings {
@@ -30,10 +31,21 @@
     font-weight: 400;
     line-height: 19.76px;
     margin-top: 5px;
+
+    @media #{$tablet} {
+      font-size: 20px;
+      line-height: 22.8px;
+    }
   }
   figure {
     width: 150px;
     height: 136px;
+
+    @media #{$tablet} {
+      width: 40vw;
+      height: 31vw;
+      margin-bottom: 30px;
+    }
     position: relative;
     img {
       min-width: 100%;

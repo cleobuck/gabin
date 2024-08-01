@@ -19,6 +19,7 @@ import ImageTest1 from "@/assets/images/sun.svg?react";
 
 import Drops from "@/assets/images/drops.svg?react";
 import CaracSlider from "@/components/sections/carac-slider/CaracSlider";
+import { ResizeScript } from "@/components/ResizeScript";
 
 const Events = () => {
   const style = "events";

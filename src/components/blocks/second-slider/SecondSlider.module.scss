@@ -1,7 +1,7 @@
 @import "@styles/variables";
 
 .secondSlider {
-  width: 100vw;
+  width: 100%;
   margin: 0 auto;
   position: relative;
   padding: 0 10%;
@@ -12,6 +12,18 @@
     font-weight: 400;
     line-height: 20.8px;
     text-align: center;
+  }
+
+  .rightArrowContainer {
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    bottom: 25px;
+    .rightArrowLine {
+      width: 100vw;
+      height: 0.5px;
+      background: $teal;
+    }
   }
 
   &.setHeight {
@@ -46,6 +58,9 @@
     .rightArrows {
       background: $lightGreen;
     }
+    .rightArrowLine {
+      background: $lightGreen;
+    }
   }
 
   &.tent {
@@ -65,16 +80,9 @@
   .rightArrows {
     right: 10%;
   }
-}
 
-.rightArrowContainer {
-  position: absolute;
-  width: 100vw;
-  left: 0;
-  bottom: 25px;
-  .rightArrowLine {
-    width: 100vw;
-    height: 0.5px;
-    background: $teal;
+  &:not(.oneWay) {
+    @media #{$tablet} {
+    }
   }
 }

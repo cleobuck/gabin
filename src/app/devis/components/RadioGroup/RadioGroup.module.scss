@@ -2,6 +2,7 @@
 .radioGroup {
   display: flex;
   gap: 5px;
+  margin-bottom: 10px;
   .label {
     display: block;
     font-weight: bold;
@@ -29,8 +30,8 @@
   }
 
   .active {
-    background-color: lightgreen;
-    border-color: lightgreen;
+    background-color: $lightBlue;
+    border-color: $lightBlue;
   }
 
   input[type="radio"] {

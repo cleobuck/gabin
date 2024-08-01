@@ -26,7 +26,7 @@ export default function PrimaryMenu({ openMenu, whichMenuOpen, style }: Props) {
         id="main-menu"
         aria-label="Primary Navigation"
         aria-expanded={whichMenuOpen === "main"}
-        className={styling.mainMenu}
+        className={` ${styling.mainMenu} ${style ? styling[style] : ""}`}
       >
         <ul className={styling.mainMenuList}>
           {PrimaryMenuData.map((item, key) => (

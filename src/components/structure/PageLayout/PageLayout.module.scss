@@ -2,6 +2,10 @@
 
 .pageHeader {
   height: 100vh;
+
+  @media #{$desktop} {
+    height: 80vh;
+  }
   width: 100vw;
   border-radius: 0;
   position: relative;
@@ -24,6 +28,17 @@
     line-height: 50.6px;
 
     padding-left: 10px;
+
+    @media #{$tablet} {
+      font-size: 85px;
+
+      margin-bottom: 100px;
+      line-height: 97.75px;
+    }
+
+    @media #{$desktop} {
+      font-size: 128px;
+    }
   }
 
   background-size: cover; /* Ensure the entire container is covered */
@@ -60,4 +75,34 @@
   border-radius: 100%;
   border: 1px solid $beige;
   margin-right: 10px;
+}
+
+.slogan {
+  max-width: 768px;
+  margin: 0 auto;
+
+  @media #{$tablet} {
+    padding-right: 36px;
+    padding-left: 36px;
+  }
+}
+
+.adTextWrapper {
+  background: $beige;
+  @include center;
+}
+.adText {
+  width: 90%;
+
+  p {
+    font-family: "Raleway";
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 17.25px;
+    text-align: center;
+    @media #{$tablet} {
+      font-size: 16px;
+      line-height: 18.4px;
+    }
+  }
 }

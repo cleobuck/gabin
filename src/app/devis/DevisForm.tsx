@@ -57,7 +57,7 @@ const DevisForm = () => {
 
   const [preview, setPreview] = useState<{ blob: string; id: string }[]>([]);
 
-  const [isFormSubmitted, setFormSubmitted] = useState(true);
+  const [isFormSubmitted, setFormSubmitted] = useState(false);
 
   const initialValues = {
     clientType: "",
@@ -92,226 +92,241 @@ const DevisForm = () => {
   };
   return (
     <div className={styles.formBox}>
-      {!isFormSubmitted && (
-        <h1>
-          <span> DEVIS</span>
-        </h1>
-      )}
-      {isFormSubmitted ? (
-        <>
-          <SideMenu type="fermer" topView />
-          <ThankYou />
-        </>
-      ) : (
-        <>
-          <SideMenu type="back" topView />
-          <Formik
-            initialValues={initialValues}
-            validationSchema={validationSchema}
-            onSubmit={handleSubmit}
-          >
-            {({ isSubmitting }) => (
-              <Form className={styles.container}>
-                <div className={styles.infoText}>
-                  <p>
-                    {`Vous êtes intéréssé.e par nos structures 
+      <div className={styles.formWrapper}>
+        {!isFormSubmitted && (
+          <h1>
+            <span> DEVIS</span>
+          </h1>
+        )}
+        {isFormSubmitted ? (
+          <>
+            <SideMenu type="fermer" topView />
+            <ThankYou />
+          </>
+        ) : (
+          <>
+            <SideMenu type="back" topView />
+            <Formik
+              initialValues={initialValues}
+              validationSchema={validationSchema}
+              onSubmit={handleSubmit}
+            >
+              {({ isSubmitting }) => (
+                <Form className={styles.container}>
+                  <div className={styles.firstBlock}>
+                    <div className={styles.infoText}>
+                      <p>
+                        {`Vous êtes intéréssé.e par nos structures 
 haut de gamme pour votre événement ? `}
-                  </p>
+                      </p>
 
-                  <p>
-                    {`
+                      <p>
+                        {`
 Racontez-nous votre projet et nous vous recontactons dans 48h pour vous conseiller 
 au mieux. Soyez le plus précis possible, 
 cela nous permettra d’imaginer la meilleure configuration pour votre événement. `}
-                  </p>
-                </div>
+                      </p>
+                    </div>
 
-                <Title title="Vous" className={styles.vous}>
-                  <>
-                    <RadioGroup
-                      name="clientType"
-                      values={[
-                        { value: "professionnel" },
-                        { value: "Particulier" },
-                      ]}
-                    />
-                  </>
-                </Title>
+                    <Title title="Vous" className={styles.vous}>
+                      <>
+                        <RadioGroup
+                          name="clientType"
+                          values={[
+                            { value: "professionnel" },
+                            { value: "Particulier" },
+                          ]}
+                        />
+                      </>
+                    </Title>
 
-                <div className={styles.section}>
-                  <RadioGroup
-                    name="civilite"
-                    title="Civilité"
-                    values={[
-                      { value: "Mme" },
-                      { value: "Mr" },
-                      { value: "Autre" },
-                    ]}
-                  />
+                    <div className={styles.section}>
+                      <RadioGroup
+                        name="civilite"
+                        title="Civilité"
+                        values={[
+                          { value: "Mme" },
+                          { value: "Mr" },
+                          { value: "Autre" },
+                        ]}
+                      />
 
-                  <Input name="name" label="Nom :" />
-                  <Input name="prenom" label="Prénom :" />
-                  <Input name="telephone" label="Téléphone : " />
-                  <Input name="email" label="Email :" />
+                      <Input name="name" label="Nom :" />
+                      <Input name="prenom" label="Prénom :" />
+                      <Input name="telephone" label="Téléphone : " />
+                      <Input name="email" label="Email :" />
 
-                  <RadioGroup
-                    noWrap
-                    name="profType"
-                    title="Si professionel"
-                    values={[
-                      { value: "entreprise", label: "Entreprise" },
-                      { value: "collectivite", label: "collectivité" },
-                      { value: "association", label: "Association" },
-                      {
-                        value: "planner",
-                        label: "planner ou organisateur d’événement",
-                      },
-                    ]}
-                  />
-                </div>
-                <Title title="Votre projet" />
-                <div className={styles.section}>
-                  <Input name="projectType" label="Type d’événement:" />
-
-                  <TextArea
-                    name="projectDescription"
-                    label="Description du projet:"
-                  />
-
-                  <Input name="guestsNumber" label="Nombre de personnes :" />
-
-                  <TextArea
-                    name="configuration"
-                    label="configuration souhaitée: 
-(conférence, cérémonie, diner assis, diner debout, cocktail…)"
-                  />
-                </div>
-                <Title title="La tente" />
-                <div className={styles.section}>
-                  <RadioGroup
-                    noWrap
-                    name="tentChoice"
-                    title="Le choix de la tente"
-                    values={[
-                      { value: "stretch" },
-                      { value: "silhouette" },
-                      { value: "ne-sais-pas", label: "Ne sais pas" },
-                    ]}
-                  />
-
-                  <Input
-                    name="paroisLaterales"
-                    label="Si silhouette, parois latérales ?"
-                  />
-
-                  <RadioGroup
-                    name="subfloor"
-                    title="Plancher"
-                    values={[{ value: "oui" }, { value: "non" }]}
-                  />
-
-                  <RadioGroup
-                    name="climatiseur"
-                    title="climatiseur"
-                    values={[{ value: "oui" }, { value: "non" }]}
-                  />
-                </div>
-                <Title title="Info Pratiques" />
-
-                <div className={styles.section}>
-                  <Input
-                    name="dates"
-                    label="Date de l’événement: (Date de début et de fin)"
-                  />
-                  <Input name="place" label="Lieu de l’événement:" />
-
-                  <div className={styles.files}>
-                    <label htmlFor="file">Photos</label>
-
-                    <label
-                      htmlFor="file-upload"
-                      className={styles.uploadButton}
-                    >
-                      Choisir un fichier
-                    </label>
-                    <input
-                      id="file-upload"
-                      type="file"
-                      onChange={(event) => {
-                        const fileList = event.currentTarget.files;
-
-                        if (fileList && fileList[0]) {
-                          const newFile = fileList[0];
-
-                          const id = `${newFile.name}${Date.now()}`;
-
-                          const newPreview = URL.createObjectURL(newFile);
-
-                          setFiles((prevFiles) => [
-                            ...prevFiles,
-                            { file: newFile, id },
-                          ]);
-                          setPreview((prevPreviews) => [
-                            ...prevPreviews,
-                            { blob: newPreview, id },
-                          ]);
-                        }
-                      }}
-                    />
+                      <RadioGroup
+                        noWrap
+                        name="profType"
+                        title="Si professionel"
+                        values={[
+                          { value: "entreprise", label: "Entreprise" },
+                          { value: "collectivite", label: "collectivité" },
+                          { value: "association", label: "Association" },
+                          {
+                            value: "planner",
+                            label: "planner ou organisateur d’événement",
+                          },
+                        ]}
+                      />
+                    </div>
                   </div>
 
-                  <div className={styles.imagePreviewList}>
-                    {preview.map((image, key) => (
-                      <figure className={styles.imagePreview} key={key}>
-                        <Image
-                          src={image.blob}
-                          width={200}
-                          height={0}
-                          layout="intrinsic"
-                          alt=""
-                        />
-                        <Xmark
-                          onClick={() => {
-                            setFiles((prevFiles) =>
-                              prevFiles.filter((file) => file.id !== image.id)
-                            );
-                            setPreview((images) =>
-                              images.filter(
-                                (arrayImage) => arrayImage.id !== image.id
-                              )
-                            );
+                  <div className={styles.secondBlock}>
+                    <Title title="Votre projet" />
+                    <div className={styles.section}>
+                      <Input name="projectType" label="Type d’événement:" />
+
+                      <TextArea
+                        name="projectDescription"
+                        label="Description du projet:"
+                      />
+
+                      <Input
+                        name="guestsNumber"
+                        label="Nombre de personnes :"
+                      />
+
+                      <TextArea
+                        name="configuration"
+                        label="configuration souhaitée: 
+(conférence, cérémonie, diner assis, diner debout, cocktail…)"
+                      />
+                    </div>
+                    <Title title="La tente" />
+                    <div className={styles.section}>
+                      <RadioGroup
+                        noWrap
+                        name="tentChoice"
+                        title="Le choix de la tente"
+                        values={[
+                          { value: "stretch" },
+                          { value: "silhouette" },
+                          { value: "ne-sais-pas", label: "Ne sais pas" },
+                        ]}
+                      />
+
+                      <Input
+                        name="paroisLaterales"
+                        label="Si silhouette, parois latérales ?"
+                      />
+
+                      <RadioGroup
+                        name="subfloor"
+                        title="Plancher"
+                        values={[{ value: "oui" }, { value: "non" }]}
+                      />
+
+                      <RadioGroup
+                        name="climatiseur"
+                        title="Climatiseur"
+                        values={[{ value: "oui" }, { value: "non" }]}
+                      />
+                    </div>
+                  </div>
+
+                  <div className={styles.thirdBlock}>
+                    <Title title="Info Pratiques" />
+
+                    <div className={styles.section}>
+                      <Input
+                        name="dates"
+                        label="Date de l’événement: (Date de début et de fin)"
+                      />
+                      <Input name="place" label="Lieu de l’événement:" />
+
+                      <div className={styles.files}>
+                        <label htmlFor="file">Photos</label>
+
+                        <label
+                          htmlFor="file-upload"
+                          className={styles.uploadButton}
+                        >
+                          Choisir un fichier
+                        </label>
+                        <input
+                          id="file-upload"
+                          type="file"
+                          onChange={(event) => {
+                            const fileList = event.currentTarget.files;
+
+                            if (fileList && fileList[0]) {
+                              const newFile = fileList[0];
+
+                              const id = `${newFile.name}${Date.now()}`;
+
+                              const newPreview = URL.createObjectURL(newFile);
+
+                              setFiles((prevFiles) => [
+                                ...prevFiles,
+                                { file: newFile, id },
+                              ]);
+                              setPreview((prevPreviews) => [
+                                ...prevPreviews,
+                                { blob: newPreview, id },
+                              ]);
+                            }
                           }}
                         />
-                      </figure>
-                    ))}
-                  </div>
-                  <TextArea
-                    name="additionalInfo"
-                    label="Infos complémentaires:"
-                  />
-                </div>
+                      </div>
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className={styles.button}
-                >
-                  <span className={styles.sunContainer}>
-                    <Sun className={styles.sun} />
-                  </span>
-                  <span className={styles.title}>
-                    {" "}
-                    {isSubmitting ? <TinyLoader /> : "ENVOYER"}
-                  </span>
-                  <span className={styles.sunContainer}>
-                    <Sun className={styles.sun} />
-                  </span>
-                </button>
-              </Form>
-            )}
-          </Formik>{" "}
-        </>
-      )}
+                      <div className={styles.imagePreviewList}>
+                        {preview.map((image, key) => (
+                          <figure className={styles.imagePreview} key={key}>
+                            <Image
+                              src={image.blob}
+                              width={200}
+                              height={0}
+                              layout="intrinsic"
+                              alt=""
+                            />
+                            <Xmark
+                              onClick={() => {
+                                setFiles((prevFiles) =>
+                                  prevFiles.filter(
+                                    (file) => file.id !== image.id
+                                  )
+                                );
+                                setPreview((images) =>
+                                  images.filter(
+                                    (arrayImage) => arrayImage.id !== image.id
+                                  )
+                                );
+                              }}
+                            />
+                          </figure>
+                        ))}
+                      </div>
+                      <TextArea
+                        name="additionalInfo"
+                        label="Infos complémentaires:"
+                      />
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className={styles.button}
+                  >
+                    <span className={styles.sunContainer}>
+                      <Sun className={styles.sun} />
+                    </span>
+                    <span className={styles.title}>
+                      {" "}
+                      {isSubmitting ? <TinyLoader /> : "ENVOYER"}
+                    </span>
+                    <span className={styles.sunContainer}>
+                      <Sun className={styles.sun} />
+                    </span>
+                  </button>
+                </Form>
+              )}
+            </Formik>{" "}
+          </>
+        )}
+      </div>
     </div>
   );
 };

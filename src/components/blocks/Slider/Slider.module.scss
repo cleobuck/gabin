@@ -1,6 +1,9 @@
 @import "@styles/variables";
 
 .sliderContainer {
+  @media #{$tablet} {
+    display: none;
+  }
   width: 100vw; /* Adjust as needed */
   margin: 20px 0; /* Center align */
 
