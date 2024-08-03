@@ -5,10 +5,23 @@
     fill: $teal;
   }
 
+  width: 50px;
+  height: 79px;
+
   &.white {
     path {
       fill: $beige;
     }
+  }
+
+  @media #{$tablet} {
+    width: 61px;
+    height: 85px;
+  }
+
+  @media #{$desktop} {
+    width: 79px;
+    height: 126px;
   }
 }
 

@@ -12,14 +12,14 @@ const FirstServiceMobileSection: React.FC<Props> = ({ style, data }) => {
   return (
     <div className={styles.container}>
       <Text title={data.firstParagraph.title}>
-        {data.firstParagraph.text.map((paragraph) => (
-          <p> {paragraph}</p>
+        {data.firstParagraph.text.map((paragraph, index) => (
+          <p key={index}> {paragraph}</p>
         ))}
       </Text>
       <DraggableSlider style={style} elements={data.sliderImages} />
       <Text title={data.secondParagraph.title}>
-        {data.secondParagraph.text.map((paragraph) => (
-          <p> {paragraph}</p>
+        {data.secondParagraph.text.map((paragraph, index) => (
+          <p key={index}> {paragraph}</p>
         ))}
       </Text>
       <LargeImage image={data.bottomImage} style={style} />

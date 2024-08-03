@@ -8,13 +8,24 @@ import { IsItAPhone, createClassNameString } from "@/utils";
 import ListItem from "@/components/blocks/listItem/listItem";
 import { useEffect } from "react";
 type Props = { style: string };
+import Arrows from "@/assets/images/arrows.svg?react";
 
 export default function ListSlider({ style }: Props) {
+  const [position, setPosition] = useState(0);
   const isPhone = IsItAPhone();
+  const scrollableDiv = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    scrollableDiv.current!.scrollTo({
+      top: 0,
+      left: position,
+      behavior: "smooth",
+    });
+  }, [position]);
   const sliderData = [
     {
       number: 1,
-      title: "La prise de contact : ",
+      title: "La prise de contact ",
       text: (
         <>
           <p>
@@ -48,7 +59,7 @@ export default function ListSlider({ style }: Props) {
     },
     {
       number: 3,
-      title: "La prise de contact : ",
+      title: "La prise de contact ",
       text: (
         <>
           <p>
@@ -82,148 +93,62 @@ export default function ListSlider({ style }: Props) {
     },
   ];
 
-  const desktopArray = [];
-
-  for (let i = 0; i < sliderData.length; i += 2) {
-    desktopArray.push([sliderData[i], sliderData[i + 1]]);
-  }
-
-  const [elemData, setElemData] = useState({ active: 0, previous: 0 });
-
-  const [direction, setDirection] = useState("right");
-
-  const refs = useRef<(HTMLElement | null)[]>([]);
-
-  const setRef = (index: number) => (element: HTMLElement | HTMLDivElement) => {
-    refs.current[index] = element;
-  };
-
-  console.log(refs.current.map((ref) => ref?.clientHeight || 0));
-
-  const [height, setHeight] = useState(0);
-
-  useEffect(() => {
-    if (refs.current.length > 0) {
-      setHeight(Math.max(...refs.current.map((ref) => ref?.clientHeight || 0)));
-    }
-  }, [refs.current.length]);
-
   return (
-    <SecondSlider
-      slide={setElemData}
-      setDirection={setDirection}
-      length={isPhone ? sliderData.length : desktopArray.length}
-      oneWay
-      height={height}
-      style={style}
-    >
-      {isPhone
-        ? sliderData.map((elem, index) => (
-            <Article
-              ref={setRef(index)}
-              key={index}
-              elem={elem}
-              index={index}
-              direction={direction}
-              elemData={elemData}
-            />
-          ))
-        : desktopArray.map((elem, index) => (
-            <DesktopPair
-              pair={elem}
-              key={index}
-              direction={direction}
-              index={index}
-              elemData={elemData}
-              ref={setRef(index)}
-            />
+    <div className={`${styling.listSlider} ${styling[style]}`}>
+      <div className={styling.listScrollable} ref={scrollableDiv}>
+        <div
+          className={styling.overflownContent}
+          onScroll={(e) => e.preventDefault()}
+        >
+          {sliderData.map((elem, index) => (
+            <Article key={index} elem={elem} index={index} />
           ))}
-    </SecondSlider>
+        </div>
+      </div>
+      <div className={styling.rightArrowContainer}>
+        <div
+          className={styling.rightArrows}
+          onClick={() => {
+            console.log("width of window", window.innerWidth);
+            console.log("width of div", scrollableDiv.current!.scrollWidth);
+            console.log("position", position);
+            setPosition((position) => {
+              if (
+                position + window.innerWidth ===
+                scrollableDiv.current!.scrollWidth
+              ) {
+                return 0;
+              } else {
+                return position + window.innerWidth;
+              }
+            });
+          }}
+        >
+          <Arrows />
+        </div>
+        <div className={styling.rightArrowLine} />
+      </div>
+    </div>
   );
 }
 
 type ArticleProps = {
-  elemData: { active: number; previous: number };
   elem: any;
   index: number;
-  direction: string;
 };
 
-type DesktopArticleProps = {
-  elemData: { active: number; previous: number };
-  pair: any;
-  index: number;
-  direction: string;
+const Article = ({ elem, index }: ArticleProps) => {
+  // const classNames = [];
+
+  return (
+    <ListItem
+      className={` ${styling.sliderElem}`}
+      title={elem.title}
+      number={elem.number}
+    >
+      {elem.text}
+    </ListItem>
+  );
 };
-
-const DesktopPair = forwardRef<HTMLDivElement, DesktopArticleProps>(
-  ({ pair, direction, elemData, index }, ref) => {
-    const classNames = [
-      {
-        condition:
-          elemData.active === index && elemData.active !== elemData.previous,
-        name: styling[`active${direction}`],
-      },
-      {
-        condition:
-          elemData.previous === index && elemData.previous !== elemData.active,
-        name: styling[`prev${direction}`],
-      },
-      {
-        condition: elemData.previous === elemData.active && index === 0,
-        name: styling.initialActive,
-      },
-    ];
-
-    return (
-      <div
-        ref={ref}
-        className={`  ${styling.sliderElem} ${createClassNameString(
-          classNames
-        )} ${styling.pair}`}
-      >
-        {pair.map((elem: any, subIndex: number) => (
-          <ListItem key={subIndex} title={elem.title} number={elem.number}>
-            {elem.text}
-          </ListItem>
-        ))}
-      </div>
-    );
-  }
-);
-
-const Article = forwardRef<HTMLElement, ArticleProps>(
-  ({ elemData, elem, index, direction }, ref) => {
-    const classNames = [
-      {
-        condition:
-          elemData.active === index && elemData.active !== elemData.previous,
-        name: styling[`active${direction}`],
-      },
-      {
-        condition:
-          elemData.previous === index && elemData.previous !== elemData.active,
-        name: styling[`prev${direction}`],
-      },
-      {
-        condition: elemData.previous === elemData.active && index === 0,
-        name: styling.initialActive,
-      },
-    ];
-
-    return (
-      <ListItem
-        ref={ref}
-        className={` ${styling.sliderElem} ${createClassNameString(
-          classNames
-        )}`}
-        title={elem.title}
-        number={elem.number}
-      >
-        {elem.text}
-      </ListItem>
-    );
-  }
-);
 
 Article.displayName = "Article";

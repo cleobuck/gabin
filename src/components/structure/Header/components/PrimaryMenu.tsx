@@ -4,9 +4,20 @@ import React from "react";
 import { PrimaryMenuData } from "./PrimaryMenu.data";
 import styling from "./PrimaryMenu.module.scss";
 import { IsItAPhone } from "@/utils";
-type Props = { style?: string; openMenu: () => void; whichMenuOpen: string };
+import SideMenu from "../../side-menu/SideMenu";
+type Props = {
+  style?: string;
+  openMenu: () => void;
+  whichMenuOpen: string;
+  closeMenu: () => void;
+};
 
-export default function PrimaryMenu({ openMenu, whichMenuOpen, style }: Props) {
+export default function PrimaryMenu({
+  openMenu,
+  whichMenuOpen,
+  style,
+  closeMenu,
+}: Props) {
   const isPhone = IsItAPhone();
 
   return (
@@ -30,7 +41,11 @@ export default function PrimaryMenu({ openMenu, whichMenuOpen, style }: Props) {
       >
         <ul className={styling.mainMenuList}>
           {PrimaryMenuData.map((item, key) => (
-            <li key={key} className={styling.mainMenuItemLi}>
+            <li
+              key={key}
+              className={styling.mainMenuItemLi}
+              onClick={closeMenu}
+            >
               <a
                 href={
                   item.href ? `${process.env.BASE_URL}${item.href}` : undefined

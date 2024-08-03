@@ -1,58 +1,121 @@
 @import "@styles/variables";
 
 .caracSlider {
+  color: $darkBlue;
+  font-family: "Sporting Grotesque";
+  padding-bottom: 43px;
+  padding-top: 76px;
+
   @media #{$tablet} {
     display: flex;
-    margin-top: 76px;
-    padding: 0 2vw;
+    justify-content: space-around;
+  }
 
+  h2,
+  h3 {
+    font-family: "Sporting Grotesque";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20.8px;
+    text-align: center;
+  }
+
+  .sliderWrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
     justify-content: center;
-
-    gap: 10vw;
-
-    .text {
-      order: 3;
-      flex: 0 0 266px;
-
-      position: relative;
-      top: -20px;
-    }
-
-    .desktopTitle {
-      order: 1;
-      h2,
-      h3 {
-        font-family: "Sporting Grotesque";
-        font-size: 40px;
-        font-weight: 400;
-        line-height: 45.6px;
-      }
-    }
-
-    .bitch {
-      order: 2;
-      overflow: hidden;
-      width: 300px;
+    flex: 0 0 40vw;
+    gap: 194px;
+    order: 1;
+    .sliderDiv {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
-  @media #{$desktop} {
-    align-items: top;
 
-    margin-top: 106px;
-    margin-bottom: 106px;
-
-    gap: 0;
-
+  .text {
+    font-family: "Raleway";
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 17.25px;
+    text-align: left;
+    flex: 0 0 32vw;
+    order: 2;
+  }
+  &.tent {
     .text {
-      font-size: 20px;
-      padding-top: 0;
-    }
-
-    .bitch {
-      width: 410px;
-      align-self: flex-end;
+      display: none;
     }
   }
+
+  // @media #{$tablet} {
+  //   display: flex;
+
+  //   &.tent {
+  //     display: block;
+  //     width: 100%;
+  //   }
+  //   margin-top: 76px;
+  //   padding: 0 2vw;
+
+  //   justify-content: center;
+
+  //   gap: 10vw;
+
+  //   .text {
+  //     order: 3;
+  //     flex: 0 0 266px;
+
+  //     position: relative;
+  //     top: -20px;
+  //   }
+
+  //   .sliderWrapper {
+  //     color: $beige;
+  //     font-family: "Sporting Grotesque";
+
+  //     display: flex;
+  //     justify-content: space-between;
+
+  //     width: 80vw;
+  //     margin: 0 auto;
+  //     h2,
+  //     h3 {
+  //       font-size: 20px;
+  //       font-weight: 400;
+  //     }
+  //     @media #{$desktop} {
+  //       order: 1;
+  //       h2,
+  //       h3 {
+  //         font-size: 40px;
+  //         font-weight: 400;
+  //         line-height: 45.6px;
+  //       }
+  //     }
+  //   }
+  // }
+  // @media #{$desktop} {
+  //   align-items: top;
+
+  //   margin-top: 106px;
+  //   margin-bottom: 106px;
+
+  //   gap: 0;
+
+  //   .text {
+  //     font-size: 20px;
+  //     padding-top: 0;
+  //   }
+
+  //   .bitch {
+  //     width: 410px;
+  //     align-self: flex-end;
+  //   }
+  // }
 }
 .sliderElem {
   width: 50%;
@@ -97,7 +160,12 @@
 
   h3 {
     position: absolute;
-    bottom: -20px;
+    bottom: -60px;
+
+    @media #{$tablet} {
+      font-weight: 400;
+      font-size: 20px;
+    }
   }
 
   svg {

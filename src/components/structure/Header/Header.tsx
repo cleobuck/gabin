@@ -27,6 +27,7 @@ const Header = ({ style }: { style?: string }) => {
 
       <PrimaryMenu
         openMenu={() => setWhichMenuOpen("main")}
+        closeMenu={() => setWhichMenuOpen("")}
         whichMenuOpen={whichMenuOpen}
         style={style}
       />

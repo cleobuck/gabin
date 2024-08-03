@@ -1,0 +1,63 @@
+@import "@styles/variables";
+
+.firstBlock {
+  .section {
+    @include devisSection;
+  }
+
+  h1 {
+    font-family: "Sporting Grotesque";
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 35.2px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    height: 60px;
+    border-bottom: $devis-border;
+
+    span {
+      border-right: $devis-border;
+      border-left: $devis-border;
+
+      display: inline-block;
+      width: 50%;
+      margin: 0 auto;
+      height: 100%;
+      @include center;
+    }
+  }
+  .infoText {
+    color: $leafGreen;
+    margin: 16px 13px;
+    p {
+      @include paragraph;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  }
+
+  .vous {
+    justify-content: space-between;
+    align-items: center;
+
+    @include paragraph;
+
+    h2 {
+      flex: 1;
+      @include center;
+      border-right: $devis-border;
+      height: 100%;
+      font-family: "Sporting Grotesque";
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 32.6px;
+      text-align: center;
+    }
+
+    span {
+      flex: 0;
+      padding: 0 10px;
+    }
+  }
+}

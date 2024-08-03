@@ -2,5 +2,20 @@
 
 .devis {
   background: linear-gradient(180deg, #fffce5 0%, #619c57 24.5%, #14301b 100%);
+
+  padding-top: 50px;
   padding-bottom: 12px;
+
+  @media #{$tablet} {
+    background: $darkBlue;
+    padding: 46px;
+    min-height: 100vh;
+    position: relative;
+  }
+}
+
+.footer {
+  @media #{$tablet} {
+    display: none;
+  }
 }

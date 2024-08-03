@@ -7,7 +7,12 @@
     font-weight: 400;
     line-height: 35.2px;
     text-align: center;
+    margin-bottom: 6px;
     margin-top: 34px;
     margin-bottom: 5px;
+    @media #{$desktop} {
+      font-size: 40px;
+      line-height: 44px;
+    }
   }
 }

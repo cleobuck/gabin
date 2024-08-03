@@ -5,6 +5,7 @@
   padding-top: 35px;
   padding-bottom: 50px;
   position: relative;
+
   h4 {
     width: 85vw;
     margin: 0 auto 19px auto;
@@ -13,10 +14,22 @@
     font-weight: 400;
     line-height: 20.8px;
     text-align: center;
+
+    @media #{$tablet} {
+      margin: 0 auto;
+      width: 64vw;
+      font-size: 20px;
+    }
   }
   ul {
     width: 84vw;
     margin: 0 auto;
+
+    @media #{$tablet} {
+      margin: 36px auto;
+      width: 30vw;
+      font-size: 16px;
+    }
   }
 
   .simulateButton {

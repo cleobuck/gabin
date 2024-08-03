@@ -25,7 +25,11 @@ const Collectives = () => {
   const style = "collectives";
   return (
     <div className={styling.pageWrapper}>
-      <PageLayout title="collecti- vités" className={styling.collectives}>
+      <PageLayout
+        title="collecti- vités"
+        className={styling.collectives}
+        style="collectivite"
+      >
         <Text title="Une atmosphère unique pour votre grand jour">
           <p>
             Vous rêvez d’un mariage champêtre, bucolique, en plein air ? D’une
@@ -53,7 +57,7 @@ const Collectives = () => {
           </p>
         </Text>
 
-        <LargeImage image={{ src: TentImage, alt: "" }} style="wedding" />
+        <LargeImage image={{ image: TentImage, alt: "" }} style="wedding" />
 
         <Banner style={style} />
 

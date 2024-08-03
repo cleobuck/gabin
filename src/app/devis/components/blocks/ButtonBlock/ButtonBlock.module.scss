@@ -1,0 +1,37 @@
+@import "@styles/variables";
+
+.button {
+  font-family: "Sporting Grotesque";
+  border-top: $devis-border;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 35.2px;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  height: 60px;
+  border-bottom: $devis-border;
+
+  .sunContainer {
+    width: 60px;
+    border-right: $devis-border;
+    border-left: $devis-border;
+    @include center;
+    height: 100%;
+  }
+  .sun {
+    fill: $lightYellow;
+  }
+  span.title {
+    padding: 0 10px;
+    cursor: pointer;
+    display: inline-block;
+    // width: 50%;
+    margin: 0 auto;
+    height: 100%;
+    @include center;
+  }
+}

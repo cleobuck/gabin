@@ -1,0 +1,7 @@
+@import "@styles/variables";
+
+.projectTentBlock {
+  .section {
+    @include devisSection;
+  }
+}

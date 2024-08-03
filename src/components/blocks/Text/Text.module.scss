@@ -28,14 +28,22 @@
     p {
       font-family: "Sporting Grotesque";
       font-size: 16px;
+
       font-weight: 400;
       line-height: 20.8px;
       text-align: center;
+      @media #{$tablet} {
+        font-size: 20px;
+        line-height: 26px;
+      }
     }
   }
 
   .author {
     font-size: 12px;
+    @media #{$tablet} {
+      font-size: 13px;
+    }
     font-weight: 400;
     line-height: 13.44px;
     text-align: center;

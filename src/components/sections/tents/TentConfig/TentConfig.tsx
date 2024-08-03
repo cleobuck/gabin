@@ -11,7 +11,6 @@ const TentConfig: React.FC<Props> = ({ title, list }) => {
       <h4> {title} </h4>
 
       <ul>
-        {" "}
         {list.map((elem, index) => (
           <li key={index}> {elem} </li>
         ))}

@@ -26,6 +26,7 @@ const Events = () => {
   return (
     <div className={styling.pageWrapper}>
       <PageLayout
+        style="event"
         title="organi-sateur
 d’éven-ements /
 planner"
@@ -58,7 +59,7 @@ planner"
           </p>
         </Text>
 
-        <LargeImage image={{ src: TentImage, alt: "" }} style="wedding" />
+        <LargeImage image={{ image: TentImage, alt: "" }} style="wedding" />
 
         <Banner style={style} />
 

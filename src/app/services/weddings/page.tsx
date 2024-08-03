@@ -4,8 +4,6 @@ import styling from "./weddings.module.scss";
 
 import PageLayout from "@/components/structure/PageLayout/PageLayout";
 
-import Banner from "@/components/blocks/Banner/Banner";
-
 import FirstServiceMobileSection from "../sections/FirstServiceMobileSection/FirstServiceMobileSection";
 import { weddingData } from "./wedding.data";
 import FirstServiceTabletSection from "../sections/FirstServiceTabletSection/FirstServiceTabletSection";

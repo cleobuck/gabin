@@ -26,3 +26,14 @@ export const IsItAPhone = () => {
   }, []);
   return isPhone;
 };
+
+export const IsItADesktop = () => {
+  const [isDesktop, setDesktop] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setDesktop(window.screen.width >= 1024);
+    }
+  }, []);
+  return isDesktop;
+};

@@ -8,12 +8,22 @@
     line-height: 32.6px;
     text-align: center;
     margin-bottom: 34px;
+    @media #{$desktop} {
+      font-size: 32px;
+      line-height: 52px;
+      margin-bottom: 21px;
+    }
   }
 
   .image {
     position: relative;
     width: 73vw;
     height: 73vw;
+    @media #{$tablet} {
+      width: 80vw;
+      max-width: 1200px;
+      max-height: 1200px;
+    }
     margin: 0 auto;
     img {
       object-fit: cover;
@@ -27,8 +37,29 @@
     margin-bottom: 24px;
     margin-left: 10vw;
 
+    @media #{$tablet} {
+      width: 65vw;
+    }
+
+    @media #{$desktop} {
+      font-size: 20px;
+      line-height: 22px;
+      display: flex;
+      div {
+        width: 500px;
+      }
+      justify-content: space-between;
+      width: 80vw;
+      max-width: 1200px;
+      margin: 0 auto;
+      margin-top: 99px;
+    }
+
     p {
       margin-bottom: 15px;
+      @media #{$desktop} {
+        margin-bottom: 22px;
+      }
     }
   }
 }

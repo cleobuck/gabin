@@ -11,6 +11,9 @@
 
   &.values {
     color: $beige;
+    @media #{$tablet} {
+      color: $strongGreen;
+    }
   }
   &.home {
     color: $darkBlue;

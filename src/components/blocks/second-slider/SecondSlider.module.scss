@@ -12,6 +12,7 @@
     font-weight: 400;
     line-height: 20.8px;
     text-align: center;
+    color: $darkBlue;
   }
 
   .rightArrowContainer {
@@ -64,6 +65,9 @@
   }
 
   &.tent {
+    margin: 0 auto;
+    max-width: 400px;
+    overflow: hidden;
     h2 {
       color: $beige;
     }

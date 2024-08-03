@@ -5,6 +5,12 @@
   padding: 25px;
   padding-right: 0;
   padding-left: 0;
+  border: $devis-border;
+
+  @media #{$tablet} {
+    margin: 12px;
+  }
+
   h3,
   .mainText {
     color: $strongGreen;

@@ -10,8 +10,6 @@ type Props = {
 };
 
 const TextArea: React.FC<Props> = ({ label, name, rows = 3 }) => {
-  const linesArray = Array.from({ length: rows });
-
   return (
     <div className={styles.container}>
       <label className={styles.label}>{label}</label>

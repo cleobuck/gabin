@@ -1,7 +1,18 @@
 @import "@styles/variables";
 
 .formBox {
-  margin: 50px 12px;
+  margin: 0 12px;
+  max-width: 1000px;
+
+  @media #{$tablet} {
+    margin: 0;
+    margin: 0 20px;
+    // min-height: 100vh;
+  }
+  @media #{$desktop} {
+    position: absolute;
+    right: 42px;
+  }
   margin-bottom: 0;
 
   background: $beige;
@@ -9,159 +20,67 @@
   border: $devis-border;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
-  h1 {
-    font-family: "Sporting Grotesque";
-    font-size: 32px;
-    font-weight: 400;
-    line-height: 35.2px;
-    text-align: center;
-    padding: 0;
-    margin: 0;
-    height: 60px;
-    border-bottom: $devis-border;
-
-    span {
-      border-right: $devis-border;
-      border-left: $devis-border;
-
-      display: inline-block;
-      width: 50%;
-      margin: 0 auto;
-      height: 100%;
-      @include center;
+  &.thankYouBox {
+    @media #{$tablet} {
+      border: 0;
+      max-width: 375px;
+      position: fixed;
+      right: 42px;
+      top: 83px;
+      z-index: 300;
+    }
+    @media #{$desktop} {
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  .infoText {
-    color: $leafGreen;
-    margin: 16px 13px;
-    p {
-      @include paragraph;
-      text-align: center;
-      margin-bottom: 10px;
-    }
-  }
-
-  .vous {
-    justify-content: space-between;
-    align-items: center;
-
-    @include paragraph;
-
-    h2 {
-      flex: 1;
-      @include center;
-      border-right: $devis-border;
-      height: 100%;
-      font-family: "Sporting Grotesque";
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 32.6px;
-      text-align: center;
+.tabletLayout {
+  margin: 14px;
+  .tabletColumns {
+    display: flex;
+    .leftTabletCol,
+    .rightTabletCol {
+      flex: 0 0 50%;
+      border: $devis-border;
+      border-bottom: none;
     }
 
-    span {
-      flex: 0;
-      padding: 0 10px;
+    .rightTabletCol {
+      border-left: none;
+      border-top: none;
     }
   }
-
-  .section {
-    margin: 0 auto;
-    padding-right: 10px;
-    padding-left: 10px;
-    padding-top: 30px;
-    padding-bottom: 22px;
-  }
 }
 
-.files {
-  display: flex;
-  align-items: center;
-  margin: 15px 0;
-  input[type="file"] {
-    display: none;
-  }
-
-  .uploadButton {
-    font-family: "Raleway";
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 24.45px;
-    text-align: center;
-    border: $devis-border;
-    height: 25px;
-    padding: 0 10px;
-    @include center;
-    margin-left: 15px;
-
-    cursor: pointer;
-  }
-}
-
-.button {
-  font-family: "Sporting Grotesque";
-  border-top: $devis-border;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  font-size: 32px;
-  font-weight: 400;
-  line-height: 35.2px;
-  text-align: center;
-  padding: 0;
-  margin: 0;
-  height: 60px;
-  border-bottom: $devis-border;
-
-  .sunContainer {
-    width: 60px;
-    border-right: $devis-border;
-    border-left: $devis-border;
-    @include center;
-    height: 100%;
-  }
-  .sun {
-    fill: $lightYellow;
-  }
-  span.title {
-    padding: 0 10px;
-    cursor: pointer;
-    display: inline-block;
-    // width: 50%;
-    margin: 0 auto;
-    height: 100%;
-    @include center;
-  }
-}
-
-.imagePreviewList {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.imagePreview {
+.formPageWrapper {
   position: relative;
-  width: 200px;
-  img {
-    height: auto; /* Set image height to auto */
-    width: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.logo {
+  display: none;
+  @media #{$desktop} {
+    display: inline-block;
+    width: auto;
   }
-  svg {
-    width: 25px;
-    height: 25px;
-    border-radius: 5px;
-    top: 5px;
-    left: 5px;
-    position: absolute;
-    background-color: $darkBlue;
-    path {
-      fill: white;
+
+  &.thankYouLogo {
+    @media #{$tablet} {
+      display: inline-block;
+      width: auto;
     }
+  }
+}
+
+.figure {
+  position: absolute;
+  bottom: 30px;
+  left: 100px;
+  @media #{$desktop} {
+    bottom: 50%;
+    transform: translateY(50%);
   }
 }

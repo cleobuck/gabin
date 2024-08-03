@@ -23,8 +23,8 @@
 }
 
 .mobileSideMenu {
+  top: 150px !important;
   @media #{$tablet} {
     display: none;
-    top: 150px !important;
   }
 }

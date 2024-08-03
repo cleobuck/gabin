@@ -25,7 +25,11 @@ const Weddings = () => {
   const style = "business";
   return (
     <div className={styling.pageWrapper}>
-      <PageLayout title="Entre - prise" className={styling.business}>
+      <PageLayout
+        title="Entre - prise"
+        className={styling.business}
+        style="business"
+      >
         <Text title="Une atmosphère unique pour votre grand jour">
           <p>
             Vous rêvez d’un mariage champêtre, bucolique, en plein air ? D’une
@@ -53,7 +57,7 @@ const Weddings = () => {
           </p>
         </Text>
 
-        <LargeImage image={{ src: TentImage, alt: "" }} style="wedding" />
+        <LargeImage image={{ image: TentImage, alt: "" }} style="wedding" />
 
         <Banner style={style} />
 

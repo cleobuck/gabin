@@ -1,0 +1,7 @@
+@import "@styles/variables";
+
+.contactBlock {
+  .section {
+    @include devisSection;
+  }
+}

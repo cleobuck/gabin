@@ -1,0 +1,57 @@
+@import "@styles/variables";
+
+.practicalInfo {
+  .section {
+    @include devisSection;
+  }
+
+  .files {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    input[type="file"] {
+      display: none;
+    }
+
+    .uploadButton {
+      font-family: "Raleway";
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 24.45px;
+      text-align: center;
+      border: $devis-border;
+      height: 25px;
+      padding: 0 10px;
+      @include center;
+      margin-left: 15px;
+
+      cursor: pointer;
+    }
+  }
+  .imagePreviewList {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .imagePreview {
+    position: relative;
+    width: 200px;
+    img {
+      height: auto; /* Set image height to auto */
+      width: 100%;
+    }
+    svg {
+      width: 25px;
+      height: 25px;
+      border-radius: 5px;
+      top: 5px;
+      left: 5px;
+      position: absolute;
+      background-color: $darkBlue;
+      path {
+        fill: white;
+      }
+    }
+  }
+}

@@ -1,17 +1,49 @@
 @import "@styles/variables";
 
 .container {
+  margin: 0 auto;
+
   margin-top: 70px;
 
+  max-width: 700px;
   display: none;
 
   @media #{$tablet} {
     display: block;
   }
 
+  .firstLeftImage {
+    width: 149px;
+    height: 200px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    align-self: flex-end;
+    position: relative;
+    .sun {
+      width: 58px;
+      height: 58px;
+      position: absolute;
+      path {
+        fill: $yellow;
+      }
+      bottom: 0;
+      left: -100px;
+      transform: translateY(50%);
+    }
+  }
+
+  .secondLeftImage {
+    width: 310px;
+    height: 235px;
+    margin-top: auto;
+    img {
+      display: block;
+    }
+  }
+
   .firstPart {
     margin: 0 auto;
-    width: 600px;
+    width: 90vw;
 
     h2 {
       font-family: "Sporting Grotesque";
@@ -36,6 +68,9 @@
       }
       &.secondParagraph {
         flex: 0 0 280px;
+
+        display: flex;
+        flex-direction: column;
       }
     }
 
@@ -44,10 +79,21 @@
       justify-content: space-between;
     }
 
-    .firstImage {
+    .rightBlock {
       flex: 1;
-      width: 300px;
-      height: auto;
+      margin-left: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .firstImage {
+        width: 300px;
+        height: auto;
+        margin-bottom: 43px;
+      }
+      p {
+        width: 331px;
+      }
     }
   }
 }

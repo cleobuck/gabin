@@ -11,6 +11,9 @@
   transform: translateX(-50%);
   border-radius: 0;
   font-size: 13px;
+  @media #{$desktop} {
+    font-size: 15px;
+  }
   width: 54vw;
   max-width: 250px;
   background: $beige;
@@ -72,6 +75,13 @@
         }
       }
     }
+  }
+  @media #{$tablet} {
+    width: 60vw;
+  }
+
+  @media #{$desktop} {
+    width: 40%;
   }
 
   &[aria-expanded="true"] {

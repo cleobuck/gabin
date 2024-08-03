@@ -4,7 +4,7 @@ import React, { ReactNode, useEffect, useState } from "react";
 import SecondSlider from "@/components/blocks/second-slider/SecondSlider";
 
 import styling from "./CaracSlider.module.scss";
-import { IsItAPhone, createClassNameString } from "@/utils";
+import { IsItADesktop, IsItAPhone, createClassNameString } from "@/utils";
 import Text from "@/components/blocks/Text/Text";
 type Props = {
   style: string;
@@ -14,18 +14,13 @@ type Props = {
 export default function CaracSlider({ style, sliderData }: Props) {
   const [imageData, setImageData] = useState({ active: 0, previous: 0 });
 
+  const isDesktop = IsItADesktop();
   const isPhone = IsItAPhone();
 
   const [direction, setDirection] = useState("right");
 
   return (
-    <div className={styling.caracSlider}>
-      {!isPhone && (
-        <div className={styling.desktopTitle}>
-          <h2 className={styling.desktopTitle}>Caractéristiques </h2>
-          <h3> {sliderData[imageData.active].title}</h3>
-        </div>
-      )}
+    <div className={`${styling.caracSlider} ${styling[style]}`}>
       <Text className={styling.text}>
         <p>
           Fortes de leur identité propre, nos tentes offrent toutes deux
@@ -39,13 +34,16 @@ export default function CaracSlider({ style, sliderData }: Props) {
         </p>
       </Text>
 
-      <div className={styling.bitch}>
+      <div className={styling.sliderWrapper}>
+        <h2>Caractéristiques </h2>
+        <h3> {sliderData[imageData.active].title}</h3>
+
         <SecondSlider
           slide={setImageData}
           setDirection={setDirection}
           length={sliderData.length}
-          title={isPhone ? "Caractéristiques" : undefined}
           style={style}
+          className={styling.sliderDiv}
         >
           {sliderData.map((elem, index) => (
             <Article
@@ -76,6 +74,7 @@ const Article = ({
   direction: string;
   style: string;
 }) => {
+  const isPhone = IsItAPhone();
   const classNames = [
     {
       condition:
@@ -101,7 +100,6 @@ const Article = ({
       className={` ${styling.sliderElem} ${createClassNameString(classNames)}`}
     >
       {elem.Icon}
-      <h3> {elem.title}</h3>
     </article>
   );
 };

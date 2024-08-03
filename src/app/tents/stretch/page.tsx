@@ -58,8 +58,6 @@ avec une tente Stretch
         ]}
       />
 
-      <Button href=""> SIMULER MON PLAN DE TABLE </Button>
-
       <LogoSection />
 
       <Footer />

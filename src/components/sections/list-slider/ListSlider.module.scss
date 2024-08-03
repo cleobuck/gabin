@@ -1,90 +1,66 @@
 @import "@styles/variables";
 
-.sliderElem {
+.listSlider {
   width: 100%;
+  position: relative;
+  &.weddings {
+    background: rgba(255, 252, 229, 0.5);
 
+    .rightArrows {
+      background: $lightGreen;
+    }
+    .rightArrowLine {
+      background: $lightGreen;
+    }
+  }
+}
+
+.listScrollable {
+  overflow-x: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  width: 100%;
+}
+
+.overflownContent {
+  display: flex;
+  height: 100%;
+}
+
+.rightArrowContainer {
+  position: absolute;
+  width: 100vw;
+  left: 0;
+  bottom: 25px;
+  .rightArrows {
+    right: 10%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .rightArrowLine {
+    width: 100vw;
+    height: 0.5px;
+  }
+}
+
+.sliderElem {
   padding: 0 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: absolute;
+  flex: 0 0 100vw;
 
-  transition: opacity 1s;
-  opacity: 0;
-  left: -1000px;
-  top: 0;
-  left: 0;
-
-  &.initialActive {
-    opacity: 1;
-  }
-
-  &.activeright {
-    opacity: 1;
-    transition: opacity 1s;
-    animation: fromLeftToMiddle 0.5s linear forwards;
-  }
-
-  &.activeleft {
-    opacity: 1;
-    transition: opacity 1s;
-
-    animation: fromRightToMiddle 0.5s linear forwards;
-  }
-
-  &.prevright {
-    animation: fromMiddleToRight 0.5s linear forwards;
-  }
-
-  &.prevleft {
-    animation: fromMiddleToLeft 0.5s linear forwards;
-  }
-}
-
-@keyframes fromMiddleToRight {
-  from {
-    left: 0%;
-  }
-  to {
-    left: 300%;
-  }
-}
-
-@keyframes fromLeftToMiddle {
-  from {
-    left: -100%;
-  }
-  to {
-    left: 0%;
-  }
-}
-
-@keyframes fromRightToMiddle {
-  from {
-    left: 300%;
-  }
-  to {
-    left: 0%;
-  }
-}
-
-@keyframes fromMiddleToLeft {
-  from {
-    left: 0%;
-  }
-  to {
-    left: -100%;
-  }
-}
-
-.pair {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 108px;
-  max-width: 724px;
-  article {
-    flex: 1 0 44%;
+  @media #{$tablet} {
+    flex-basis: 50vw;
   }
 }

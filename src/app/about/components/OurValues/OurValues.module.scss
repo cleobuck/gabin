@@ -25,9 +25,14 @@
     color: $beige;
     margin-bottom: 60px;
     font-size: 20px;
+
     font-weight: 400;
     line-height: 32.6px;
     text-align: center;
+    @media #{$tablet} {
+      font-size: 32px;
+      line-height: 52.16px;
+    }
   }
 
   .images {
@@ -44,7 +49,22 @@
       }
     }
   }
+  .sun {
+    width: 76px;
+    height: 76px;
+    path {
+      fill: $yellow !important;
+    }
+    position: relative;
+    right: -70%;
+  }
 
+  .leftSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
   .leftImage {
     width: 40vw;
     height: 53vw;
