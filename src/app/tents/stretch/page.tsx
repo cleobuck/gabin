@@ -10,8 +10,7 @@ import ImageTest1 from "@/assets/images/sun.svg?react";
 import Drops from "@/assets/images/drops.svg?react";
 import CaracSlider from "@/components/sections/carac-slider/CaracSlider";
 import DraggableSlider from "@/components/blocks/Slider/Slider";
-import TentConfig from "@/components/sections/tents/TentConfig/TentConfig";
-import Button from "@/components/items/Button/Button";
+
 import LogoSection from "@/components/sections/tents/LogoSection/LogoSection";
 import Footer from "@/components/structure/Footer/Footer";
 import { ResizeScript } from "@/components/ResizeScript";

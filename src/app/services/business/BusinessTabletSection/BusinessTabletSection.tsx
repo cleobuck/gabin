@@ -13,8 +13,8 @@ const BusinessTabletSection: React.FC<Props> = ({ data }) => {
       <div className={styles.topContainer}>
         <div className={styles.leftPart}>
           <h2> {data.firstParagraph.title}</h2>
-          {data.firstParagraph.text.map((paragraph) => (
-            <p> {paragraph} </p>
+          {data.firstParagraph.text.map((paragraph, key) => (
+            <p key={key}> {paragraph} </p>
           ))}
         </div>
 
@@ -45,8 +45,8 @@ const BusinessTabletSection: React.FC<Props> = ({ data }) => {
 
           <h2>{data.secondParagraph.title}</h2>
 
-          {data.secondParagraph.text.map((paragraph) => (
-            <p> {paragraph}</p>
+          {data.secondParagraph.text.map((paragraph, key) => (
+            <p key={key}> {paragraph}</p>
           ))}
         </div>
       </div>

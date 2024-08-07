@@ -17,7 +17,7 @@ const Weddings = () => {
       <PageLayout title="Mariages" className={styling.weddings} style={style}>
         <FirstServiceMobileSection style={style} data={weddingData} />
 
-        <FirstServiceTabletSection style={style} data={weddingData} />
+        <FirstServiceTabletSection data={weddingData} />
       </PageLayout>
     </div>
   );

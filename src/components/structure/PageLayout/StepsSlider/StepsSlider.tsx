@@ -80,7 +80,7 @@ const StepsSlider: React.FC<Props> = ({ style }) => {
   return (
     <ListSlider style={style}>
       {sliderData.map((elem: any, index: number) => (
-        <Article key={index} elem={elem} index={index} />
+        <Article key={index} elem={elem} />
       ))}
     </ListSlider>
   );
