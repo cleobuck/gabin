@@ -2,9 +2,15 @@
 
 .container {
   background: $beige;
+
+  width: 80vw;
+  padding-right: 10vw;
+  padding-left: 10vw;
+
   padding-top: 35px;
   padding-bottom: 50px;
   position: relative;
+  width: 100vw;
 
   h4 {
     width: 85vw;
@@ -24,7 +30,7 @@
   ul {
     width: 84vw;
     margin: 0 auto;
-
+    list-style-position: inside;
     @media #{$tablet} {
       margin: 36px auto;
       width: 30vw;

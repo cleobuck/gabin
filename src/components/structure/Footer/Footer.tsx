@@ -10,6 +10,7 @@ import Facebook from "@/assets/images/facebook.svg?react";
 
 import TentImage from "@/assets/images/placeholder.jpeg";
 import Image from "next/image";
+import ImageWithCredit from "@/components/items/ImageWithCredit/ImageWithCredit";
 
 type Props = { noImage?: boolean; className?: string };
 
@@ -17,9 +18,11 @@ export default function Footer({ noImage, className }: Props) {
   return (
     <div className={className ? className : ""}>
       {!noImage && (
-        <figure className={styling.image}>
-          <Image alt="tente" className={styling.image} src={TentImage} />
-        </figure>
+        <ImageWithCredit
+          alt="tente"
+          className={styling.image}
+          src={TentImage}
+        />
       )}
       <div className={styling.footer}>
         {!noImage && <Sun className={styling.sun} />}
@@ -63,6 +66,8 @@ export default function Footer({ noImage, className }: Props) {
             </div>
           </ul>
         </nav>
+
+        <span className={styling.credit}> images : @Organic-Concept </span>
       </div>
     </div>
   );

@@ -2,6 +2,8 @@ import React from "react";
 import styling from "./Banner.module.scss";
 type Props = { style: string };
 
+// https://codepen.io/studiojvla/pen/qVbQqW
+
 export default function Banner({ style }: Props) {
   return (
     <div className={` ${styling[style]} ${styling.borders}`}>

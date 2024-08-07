@@ -19,6 +19,21 @@
       }
     }
   }
+  &.events {
+    .sun {
+      path {
+        fill: $brown;
+      }
+    }
+  }
+  &.business,
+  &.collectives {
+    .sun {
+      path {
+        fill: $teal;
+      }
+    }
+  }
   .imagesContainer {
     display: flex;
     justify-content: center;

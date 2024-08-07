@@ -7,6 +7,7 @@ import ValueSlider from "@/components/sections/ValueSlider/ValueSlider";
 import Button from "@/components/items/Button/Button";
 import Sun from "@/assets/images/sun.svg?react";
 import { IsItAPhone } from "@/utils";
+import ImageWithCredit from "@/components/items/ImageWithCredit/ImageWithCredit";
 
 type Props = {};
 
@@ -19,17 +20,23 @@ const OurValues: React.FC<Props> = () => {
       <div className={styles.images}>
         <div className={styles.leftSection}>
           {!isPhone && <Sun className={styles.sun} />}
-          <figure className={styles.leftImage}>
-            <Image src={TentImage} alt="tent" fill={true} />
-          </figure>
+          <ImageWithCredit
+            src={TentImage}
+            alt="tent"
+            className={styles.leftImage}
+          />
         </div>
         <div className={styles.rightImages}>
-          <figure className={styles.topImage}>
-            <Image src={TentImage} alt="tent" fill={true} />
-          </figure>
-          <figure className={styles.bottomImage}>
-            <Image src={TentImage} alt="tent" fill={true} />
-          </figure>
+          <ImageWithCredit
+            src={TentImage}
+            alt="tent"
+            className={styles.topImage}
+          />
+          <ImageWithCredit
+            src={TentImage}
+            alt="tent"
+            className={styles.bottomImage}
+          />
         </div>
       </div>
 

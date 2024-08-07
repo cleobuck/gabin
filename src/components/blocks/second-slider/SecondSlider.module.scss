@@ -5,6 +5,7 @@
   margin: 0 auto;
   position: relative;
   padding: 0 10%;
+  overflow: hidden;
 
   h2 {
     font-family: "Sporting Grotesque";
@@ -13,18 +14,6 @@
     line-height: 20.8px;
     text-align: center;
     color: $darkBlue;
-  }
-
-  .rightArrowContainer {
-    position: absolute;
-    width: 100vw;
-    left: 0;
-    bottom: 25px;
-    .rightArrowLine {
-      width: 100vw;
-      height: 0.5px;
-      background: $teal;
-    }
   }
 
   &.setHeight {
@@ -49,21 +38,30 @@
   }
 
   &.weddings {
-    &.oneWay {
-      background: rgba(255, 252, 229, 0.5);
-      h3 {
-        padding-top: 20px;
-      }
-    }
     .leftArrows,
     .rightArrows {
       background: $lightGreen;
     }
-    .rightArrowLine {
-      background: $lightGreen;
-    }
   }
 
+  &.business {
+    .leftArrows,
+    .rightArrows {
+      background: $lightBlue;
+    }
+  }
+  &.collectives {
+    .leftArrows,
+    .rightArrows {
+      background: $yellow;
+    }
+  }
+  &.events {
+    .leftArrows,
+    .rightArrows {
+      background: $brown;
+    }
+  }
   &.tent {
     margin: 0 auto;
     max-width: 400px;
@@ -83,10 +81,5 @@
   }
   .rightArrows {
     right: 10%;
-  }
-
-  &:not(.oneWay) {
-    @media #{$tablet} {
-    }
   }
 }

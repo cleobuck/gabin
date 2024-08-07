@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./LargeImage.module.scss";
 import Sun from "@/assets/images/sun.svg?react";
 import Image, { StaticImageData } from "next/image";
+import ImageWithCredit from "@/components/items/ImageWithCredit/ImageWithCredit";
 
 type Props = {
   image: {
@@ -13,11 +14,13 @@ type Props = {
 
 const LargeImage: React.FC<Props> = ({ image, style }) => {
   return (
-    <div className={styles.container}>
-      <Image src={image.image} alt={image.alt} fill={true} />
-
-      <Sun className={`${styles[style]} ${styles.sun}`} />
-    </div>
+    <ImageWithCredit
+      src={image.image}
+      alt={image.alt}
+      className={styles.container}
+    >
+      <Sun className={`${styles[style]} ${styles.sun}`} />{" "}
+    </ImageWithCredit>
   );
 };
 

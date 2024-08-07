@@ -6,7 +6,7 @@ import PageLayout from "@/components/structure/PageLayout/PageLayout";
 
 import FirstServiceMobileSection from "../sections/FirstServiceMobileSection/FirstServiceMobileSection";
 import { weddingData } from "./wedding.data";
-import FirstServiceTabletSection from "../sections/FirstServiceTabletSection/FirstServiceTabletSection";
+import FirstServiceTabletSection from "./tablet-section/WeddingTabletSection";
 import { ResizeScript } from "@/components/ResizeScript";
 
 const Weddings = () => {
@@ -14,11 +14,7 @@ const Weddings = () => {
   return (
     <div className={styling.pageWrapper}>
       <ResizeScript />
-      <PageLayout
-        title="Mariages"
-        className={styling.weddings}
-        style="weddings"
-      >
+      <PageLayout title="Mariages" className={styling.weddings} style={style}>
         <FirstServiceMobileSection style={style} data={weddingData} />
 
         <FirstServiceTabletSection style={style} data={weddingData} />

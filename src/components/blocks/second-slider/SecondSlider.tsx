@@ -13,7 +13,6 @@ type Props = {
   ) => void;
   length: number;
   setDirection?: (value: string) => void;
-  oneWay?: boolean;
   title?: string;
   height?: number;
   children: ReactNode;
@@ -26,7 +25,6 @@ export default function SecondSlider({
   length,
   children,
   setDirection,
-  oneWay = false,
   title,
   height,
   style,
@@ -36,32 +34,30 @@ export default function SecondSlider({
     <section
       className={`${styling.secondSlider} ${!height ? "" : styling.setHeight} ${
         styling[style]
-      } ${oneWay ? styling.oneWay : ""} ${className ? className : ""}`}
+      }  ${className ? className : ""}`}
       style={{ height: height || 250 }}
     >
       {title && <h2> {title}</h2>}
 
-      {!oneWay && (
-        <div
-          className={styling.leftArrows}
-          onClick={() => {
-            slide((prev) => ({
-              active: prev.active === 0 ? length - 1 : prev.active - 1,
-              previous: prev.active,
-            }));
+      <div
+        className={styling.leftArrows}
+        onClick={() => {
+          slide((prev) => ({
+            active: prev.active === 0 ? length - 1 : prev.active - 1,
+            previous: prev.active,
+          }));
 
-            if (setDirection) {
-              setDirection("left");
-            }
-          }}
-        >
-          <Arrows />
-        </div>
-      )}
+          if (setDirection) {
+            setDirection("left");
+          }
+        }}
+      >
+        <Arrows />
+      </div>
 
       {children}
 
-      <div className={oneWay ? styling.rightArrowContainer : ""}>
+      <div>
         <div
           className={styling.rightArrows}
           onClick={() => {
@@ -77,7 +73,6 @@ export default function SecondSlider({
         >
           <Arrows />
         </div>
-        {oneWay && <div className={styling.rightArrowLine}></div>}
       </div>
     </section>
   );

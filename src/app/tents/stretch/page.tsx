@@ -15,6 +15,8 @@ import Button from "@/components/items/Button/Button";
 import LogoSection from "@/components/sections/tents/LogoSection/LogoSection";
 import Footer from "@/components/structure/Footer/Footer";
 import { ResizeScript } from "@/components/ResizeScript";
+import TwoLargeImages from "@/components/sections/TwoLargeImages/TwoLargeImages";
+import ConfigSlider from "@/components/sections/tents/ConfigSlider/ConfigSlider";
 const TentStretch = () => {
   const caracSliderData = [
     { title: "imperméable", Icon: <Drops /> },
@@ -45,18 +47,12 @@ le choix de la modularité
       <CaracSlider style="tent" sliderData={caracSliderData} />
       <DraggableSlider elements={images} style="tent" />
 
-      <TentConfig
-        title="Configurations possibles 
-avec une tente Stretch 
-10 x 15 m (150 m²)
-"
-        list={[
-          "Cérémonie : 250 personnes",
-          "Cocktail : 180 personnes",
-          "Walking dinner : 150 personnes",
-          "Diner assis : 100 personnes",
-        ]}
+      <TwoLargeImages
+        firstImage={{ src: TentImage, alt: "" }}
+        secondImage={{ src: TentImage, alt: "" }}
       />
+
+      <ConfigSlider type="stretch" />
 
       <LogoSection />
 

@@ -4,9 +4,9 @@
   color: $darkBlue;
   font-family: "Sporting Grotesque";
   padding-bottom: 43px;
-  padding-top: 76px;
 
   @media #{$tablet} {
+    padding-top: 76px;
     display: flex;
     justify-content: space-around;
   }

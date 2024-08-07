@@ -19,6 +19,7 @@ import Sun from "@/assets/images/sun.svg?react";
 import Text from "@/components/blocks/Text/Text";
 import Banner from "@/components/blocks/Banner/Banner";
 import { ResizeScript } from "@/components/ResizeScript";
+import StepsSlider from "./StepsSlider/StepsSlider";
 
 type Props = {
   children: ReactNode;
@@ -68,7 +69,7 @@ export default function PageLayout({
       <Banner style={style} />
 
       <CaracSlider
-        style="weddings"
+        style={style}
         sliderData={[
           { title: "imperméable", Icon: <Drops /> },
           { title: "deuxieme", Icon: <ImageTest2 /> },
@@ -83,7 +84,7 @@ export default function PageLayout({
       </Text>
 
       <TentTeaser style={style} />
-      <ListSlider style={style} />
+      <StepsSlider style={style} />
 
       <Trust />
 

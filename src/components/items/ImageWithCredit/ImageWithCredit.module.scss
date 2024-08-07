@@ -1,0 +1,19 @@
+@import "@styles/variables";
+
+.imageWithCredit {
+  .credit {
+    display: none;
+  }
+  &:hover {
+    .credit {
+      position: absolute;
+      background: lightgray;
+      color: black;
+      font-size: 12px;
+      padding: 10px 16px;
+      right: 0;
+      bottom: 0;
+      display: block;
+    }
+  }
+}

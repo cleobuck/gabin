@@ -3,5 +3,9 @@
 .contactBlock {
   .section {
     @include devisSection;
+    a {
+      text-decoration: none;
+      font-weight: bold;
+    }
   }
 }

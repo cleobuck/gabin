@@ -7,6 +7,7 @@ import DevisButton from "@/components/items/Button/DevisButton";
 import Sun from "@/assets/images/sun.svg?react";
 import TentImage from "@/assets/images/placeholder.jpeg";
 import { IsItAPhone } from "@/utils";
+import ImageWithCredit from "@/components/items/ImageWithCredit/ImageWithCredit";
 
 type Props = {};
 
@@ -16,10 +17,9 @@ const FirstSection: React.FC<Props> = ({}) => {
     <section className={styles.firstSection}>
       <h1> Location et installation de tentes de réception sur mesure </h1>
 
-      <figure className={styles.image}>
-        <Image src={TentImage} alt="tent" fill={true} />
+      <ImageWithCredit src={TentImage} alt="tent" className={styles.image}>
         {!isPhone && <Sun className={styles.sun} />}
-      </figure>
+      </ImageWithCredit>
 
       <div className={styles.buttonPart}>
         <DevisButton className={styles.devisButton} />

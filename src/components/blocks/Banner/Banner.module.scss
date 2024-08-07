@@ -5,16 +5,37 @@
   overflow: hidden;
   width: 100vw;
 
+  border-bottom: 0.5px solid $teal;
+  border-top: 0.5px solid $teal;
+
   &.business,
   &.home {
-    border-bottom: 0.5px solid $teal;
-    border-top: 0.5px solid $teal;
+    border-color: $teal;
     color: $teal;
   }
+
+  &.business {
+    @media #{$tablet} {
+      border-color: $leafGreen;
+      color: $leafGreen;
+    }
+    @media #{$desktop} {
+      border-color: $teal;
+      color: $teal;
+    }
+  }
   &.weddings {
-    border-bottom: 0.5px solid $leafGreen;
-    border-top: 0.5px solid $leafGreen;
+    border-color: $leafGreen;
     color: $leafGreen;
+  }
+  &.collectives {
+    border-color: $yellow;
+    color: $yellow;
+  }
+
+  &.events {
+    border-color: $brown;
+    color: $brown;
   }
 }
 

@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect, ReactNode } from "react";
 import styling from "./Slider.module.scss";
 import Image, { StaticImageData } from "next/image";
+import ImageWithCredit from "@/components/items/ImageWithCredit/ImageWithCredit";
 
 type ImageData = { image: StaticImageData; alt: string };
 
@@ -97,16 +98,12 @@ const DraggableSlider = ({
       >
         {elements!.map((element, index) =>
           type === "image" ? (
-            <figure key={index} className={styling.image}>
-              <Image
-                alt={(element as ImageData)!.alt}
-                className={styling.image}
-                src={(element as ImageData)!.image}
-                layout="fixed"
-                width={276}
-                height={250}
-              />
-            </figure>
+            <ImageWithCredit
+              key={index}
+              alt={(element as ImageData)!.alt}
+              className={styling.image}
+              src={(element as ImageData)!.image}
+            />
           ) : (
             <div key={index} className={styling.customElement}>
               {element as ReactNode}

@@ -1,0 +1,16 @@
+@import "@styles/variables";
+
+.sliderElem {
+  padding: 0 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 0 0 100vw;
+
+  padding-top: 21px;
+  padding-bottom: 30px;
+
+  @media #{$tablet} {
+    flex-basis: 50vw;
+  }
+}

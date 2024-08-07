@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./ThirdSection.module.scss";
 import Image from "next/image";
 import TentImage from "@/assets/images/placeholder.jpeg";
+import ImageWithCredit from "@/components/items/ImageWithCredit/ImageWithCredit";
 
 type Props = {};
 
@@ -9,12 +10,8 @@ const ThirdSection: React.FC<Props> = ({}) => {
   return (
     <section className={styles.thirdSection}>
       <div className={styles.images}>
-        <figure className={styles.image}>
-          <Image src={TentImage} alt="tent" fill={true} />
-        </figure>
-        <figure className={styles.image}>
-          <Image src={TentImage} alt="tent" fill={true} />
-        </figure>
+        <ImageWithCredit src={TentImage} alt="tent" className={styles.image} />
+        <ImageWithCredit src={TentImage} alt="tent" className={styles.image} />
       </div>
 
       <p>

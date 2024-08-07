@@ -10,11 +10,11 @@ import ImageTest1 from "@/assets/images/sun.svg?react";
 import Drops from "@/assets/images/drops.svg?react";
 import CaracSlider from "@/components/sections/carac-slider/CaracSlider";
 import DraggableSlider from "@/components/blocks/Slider/Slider";
-import TentConfig from "@/components/sections/tents/TentConfig/TentConfig";
-import Button from "@/components/items/Button/Button";
 import LogoSection from "@/components/sections/tents/LogoSection/LogoSection";
 import Footer from "@/components/structure/Footer/Footer";
 import { ResizeScript } from "@/components/ResizeScript";
+import TwoLargeImages from "@/components/sections/TwoLargeImages/TwoLargeImages";
+import ConfigSlider from "@/components/sections/tents/ConfigSlider/ConfigSlider";
 const TentSilhouette = () => {
   const caracSliderData = [
     { title: "imperméable", Icon: <Drops /> },
@@ -44,17 +44,11 @@ le choix d’une élégance assumée
       <CaracSlider style="tent" sliderData={caracSliderData} />
       <DraggableSlider elements={images} style="tent" />
 
-      <TentConfig
-        title="Configurations possibles 
-avec une tente silhouette 
-10 x 16 m (134 m²)"
-        list={[
-          "Cérémonie : 220 personnes",
-          "Cocktail : 160 personnes",
-          "Walking dinner : 130 personnes",
-          "Diner assis : 85 personnes",
-        ]}
+      <TwoLargeImages
+        firstImage={{ src: TentImage, alt: "" }}
+        secondImage={{ src: TentImage, alt: "" }}
       />
+      <ConfigSlider type="silhouette" />
 
       <LogoSection />
 

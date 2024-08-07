@@ -3,6 +3,7 @@ import styles from "./WhoAreWe.module.scss";
 import Text from "@/components/blocks/Text/Text";
 import Image from "next/image";
 import TentImage from "@/assets/images/placeholder.jpeg";
+import ImageWithCredit from "@/components/items/ImageWithCredit/ImageWithCredit";
 
 type Props = {};
 
@@ -11,9 +12,7 @@ export default function WhoAreWe({}: Props) {
     <section id="who" className={styles.whoarewe}>
       <h2>Qui sommes-nous? </h2>
 
-      <figure className={styles.image}>
-        <Image src={TentImage} alt="tent" fill={true} />
-      </figure>
+      <ImageWithCredit src={TentImage} alt="tent" className={styles.image} />
 
       <div className={styles.text}>
         <div>

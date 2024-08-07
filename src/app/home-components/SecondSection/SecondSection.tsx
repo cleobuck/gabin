@@ -7,6 +7,7 @@ import TentImage from "@/assets/images/placeholder.jpeg";
 import BulletPoint from "@/assets/images/bullet-point.svg?react";
 import { IsItAPhone } from "@/utils";
 import Sun from "@/assets/images/sun.svg?react";
+import ImageWithCredit from "@/components/items/ImageWithCredit/ImageWithCredit";
 
 type Props = {};
 
@@ -46,9 +47,11 @@ const SecondSection: React.FC<Props> = ({}) => {
             </figure>
           )}
 
-          <figure className={styles.image}>
-            <Image src={TentImage} alt="tent" fill={true} />
-          </figure>
+          <ImageWithCredit
+            src={TentImage}
+            alt="tent"
+            className={styles.image}
+          />
         </div>
 
         <p className={styles.text}>
@@ -60,13 +63,17 @@ const SecondSection: React.FC<Props> = ({}) => {
 
         {!isPhone && (
           <div className={styles.desktopImages}>
-            <figure className={styles.desktopImage}>
-              <Image src={TentImage} alt="tent" fill={true} />
-            </figure>
+            <ImageWithCredit
+              src={TentImage}
+              alt="tent"
+              className={styles.desktopImage}
+            />
 
-            <figure className={styles.desktopImage}>
-              <Image src={TentImage} alt="tent" fill={true} />
-            </figure>
+            <ImageWithCredit
+              src={TentImage}
+              alt="tent"
+              className={styles.desktopImage}
+            />
           </div>
         )}
       </div>

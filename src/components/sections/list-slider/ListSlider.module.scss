@@ -3,14 +3,36 @@
 .listSlider {
   width: 100%;
   position: relative;
-  &.weddings {
-    background: rgba(255, 252, 229, 0.5);
+  background: rgba(255, 252, 229, 0.5);
 
-    .rightArrows {
-      background: $lightGreen;
-    }
+  &.weddings {
+    .rightArrows,
     .rightArrowLine {
       background: $lightGreen;
+    }
+  }
+  &.business {
+    .rightArrows,
+    .rightArrowLine {
+      background: $lightBlue;
+    }
+  }
+  &.collectives {
+    .rightArrows,
+    .rightArrowLine {
+      background: $yellow;
+    }
+  }
+  &.events {
+    .rightArrows,
+    .rightArrowLine {
+      background: $brown;
+    }
+  }
+  &.tent {
+    .rightArrows,
+    .rightArrowLine {
+      background: $leafGreen;
     }
   }
 }
@@ -50,17 +72,5 @@
   .rightArrowLine {
     width: 100vw;
     height: 0.5px;
-  }
-}
-
-.sliderElem {
-  padding: 0 10%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 0 0 100vw;
-
-  @media #{$tablet} {
-    flex-basis: 50vw;
   }
 }

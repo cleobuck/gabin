@@ -9,7 +9,8 @@ const ContactBlock: React.FC<Props> = ({}) => {
     <div className={styles.contactBlock}>
       <Title title="Contact" className={styles.vous} />
       <div className={styles.section}>
-        Une question ? Contactez nous au 06 21 87 26 78 ou par mail juste ici
+        Une question ? Contactez nous au 06 21 87 26 78 ou par mail juste{" "}
+        <a href="mailto:gabinregnier88@gmail.com"> ici</a>
       </div>
     </div>
   );

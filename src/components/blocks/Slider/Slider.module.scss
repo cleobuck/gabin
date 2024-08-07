@@ -17,13 +17,9 @@
 
 .image {
   width: 276px;
+  height: 250px;
   display: inline-block;
   margin-right: 13px;
-  position: relative;
-  img {
-    min-width: 100%;
-    min-height: 100%;
-  }
 }
 .sliderBar {
   position: relative;

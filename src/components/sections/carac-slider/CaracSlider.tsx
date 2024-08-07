@@ -74,7 +74,6 @@ const Article = ({
   direction: string;
   style: string;
 }) => {
-  const isPhone = IsItAPhone();
   const classNames = [
     {
       condition:
