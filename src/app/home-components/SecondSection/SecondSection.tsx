@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./SecondSection.module.scss";
 import Image from "next/image";
 import Logo from "@/assets/images/logo.png";
@@ -8,76 +8,90 @@ import BulletPoint from "@/assets/images/bullet-point.svg?react";
 import { IsItAPhone } from "@/utils";
 import Sun from "@/assets/images/sun.svg?react";
 import ImageWithCredit from "@/components/items/ImageWithCredit/ImageWithCredit";
+import SideMenu from "@/components/structure/side-menu/SideMenu";
 
 type Props = {};
 
 const SecondSection: React.FC<Props> = ({}) => {
   const isPhone = IsItAPhone();
+  const ref = useRef<HTMLDivElement>(null);
+
   return (
-    <section className={styles.secondSection}>
-      <figure>
-        <blockquote>
-          “C’est sous un chapiteau que j’ai vu se créer les plus beaux moments
-          d’harmonie”
-        </blockquote>
+    <>
+      <SideMenu
+        className={styles.mobileSideMenu}
+        scrollLimit={
+          ref && ref.current
+            ? ref.current.getBoundingClientRect().top
+            : undefined
+        }
+      />
 
-        <figcaption> Gabin, fondateur d’Inouze</figcaption>
-      </figure>
+      <section className={styles.secondSection} ref={ref}>
+        <figure>
+          <blockquote>
+            “C’est sous un chapiteau que j’ai vu se créer les plus beaux moments
+            d’harmonie”
+          </blockquote>
 
-      <div className={styles.subSection}>
-        <ul>
-          <li>
-            <BulletPoint className={styles.bulletPoint} /> Mariage
-          </li>
-          <li>
-            <BulletPoint className={styles.bulletPoint} /> Entreprise
-          </li>
-          <li>
-            <BulletPoint className={styles.bulletPoint} /> Collectivité
-          </li>
-          <li>
-            <BulletPoint className={styles.bulletPoint} /> Planner
-          </li>
-        </ul>
+          <figcaption> Gabin, fondateur d’Inouze</figcaption>
+        </figure>
 
-        <div className={styles.secondSectionImage}>
-          {isPhone && (
-            <figure className={styles.logoImage}>
-              <Image src={Logo} alt="logo" fill={true} />
-            </figure>
-          )}
+        <div className={styles.subSection}>
+          <ul>
+            <li>
+              <BulletPoint className={styles.bulletPoint} /> Mariage
+            </li>
+            <li>
+              <BulletPoint className={styles.bulletPoint} /> Entreprise
+            </li>
+            <li>
+              <BulletPoint className={styles.bulletPoint} /> Collectivité
+            </li>
+            <li>
+              <BulletPoint className={styles.bulletPoint} /> Planner
+            </li>
+          </ul>
 
-          <ImageWithCredit
-            src={TentImage}
-            alt="tent"
-            className={styles.image}
-          />
-        </div>
-
-        <p className={styles.text}>
-          Parce que sous un chapiteau s’éveille toujours un soupçon de magie,
-          Inouze vous propose ses structures haut de gamme pour donner une
-          nouvelle dimension à votre événement.
-          {!isPhone && <Sun className={styles.sun} />}
-        </p>
-
-        {!isPhone && (
-          <div className={styles.desktopImages}>
-            <ImageWithCredit
-              src={TentImage}
-              alt="tent"
-              className={styles.desktopImage}
-            />
+          <div className={styles.secondSectionImage}>
+            {isPhone && (
+              <figure className={styles.logoImage}>
+                <Image src={Logo} alt="logo" fill={true} />
+              </figure>
+            )}
 
             <ImageWithCredit
               src={TentImage}
               alt="tent"
-              className={styles.desktopImage}
+              className={styles.image}
             />
           </div>
-        )}
-      </div>
-    </section>
+
+          <p className={styles.text}>
+            Parce que sous un chapiteau s’éveille toujours un soupçon de magie,
+            Inouze vous propose ses structures haut de gamme pour donner une
+            nouvelle dimension à votre événement.
+            {!isPhone && <Sun className={styles.sun} />}
+          </p>
+
+          {!isPhone && (
+            <div className={styles.desktopImages}>
+              <ImageWithCredit
+                src={TentImage}
+                alt="tent"
+                className={styles.desktopImage}
+              />
+
+              <ImageWithCredit
+                src={TentImage}
+                alt="tent"
+                className={styles.desktopImage}
+              />
+            </div>
+          )}
+        </div>
+      </section>
+    </>
   );
 };
 

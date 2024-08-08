@@ -10,7 +10,6 @@ import SecondSection from "./home-components/SecondSection/SecondSection";
 import ThirdSection from "./home-components/ThirdSection/ThirdSection";
 import FourthSection from "./home-components/FourthSection/FourthSection";
 import ValueSlider from "../components/sections/ValueSlider/ValueSlider";
-import Script from "next/script";
 import ThirdTabletSection from "./home-components/ThirdTabletSection/ThirdTabletSection";
 import { ResizeScript } from "@/components/ResizeScript";
 
@@ -18,7 +17,7 @@ export default function Home() {
   return (
     <>
       <ResizeScript />
-      <SideMenu className={styles.mobileSideMenu} />
+
       <Header />
       <main className={styles.main}>
         <FirstSection />

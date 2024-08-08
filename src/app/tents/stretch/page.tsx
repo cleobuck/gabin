@@ -1,3 +1,4 @@
+"use client";
 import FirstSection from "@/components/sections/tents/FirstSection/FirstSection";
 import Header from "@/components/structure/Header/Header";
 import React from "react";
@@ -16,7 +17,10 @@ import Footer from "@/components/structure/Footer/Footer";
 import { ResizeScript } from "@/components/ResizeScript";
 import TwoLargeImages from "@/components/sections/TwoLargeImages/TwoLargeImages";
 import ConfigSlider from "@/components/sections/tents/ConfigSlider/ConfigSlider";
+import SideMenu from "@/components/structure/side-menu/SideMenu";
+import { IsItAPhone } from "@/utils";
 const TentStretch = () => {
+  const isPhone = IsItAPhone();
   const caracSliderData = [
     { title: "imperméable", Icon: <Drops /> },
     { title: "deuxieme", Icon: <ImageTest2 /> },
@@ -32,6 +36,7 @@ const TentStretch = () => {
     <div className={styles.tent}>
       <ResizeScript />
       <Header style="white" />
+      <SideMenu topView={!isPhone} />
 
       <FirstSection
         data={{

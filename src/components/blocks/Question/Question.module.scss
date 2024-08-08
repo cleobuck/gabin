@@ -26,6 +26,10 @@
   .button {
     margin-top: 24px;
     margin-bottom: 50px;
+
+    @media #{$tablet} {
+      margin-bottom: 10px;
+    }
     display: flex;
     justify-content: center;
     &.twoButtons {

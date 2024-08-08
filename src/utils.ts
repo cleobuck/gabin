@@ -17,7 +17,9 @@ export const createClassNameString = (
 };
 
 export const IsItAPhone = () => {
-  const [isPhone, setPhone] = useState(false);
+  const [isPhone, setPhone] = useState(
+    typeof window !== "undefined" && window.screen.width < 768
+  );
 
   useEffect(() => {
     if (typeof window !== "undefined") {

@@ -1,18 +1,25 @@
+"use client";
+
 import React from "react";
 import styles from "./WhoAreWe.module.scss";
 import Text from "@/components/blocks/Text/Text";
 import Image from "next/image";
 import TentImage from "@/assets/images/placeholder.jpeg";
 import ImageWithCredit from "@/components/items/ImageWithCredit/ImageWithCredit";
+import SideMenu from "@/components/structure/side-menu/SideMenu";
+import { IsItAPhone } from "@/utils";
 
 type Props = {};
 
 export default function WhoAreWe({}: Props) {
+  const isPhone = IsItAPhone();
   return (
     <section id="who" className={styles.whoarewe}>
       <h2>Qui sommes-nous? </h2>
 
       <ImageWithCredit src={TentImage} alt="tent" className={styles.image} />
+
+      <SideMenu scrollLimit={isPhone ? 200 : 0} topView={!isPhone} />
 
       <div className={styles.text}>
         <div>
