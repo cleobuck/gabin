@@ -8,3 +8,16 @@
     #14301b 100.3%
   );
 }
+
+.desktopSideMenu {
+  display: none;
+  @media #{$tablet} {
+    display: block;
+  }
+}
+
+.mobileSideMenu {
+  @media #{$tablet} {
+    display: none;
+  }
+}

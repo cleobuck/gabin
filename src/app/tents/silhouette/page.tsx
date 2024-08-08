@@ -1,3 +1,4 @@
+"use client";
 import FirstSection from "@/components/sections/tents/FirstSection/FirstSection";
 import Header from "@/components/structure/Header/Header";
 import React from "react";
@@ -15,13 +16,15 @@ import Footer from "@/components/structure/Footer/Footer";
 import { ResizeScript } from "@/components/ResizeScript";
 import TwoLargeImages from "@/components/sections/TwoLargeImages/TwoLargeImages";
 import ConfigSlider from "@/components/sections/tents/ConfigSlider/ConfigSlider";
+import SideMenu from "@/components/structure/side-menu/SideMenu";
+import { IsItAPhone } from "@/utils";
 const TentSilhouette = () => {
+  const isPhone = IsItAPhone();
   const caracSliderData = [
     { title: "imperméable", Icon: <Drops /> },
     { title: "deuxieme", Icon: <ImageTest2 /> },
     { title: "troisieme", Icon: <ImageTest1 /> },
   ];
-
   const images = [
     { image: TentImage, alt: "tent" },
     { image: TentImage, alt: "tent" },
@@ -30,6 +33,9 @@ const TentSilhouette = () => {
   return (
     <div className={styles.tent}>
       <Header style="white" />
+      <SideMenu className={styles.mobileSideMenu} />
+      <SideMenu className={styles.desktopSideMenu} topView />
+
       <ResizeScript />
       <FirstSection
         data={{

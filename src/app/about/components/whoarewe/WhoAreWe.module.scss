@@ -15,6 +15,13 @@
     }
   }
 
+  .desktopSideMenu {
+    display: none;
+    @media #{$tablet} {
+      display: block;
+    }
+  }
+
   .image {
     position: relative;
     width: 73vw;

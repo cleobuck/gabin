@@ -1,3 +1,5 @@
+@import "@styles/variables";
+
 .tent {
   background: linear-gradient(
     179.38deg,
@@ -5,4 +7,17 @@
     #a3cf94 52.24%,
     #14301b 100.3%
   );
+}
+
+.desktopSideMenu {
+  display: none;
+  @media #{$tablet} {
+    display: block;
+  }
+}
+
+.mobileSideMenu {
+  @media #{$tablet} {
+    display: none;
+  }
 }

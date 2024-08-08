@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import { PrimaryMenuData } from "./PrimaryMenu.data";
 import styling from "./PrimaryMenu.module.scss";

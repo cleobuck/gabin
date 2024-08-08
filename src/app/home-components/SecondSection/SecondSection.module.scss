@@ -2,6 +2,14 @@
 .image {
   position: relative;
 }
+
+.mobileSideMenu {
+  top: 150px !important;
+  @media #{$tablet} {
+    display: none;
+  }
+}
+
 .secondSection {
   color: $beige;
   width: 100vw;

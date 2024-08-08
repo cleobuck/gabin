@@ -48,7 +48,7 @@ export default function SecondSlider({
           }));
 
           if (setDirection) {
-            setDirection("left");
+            setDirection("right");
           }
         }}
       >
@@ -67,7 +67,7 @@ export default function SecondSlider({
             }));
 
             if (setDirection) {
-              setDirection("right");
+              setDirection("left");
             }
           }}
         >

@@ -4,15 +4,21 @@ import DevisButton from "@/components/items/Button/DevisButton";
 import SilhouetteTentButton from "@/components/items/Button/SilhouetteTentButton";
 import StretchTentButton from "@/components/items/Button/StretchTentButton";
 
-type Props = { children: ReactNode; question: string; buttons?: string };
+type Props = {
+  children: ReactNode;
+  question: string;
+  buttons?: string;
+  order?: number;
+};
 
 const Question: React.FC<Props> = ({
   children,
   question,
   buttons = "devis",
+  order,
 }) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={{ order }}>
       <h2> {question} </h2>
       {children}
 

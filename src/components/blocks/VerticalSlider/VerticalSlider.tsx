@@ -18,12 +18,6 @@ const VerticalSlider: React.FC<Props> = ({ elements }) => {
 
   const draggableListRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseMove = (e: MouseEvent) => {
-    console.log(e);
-
-    console.log(sliderBarRef.current?.getBoundingClientRect());
-  };
-
   const handleMove = (position: number) => {
     document.body.style.overflow = "hidden";
 

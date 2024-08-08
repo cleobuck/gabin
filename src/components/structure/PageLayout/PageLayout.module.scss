@@ -1,5 +1,29 @@
 @import "@styles/variables";
 
+.services {
+  .sideMenu {
+    display: none;
+    @media #{$tablet} {
+      display: block;
+      top: 300px;
+
+      &:not(.scrolledMenu) {
+        background: transparent;
+        color: $beige;
+
+        li {
+          color: $beige;
+          border-color: $beige;
+          &:first-child {
+            border-right-color: $beige;
+          }
+        }
+        border-color: $beige;
+      }
+    }
+  }
+}
+
 .pageHeader {
   height: 100vh;
 

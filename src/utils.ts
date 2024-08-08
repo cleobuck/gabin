@@ -23,7 +23,7 @@ export const IsItAPhone = () => {
     if (typeof window !== "undefined") {
       setPhone(window.screen.width < 768);
     }
-  }, []);
+  }, [typeof window]);
   return isPhone;
 };
 

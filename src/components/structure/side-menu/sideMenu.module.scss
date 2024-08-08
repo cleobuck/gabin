@@ -6,6 +6,10 @@
 
   top: 50vh;
 
+  &.topView {
+    top: 200px;
+  }
+
   transform: rotate(-90deg);
   z-index: 100;
   width: 125px;
@@ -37,10 +41,14 @@
       align-items: center;
       justify-content: center;
       color: $strongGreen;
-      padding: 7px 5px;
+      a {
+        padding: 7px 5px;
+      }
+
       &:first-child {
         border-right: 0.5px solid $darkBlue;
       }
+
       @media #{$tablet} {
         height: 40px;
         font-size: 15px;

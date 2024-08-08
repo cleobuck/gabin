@@ -7,10 +7,12 @@
   .questions {
     @media #{$tablet} {
       display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 40vw;
+      flex-wrap: wrap;
+      height: 2000px;
       gap: 50px;
-      div {
-        flex: 1;
-      }
     }
   }
   padding-top: 51px;
@@ -23,7 +25,7 @@
   padding-bottom: 35px;
 
   .sunDiv {
-    height: 400px;
+    height: 300px;
     @include center;
     svg {
       width: 76px;
@@ -47,6 +49,7 @@
   .sun {
     width: 48px;
     height: 48px;
+    order: 5;
     display: block;
     margin: 0 auto 24px auto;
     path {

@@ -1,4 +1,5 @@
-import React, { ReactNode } from "react";
+"use client";
+import React, { ReactNode, useEffect, useState } from "react";
 import styling from "./PageLayout.module.scss";
 
 import BackgroundImage from "@/assets/images/placeholder.jpeg";
@@ -20,6 +21,7 @@ import Text from "@/components/blocks/Text/Text";
 import Banner from "@/components/blocks/Banner/Banner";
 import { ResizeScript } from "@/components/ResizeScript";
 import StepsSlider from "./StepsSlider/StepsSlider";
+import { IsItAPhone } from "@/utils";
 
 type Props = {
   children: ReactNode;
@@ -34,11 +36,40 @@ export default function PageLayout({
   children,
   style,
 }: Props) {
+  const isPhone = IsItAPhone();
+
+  const [scrolledSideMenu, setScrolledStyleMenu] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = document.body.scrollTop;
+      const viewportHeight = window.innerHeight;
+
+      if (scrollPosition >= viewportHeight - 200) {
+        setScrolledStyleMenu(true);
+      } else {
+      }
+    };
+
+    document.body.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      document.body.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <>
+    <div className={styling.services}>
       <ResizeScript />
 
-      <SideMenu />
+      {isPhone && <SideMenu />}
+      <SideMenu
+        topView
+        className={`${styling.sideMenu} ${
+          scrolledSideMenu ? styling.scrolledMenu : ""
+        }`}
+      />
       <div
         className={`${className} ${styling.pageHeader}`}
         style={{ backgroundImage: `url(${BackgroundImage})` }}
@@ -50,18 +81,20 @@ export default function PageLayout({
         <div className={styling.content}>
           <h2>{title.toUpperCase()}</h2>
 
-          <nav>
-            <ul>
-              <li>
-                <div className={styling.circle}></div>{" "}
-                <a href={`${process.env.BASE_URL}/devis`}> DEVIS </a>
-              </li>
-              <li>
-                <div className={styling.circle}></div>{" "}
-                <a href={`${process.env.BASE_URL}/contact`}> CONTACT </a>
-              </li>
-            </ul>
-          </nav>
+          {isPhone && (
+            <nav>
+              <ul>
+                <li>
+                  <div className={styling.circle}></div>{" "}
+                  <a href={`${process.env.BASE_URL}/devis`}> DEVIS </a>
+                </li>
+                <li>
+                  <div className={styling.circle}></div>{" "}
+                  <a href={`${process.env.BASE_URL}/contact`}> CONTACT </a>
+                </li>
+              </ul>
+            </nav>
+          )}
         </div>
       </div>
       {children}
@@ -105,6 +138,6 @@ et du démontage.`}
         </Text>
       </div>
       <Footer />
-    </>
+    </div>
   );
 }

@@ -21,10 +21,3 @@
     top: 150px !important;
   }
 }
-
-.mobileSideMenu {
-  top: 150px !important;
-  @media #{$tablet} {
-    display: none;
-  }
-}
