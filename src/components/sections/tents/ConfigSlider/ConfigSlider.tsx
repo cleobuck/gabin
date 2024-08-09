@@ -45,11 +45,13 @@ const ConfigSlider: React.FC<Props> = ({ type }) => {
     },
   ];
   return (
-    <ListSlider style="tent">
-      {configData.map((elem: any, index: number) => (
-        <TentConfig key={index} elem={elem} type={type} />
-      ))}
-    </ListSlider>
+    <div className={styles.listSliderContainer}>
+      <ListSlider style="tent">
+        {configData.map((elem: any, index: number) => (
+          <TentConfig key={index} elem={elem} type={type} />
+        ))}
+      </ListSlider>
+    </div>
   );
 };
 

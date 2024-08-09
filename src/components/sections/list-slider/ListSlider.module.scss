@@ -3,12 +3,23 @@
 .listSlider {
   width: 100%;
   position: relative;
-  background: rgba(255, 252, 229, 0.5);
 
   &.weddings {
     .rightArrows,
     .rightArrowLine {
       background: $lightGreen;
+    }
+  }
+
+  &.home {
+    .rightArrows,
+    .rightArrowLine {
+      background: $darkBlue;
+    }
+    svg.home {
+      path {
+        stroke: white;
+      }
     }
   }
   &.business {
@@ -29,6 +40,7 @@
       background: $brown;
     }
   }
+
   &.tent {
     .rightArrows,
     .rightArrowLine {

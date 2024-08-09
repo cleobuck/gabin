@@ -34,7 +34,7 @@ export default function Home() {
 
           <ValueSlider style="home" />
 
-          <Trust />
+          <Trust style="home" />
         </div>
       </main>
       <Footer />

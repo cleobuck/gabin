@@ -4,21 +4,32 @@ import React from "react";
 import styling from "./Trust.module.scss";
 import Logo from "@/assets/images/logo.svg?react";
 import { IsItAPhone } from "@/utils";
+import ListSlider from "@/components/sections/list-slider/ListSlider";
 
-type Props = {};
+type Props = { style: string };
 
-export default function Trust({}: Props) {
+export default function Trust({ style }: Props) {
   const isPhone = IsItAPhone();
   return (
     <section className={styling.trust}>
       <h2> Ils nous font confiance</h2>
 
-      <div className={styling.clients}>
-        <Logo />
-        <Logo />
-
-        {!isPhone && <Logo />}
-      </div>
+      <ListSlider style={style}>
+        <div className={styling.clients}>
+          <div className={styling.logo}>
+            <Logo />
+          </div>
+          <div className={styling.logo}>
+            <Logo />
+          </div>
+          <div className={styling.logo}>
+            <Logo />
+          </div>
+          <div className={styling.logo}>
+            <Logo />
+          </div>
+        </div>
+      </ListSlider>
     </section>
   );
 }

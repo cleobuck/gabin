@@ -117,9 +117,12 @@ export default function PageLayout({
       </Text>
 
       <TentTeaser style={style} />
-      <StepsSlider style={style} />
 
-      <Trust />
+      <div className={styling.stepSliderContainer}>
+        <StepsSlider style={style} />
+      </div>
+
+      <Trust style={style} />
 
       <div className={styling.adTextWrapper}>
         <Text className={styling.adText}>

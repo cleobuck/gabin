@@ -47,7 +47,7 @@ export default function ListSlider({ style, children }: Props) {
             });
           }}
         >
-          <Arrows />
+          <Arrows className={styling[style]} />
         </div>
         <div className={styling.rightArrowLine} />
       </div>
