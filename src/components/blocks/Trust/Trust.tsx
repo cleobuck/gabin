@@ -16,20 +16,26 @@ export default function Trust({ style }: Props) {
 
       <ListSlider style={style}>
         <div className={styling.clients}>
-          <div className={styling.logo}>
-            <Logo />
-          </div>
-          <div className={styling.logo}>
-            <Logo />
-          </div>
-          <div className={styling.logo}>
-            <Logo />
-          </div>
-          <div className={styling.logo}>
-            <Logo />
-          </div>
+          <ScrollableContent />
         </div>
       </ListSlider>
     </section>
   );
 }
+
+const ScrollableContent = () => (
+  <>
+    <div className={styling.logo}>
+      <Logo />
+    </div>
+    <div className={styling.logo}>
+      <Logo />
+    </div>
+    <div className={styling.logo}>
+      <Logo />
+    </div>
+    <div className={styling.logo}>
+      <Logo />
+    </div>
+  </>
+);

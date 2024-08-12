@@ -5,14 +5,14 @@
   position: relative;
 
   &.weddings {
-    .rightArrows,
+    .arrows,
     .rightArrowLine {
       background: $lightGreen;
     }
   }
 
   &.home {
-    .rightArrows,
+    .arrows,
     .rightArrowLine {
       background: $darkBlue;
     }
@@ -23,26 +23,26 @@
     }
   }
   &.business {
-    .rightArrows,
+    .arrows,
     .rightArrowLine {
       background: $lightBlue;
     }
   }
   &.collectives {
-    .rightArrows,
+    .arrows,
     .rightArrowLine {
       background: $yellow;
     }
   }
   &.events {
-    .rightArrows,
+    .arrows,
     .rightArrowLine {
       background: $brown;
     }
   }
 
   &.tent {
-    .rightArrows,
+    .arrows,
     .rightArrowLine {
       background: $leafGreen;
     }
@@ -64,22 +64,31 @@
   height: 100%;
 }
 
-.rightArrowContainer {
+.arrowsContainer {
   position: absolute;
   width: 100vw;
   left: 0;
   bottom: 25px;
+
+  .leftArrows,
   .rightArrows {
-    right: 10%;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
     width: 35px;
     height: 35px;
     border-radius: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    transform: translateY(-50%);
+  }
+
+  .leftArrows {
+    left: 10%;
+    transform: translateY(-50%) rotate(180deg);
+  }
+  .rightArrows {
+    right: 10%;
   }
   .rightArrowLine {
     width: 100vw;

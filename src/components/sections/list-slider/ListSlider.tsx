@@ -3,15 +3,19 @@
 import React, { ReactNode, useRef, useState } from "react";
 
 import styling from "./ListSlider.module.scss";
-import { IsItAPhone } from "@/utils";
 import { useEffect } from "react";
 type Props = { style: string; children: ReactNode };
 import Arrows from "@/assets/images/arrows.svg?react";
 
-export default function ListSlider({ style, children }: Props) {
+export default function ListSlider({
+  style,
+  children,
+  arrowStyle = "bottom",
+}: Props) {
   const [position, setPosition] = useState(0);
-  const isPhone = IsItAPhone();
   const scrollableDiv = useRef<HTMLDivElement>(null);
+
+  const sliderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     scrollableDiv.current!.scrollTo({
@@ -22,7 +26,7 @@ export default function ListSlider({ style, children }: Props) {
   }, [position]);
 
   return (
-    <div className={`${styling.listSlider} ${styling[style]}`}>
+    <div ref={sliderRef} className={`${styling.listSlider} ${styling[style]}`}>
       <div className={styling.listScrollable} ref={scrollableDiv}>
         <div
           className={styling.overflownContent}
@@ -31,24 +35,33 @@ export default function ListSlider({ style, children }: Props) {
           {children}
         </div>
       </div>
-      <div className={styling.rightArrowContainer}>
-        <div
-          className={styling.rightArrows}
-          onClick={() => {
-            setPosition((position) => {
-              if (
-                position + window.innerWidth ===
-                scrollableDiv.current!.scrollWidth
-              ) {
-                return 0;
-              } else {
-                return position + window.innerWidth;
-              }
-            });
-          }}
-        >
-          <Arrows className={styling[style]} />
-        </div>
+      <div className={styling.arrowsContainer}>
+        {position !== 0 && sliderRef && (
+          <div
+            className={`${styling.arrows} ${styling.leftArrows}`}
+            onClick={() => {
+              setPosition(
+                (position) => position - sliderRef.current!.offsetWidth
+              );
+            }}
+          >
+            <Arrows className={styling[style]} />
+          </div>
+        )}
+        {scrollableDiv?.current &&
+          position + sliderRef.current!.offsetWidth <
+            scrollableDiv.current!.scrollWidth && (
+            <div
+              className={`${styling.arrows} ${styling.rightArrows}`}
+              onClick={() => {
+                setPosition(
+                  (position) => position + sliderRef.current!.offsetWidth
+                );
+              }}
+            >
+              <Arrows className={styling[style]} />
+            </div>
+          )}
         <div className={styling.rightArrowLine} />
       </div>
     </div>
