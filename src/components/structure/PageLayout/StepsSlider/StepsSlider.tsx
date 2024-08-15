@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 import styles from "./StepsSlider.module.scss";
 import ListSlider from "@/components/sections/list-slider/ListSlider";
 import ListItem from "@/components/blocks/listItem/listItem";
@@ -6,6 +6,40 @@ import ListItem from "@/components/blocks/listItem/listItem";
 type Props = { style: string };
 
 const StepsSlider: React.FC<Props> = ({ style }) => {
+  const ref = useRef<HTMLDivElement[]>([]);
+
+  const [positions, setPositions] = useState<number[]>([]);
+
+  useEffect(() => {
+    if (ref.current) {
+      const elementPositions = ref.current.map((element) => {
+        return (
+          element.getBoundingClientRect().left -
+          element.parentElement!.getBoundingClientRect().left
+        );
+      });
+      setPositions(elementPositions); // To check positions
+    }
+
+    // This will log the ref after the component has mounted
+  }, [ref.current.length]);
+
+  return (
+    <ListSlider style={style} positions={positions}>
+      <ScrollableContent ref={ref} />
+    </ListSlider>
+  );
+};
+
+export default StepsSlider;
+
+type ArticleProps = {
+  title: string;
+  number: number;
+  text: string;
+};
+
+const ScrollableContent = forwardRef<HTMLDivElement[], {}>(({}, ref: any) => {
   const sliderData = [
     {
       number: 1,
@@ -43,7 +77,7 @@ const StepsSlider: React.FC<Props> = ({ style }) => {
     },
     {
       number: 3,
-      title: "La prise de contact ",
+      title: "La mise en confiance ",
       text: (
         <>
           <p>
@@ -78,28 +112,46 @@ const StepsSlider: React.FC<Props> = ({ style }) => {
   ];
 
   return (
-    <ListSlider style={style}>
+    <>
       {sliderData.map((elem: any, index: number) => (
-        <Article key={index} elem={elem} />
+        <Article
+          key={index}
+          elem={elem}
+          ref={(el) => {
+            if (el) ref.current[index] = el;
+          }}
+        />
       ))}
-    </ListSlider>
+
+      {/* REPEAT HERE */}
+      {sliderData.map((elem: any, index: number) => (
+        <Article
+          key={index}
+          elem={elem}
+          ref={(el) => {
+            if (index === 0 && el) {
+              ref.current[sliderData.length] = el;
+            } else {
+              return undefined;
+            }
+          }}
+        />
+      ))}
+    </>
   );
-};
+});
 
-export default StepsSlider;
-
-type ArticleProps = {
-  elem: any;
-};
-
-const Article = ({ elem }: ArticleProps) => {
-  return (
-    <ListItem
-      className={` ${styles.sliderElem}`}
-      title={elem.title}
-      number={elem.number}
-    >
-      {elem.text}
-    </ListItem>
-  );
-};
+const Article = forwardRef<HTMLDivElement, { elem: ArticleProps }>(
+  ({ elem }, ref) => {
+    return (
+      <ListItem
+        className={` ${styles.sliderElem}`}
+        title={elem.title}
+        number={elem.number}
+        ref={ref}
+      >
+        {elem.text}
+      </ListItem>
+    );
+  }
+);

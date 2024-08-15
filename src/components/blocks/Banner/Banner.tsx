@@ -10,15 +10,15 @@ export default function Banner({ style }: Props) {
     <div className={` ${styling[style]} ${styling.borders}`}>
       <div className={styling.slider}>
         <div className={styling.slideTrack}>
-          {data.map((item) => (
-            <>
-              <span className={styling.slide}>{item.toUpperCase()}</span>{" "}
-            </>
+          {data.map((item, key) => (
+            <span key={key} className={styling.slide}>
+              {item.toUpperCase()}
+            </span>
           ))}
-          {data.map((item) => (
-            <>
-              <span className={styling.slide}>{item.toUpperCase()}</span>
-            </>
+          {data.map((item, key) => (
+            <span key={key} className={styling.slide}>
+              {item.toUpperCase()}
+            </span>
           ))}
         </div>
       </div>

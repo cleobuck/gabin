@@ -2,6 +2,7 @@
 
 .listSlider {
   width: 100%;
+
   position: relative;
 
   &.weddings {
@@ -56,7 +57,7 @@
   &::-webkit-scrollbar {
     display: none;
   }
-  width: 100%;
+  // width: 100%;
 }
 
 .overflownContent {

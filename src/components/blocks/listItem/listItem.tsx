@@ -8,7 +8,7 @@ type Props = {
   className?: string;
 };
 
-const ListItem = forwardRef<HTMLElement, Props>(
+const ListItem = forwardRef<HTMLDivElement, Props>(
   ({ number, children, title, className }, ref) => {
     return (
       <article ref={ref} className={`${styles.container} ${className}`}>
