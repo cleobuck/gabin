@@ -15,8 +15,6 @@ export default function Trust({ style }: Props) {
 
   const [positions, setPositions] = useState<number[]>([]);
 
-  console.log(positions);
-
   useEffect(() => {
     if (ref.current) {
       const elementPositions = ref.current.map((element) => {
@@ -34,7 +32,7 @@ export default function Trust({ style }: Props) {
     <section className={styling.trust}>
       <h2> Ils nous font confiance</h2>
 
-      <ListSlider style={style} positions={positions} bothWays>
+      <ListSlider style={style} positions={positions} bothWays middleArrows>
         <div className={styling.clients}>
           <ScrollableContent ref={ref} />
         </div>

@@ -5,6 +5,19 @@
 
   position: relative;
 
+  &.middleArrowsSlider {
+    padding: 0 10vw;
+
+    @media #{$tablet} {
+      padding: 0 12.5vw;
+    }
+
+    .overflownContent {
+      align-items: center;
+      padding-bottom: 0;
+    }
+  }
+
   &.weddings {
     .arrows,
     .rightArrowLine {
@@ -52,6 +65,7 @@
 
 .listScrollable {
   overflow-x: scroll;
+
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
   &::-webkit-scrollbar {
@@ -65,6 +79,16 @@
   height: 100%;
 }
 
+.leftArrows,
+.rightArrows {
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .arrowsContainer {
   position: absolute;
   width: 100vw;
@@ -75,12 +99,7 @@
   .rightArrows {
     position: absolute;
     top: 50%;
-    width: 35px;
-    height: 35px;
-    border-radius: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
     transform: translateY(-50%);
   }
 
@@ -94,5 +113,24 @@
   .rightArrowLine {
     width: 100vw;
     height: 0.5px;
+  }
+}
+
+.middleArrowsContainer {
+  .rightArrows,
+  .leftArrows {
+    position: absolute;
+    top: 50%;
+  }
+
+  .rightArrows {
+    right: 5vw;
+    transform: translateY(-50%);
+  }
+
+  .leftArrows {
+    left: 5vw;
+
+    transform: translateY(-50%) rotate(180deg);
   }
 }

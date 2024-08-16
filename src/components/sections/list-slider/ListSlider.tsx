@@ -9,6 +9,7 @@ type Props = {
   children: ReactNode;
   positions: number[];
   bothWays?: boolean;
+  middleArrows?: boolean;
 };
 
 export default function ListSlider({
@@ -16,6 +17,7 @@ export default function ListSlider({
   children,
   positions,
   bothWays,
+  middleArrows,
 }: Props) {
   const [position, setPosition] = useState(bothWays ? 1 : 0);
   const [isPositionResetting, resetPosition] = useState<boolean | string>(
@@ -36,8 +38,6 @@ export default function ListSlider({
           : false
         : positions.length - 1 === position;
 
-      console.log(temporaryPosition);
-
       scrollableDiv.current.scrollTo({
         top: 0,
         left: positions[position],
@@ -48,7 +48,7 @@ export default function ListSlider({
         resetPosition(temporaryPosition);
       }
     }
-  }, [position]);
+  }, [position, positions.length]);
 
   useEffect(() => {
     if (isPositionResetting && scrollableDiv.current) {
@@ -86,10 +86,13 @@ export default function ListSlider({
     }, 500); // Adjust the debounce delay as needed
   };
 
-  console.log(position);
-
   return (
-    <div ref={sliderRef} className={`${styling.listSlider} ${styling[style]}`}>
+    <div
+      ref={sliderRef}
+      className={`${styling.listSlider} ${styling[style]} ${
+        middleArrows ? styling.middleArrowsSlider : ""
+      }`}
+    >
       <div className={styling.listScrollable} ref={scrollableDiv}>
         <div
           className={styling.overflownContent}
@@ -98,7 +101,11 @@ export default function ListSlider({
           {children}
         </div>
       </div>
-      <div className={styling.arrowsContainer}>
+      <div
+        className={`${
+          middleArrows ? styling.middleArrowsContainer : styling.arrowsContainer
+        }`}
+      >
         {bothWays && (
           <div
             className={`${styling.arrows} ${styling.leftArrows}`}
