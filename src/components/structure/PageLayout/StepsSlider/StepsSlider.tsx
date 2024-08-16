@@ -141,6 +141,8 @@ const ScrollableContent = forwardRef<HTMLDivElement[], {}>(({}, ref: any) => {
   );
 });
 
+ScrollableContent.displayName = "ScrollableContent";
+
 const Article = forwardRef<HTMLDivElement, { elem: ArticleProps }>(
   ({ elem }, ref) => {
     return (
@@ -155,3 +157,5 @@ const Article = forwardRef<HTMLDivElement, { elem: ArticleProps }>(
     );
   }
 );
+
+Article.displayName = "Article";

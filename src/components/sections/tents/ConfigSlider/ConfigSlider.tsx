@@ -1,10 +1,28 @@
-import React from "react";
+import React, { forwardRef, useEffect, useRef, useState } from "react";
 import styles from "./ConfigSlider.module.scss";
 import ListSlider from "@/components/sections/list-slider/ListSlider";
 
 type Props = { type: string };
 
 const ConfigSlider: React.FC<Props> = ({ type }) => {
+  const ref = useRef<HTMLDivElement[]>([]);
+
+  const [positions, setPositions] = useState<number[]>([]);
+
+  useEffect(() => {
+    if (ref.current) {
+      const elementPositions = ref.current.map((element) => {
+        return (
+          element.getBoundingClientRect().left -
+          element.parentElement!.getBoundingClientRect().left
+        );
+      });
+      setPositions(elementPositions); // To check positions
+    }
+
+    // This will log the ref after the component has mounted
+  }, [ref.current.length]);
+
   const configData = [
     {
       dimensions: [10, 10],
@@ -46,9 +64,26 @@ const ConfigSlider: React.FC<Props> = ({ type }) => {
   ];
   return (
     <div className={styles.listSliderContainer}>
-      <ListSlider style="tent">
+      <ListSlider style="tent" positions={positions}>
         {configData.map((elem: any, index: number) => (
-          <TentConfig key={index} elem={elem} type={type} />
+          <TentConfig
+            key={index}
+            elem={elem}
+            type={type}
+            ref={(el) => {
+              if (el) ref.current[index] = el;
+            }}
+          />
+        ))}
+        {configData.map((elem: any, index: number) => (
+          <TentConfig
+            key={index}
+            elem={elem}
+            type={type}
+            ref={(el) => {
+              if (el && index == 0) ref.current[configData.length] = el;
+            }}
+          />
         ))}
       </ListSlider>
     </div>
@@ -62,19 +97,23 @@ type ConfigProps = {
   type: string;
 };
 
-const TentConfig = ({ elem, type }: ConfigProps) => {
-  return (
-    <div className={styles.container}>
-      <h4>
-        Configurations possibles avec une tente {type} {elem.dimensions[0]} x{" "}
-        {elem.dimensions[1]} m ({elem.dimensions[0] * elem.dimensions[1]}m²){" "}
-      </h4>
+const TentConfig = forwardRef<HTMLDivElement, ConfigProps>(
+  ({ elem, type }, ref) => {
+    return (
+      <div className={styles.container} ref={ref}>
+        <h4>
+          Configurations possibles avec une tente {type} {elem.dimensions[0]} x{" "}
+          {elem.dimensions[1]} m ({elem.dimensions[0] * elem.dimensions[1]}m²){" "}
+        </h4>
 
-      <ul>
-        {elem.list.map((elem, index) => (
-          <li key={index}> {elem} </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+        <ul>
+          {elem.list.map((elem, index) => (
+            <li key={index}> {elem} </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+);
+
+TentConfig.displayName = "tentConfig";

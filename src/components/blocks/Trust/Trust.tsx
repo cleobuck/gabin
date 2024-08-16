@@ -118,3 +118,5 @@ const ScrollableContent = forwardRef<HTMLDivElement[], {}>(({}, ref: any) => (
     </div>
   </>
 ));
+
+ScrollableContent.displayName = "ScrollableContent";
