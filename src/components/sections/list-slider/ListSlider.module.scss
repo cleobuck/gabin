@@ -5,6 +5,11 @@
 
   position: relative;
 
+  .leftArrows,
+  .rightArrows {
+    cursor: pointer;
+  }
+
   &.middleArrowsSlider {
     padding: 0 10vw;
 

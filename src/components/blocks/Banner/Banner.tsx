@@ -20,6 +20,16 @@ export default function Banner({ style }: Props) {
               {item.toUpperCase()}
             </span>
           ))}
+          {data.map((item, key) => (
+            <span key={key} className={styling.slide}>
+              {item.toUpperCase()}
+            </span>
+          ))}
+          {data.map((item, key) => (
+            <span key={key} className={styling.slide}>
+              {item.toUpperCase()}
+            </span>
+          ))}
         </div>
       </div>
     </div>

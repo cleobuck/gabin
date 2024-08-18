@@ -4,7 +4,7 @@ import React, { ReactNode, useEffect, useState } from "react";
 import SecondSlider from "@/components/blocks/second-slider/SecondSlider";
 
 import styling from "./CaracSlider.module.scss";
-import { IsItADesktop, IsItAPhone, createClassNameString } from "@/utils";
+import { createClassNameString } from "@/utils";
 import Text from "@/components/blocks/Text/Text";
 type Props = {
   style: string;
@@ -13,9 +13,6 @@ type Props = {
 
 export default function CaracSlider({ style, sliderData }: Props) {
   const [imageData, setImageData] = useState({ active: 0, previous: 0 });
-
-  const isDesktop = IsItADesktop();
-  const isPhone = IsItAPhone();
 
   const [direction, setDirection] = useState("right");
 

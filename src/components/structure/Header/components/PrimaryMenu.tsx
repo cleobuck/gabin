@@ -3,14 +3,13 @@ import React from "react";
 import { PrimaryMenuData } from "./PrimaryMenu.data";
 import styling from "./PrimaryMenu.module.scss";
 import { IsItAPhone } from "@/utils";
-import SideMenu from "../../side-menu/SideMenu";
 type Props = {
   style?: string;
   openMenu: () => void;
   whichMenuOpen: string;
   closeMenu: () => void;
 };
-
+// ADD CLICK FOR TABLETS
 export default function PrimaryMenu({
   openMenu,
   whichMenuOpen,
@@ -53,21 +52,23 @@ export default function PrimaryMenu({
               >
                 {item.label.toUpperCase()}
               </a>
-              {item.children && (
-                <ul className={styling.subMenu}>
-                  {item.children.map((child, index) => (
-                    <li key={index}>
-                      <a
-                        href={child.href}
-                        className={styling.secondaryMenuItem}
-                      >
-                        {isPhone && <span className={styling.circle}></span>}
-                        {child.label.toUpperCase()}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )}
+              <div className={styling.subMenuWrapper}>
+                {item.children && (
+                  <ul className={styling.subMenu}>
+                    {item.children.map((child, index) => (
+                      <li key={index}>
+                        <a
+                          href={child.href}
+                          className={styling.secondaryMenuItem}
+                        >
+                          {isPhone && <span className={styling.circle}></span>}
+                          {child.label.toUpperCase()}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             </li>
           ))}
         </ul>

@@ -20,8 +20,8 @@
   }
 
   @media #{$desktop} {
-    width: 79px;
-    height: 126px;
+    width: clamp(79px, 5.7vw, 158px);
+    height: clamp(126px, 9.2vw, 252px);
   }
 }
 
@@ -36,6 +36,10 @@
   width: 85%;
   margin: 0 auto;
   padding-top: 50px;
+
+  @media #{$tablet} {
+    padding-top: clamp(50px, 3.6vw, 100px);
+  }
   position: relative;
 }
 

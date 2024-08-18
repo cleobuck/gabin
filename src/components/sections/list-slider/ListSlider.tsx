@@ -68,7 +68,7 @@ export default function ListSlider({
             : 0
         );
         resetPosition(false); // Reset the flag
-      }, 500);
+      }, 300);
 
       return () => clearTimeout(scrollTimeOut);
     }
@@ -83,7 +83,7 @@ export default function ListSlider({
 
     setTimeout(() => {
       setIsDebouncing(false); // Allow subsequent clicks after debounce delay
-    }, 500); // Adjust the debounce delay as needed
+    }, 300); // Adjust the debounce delay as needed
   };
 
   return (

@@ -9,6 +9,7 @@ import { IsItAPhone } from "@/utils";
 import Sun from "@/assets/images/sun.svg?react";
 import ImageWithCredit from "@/components/items/ImageWithCredit/ImageWithCredit";
 import SideMenu from "@/components/structure/side-menu/SideMenu";
+import BlockQuote from "../BlockQuote/BlockQuote";
 
 type Props = {};
 
@@ -28,14 +29,9 @@ const SecondSection: React.FC<Props> = ({}) => {
       />
 
       <section className={styles.secondSection} ref={ref}>
-        <figure>
-          <blockquote>
-            “C’est sous un chapiteau que j’ai vu se créer les plus beaux moments
-            d’harmonie”
-          </blockquote>
-
-          <figcaption> Gabin, fondateur d’Inouze</figcaption>
-        </figure>
+        <div className={styles.blockquote}>
+          <BlockQuote />
+        </div>
 
         <div className={styles.subSection}>
           <ul>

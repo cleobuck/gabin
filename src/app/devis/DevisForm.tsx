@@ -14,7 +14,6 @@ import ProjectTentBlock from "./components/blocks/ProjectTentBlock/ProjectTentBl
 import PracticalInfoBlock from "./components/blocks/PracticalInfoBlock/PracticalInfoBlock";
 import ContactBlock from "./components/blocks/ContactBlock/ContactBlock";
 import ButtonBlock from "./components/blocks/ButtonBlock/ButtonBlock";
-import { IsItADesktop, IsItAPhone } from "@/utils";
 import Image from "next/image";
 import Logo from "@/assets/images/logo-white.png";
 
@@ -56,9 +55,6 @@ const validationSchema = Yup.object().shape({
 
 const DevisForm = () => {
   const [isFormSubmitted, setFormSubmitted] = useState(false);
-
-  const isPhone = IsItAPhone();
-  const isDesktop = IsItADesktop();
 
   const [files, setFiles] = useState<{ file: File; id: string }[]>([]);
 
@@ -125,46 +121,43 @@ const DevisForm = () => {
             >
               {({ isSubmitting }) => (
                 <Form className={styles.form}>
-                  {isPhone ? (
-                    <>
-                      <PersonalInfoBlock />
-                      <ProjectTentBlock />
-                      <PracticalInfoBlock setFiles={setFiles} />
-                      <ContactBlock />
-                      <ButtonBlock isSubmitting={isSubmitting} />
-                    </>
-                  ) : !isDesktop ? (
-                    <div className={styles.tabletLayout}>
-                      <div className={styles.tabletColumns}>
-                        <div className={styles.leftTabletCol}>
-                          <PersonalInfoBlock />
-                          <PracticalInfoBlock setFiles={setFiles} />
-                        </div>
+                  <div className={styles.phoneOnly}>
+                    <PersonalInfoBlock />
+                    <ProjectTentBlock />
+                    <PracticalInfoBlock setFiles={setFiles} />
+                    <ContactBlock />
+                    <ButtonBlock isSubmitting={isSubmitting} />
+                  </div>
 
-                        <div className={styles.rightTabletCol}>
-                          <ProjectTentBlock />
-                          <ContactBlock />
-                        </div>
+                  <div className={styles.tabletLayout}>
+                    <div className={styles.tabletColumns}>
+                      <div className={styles.leftTabletCol}>
+                        <PersonalInfoBlock />
+                        <PracticalInfoBlock setFiles={setFiles} />
                       </div>
-                      <ButtonBlock isSubmitting={isSubmitting} />
-                    </div>
-                  ) : (
-                    //change when more details
-                    <div className={styles.tabletLayout}>
-                      <div className={styles.tabletColumns}>
-                        <div className={styles.leftTabletCol}>
-                          <PersonalInfoBlock />
-                          <PracticalInfoBlock setFiles={setFiles} />
-                        </div>
 
-                        <div className={styles.rightTabletCol}>
-                          <ProjectTentBlock />
-                          <ContactBlock />
-                        </div>
+                      <div className={styles.rightTabletCol}>
+                        <ProjectTentBlock />
+                        <ContactBlock />
                       </div>
-                      <ButtonBlock isSubmitting={isSubmitting} />
                     </div>
-                  )}
+                    <ButtonBlock isSubmitting={isSubmitting} />
+                  </div>
+
+                  <div className={styles.desktopLayout}>
+                    <div className={styles.tabletColumns}>
+                      <div className={styles.leftTabletCol}>
+                        <PersonalInfoBlock />
+                        <PracticalInfoBlock setFiles={setFiles} />
+                      </div>
+
+                      <div className={styles.rightTabletCol}>
+                        <ProjectTentBlock />
+                        <ContactBlock />
+                      </div>
+                    </div>
+                    <ButtonBlock isSubmitting={isSubmitting} />
+                  </div>
                 </Form>
               )}
             </Formik>{" "}

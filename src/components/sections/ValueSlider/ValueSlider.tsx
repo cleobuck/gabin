@@ -9,24 +9,28 @@ type Props = { style: string };
 
 const ValueSlider: React.FC<Props> = ({ style }) => {
   const isPhone = IsItAPhone();
-  return isPhone ? (
-    <DraggableSlider
-      style="home"
-      type="nodes"
-      elements={[
-        <FirstElement style={style} key={1} />,
-        <SecondElement style={style} key={2} />,
-        <ThirdElement style={style} key={3} />,
-      ]}
-    />
-  ) : (
-    <VerticalSlider
-      elements={[
-        <FirstElement style={style} key={1} />,
-        <SecondElement style={style} key={2} />,
-        <ThirdElement style={style} key={3} />,
-      ]}
-    />
+  return (
+    <>
+      {" "}
+      (
+      <DraggableSlider
+        style="home"
+        type="nodes"
+        className={styles.phone}
+        elements={[
+          <FirstElement style={style} key={1} />,
+          <SecondElement style={style} key={2} />,
+          <ThirdElement style={style} key={3} />,
+        ]}
+      />
+      <VerticalSlider
+        elements={[
+          <FirstElement style={style} key={1} />,
+          <SecondElement style={style} key={2} />,
+          <ThirdElement style={style} key={3} />,
+        ]}
+      />
+    </>
   );
 };
 

@@ -7,7 +7,7 @@ import Sun from "@/assets/images/sun.svg?react";
 import TentImage from "@/assets/images/placeholder.jpeg";
 import { IsItAPhone } from "@/utils";
 import ImageWithCredit from "@/components/items/ImageWithCredit/ImageWithCredit";
-import SideMenu from "@/components/structure/side-menu/SideMenu";
+import BlockQuote from "../BlockQuote/BlockQuote";
 
 type Props = {};
 
@@ -26,7 +26,11 @@ const FirstSection: React.FC<Props> = ({}) => {
         <div className={styles.buttonPart}>
           <DevisButton className={styles.devisButton} />
 
-          {isPhone && <Sun className={styles.sun} />}
+          <Sun className={styles.sun} />
+        </div>
+
+        <div className={styles.quoteSection}>
+          <BlockQuote />
         </div>
       </section>
     </>

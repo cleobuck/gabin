@@ -4,6 +4,13 @@
   height: 127px;
   width: 100vw;
   position: relative;
+  @media #{$tablet} {
+    height: 119px;
+  }
+
+  @media #{$desktop} {
+    height: 200px;
+  }
 
   .credit {
     color: white;
@@ -20,6 +27,11 @@
   justify-content: space-between;
   padding: 0 7.4vw;
 
+  @media #{$tablet} {
+    justify-content: flex-start;
+    gap: 80px;
+  }
+
   .sun {
     position: absolute;
     height: 44px;
@@ -30,22 +42,44 @@
 
   .logo {
     fill: $dirtyWhite;
-    width: 18vw;
+    width: 71px;
+    height: 69px;
+    @media #{$tablet} {
+      width: 76px;
+      height: 75px;
+    }
+    @media #{$desktop} {
+      width: 123px;
+      height: 121px;
+    }
   }
 
   .footerNav {
     color: $dirtyWhite;
     font-size: 13px;
+
+    @media #{$tablet} {
+      text-transform: lowercase;
+    }
+    @media #{$desktop} {
+      font-size: 15px;
+    }
     a {
       line-height: 20px;
     }
   }
 
   .socialNav {
-    display: flex;
-    align-items: center;
-    gap: 13px;
-    list-style-type: none;
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      list-style-type: none;
+    }
+
+    @media #{$tablet} {
+      margin-left: auto;
+    }
 
     li {
       height: 23px;
@@ -57,6 +91,12 @@
       flex-direction: column;
       justify-content: space-between;
       height: 64px;
+
+      @media #{$tablet} {
+        flex-direction: row;
+        gap: 13px;
+        height: auto;
+      }
     }
   }
 }
@@ -67,6 +107,10 @@
   @media #{$tablet} {
     height: 390px;
   }
+
+  @media #{$desktop} {
+    height: 47.77vw;
+  }
   display: block;
   position: relative;
   img {
@@ -75,4 +119,13 @@
   width: 100vw;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.devisButton {
+  display: none;
+  @media #{$tablet} {
+    display: flex;
+    background: $beige;
+    color: $strongGreen;
+  }
 }

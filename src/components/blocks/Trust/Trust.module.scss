@@ -2,8 +2,16 @@
 
 .trust {
   padding: 40px 0px;
+
+  margin: 0 auto;
+
   path {
     fill: $darkBlue;
+  }
+
+  @media #{$desktop} {
+    width: 80vw;
+    margin-bottom: 100px;
   }
 
   h2 {
@@ -14,18 +22,41 @@
     text-align: center;
     text-decoration: underline;
     margin-bottom: 30px;
+    @media #{$desktop} {
+      font-size: clamp(50px, 3.472vw, 60px);
+      margin-bottom: 100px;
+    }
   }
 
   .clients {
     display: flex;
     width: 100%;
 
+    @media #{$desktop} {
+      gap: 11.5vw;
+    }
+
     .logo {
       flex: 0 0 40vw;
+
+      svg {
+        width: 75px;
+        height: 71px;
+      }
 
       @media #{$tablet} {
         flex-basis: 25vw;
       }
+
+      @media #{$desktop} {
+        flex-basis: 9.3vw;
+
+        svg {
+          width: 9.3vw;
+          height: 9.58vw;
+        }
+      }
+
       display: flex;
       justify-content: center;
     }

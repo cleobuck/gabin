@@ -16,11 +16,24 @@
     margin-top: 40px;
     @media #{$tablet} {
       width: calc(61vw);
-      height: 72px;
+    }
+
+    @media #{$desktop} {
+      width: 73.82vw;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+
+      font-size: clamp(18px, 2.777vw, 80px);
+      line-height: 1.1;
+      height: auto;
     }
   }
   .sun {
     margin-left: auto;
+
+    &.desktop {
+      display: none;
+    }
 
     @media #{$tablet} {
       position: absolute;
@@ -28,6 +41,10 @@
       bottom: 0;
       transform: translateY(50%);
       z-index: 2;
+    }
+
+    @media #{$desktop} {
+      display: none;
     }
     path {
       fill: $yellow;
@@ -41,11 +58,14 @@
       width: calc(80vw);
       height: 638px;
     }
+
+    @media #{$desktop} {
+      width: 71.8vw;
+      height: 43.5vw;
+    }
     margin: 16px auto;
 
     img {
-      min-width: 100%;
-      min-height: 100%;
       object-fit: cover;
     }
   }
@@ -58,6 +78,15 @@
     @media #{$tablet} {
       height: 70px;
       @include center;
+    }
+    @media #{$desktop} {
+      display: none;
+    }
+
+    .sun {
+      @media #{$tablet} {
+        display: none;
+      }
     }
     .devisButton {
       position: absolute;
@@ -74,10 +103,21 @@
         height: 54px;
         font-size: 20px;
       }
+      @media #{$desktop} {
+        display: none;
+      }
     }
   }
 }
 
 .hide {
   display: none;
+}
+
+.quoteSection {
+  display: none;
+
+  @media #{$desktop} {
+    display: block;
+  }
 }

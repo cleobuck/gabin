@@ -3,9 +3,19 @@
 .container {
   height: 400px;
   width: 600px;
+
   margin-left: 90px;
   margin-top: 95px;
-  display: flex;
+
+  @media #{$desktop} {
+    margin: 95px auto;
+    width: 1000px;
+  }
+
+  display: none;
+  @media #{$tablet} {
+    display: flex;
+  }
   gap: 60px;
 
   .draggableList {

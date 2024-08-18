@@ -37,6 +37,15 @@
 }
 
 .tabletLayout {
+  display: none;
+
+  @media #{$tablet} {
+    display: block;
+  }
+  @media #{$desktop} {
+    display: none;
+  }
+
   margin: 14px;
   .tabletColumns {
     display: flex;
@@ -51,6 +60,13 @@
       border-left: none;
       border-top: none;
     }
+  }
+}
+
+.desktopLayout {
+  display: none;
+  @media #{$desktop} {
+    display: block;
   }
 }
 
@@ -82,5 +98,11 @@
   @media #{$desktop} {
     bottom: 50%;
     transform: translateY(50%);
+  }
+}
+
+.phoneOnly {
+  @media #{$tablet} {
+    display: none;
   }
 }

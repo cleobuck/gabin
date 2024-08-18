@@ -12,7 +12,7 @@
   border-radius: 0;
   font-size: 13px;
   @media #{$desktop} {
-    font-size: 15px;
+    font-size: clamp(15px, 1vw, 25px);
   }
   width: 54vw;
   max-width: 250px;
@@ -31,8 +31,13 @@
     max-width: none;
     overflow: visible;
     top: 50px;
-    .subMenu {
+    width: 60vw;
+
+    .subMenuWrapper {
       display: none;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
     }
     ul.mainMenuList {
       display: flex;
@@ -42,15 +47,18 @@
       li.mainMenuItemLi {
         position: relative;
         cursor: pointer;
+
+        a {
+          position: relative;
+          z-index: 100;
+        }
         .subMenu {
           margin-left: 0;
 
           list-style-type: none;
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
+
           padding: 10px 5px;
-          display: none;
+
           z-index: 10000;
           @media #{$tablet} {
             margin-top: 15px;
@@ -71,23 +79,26 @@
             background: $beige;
             white-space: nowrap;
             padding: 5px;
+
             // border: 0.5px solid $darkBlue;
           }
         }
         &:hover {
-          .subMenu {
+          .subMenuWrapper {
+            top: -20px;
+            padding-top: 50px;
             display: block;
+            z-index: 0;
           }
         }
       }
     }
   }
-  @media #{$tablet} {
-    width: 60vw;
-  }
 
   @media #{$desktop} {
-    width: 40%;
+    width: clamp(500px, 40%, 1200px);
+
+    top: clamp(50px, 3.6vw, 100px);
   }
 
   &[aria-expanded="true"] {
@@ -125,6 +136,9 @@
   &.white {
     color: white;
   }
+}
+
+.subMenuWrapper {
 }
 
 .subMenu {

@@ -28,34 +28,6 @@
     padding: 0;
     padding-top: 50px;
   }
-  blockquote,
-  figcaption {
-    text-align: center;
-  }
-
-  blockquote {
-    font-family: "Sporting Grotesque";
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 17.92px;
-    text-align: center;
-
-    @media #{$tablet} {
-      font-size: 20px;
-      line-height: 25px;
-      width: 83%;
-      margin: 0 auto;
-    }
-  }
-
-  figcaption {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 13.44px;
-    text-align: center;
-    padding: 15px 0;
-    display: block;
-  }
 
   ul {
     list-style-type: none;
@@ -136,10 +108,14 @@
       margin-bottom: 37px;
       color: $beige;
       font-size: 16px;
+
+      @media #{$desktop} {
+        font-size: clamp(20px, 1.389vw, 30px);
+      }
       font-weight: 400;
       padding-right: 30px;
       padding-bottom: 50px;
-      line-height: 18.4px;
+      line-height: 1.15;
       text-align: left;
       width: 38vw;
       position: relative;
@@ -157,7 +133,11 @@
     ul {
       order: 2;
       font-size: 32px;
-      line-height: 52.16px;
+      line-height: 1.63;
+
+      @media #{$desktop} {
+        font-size: clamp(40px, 2.777vw, 60px);
+      }
       margin: 0;
       width: auto;
       margin-left: 40px;
@@ -181,5 +161,11 @@
     width: 200px;
     height: 155px;
     object-fit: cover;
+  }
+}
+
+.blockquote {
+  @media #{$desktop} {
+    display: none;
   }
 }

@@ -27,13 +27,26 @@ export const IsItAPhone = () => {
   return isPhone;
 };
 
-export const IsItADesktop = () => {
-  const [isDesktop, setDesktop] = useState(false);
+export function getScrollbarWidth() {
+  // Create a temporary element
+  const outer = document.createElement("div");
+  outer.style.visibility = "hidden";
+  outer.style.overflow = "scroll"; // Trigger scrollbar
+  outer.style.width = "100px"; // Set a width to calculate scrollbar size
+  outer.style.height = "100px"; // Set a height to calculate scrollbar size
+  document.body.appendChild(outer);
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setDesktop(window.screen.width >= 1024);
-    }
-  }, []);
-  return isDesktop;
-};
+  // Create an inner element
+  const inner = document.createElement("div");
+  inner.style.width = "100%";
+  inner.style.height = "100%";
+  outer.appendChild(inner);
+
+  // Calculate the scrollbar width
+  const scrollbarWidth = outer.offsetWidth - inner.clientWidth;
+
+  // Remove the temporary elements
+  outer.parentNode!.removeChild(outer);
+
+  return scrollbarWidth;
+}

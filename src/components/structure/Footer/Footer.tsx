@@ -9,8 +9,8 @@ import LinkedIn from "@/assets/images/linkedin.svg?react";
 import Facebook from "@/assets/images/facebook.svg?react";
 
 import TentImage from "@/assets/images/placeholder.jpeg";
-import Image from "next/image";
 import ImageWithCredit from "@/components/items/ImageWithCredit/ImageWithCredit";
+import DevisButton from "@/components/items/Button/DevisButton";
 
 type Props = { noImage?: boolean; className?: string };
 
@@ -30,7 +30,7 @@ export default function Footer({ noImage, className }: Props) {
         <nav className={styling.footerNav}>
           <ul>
             <li>
-              <a href="#">QUI SOMMES NOUS? </a>
+              <a href={`${process.env.BASE_URL}/about#who`}>QUI SOMMES NOUS?</a>
             </li>
             <li>
               <a href="#"> CONTACT </a>
@@ -44,8 +44,8 @@ export default function Footer({ noImage, className }: Props) {
           </ul>
         </nav>
 
-        <nav>
-          <ul className={styling.socialNav}>
+        <nav className={styling.socialNav}>
+          <ul>
             <li>
               <a href="#">
                 {" "}
@@ -67,6 +67,7 @@ export default function Footer({ noImage, className }: Props) {
           </ul>
         </nav>
 
+        <DevisButton className={styling.devisButton} />
         <span className={styling.credit}> images : @Organic-Concept </span>
       </div>
     </div>

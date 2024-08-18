@@ -10,10 +10,12 @@ const DraggableSlider = ({
   elements,
   type = "image",
   style,
+  className,
 }: {
   elements: (ReactNode | ImageData)[];
   type?: string;
   style: string;
+  className?: string;
 }) => {
   const [position, setPosition] = useState<number>(0);
   const sliderBarRef = useRef<HTMLDivElement>(null);
@@ -90,7 +92,7 @@ const DraggableSlider = ({
   };
 
   return (
-    <div className={styling.sliderContainer}>
+    <div className={`${styling.sliderContainer} ${className ? className : ""}`}>
       <div
         className={styling.imageFixedContainer}
         ref={imageContainerRef}

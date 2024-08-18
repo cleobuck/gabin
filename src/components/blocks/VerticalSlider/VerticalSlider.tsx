@@ -8,6 +8,7 @@ import React, {
   TouchEvent as ReactTouchEvent,
 } from "react";
 import styles from "./VerticalSlider.module.scss";
+import { getScrollbarWidth } from "@/utils";
 
 type Props = { elements: ReactNode[] };
 
@@ -20,6 +21,10 @@ const VerticalSlider: React.FC<Props> = ({ elements }) => {
 
   const handleMove = (position: number) => {
     document.body.style.overflow = "hidden";
+
+    console.log(getScrollbarWidth());
+
+    document.body.style.paddingRight = `${getScrollbarWidth()}px`;
 
     const sliderBarRect = sliderBarRef.current?.getBoundingClientRect();
 
@@ -53,8 +58,14 @@ const VerticalSlider: React.FC<Props> = ({ elements }) => {
             const position = e.touches[0].clientY;
             handleMove(position);
           }}
-          onTouchEnd={() => (document.body.style.overflow = "auto")}
-          onMouseLeave={() => (document.body.style.overflow = "auto")}
+          onTouchEnd={() => {
+            document.body.style.overflowY = "auto";
+            document.body.style.paddingRight = "0";
+          }}
+          onMouseLeave={() => {
+            document.body.style.overflowY = "auto";
+            document.body.style.paddingRight = "0";
+          }}
           ref={sliderBarRef}
         >
           <div

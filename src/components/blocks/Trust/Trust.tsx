@@ -114,6 +114,21 @@ const ScrollableContent = forwardRef<HTMLDivElement[], {}>(({}, ref: any) => (
     <div className={styling.logo}>
       <Logo />4
     </div>
+
+    {/* REPEAT HERE */}
+
+    <div className={styling.logo}>
+      <Logo />1
+    </div>
+    <div className={styling.logo}>
+      <Logo />2
+    </div>
+    <div className={styling.logo}>
+      <Logo />3
+    </div>
+    <div className={styling.logo}>
+      <Logo />4
+    </div>
   </>
 ));
 
