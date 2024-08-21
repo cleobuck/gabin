@@ -18,6 +18,10 @@
     position: absolute;
     right: 5px;
     bottom: 2px;
+
+    @media #{$desktop} {
+      display: none;
+    }
   }
 
   background: $strongGreen;

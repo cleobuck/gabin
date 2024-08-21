@@ -39,10 +39,10 @@
 .tabletLayout {
   display: none;
 
-  @media #{$tablet} {
+  @media #{$tablet}, (min-width: 768px) and (orientation: portrait) {
     display: block;
   }
-  @media #{$desktop} {
+  @media #{$desktop} and (orientation: landscape) {
     display: none;
   }
 
@@ -69,7 +69,6 @@
     display: block;
   }
 }
-
 .formPageWrapper {
   position: relative;
   width: 100%;

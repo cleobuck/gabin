@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import styles from "./DevisForm.module.scss";
+import Sun from "@/assets/images/sun.svg?react";
 
 import { sendEmail } from "./DevisAPI";
 
@@ -145,22 +146,22 @@ const DevisForm = () => {
                   </div>
 
                   <div className={styles.desktopLayout}>
-                    <div className={styles.tabletColumns}>
-                      <div className={styles.leftTabletCol}>
-                        <PersonalInfoBlock />
-                        <PracticalInfoBlock setFiles={setFiles} />
-                      </div>
-
-                      <div className={styles.rightTabletCol}>
-                        <ProjectTentBlock />
-                        <ContactBlock />
-                      </div>
+                    <div className={styles.columns}>
+                      <PersonalInfoBlock />
+                      <ProjectTentBlock />
+                      <PracticalInfoBlock setFiles={setFiles} />
                     </div>
-                    <ButtonBlock isSubmitting={isSubmitting} />
+
+                    <div className={styles.desktopBottom}>
+                      <ContactBlock />
+                      <Sun className={styles.sun} />
+
+                      <ButtonBlock isSubmitting={isSubmitting} />
+                    </div>
                   </div>
                 </Form>
               )}
-            </Formik>{" "}
+            </Formik>
           </>
         )}
       </div>

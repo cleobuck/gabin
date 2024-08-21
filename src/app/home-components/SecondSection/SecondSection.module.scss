@@ -61,6 +61,9 @@
       img {
         object-fit: cover;
       }
+      @media #{$tablet} {
+        display: none;
+      }
     }
 
     .image {
@@ -90,6 +93,10 @@
     flex-direction: column;
     padding-left: 50vw;
     height: 770px;
+
+    @media #{$desktop} {
+      height: 65.7vw;
+    }
     .secondSectionImage {
       margin: 0;
       position: absolute;
@@ -98,6 +105,12 @@
       .image {
         width: 50vw;
         height: 770px;
+        @media #{$desktop} {
+          width: 38.33vw;
+          max-width: 1104px;
+          height: 64.17vw;
+          max-height: 1848px;
+        }
       }
     }
     .text {
@@ -156,10 +169,15 @@
   bottom: 9%;
   order: 3;
   gap: 12px;
+
+  @media (min-width: 1350px) {
+    bottom: 24%;
+    right: 10%;
+  }
   .desktopImage {
     position: relative;
-    width: 200px;
-    height: 155px;
+    width: clamp(200px, 17.71vw, 400px);
+    height: clamp(155px, 13.75vw, 310px);
     object-fit: cover;
   }
 }

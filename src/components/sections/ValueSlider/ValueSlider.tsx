@@ -2,17 +2,13 @@
 import React from "react";
 import styles from "./ValueSlider.module.scss";
 import DraggableSlider from "@/components/blocks/Slider/Slider";
-import { IsItAPhone } from "@/utils";
 import VerticalSlider from "@/components/blocks/VerticalSlider/VerticalSlider";
 
 type Props = { style: string };
 
 const ValueSlider: React.FC<Props> = ({ style }) => {
-  const isPhone = IsItAPhone();
   return (
     <>
-      {" "}
-      (
       <DraggableSlider
         style="home"
         type="nodes"

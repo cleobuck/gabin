@@ -146,6 +146,7 @@
   border-radius: 0;
   padding: 20px 0;
   list-style-type: disc;
+  font-size: 15px;
 
   @media #{$tablet} {
     border: 1px solid $strongGreen;
