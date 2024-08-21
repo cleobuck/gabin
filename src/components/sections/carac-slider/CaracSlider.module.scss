@@ -16,7 +16,7 @@
     font-family: "Sporting Grotesque";
     font-size: 16px;
     font-weight: 400;
-    line-height: 20.8px;
+    line-height: 1.3;
     text-align: center;
   }
 
@@ -44,10 +44,32 @@
     text-align: left;
     flex: 0 0 32vw;
     order: 2;
+
+    @media #{$desktop} {
+      p {
+        font-size: clamp(15px, 1.389vw, 25px);
+        line-height: 1.15;
+      }
+    }
   }
   &.tent {
     .text {
       display: none;
+    }
+  }
+
+  &.weddings,
+  &.business,
+  &.events,
+  &.collectives {
+    @media #{$desktop} {
+      .sliderWrapper {
+        width: 600px;
+        h2,
+        h3 {
+          font-size: clamp(16px, 1.5265vw, 30px);
+        }
+      }
     }
   }
 

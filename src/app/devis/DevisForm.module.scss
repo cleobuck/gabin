@@ -2,16 +2,23 @@
 
 .formBox {
   margin: 0 12px;
-  max-width: 1000px;
 
-  @media #{$tablet} {
+  @media #{$tabletPortrait} {
     margin: 0;
-    margin: 0 20px;
-    // min-height: 100vh;
+    width: 90vw;
+    form {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
   }
-  @media #{$desktop} {
+
+  @media #{$desktopLandscape} {
+    max-width: 1200px;
     position: absolute;
-    right: 42px;
+    right: 40px;
+    height: 95vh;
+    display: flex;
   }
   margin-bottom: 0;
 
@@ -29,26 +36,27 @@
       top: 83px;
       z-index: 300;
     }
-    @media #{$desktop} {
-      top: 50%;
-      transform: translateY(-50%);
-    }
   }
 }
 
 .tabletLayout {
   display: none;
+  height: 100%;
 
-  @media #{$tablet}, (min-width: 768px) and (orientation: portrait) {
-    display: block;
+  @media #{$tabletPortrait} {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
   }
-  @media #{$desktop} and (orientation: landscape) {
+  @media #{$desktopLandscape} {
     display: none;
   }
 
   margin: 14px;
   .tabletColumns {
     display: flex;
+    flex: 1;
     .leftTabletCol,
     .rightTabletCol {
       flex: 0 0 50%;
@@ -63,12 +71,6 @@
   }
 }
 
-.desktopLayout {
-  display: none;
-  @media #{$desktop} {
-    display: block;
-  }
-}
 .formPageWrapper {
   position: relative;
   width: 100%;
@@ -77,13 +79,13 @@
 
 .logo {
   display: none;
-  @media #{$desktop} {
+  @media #{$desktopLandscape} {
     display: inline-block;
     width: auto;
   }
 
   &.thankYouLogo {
-    @media #{$tablet} {
+    @media #{$tabletPortrait} {
       display: inline-block;
       width: auto;
     }
@@ -94,7 +96,7 @@
   position: absolute;
   bottom: 30px;
   left: 100px;
-  @media #{$desktop} {
+  @media #{$desktopLandscape} {
     bottom: 50%;
     transform: translateY(50%);
   }
@@ -103,5 +105,26 @@
 .phoneOnly {
   @media #{$tablet} {
     display: none;
+  }
+}
+
+.desktopLayout {
+  display: none;
+
+  flex-direction: column;
+
+  background: $beige;
+  flex: 1;
+
+  .columns {
+    display: flex;
+  }
+
+  .desktopBottom {
+    display: flex;
+  }
+
+  @media #{$desktopLandscape} {
+    display: flex;
   }
 }

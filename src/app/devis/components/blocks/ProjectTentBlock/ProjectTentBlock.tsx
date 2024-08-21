@@ -16,7 +16,7 @@ const ProjectTentBlock: React.FC<Props> = ({}) => {
 
         <TextArea name="projectDescription" label="Description du projet:" />
 
-        <Input name="guestsNumber" label="Nombre de personnes :" />
+        <Input name="guestsNumber" label="Nombre de personnes:" />
 
         <TextArea
           name="configuration"
@@ -39,7 +39,7 @@ const ProjectTentBlock: React.FC<Props> = ({}) => {
 
         <Input
           name="paroisLaterales"
-          label="Si silhouette, parois latérales ?"
+          label="Si silhouette, parois latérales?"
         />
 
         <RadioGroup

@@ -10,7 +10,7 @@ const TentTeaser: React.FC<Props> = ({ style }) => {
   return (
     <div className={`${styles.container} ${styles[style]}`}>
       <div className={styles.imagesContainer}>
-        <div>
+        <div className={styles.firstImage}>
           <figure>
             <Image
               alt="tente"
@@ -22,7 +22,7 @@ const TentTeaser: React.FC<Props> = ({ style }) => {
           <figcaption> stretch tent </figcaption>
         </div>
 
-        <div>
+        <div className={styles.secondImage}>
           <figure>
             <Image
               alt="tente"
@@ -35,9 +35,9 @@ const TentTeaser: React.FC<Props> = ({ style }) => {
         </div>
       </div>
 
-      <Sun className={`${styles.sun} onlyMobile`} />
+      <Sun className={styles.sun} />
 
-      <p className="onlyMobile">
+      <p className={styles.question}>
         {`Comment se déroule la création 
 de votre solution avec Inouze ?`}
       </p>

@@ -6,6 +6,9 @@
   padding-top: 70px;
 
   max-width: 700px;
+  @media #{$desktop} {
+    max-width: none;
+  }
   display: none;
 
   @media #{$tablet} {
@@ -56,17 +59,27 @@
       font-size: 20px;
       font-weight: 400;
       width: 350px;
-      line-height: 21.4px;
+      line-height: 1.07;
       text-align: left;
       margin-bottom: 20px;
+
+      @media #{$desktop} {
+        font-size: clamp(30px, 2.78vw, 40px);
+        width: 51vw;
+      }
     }
 
     p {
       margin-bottom: 20px;
+
       font-family: "Raleway";
       font-size: 16px;
+
+      @media #{$desktop} {
+        font-size: 20px;
+      }
       font-weight: 400;
-      line-height: 17.6px;
+      line-height: 1.1;
       text-align: left;
       &.firstParagraph {
         width: 500px;

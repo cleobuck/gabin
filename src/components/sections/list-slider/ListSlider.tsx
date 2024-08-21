@@ -28,6 +28,8 @@ export default function ListSlider({
   const scrollableDiv = useRef<HTMLDivElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
 
+  const debounceSpeed = window.innerWidth < 1024 ? 300 : 500;
+
   useEffect(() => {
     if (!isPositionResetting && scrollableDiv.current) {
       const temporaryPosition = bothWays
@@ -68,7 +70,7 @@ export default function ListSlider({
             : 0
         );
         resetPosition(false); // Reset the flag
-      }, 300);
+      }, debounceSpeed);
 
       return () => clearTimeout(scrollTimeOut);
     }
@@ -83,7 +85,7 @@ export default function ListSlider({
 
     setTimeout(() => {
       setIsDebouncing(false); // Allow subsequent clicks after debounce delay
-    }, 300); // Adjust the debounce delay as needed
+    }, debounceSpeed); // Adjust the debounce delay as needed
   };
 
   return (

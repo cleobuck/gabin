@@ -6,7 +6,6 @@ type Props = {
   label: string;
   name: string;
   rows?: number;
-  lineHeight?: number;
 };
 
 const TextArea: React.FC<Props> = ({ label, name, rows = 3 }) => {
@@ -14,13 +13,21 @@ const TextArea: React.FC<Props> = ({ label, name, rows = 3 }) => {
     <div className={styles.container}>
       <label className={styles.label}>{label}</label>
 
-      <Field name={name} as="textarea" className={styles.field} rows={rows} />
-
-      <ErrorMessage
+      <div className={styles.paper}>
+        <div className={styles.paperContent}>
+          <Field
+            name={name}
+            as="textarea"
+            className={styles.textArea}
+            rows={rows}
+          />
+        </div>
+      </div>
+      {/* <ErrorMessage
         name={name}
         component="div"
         className={styles.errorMessage}
-      />
+      /> */}
     </div>
   );
 };

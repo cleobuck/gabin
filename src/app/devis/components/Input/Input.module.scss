@@ -4,7 +4,7 @@
   display: flex;
   align-items: flex-end;
 
-  padding-bottom: 20px;
+  padding-bottom: 5px;
   position: relative;
 }
 
@@ -19,7 +19,6 @@
   border: none;
   border-bottom: 1px solid #000; /* Create a thin bottom border */
   outline: none; /* Remove the default outline on focus */
-  padding: 5px 0; /* Add some padding */
   font-size: 16px; /* Adjust the font size as needed */
   transition: border-color 0.3s ease; /* Smooth transition for border color */
   background: none; /* Remove white background */

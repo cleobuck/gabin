@@ -9,11 +9,11 @@ const Input: React.FC<Props> = ({ name, label }) => {
     <div className={styles.container}>
       <label className={styles.label}>{label}</label>
       <Field name={name} className={styles.field} />
-      <ErrorMessage
+      {/* <ErrorMessage
         name={name}
         component="div"
         className={styles.errorMessage}
-      />
+      /> */}
     </div>
   );
 };

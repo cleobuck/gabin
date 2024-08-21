@@ -76,6 +76,10 @@
   &::-webkit-scrollbar {
     display: none;
   }
+
+  @media #{$desktop} {
+    padding: 0 30px;
+  }
   // width: 100%;
 }
 

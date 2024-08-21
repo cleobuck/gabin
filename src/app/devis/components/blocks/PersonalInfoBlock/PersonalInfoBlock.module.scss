@@ -5,6 +5,10 @@
     @include devisSection;
   }
 
+  @media #{$desktopLandscape} {
+    flex: 1;
+  }
+
   h1 {
     font-family: "Sporting Grotesque";
     font-size: 32px;

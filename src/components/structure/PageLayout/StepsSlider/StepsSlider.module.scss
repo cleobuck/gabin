@@ -13,4 +13,8 @@
   @media #{$tablet} {
     flex-basis: 50vw;
   }
+
+  @media #{$desktop} {
+    flex-basis: 40vw;
+  }
 }

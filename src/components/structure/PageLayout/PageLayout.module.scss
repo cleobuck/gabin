@@ -28,7 +28,7 @@
   height: 100vh;
 
   @media #{$desktop} {
-    height: 80vh;
+    height: 90vh;
   }
   width: 100vw;
   border-radius: 0;
@@ -62,6 +62,8 @@
 
     @media #{$desktop} {
       font-size: 128px;
+      padding-left: 50px;
+      margin-bottom: 150px;
     }
   }
 
@@ -102,6 +104,7 @@
 }
 
 .slogan {
+  padding: 30px 0;
   max-width: 768px;
   margin: 0 auto;
 
@@ -109,11 +112,20 @@
     padding-right: 36px;
     padding-left: 36px;
   }
+  p {
+    @media #{$desktop} {
+      font-size: 32px;
+    }
+  }
 }
 
 .adTextWrapper {
   background: $beige;
   @include center;
+
+  @media #{$desktop} {
+    display: none;
+  }
 }
 .adText {
   width: 90%;
@@ -133,4 +145,8 @@
 
 .stepSliderContainer {
   background: rgba(255, 252, 229, 0.5);
+
+  @media #{$desktop} {
+    padding: 30px 0;
+  }
 }

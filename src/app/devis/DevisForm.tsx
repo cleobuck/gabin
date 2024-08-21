@@ -92,7 +92,7 @@ const DevisForm = () => {
   };
 
   return (
-    <div>
+    <>
       <figure className={styles.figure}>
         <Image
           width={160}
@@ -165,7 +165,7 @@ const DevisForm = () => {
           </>
         )}
       </div>
-    </div>
+    </>
   );
 };
 

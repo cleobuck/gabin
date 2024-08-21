@@ -23,7 +23,8 @@ const PracticalInfoBlock: React.FC<Props> = ({ setFiles }) => {
       <div className={styles.section}>
         <Input
           name="dates"
-          label="Date de l’événement: (Date de début et de fin)"
+          label="Date de l’événement:"
+          subLabel=" (Date de début et de fin)"
         />
         <Input name="place" label="Lieu de l’événement:" />
 

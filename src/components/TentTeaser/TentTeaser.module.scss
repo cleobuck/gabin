@@ -4,12 +4,29 @@
   padding-top: 50px;
   padding-bottom: 30px;
 
+  @media #{$desktop} {
+    height: 70.75vw;
+    position: relative;
+  }
+
   .sun {
     width: 44px;
     height: 44px;
     display: block;
     margin: 32px auto;
-    @extend .onlyMobile;
+    @media #{$tablet} {
+      display: none;
+    }
+    @media #{$desktop} {
+      width: 106px;
+      height: 106px;
+      display: block;
+      bottom: 0;
+      position: absolute;
+      margin: 0;
+      left: 50%;
+      transform: translate(-50%, 50%);
+    }
   }
 
   &.weddings {
@@ -34,11 +51,7 @@
       }
     }
   }
-  .imagesContainer {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-  }
+
   figcaption {
     text-align: center;
     font-family: "Sporting Grotesque";
@@ -49,7 +62,11 @@
 
     @media #{$tablet} {
       font-size: 20px;
-      line-height: 22.8px;
+      line-height: 1.14;
+    }
+
+    @media #{desktop} {
+      font-size: clamp(25px, 2.5vw, 35px);
     }
   }
   figure {
@@ -72,7 +89,42 @@
     font-family: "Sporting Grotesque";
     font-size: 13px;
     font-weight: 400;
-    line-height: 16.51px;
+    line-height: 1.27;
     text-align: center;
+  }
+}
+
+p.question {
+  @media #{$tablet} {
+    display: none;
+  }
+
+  @media #{$desktop} {
+    display: block;
+
+    font-size: clamp(25px, 2.5vw, 35px);
+    width: 50%;
+    margin: 100px auto;
+  }
+}
+.imagesContainer {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+
+  @media #{$desktop} {
+    height: 52.5vw;
+    figure {
+      width: 41.18vw;
+      height: 31.94vw;
+    }
+
+    .firstImage {
+      align-self: start;
+    }
+
+    .secondImage {
+      align-self: end;
+    }
   }
 }

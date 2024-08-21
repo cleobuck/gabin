@@ -130,11 +130,9 @@ Puis-je les fixer sur un sol en dur ?
           </p>
         </Question>
 
-        {!isPhone && (
-          <div className={styles.sunDiv} style={{ order: 6 }}>
-            <Sun />
-          </div>
-        )}
+        <div className={styles.sunDiv} style={{ order: 6 }}>
+          <Sun />
+        </div>
 
         <Question
           question="Combien de temps prend 

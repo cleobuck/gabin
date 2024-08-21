@@ -4,15 +4,26 @@
   @media #{$tablet} {
     padding: 50px 43px;
   }
+  @media #{$desktop} {
+    padding: 50px 90px;
+  }
   .questions {
     @media #{$tablet} {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
+      @media #{$desktop} {
+        justify-content: flex-start;
+      }
       width: 40vw;
       flex-wrap: wrap;
       height: 2000px;
       gap: 50px;
+
+      @media #{$desktop} {
+        gap: 140px;
+      }
     }
   }
   padding-top: 51px;
@@ -27,12 +38,20 @@
   .sunDiv {
     height: 300px;
     @include center;
+    display: none;
     svg {
       width: 76px;
       height: 76px;
       path {
         fill: $yellow;
       }
+    }
+    @media #{$tablet} {
+      display: block;
+    }
+
+    @media #{$desktop} {
+      display: none;
     }
   }
 
