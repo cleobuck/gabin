@@ -70,3 +70,11 @@
     }
   }
 }
+
+.slogan {
+  @media #{$largeLandscape} {
+    p {
+      font-size: 40px;
+    }
+  }
+}

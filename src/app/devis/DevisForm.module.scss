@@ -3,7 +3,7 @@
 .formBox {
   margin: 0 12px;
 
-  @media #{$tabletPortrait} {
+  @media #{$tablet} {
     margin: 0;
     width: 90vw;
     form {
@@ -13,11 +13,11 @@
     }
   }
 
-  @media #{$desktopLandscape} {
+  @media #{$largeLandscape} {
     max-width: 1200px;
     position: absolute;
     right: 40px;
-    height: 95vh;
+
     display: flex;
   }
   margin-bottom: 0;
@@ -43,13 +43,13 @@
   display: none;
   height: 100%;
 
-  @media #{$tabletPortrait} {
+  @media #{$tablet} {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     flex: 1;
   }
-  @media #{$desktopLandscape} {
+  @media #{$largeLandscape} {
     display: none;
   }
 
@@ -79,13 +79,13 @@
 
 .logo {
   display: none;
-  @media #{$desktopLandscape} {
+  @media #{$largeLandscape} {
     display: inline-block;
     width: auto;
   }
 
   &.thankYouLogo {
-    @media #{$tabletPortrait} {
+    @media #{$tablet} {
       display: inline-block;
       width: auto;
     }
@@ -96,7 +96,7 @@
   position: absolute;
   bottom: 30px;
   left: 100px;
-  @media #{$desktopLandscape} {
+  @media #{$largeLandscape} {
     bottom: 50%;
     transform: translateY(50%);
   }
@@ -142,7 +142,7 @@
     }
   }
 
-  @media #{$desktopLandscape} {
+  @media #{$largeLandscape} {
     display: flex;
   }
 }

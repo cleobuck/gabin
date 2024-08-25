@@ -12,17 +12,22 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-
+      height: 2000px;
       @media #{$desktop} {
         justify-content: flex-start;
+        height: 3200px;
       }
-      width: 40vw;
+
+      @media #{$largeLandscape} {
+        height: 3000px;
+      }
+      // width: 40vw;
       flex-wrap: wrap;
-      height: 2000px;
+
       gap: 50px;
 
       @media #{$desktop} {
-        gap: 140px;
+        gap: 140px 20px;
       }
     }
   }
@@ -37,7 +42,7 @@
 
   .sunDiv {
     height: 300px;
-    @include center;
+
     display: none;
     svg {
       width: 76px;
@@ -47,7 +52,7 @@
       }
     }
     @media #{$tablet} {
-      display: block;
+      @include center;
     }
 
     @media #{$desktop} {
@@ -60,9 +65,12 @@
     font-family: "Sporting Grotesque";
     font-size: 20px;
     font-weight: 400;
-    line-height: 32.6px;
+    line-height: 1.63;
     text-align: center;
     margin-bottom: 30px;
+    @media #{$desktop} {
+      font-size: 40px;
+    }
   }
 
   .sun {
@@ -88,6 +96,9 @@
       width: 60vw;
       margin: 0 auto;
       margin-bottom: 10px;
+    }
+    @media #{$desktop} {
+      font-size: 20px;
     }
   }
 

@@ -11,7 +11,7 @@
     background: $darkBlue;
   }
 
-  @media #{$tabletPortrait} {
+  @media #{$tablet} {
     display: flex;
     align-items: center;
     padding: 30px 40px;
@@ -20,7 +20,7 @@
     position: relative;
   }
 
-  @media #{$desktopLandscape} {
+  @media #{$largeLandscape} {
     padding: 0;
     display: flex;
     flex-direction: column;

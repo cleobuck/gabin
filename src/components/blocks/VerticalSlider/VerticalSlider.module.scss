@@ -2,22 +2,25 @@
 
 .container {
   height: 400px;
+
   width: 600px;
 
   margin-left: 90px;
   margin-top: 95px;
-
-  @media #{$desktop} {
-    margin: 95px auto;
-    width: 1000px;
-  }
+  gap: 60px;
 
   display: none;
   @media #{$tablet} {
     display: flex;
     width: 51%;
+    min-width: 600px;
   }
-  gap: 60px;
+
+  @media #{$desktop} {
+    margin: 95px auto;
+    width: 1000px;
+    height: 600px;
+  }
 
   .draggableList {
     overflow: scroll;

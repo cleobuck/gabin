@@ -11,7 +11,7 @@ $desktopLandscape: "(min-width: 1024px) and (orientation: landscape)";
 
 $desktop: "(min-width: 1024px)"; // Large devices (desktops, 992px and up)
 
-$large: "(min-width: 1440px)"; // Extra large devices (large desktops, 1200px and up)
+$largeLandscape: "(min-width: 1550px) and (orientation: landscape)"; // Extra large devices (large desktops, 1200px and up)
 
 .onlyMobile {
   @media #{$tablet} {

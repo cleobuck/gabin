@@ -68,7 +68,7 @@ export default function WhoAreWe({}: Props) {
       </div>
 
       <Text slogan author="Gabin, fondateur d’Inouze">
-        <p>
+        <p className={styles.slogan}>
           “Inouze c’est finalement un projet très simple : proposer à chacun de
           retrouver la magie et le merveilleux qu’il y a à créer un événement
           sous une tente !”

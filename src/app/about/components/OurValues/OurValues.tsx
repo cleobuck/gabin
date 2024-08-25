@@ -41,10 +41,6 @@ const OurValues: React.FC<Props> = () => {
       </div>
 
       <ValueSlider style="values" />
-
-      <Button href="" className={styles.button}>
-        DÉCOUVRIR LES TENTES
-      </Button>
     </section>
   );
 };

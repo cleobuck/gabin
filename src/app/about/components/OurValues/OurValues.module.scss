@@ -33,6 +33,9 @@
       font-size: 32px;
       line-height: 52.16px;
     }
+    @media #{$desktop} {
+      font-size: 40px;
+    }
   }
 
   .images {

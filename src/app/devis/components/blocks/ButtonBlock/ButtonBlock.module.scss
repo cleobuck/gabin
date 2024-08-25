@@ -15,7 +15,7 @@
   height: 60px;
   border-bottom: $devis-border;
 
-  @media #{$desktopLandscape} {
+  @media #{$largeLandscape} {
     flex: 0 0 33.33%;
   }
 
@@ -25,7 +25,7 @@
     border-left: $devis-border;
     @include center;
     height: 100%;
-    @media #{$desktopLandscape} {
+    @media #{$largeLandscape} {
       display: none;
     }
   }
