@@ -9,7 +9,7 @@
 
   justify-content: space-between;
 
-  $width: calc((100vw - 7px) / 2);
+  $width: 48vw;
   figure {
     height: calc(($width * 327) / 411);
     width: $width;

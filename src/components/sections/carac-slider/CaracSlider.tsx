@@ -32,7 +32,7 @@ export default function CaracSlider({ style, sliderData }: Props) {
       </Text>
 
       <div className={styling.sliderWrapper}>
-        <h2>Caractéristiques </h2>
+        <h2>Caractéristiques : </h2>
         <h3> {sliderData[imageData.active].title}</h3>
 
         <SecondSlider

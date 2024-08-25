@@ -56,6 +56,9 @@
     .text {
       display: none;
     }
+    @media #{$tablet} {
+      color: $beige;
+    }
   }
 
   &.weddings,
@@ -69,6 +72,30 @@
         h3 {
           font-size: clamp(16px, 1.5265vw, 30px);
         }
+      }
+    }
+  }
+
+  &.tent {
+    @media #{$tablet} {
+      height: 350px;
+      width: 80vw;
+      margin: 0 auto;
+
+      .sliderWrapper {
+        flex: 1;
+        width: 100vw;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+    @media #{$desktop} {
+      height: 500px;
+      margin: 0 auto;
+      padding-top: 130px;
+      h2,
+      h3 {
+        font-size: 40px;
       }
     }
   }

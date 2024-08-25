@@ -73,6 +73,10 @@
     .leftArrows,
     .rightArrows {
       background: $lightGreen;
+
+      @media #{$desktop} {
+        background: $beige;
+      }
     }
   }
 
