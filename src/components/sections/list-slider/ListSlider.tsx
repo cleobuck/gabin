@@ -1,5 +1,4 @@
 "use client";
-
 import React, { ReactNode, useRef, useState, useEffect } from "react";
 import styling from "./ListSlider.module.scss";
 import Arrows from "@/assets/images/arrows.svg?react";
@@ -25,10 +24,16 @@ export default function ListSlider({
   );
   const [isDebouncing, setIsDebouncing] = useState(false); // New state for debouncing
 
+  const [debounceSpeed, setDebounceSpeed] = useState(500);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setDebounceSpeed(window.innerWidth < 1024 ? 300 : 500);
+    }
+  }, [typeof window]);
+
   const scrollableDiv = useRef<HTMLDivElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
-
-  const debounceSpeed = window.innerWidth < 1024 ? 300 : 500;
 
   useEffect(() => {
     if (!isPositionResetting && scrollableDiv.current) {

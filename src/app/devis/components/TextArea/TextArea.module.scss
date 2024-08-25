@@ -4,33 +4,41 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  margin-bottom: 20px; /* Add some spacing between the textarea fields */
-  width: 308px;
+  margin-bottom: 5px; /* Add some spacing between the textarea fields */
+  width: 95%;
+  margin-right: 20px;
+  padding-bottom: 12px;
 }
 
 .label {
-  margin-bottom: 5px; /* Add some space between the label and the textarea field */
   font-size: 15px; /* Adjust the font size as needed */
   color: #333; /* Adjust the color as needed */
+  text-decoration: none; /* Remove any underline or text decoration */
+
+  display: block;
+}
+
+.subLabel {
+  font-size: 11px;
 }
 
 .paper {
   position: relative;
-  width: 310px;
-  height: 300px;
+  width: 100%;
   margin: 0 auto;
   overflow: hidden;
 }
 
 .paperContent {
   position: absolute;
-  top: 0; /* Updated to align with the textarea */
-  right: 0; /* Remove the padding on the right */
-  bottom: 0; /* Updated to align with the textarea */
-  left: 0; /* Remove the padding on the left */
-  background: linear-gradient(transparent 28px, $darkBlue 28px);
-  background-size: 29px 29px;
-  background-position: 0 0; /* Ensure the gradient aligns with the top-left corner */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(transparent 28px, $darkBlue 28px 29px);
+
+  background-size: 70px 29px; /* This sets the grid size, where 28px is transparent, and 1px is the line */
+  background-position: 0 0;
 }
 
 .textArea {
@@ -38,19 +46,20 @@
   max-width: 100%;
   height: 100%;
   max-height: 100%;
-  line-height: 29px;
-  vertical-align: middle;
-  padding: 0; /* Remove padding */
-  margin: 0; /* Ensure no margin is applied */
+  line-height: 29px; /* This should match the grid size to align text with the line */
+  padding: 0;
+  padding-top: 3px; /* Adjust padding if necessary */
+  margin: 0;
   border: 0;
   outline: 0;
   background: transparent;
-  font-size: 25px;
+  font-size: 18px;
   box-sizing: border-box;
   z-index: 1;
 }
 .errorMessage {
   color: red;
-  font-size: 12px; /* Adjust the font size as needed */
+  font-size: 10px; /* Adjust the font size as needed */
+  line-height: 12px;
   margin-top: 5px; /* Add some space above the error message */
 }

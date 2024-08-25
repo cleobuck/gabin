@@ -20,8 +20,9 @@ const ProjectTentBlock: React.FC<Props> = ({}) => {
 
         <TextArea
           name="configuration"
-          label="configuration souhaitée: 
-(conférence, cérémonie, diner assis, diner debout, cocktail…)"
+          label="Configuration souhaitée: "
+          rows={1}
+          subLabel="(conférence, cérémonie, diner assis, diner debout, cocktail…)"
         />
       </div>
       <Title title="La tente" />
@@ -43,12 +44,14 @@ const ProjectTentBlock: React.FC<Props> = ({}) => {
         />
 
         <RadioGroup
+          className={styles.radioYesNo}
           name="subfloor"
           title="Plancher"
           values={[{ value: "oui" }, { value: "non" }]}
         />
 
         <RadioGroup
+          className={styles.radioYesNo}
           name="climatiseur"
           title="Climatiseur"
           values={[{ value: "oui" }, { value: "non" }]}

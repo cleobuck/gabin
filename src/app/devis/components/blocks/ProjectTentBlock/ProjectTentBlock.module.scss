@@ -4,4 +4,10 @@
   .section {
     @include devisSection;
   }
+
+  .radioYesNo {
+    > label {
+      width: 100px;
+    }
+  }
 }

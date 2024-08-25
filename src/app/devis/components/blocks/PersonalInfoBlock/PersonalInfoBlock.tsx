@@ -30,6 +30,8 @@ cela nous permettra d’imaginer la meilleure configuration pour votre événeme
           <RadioGroup
             name="clientType"
             values={[{ value: "professionnel" }, { value: "Particulier" }]}
+            className={styles.clientType}
+            radioStyle
           />
         </>
       </Title>
@@ -38,13 +40,14 @@ cela nous permettra d’imaginer la meilleure configuration pour votre événeme
         <RadioGroup
           name="civilite"
           title="Civilité"
+          radioStyle
           values={[{ value: "Mme" }, { value: "Mr" }, { value: "Autre" }]}
         />
 
-        <Input name="name" label="Nom :" />
-        <Input name="prenom" label="Prénom :" />
-        <Input name="telephone" label="Téléphone : " />
-        <Input name="email" label="Email :" />
+        <Input name="name" label="Nom:" />
+        <Input name="prenom" label="Prénom:" />
+        <Input name="telephone" label="Téléphone: " />
+        <Input name="email" label="Email:" />
 
         <RadioGroup
           noWrap

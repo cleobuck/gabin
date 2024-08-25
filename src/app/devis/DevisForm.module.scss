@@ -118,10 +118,28 @@
 
   .columns {
     display: flex;
+    > div {
+      flex: 0 0 33.33333%;
+      border-right: $devis-border;
+    }
   }
 
   .desktopBottom {
     display: flex;
+    align-items: stretch;
+    .sunContainer {
+      flex: 0 0 60px;
+      width: 100%;
+      // border-right: $devis-border;
+      border: $devis-border;
+      border-left: none;
+
+      @include center;
+      height: 80px;
+    }
+    .sun {
+      fill: $lightYellow;
+    }
   }
 
   @media #{$desktopLandscape} {

@@ -6,14 +6,17 @@ type Props = {
   label: string;
   name: string;
   rows?: number;
+  subLabel?: string;
 };
 
-const TextArea: React.FC<Props> = ({ label, name, rows = 3 }) => {
+const TextArea: React.FC<Props> = ({ label, name, rows = 3, subLabel }) => {
   return (
     <div className={styles.container}>
       <label className={styles.label}>{label}</label>
 
-      <div className={styles.paper}>
+      {subLabel && <label className={styles.subLabel}> {subLabel}</label>}
+
+      <div className={styles.paper} style={{ height: rows * 30 + 5 }}>
         <div className={styles.paperContent}>
           <Field
             name={name}
@@ -22,9 +25,6 @@ const TextArea: React.FC<Props> = ({ label, name, rows = 3 }) => {
             rows={rows}
           />
         </div>
-      </div>
-      <div contentEditable="true">
-        This text is editable.Go ahead and change it.
       </div>
 
       {/* <ErrorMessage

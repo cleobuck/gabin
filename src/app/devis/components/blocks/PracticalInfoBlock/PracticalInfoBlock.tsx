@@ -40,6 +40,8 @@ const PracticalInfoBlock: React.FC<Props> = ({ setFiles }) => {
             onChange={(event) => {
               const fileList = event.currentTarget.files;
 
+              console.log(event.currentTarget.files);
+
               if (fileList && fileList[0]) {
                 const newFile = fileList[0];
 
@@ -48,10 +50,10 @@ const PracticalInfoBlock: React.FC<Props> = ({ setFiles }) => {
                 const newPreview = URL.createObjectURL(newFile);
 
                 setFiles((prevFiles) => [...prevFiles, { file: newFile, id }]);
-                setPreview((prevPreviews) => [
-                  ...prevPreviews,
-                  { blob: newPreview, id },
-                ]);
+                setPreview((prevPreviews) => {
+                  console.log(newPreview);
+                  return [...prevPreviews, { blob: newPreview, id }];
+                });
               }
             }}
           />

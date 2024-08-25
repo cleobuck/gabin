@@ -154,7 +154,10 @@ const DevisForm = () => {
 
                     <div className={styles.desktopBottom}>
                       <ContactBlock />
-                      <Sun className={styles.sun} />
+
+                      <div className={styles.sunContainer}>
+                        <Sun className={styles.sun} />
+                      </div>
 
                       <ButtonBlock isSubmitting={isSubmitting} />
                     </div>
