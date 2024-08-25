@@ -3,10 +3,19 @@
 .container {
   @include center;
   height: 165px;
+
+  @media #{$desktop} {
+    height: 385px;
+  }
   .logoImage {
     width: 55px;
     height: 55px;
     position: relative;
+
+    @media #{$desktop} {
+      height: 160px;
+      width: 160px;
+    }
 
     img {
       object-fit: cover;

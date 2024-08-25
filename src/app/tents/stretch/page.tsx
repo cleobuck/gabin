@@ -18,9 +18,7 @@ import { ResizeScript } from "@/components/ResizeScript";
 import TwoLargeImages from "@/components/sections/TwoLargeImages/TwoLargeImages";
 import ConfigSlider from "@/components/sections/tents/ConfigSlider/ConfigSlider";
 import SideMenu from "@/components/structure/side-menu/SideMenu";
-import { IsItAPhone } from "@/utils";
 const TentStretch = () => {
-  const isPhone = IsItAPhone();
   const caracSliderData = [
     { title: "imperméable", Icon: <Drops /> },
     { title: "deuxieme", Icon: <ImageTest2 /> },
@@ -41,7 +39,7 @@ const TentStretch = () => {
       <SideMenu className={styles.desktopSideMenu} topView />
       <FirstSection
         data={{
-          title: `La tente Stretch, 
+          title: `La tente Stretch,
 le choix de la modularité
 `,
           description: <Description />,
@@ -72,7 +70,7 @@ const Description = () => {
       <p>
         {`Une flexibilité extrême avec classe 
 et élégance, c’est ce que vous apportera 
-la tente stretch ! `}
+la tente stretch! `}
       </p>
       <p>
         {` 
@@ -92,7 +90,7 @@ Totalement ouverte, complètement
 ou partiellement fermée, avec 
 ou sans plancher en bois, avec système 
 de chauffage ou de climatisation, 
-pour un comité réduit ou plusieurs centaines de personnes, la tente stretch offre des possibilités infinies où la seule limite est votre imagination ! `}
+pour un comité réduit ou plusieurs centaines de personnes, la tente stretch offre des possibilités infinies où la seule limite est votre imagination! `}
       </p>
     </>
   );

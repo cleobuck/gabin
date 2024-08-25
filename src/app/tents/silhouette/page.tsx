@@ -17,9 +17,7 @@ import { ResizeScript } from "@/components/ResizeScript";
 import TwoLargeImages from "@/components/sections/TwoLargeImages/TwoLargeImages";
 import ConfigSlider from "@/components/sections/tents/ConfigSlider/ConfigSlider";
 import SideMenu from "@/components/structure/side-menu/SideMenu";
-import { IsItAPhone } from "@/utils";
 const TentSilhouette = () => {
-  const isPhone = IsItAPhone();
   const caracSliderData = [
     { title: "imperméable", Icon: <Drops /> },
     { title: "deuxieme", Icon: <ImageTest2 /> },
