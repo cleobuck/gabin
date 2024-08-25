@@ -23,6 +23,10 @@ const TextArea: React.FC<Props> = ({ label, name, rows = 3 }) => {
           />
         </div>
       </div>
+      <div contentEditable="true">
+        This text is editable.Go ahead and change it.
+      </div>
+
       {/* <ErrorMessage
         name={name}
         component="div"
