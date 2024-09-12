@@ -13,14 +13,22 @@
     display: block;
   }
 
+  @media #{$desktop} {
+    max-width: none;
+  }
+
   h2 {
     font-family: "Sporting Grotesque";
     font-size: 20px;
     font-weight: 400;
     width: 350px;
-    line-height: 21.4px;
+    line-height: 1.07;
     text-align: left;
     margin-bottom: 20px;
+
+    @media #{$desktop} {
+      font-size: clamp(20px, 2.77vw, 50px);
+    }
   }
 
   p {
@@ -28,8 +36,11 @@
     font-family: "Raleway";
     font-size: 16px;
     font-weight: 400;
-    line-height: 17.6px;
+    line-height: 1.1;
     text-align: left;
+    @media #{$desktop} {
+      font-size: clamp(16px, 1.39vw, 25px);
+    }
   }
 
   .topPart {
@@ -46,6 +57,11 @@
     .rightImage {
       width: 214px;
       height: 287px;
+
+      @media #{$desktop} {
+        width: 26.8vw;
+        height: 36.11vw;
+      }
 
       .sun {
         height: 58px;
@@ -79,10 +95,19 @@
       .topImage {
         width: 260px;
         height: 232px;
+
+        @media #{$desktop} {
+          width: 30.69vw;
+          height: 23.82vw;
+        }
       }
       .bottomImage {
         width: 149px;
         height: 154px;
+        @media #{$desktop} {
+          width: 17.78vw;
+          height: 31.11vw;
+        }
       }
     }
   }

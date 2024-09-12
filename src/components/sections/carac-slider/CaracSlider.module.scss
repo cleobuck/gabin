@@ -40,7 +40,7 @@
     font-family: "Raleway";
     font-size: 15px;
     font-weight: 400;
-    line-height: 17.25px;
+    line-height: 1.15;
     text-align: left;
     flex: 0 0 32vw;
     order: 2;
@@ -48,7 +48,6 @@
     @media #{$desktop} {
       p {
         font-size: clamp(15px, 1.389vw, 25px);
-        line-height: 1.15;
       }
     }
   }

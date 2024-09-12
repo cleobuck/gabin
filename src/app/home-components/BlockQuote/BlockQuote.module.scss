@@ -15,12 +15,12 @@
     font-family: "Sporting Grotesque";
     font-size: 16px;
     font-weight: 400;
-    line-height: 17.92px;
+    line-height: 1.12;
     text-align: center;
 
     @media #{$tablet} {
       font-size: 20px;
-      line-height: 25px;
+      line-height: 1.25;
       width: 83%;
       margin: 0 auto;
     }
@@ -35,15 +35,13 @@
   figcaption {
     font-size: 12px;
     font-weight: 400;
-    line-height: 13.44px;
+    line-height: 1.12;
     text-align: center;
     padding: 15px 0;
     display: block;
 
     @media #{$desktop} {
       font-size: 0.833vw;
-
-      line-height: 15.12px;
     }
   }
 }
