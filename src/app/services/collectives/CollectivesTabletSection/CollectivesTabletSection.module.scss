@@ -15,6 +15,7 @@
 
   @media #{$desktop} {
     max-width: none;
+    margin-left: 9.1vw;
   }
 
   h2 {
@@ -52,6 +53,14 @@
 
     .topLeftPart {
       flex: 0 0 60%;
+      @media #{$desktop} {
+        h2 {
+          width: 50vw;
+        }
+        p {
+          width: 50vw;
+        }
+      }
     }
 
     .rightImage {
@@ -59,8 +68,9 @@
       height: 287px;
 
       @media #{$desktop} {
-        width: 26.8vw;
-        height: 36.11vw;
+        width: 43.26vw;
+        height: 29.44vw;
+        display: none;
       }
 
       .sun {
@@ -74,6 +84,10 @@
           fill: $yellow;
         }
         z-index: 500;
+
+        @media #{$desktop} {
+          display: none;
+        }
       }
     }
   }
@@ -82,8 +96,28 @@
     display: flex;
     gap: 7%;
 
+    @media #{$desktop} {
+      margin-top: 50px;
+      p {
+        width: 40vw;
+      }
+    }
+
     h2 {
       margin-top: 50px;
+
+      @media #{$desktop} {
+        width: 42vw;
+      }
+    }
+
+    .rightImage {
+      width: 43.26vw;
+      height: 29.44vw;
+      display: none;
+      @media #{$desktop} {
+        display: block;
+      }
     }
 
     .leftPart {
@@ -91,6 +125,27 @@
       flex-direction: column;
       gap: 60px;
       align-items: flex-end;
+
+      @media #{$desktop} {
+        position: relative;
+
+        top: 100px;
+      }
+
+      .sun {
+        display: none;
+        @media #{$desktop} {
+          display: block;
+          position: absolute;
+          bottom: 30%;
+          left: 15%;
+          height: 58px;
+          width: 58px;
+          path {
+            fill: $yellow;
+          }
+        }
+      }
 
       .topImage {
         width: 260px;

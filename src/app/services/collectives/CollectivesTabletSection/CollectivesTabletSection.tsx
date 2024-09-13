@@ -40,9 +40,15 @@ const CollectivesTabletSection: React.FC<Props> = ({ data }) => {
             alt={data.tabletImages[0].alt}
             className={styles.bottomImage}
           />
+          <Sun className={styles.sun} />
         </div>
 
         <div className={styles.rightPart}>
+          <ImageWithCredit
+            src={data.tabletImages[0].image}
+            alt={data.tabletImages[0].alt}
+            className={styles.rightImage}
+          ></ImageWithCredit>
           <h2> {data.secondParagraph.title} </h2>
 
           {data.secondParagraph.text.map((para, key) => (
