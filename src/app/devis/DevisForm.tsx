@@ -55,7 +55,7 @@ const validationSchema = Yup.object().shape({
 });
 
 const DevisForm = () => {
-  const [isFormSubmitted, setFormSubmitted] = useState(true);
+  const [isFormSubmitted, setFormSubmitted] = useState(false);
 
   const [files, setFiles] = useState<{ file: File; id: string }[]>([]);
 

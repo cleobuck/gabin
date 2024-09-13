@@ -6,11 +6,11 @@ export const ResizeScript = () => {
       id="resize-reload"
       strategy="afterInteractive" // Ensure this script runs only on the client side
     >
-      {`
+      {/* {`
           window.addEventListener('resize', () => {
             window.location.reload();
           });
-        `}
+        `} */}
     </Script>
   );
 };
