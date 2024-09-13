@@ -31,6 +31,8 @@
   background: none; /* Remove white background */
   flex: 1;
   width: 0;
+  color: $strongGreen;
+
   &:focus {
     border-bottom: 1px solid #007bff; /* Change border color on focus */
   }
