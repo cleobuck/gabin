@@ -1,9 +1,18 @@
 @import "@styles/variables";
 
 .imageWithCredit {
+  overflow: hidden;
   .credit {
     display: none;
   }
+  img {
+    transition: 1s transform;
+    &.isInView {
+      transform: scale(1.1);
+      transition: 1s transform;
+    }
+  }
+
   &:hover {
     .credit {
       position: absolute;
