@@ -17,6 +17,7 @@ const Events = () => {
 d’éven-ements /
 planner"
         className={styling.events}
+        removeDashes
       >
         <FirstServiceMobileSection style={style} data={eventsData} />
         <EventsTabletSection data={eventsData} />

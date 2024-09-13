@@ -1,3 +1,5 @@
+@import "@styles/variables";
+
 .events {
   background: linear-gradient(
       rgba(212, 170, 115, 0.77),
@@ -6,6 +8,13 @@
     url("~../../../assets/images/placeholder.jpeg");
 
   // background-color: #619c5796;
+
+  h2 {
+    @media #{$desktop} {
+      // font-size: 60px !important;
+      margin-bottom: 10px !important;
+    }
+  }
 }
 
 .pageWrapper {

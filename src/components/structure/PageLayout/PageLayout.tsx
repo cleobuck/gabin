@@ -21,13 +21,14 @@ import Text from "@/components/blocks/Text/Text";
 import Banner from "@/components/blocks/Banner/Banner";
 import { ResizeScript } from "@/components/ResizeScript";
 import StepsSlider from "./StepsSlider/StepsSlider";
-import { IsItAPhone } from "@/utils";
+import { IsItAPhone, isItADesktop } from "@/utils";
 
 type Props = {
   children: ReactNode;
   title: string;
   className?: string;
   style: string;
+  removeDashes?: boolean;
 };
 
 export default function PageLayout({
@@ -35,8 +36,10 @@ export default function PageLayout({
   title,
   children,
   style,
+  removeDashes,
 }: Props) {
   const isPhone = IsItAPhone();
+  const isDesktop = isItADesktop();
 
   const [scrolledSideMenu, setScrolledStyleMenu] = useState(false);
 
@@ -79,7 +82,21 @@ export default function PageLayout({
         <Header style="white" />
 
         <div className={styling.content}>
-          <h2>{title.toUpperCase()}</h2>
+          <h2
+            className={`${styling.titleWithDashes} ${
+              removeDashes ? styling.removeDashes : ""
+            }`}
+          >
+            {title.toUpperCase()}
+          </h2>
+
+          <h2
+            className={`${styling.titleWithoutDashes} ${
+              removeDashes ? styling.removeDashes : ""
+            }`}
+          >
+            {title.replace(/-/g, "").toUpperCase()}
+          </h2>
 
           {isPhone && (
             <nav>
