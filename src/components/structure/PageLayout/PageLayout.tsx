@@ -21,7 +21,7 @@ import Text from "@/components/blocks/Text/Text";
 import Banner from "@/components/blocks/Banner/Banner";
 import { ResizeScript } from "@/components/ResizeScript";
 import StepsSlider from "./StepsSlider/StepsSlider";
-import { IsItAPhone, isItADesktop } from "@/utils";
+import { IsItAPhone } from "@/utils";
 
 type Props = {
   children: ReactNode;
@@ -39,7 +39,6 @@ export default function PageLayout({
   removeDashes,
 }: Props) {
   const isPhone = IsItAPhone();
-  const isDesktop = isItADesktop();
 
   const [scrolledSideMenu, setScrolledStyleMenu] = useState(false);
 

@@ -12,9 +12,15 @@ const EventsTabletSection: React.FC<Props> = ({ data }) => {
         <div className={styles.leftPart}>
           <h2>{data.firstParagraph.title} </h2>
 
+          <Sun className={styles.sun} />
           {data.firstParagraph.text.map((para, index) => (
             <p key={index}> {para}</p>
           ))}
+          <ImageWithCredit
+            className={styles.leftTopImage}
+            src={data.tabletImages[1].image}
+            alt={data.tabletImages[1].alt}
+          />
         </div>
         <div className={styles.rightPart}>
           <ImageWithCredit

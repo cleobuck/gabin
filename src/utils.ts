@@ -27,17 +27,6 @@ export const IsItAPhone = () => {
   return isPhone;
 };
 
-export const isItADesktop = () => {
-  const [isPhone, setPhone] = useState(false);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setPhone(window.screen.width > 1024);
-    }
-  }, [typeof window]);
-  return isPhone;
-};
-
 export function getScrollbarWidth() {
   // Create a temporary element
   const outer = document.createElement("div");
