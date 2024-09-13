@@ -15,6 +15,7 @@
 
   @media #{$desktop} {
     max-width: none;
+    margin-left: 8.8vw;
   }
 
   h2 {
@@ -41,21 +42,34 @@
 
     @media #{$desktop} {
       font-size: clamp(16px, 1.39vw, 25px);
+      width: 40.58vw;
     }
   }
 
   .topContainer {
     display: flex;
     justify-content: space-between;
+    @media #{$desktop} {
+      justify-content: flex-start;
+    }
     .leftPart {
       flex: 0 0 69%;
+      @media #{$desktop} {
+        flex: 0 0 60%;
+      }
       h2 {
         width: 53%;
+        @media #{$desktop} {
+          width: 44.58vw;
+        }
       }
 
       p {
         &:last-of-type {
           width: 80%;
+          @media #{$desktop} {
+            width: 35.58vw;
+          }
         }
       }
     }
@@ -75,9 +89,31 @@
   .bottomContainer {
     display: flex;
     gap: 8%;
+
+    @media #{$desktop} {
+      position: relative;
+      top: -13.8vw;
+    }
     .leftImages {
       display: flex;
       align-items: flex-end;
+      position: relative;
+
+      .sun {
+        display: none;
+        @media #{$desktop} {
+          display: block;
+          width: 58px;
+          height: 58px;
+          position: absolute;
+          // top: 20px;
+          left: 25%;
+          top: 30%;
+          path {
+            fill: $yellow;
+          }
+        }
+      }
 
       flex-direction: column;
       justify-content: space-between;
@@ -89,6 +125,8 @@
         @media #{$desktop} {
           width: 32.08vw;
           height: 20.9vw;
+          position: relative;
+          right: -18vw;
         }
       }
 
@@ -108,6 +146,12 @@
       flex-direction: column;
       justify-content: flex-end;
 
+      @media #{$desktop} {
+        h2 {
+          width: 42vw;
+        }
+      }
+
       p:last-of-type {
         margin-bottom: 0;
       }
@@ -120,6 +164,10 @@
         left: 25%;
         path {
           fill: $yellow;
+        }
+
+        @media #{$desktop} {
+          display: none;
         }
       }
     }

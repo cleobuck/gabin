@@ -26,6 +26,7 @@ const BusinessTabletSection: React.FC<Props> = ({ data }) => {
 
       <div className={styles.bottomContainer}>
         <div className={styles.leftImages}>
+          <Sun className={styles.sun} />
           <ImageWithCredit
             className={styles.thirdImage}
             src={data.tabletImages[1].image}
