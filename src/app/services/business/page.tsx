@@ -13,9 +13,10 @@ const Weddings = () => {
   return (
     <div className={styling.pageWrapper}>
       <PageLayout
-        title="Entre - prise"
+        title="Entre-prise"
         className={styling.business}
         style={style}
+        removeDashes
       >
         <FirstServiceMobileSection style={style} data={businessData} />
         <BusinessTabletSection data={businessData} />

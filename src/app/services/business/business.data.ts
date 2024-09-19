@@ -7,7 +7,7 @@ une nouvelle dimension`,
     text: [
       `Vous organisez un événement 
 d’entreprise et vous recherchez 
-une solution pour accueillir vos convives ? `,
+une solution pour accueillir vos convives? `,
       `Que ce soit pour un séminaire, 
 un cocktail, un gala ou un team building, Inouze est à vos côtés pour concevoir 
 une structure personnalisée 
