@@ -3,7 +3,7 @@ import styles from "./FirstSection.module.scss";
 import TentImage from "@/assets/images/placeholder.jpeg";
 import Image from "next/image";
 import DevisButton from "@/components/items/Button/DevisButton";
-import BulletPoint from "@/assets/images/bullet-point.svg?react";
+import BulletPoint from "@/assets/icons/bullet-point.svg?react";
 
 type Props = { type: string; data: { title: string; description: ReactNode } };
 

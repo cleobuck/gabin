@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import styles from "./DevisForm.module.scss";
-import Sun from "@/assets/images/sun.svg?react";
+import Sun from "@/assets/icons/sun.svg?react";
 
 import { sendEmail } from "./DevisAPI";
 
@@ -16,7 +16,7 @@ import PracticalInfoBlock from "./components/blocks/PracticalInfoBlock/Practical
 import ContactBlock from "./components/blocks/ContactBlock/ContactBlock";
 import ButtonBlock from "./components/blocks/ButtonBlock/ButtonBlock";
 import Image from "next/image";
-import Logo from "@/assets/images/logo-white.png";
+import Logo from "@/assets/logos/logo-white.png";
 
 const validationSchema = Yup.object().shape({
   clientType: Yup.string().required("Sélectionnez le type de client"),

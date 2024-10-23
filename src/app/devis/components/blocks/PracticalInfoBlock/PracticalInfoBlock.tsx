@@ -3,7 +3,7 @@ import styles from "./PracticalInfoBlock.module.scss";
 import Title from "../../Title/Title";
 import Input from "../../Input/Input";
 import Image from "next/image";
-import Xmark from "@/assets/images/xmark.svg?react";
+import Xmark from "@/assets/icons/xmark.svg?react";
 import TextArea from "../../TextArea/TextArea";
 
 type Props = {

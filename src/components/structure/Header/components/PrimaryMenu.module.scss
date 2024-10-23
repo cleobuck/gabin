@@ -122,6 +122,7 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
+  color: $beige;
   @media #{$tablet} {
     display: none;
   }
@@ -136,9 +137,6 @@
   &.white {
     color: white;
   }
-}
-
-.subMenuWrapper {
 }
 
 .subMenu {

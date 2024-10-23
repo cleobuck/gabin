@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import MenuButton from "@/assets/images/menu-button.svg?react";
+import MenuButton from "@/assets/icons/menu-button.svg?react";
 import styling from "./SecondaryMenu.module.scss";
 type Props = { whichMenuOpen: string; openMenu: () => void; style?: string };
 

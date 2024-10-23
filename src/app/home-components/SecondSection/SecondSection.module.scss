@@ -15,14 +15,9 @@
   width: 100vw;
   position: relative;
 
-  background: linear-gradient(
-    180.12deg,
-    #0d293d 15.54%,
-    #217a99 42.89%,
-    #fffce5 100.31%
-  );
-  color: white;
+  color: $darkBlue;
   padding: 50px 40px;
+  padding-bottom: 0;
 
   @media #{$tablet} {
     padding: 0;
@@ -67,8 +62,8 @@
     }
 
     .image {
-      width: 225px;
-      height: 176px;
+      width: 290px;
+      height: 375px;
       img {
         object-fit: cover;
       }
@@ -78,6 +73,9 @@
   .bulletPoint {
     width: 10px;
     margin-right: 5px;
+    path {
+      fill: $darkBlue;
+    }
     @media #{$tablet} {
       width: 20px;
     }

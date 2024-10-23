@@ -2,7 +2,7 @@
 
 .upperLogo {
   path {
-    fill: $teal;
+    fill: $beige;
   }
 
   width: 50px;
@@ -26,21 +26,28 @@
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-
-  @media #{$tablet} {
-    align-items: start;
-  }
-  width: 85%;
-  margin: 0 auto;
-  padding-top: 50px;
-
-  @media #{$tablet} {
-    padding-top: clamp(50px, 3.6vw, 100px);
-  }
+  background-size: auto 100% !important;
+  background-position: 35% 0% !important;
   position: relative;
+
+  height: 90vh;
+  .navAndLogo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @media #{$tablet} {
+      align-items: start;
+    }
+    width: 85%;
+    margin: 0 auto;
+    padding-top: 50px;
+
+    @media #{$tablet} {
+      padding-top: clamp(50px, 3.6vw, 100px);
+    }
+    position: relative;
+  }
 }
 
 .mainTitle {

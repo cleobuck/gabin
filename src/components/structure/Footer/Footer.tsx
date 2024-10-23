@@ -1,15 +1,14 @@
 import React from "react";
 import styling from "./Footer.module.scss";
-import Sun from "@/assets/images/sun.svg?react";
-import Logo from "@/assets/images/logo.svg?react";
-import Insta from "@/assets/images/insta.svg?react";
+import Sun from "@/assets/icons/sun.svg?react";
+import Logo from "@/assets/icons/logo.svg?react";
+import Insta from "@/assets/icons/insta.svg?react";
 
-import LinkedIn from "@/assets/images/linkedin.svg?react";
+import LinkedIn from "@/assets/icons/linkedin.svg?react";
 
-import Facebook from "@/assets/images/facebook.svg?react";
+import Facebook from "@/assets/icons/facebook.svg?react";
 
-import TentImage from "@/assets/images/placeholder.jpeg";
-import ImageWithCredit from "@/components/items/ImageWithCredit/ImageWithCredit";
+import TentImage from "@/assets/images/st-trop.jpeg";
 import DevisButton from "@/components/items/Button/DevisButton";
 
 type Props = { noImage?: boolean; className?: string };
@@ -18,11 +17,16 @@ export default function Footer({ noImage, className }: Props) {
   return (
     <div className={className ? className : ""}>
       {!noImage && (
-        <ImageWithCredit
-          alt="tente"
-          className={styling.image}
-          src={TentImage}
-        />
+        <div
+          className={styling.featuredImage}
+          style={{
+            background: `linear-gradient(rgba(20, 48, 27, 0.57), rgba(20, 48, 27, 0.57)), url(${TentImage.src})`,
+          }}
+        >
+          <h3>
+            NOUS RÉPONDONS À VOS QUESTIONS JUSTE <a href="#">ICI</a>
+          </h3>
+        </div>
       )}
       <div className={styling.footer}>
         {!noImage && <Sun className={styling.sun} />}
@@ -67,7 +71,6 @@ export default function Footer({ noImage, className }: Props) {
           </ul>
         </nav>
 
-        <DevisButton className={styling.devisButton} />
         <span className={styling.credit}> images : @Organic-Concept </span>
       </div>
     </div>

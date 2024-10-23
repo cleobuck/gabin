@@ -1,7 +1,7 @@
 "use client";
 import React, { ReactNode, useRef, useState, useEffect } from "react";
 import styling from "./ListSlider.module.scss";
-import Arrows from "@/assets/images/arrows.svg?react";
+import Arrows from "@/assets/icons/arrows.svg?react";
 
 type Props = {
   style: string;

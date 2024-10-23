@@ -5,7 +5,7 @@ import TentImage from "@/assets/images/placeholder.jpeg";
 import Image from "next/image";
 import ValueSlider from "@/components/sections/ValueSlider/ValueSlider";
 import Button from "@/components/items/Button/Button";
-import Sun from "@/assets/images/sun.svg?react";
+import Sun from "@/assets/icons/sun.svg?react";
 import { IsItAPhone } from "@/utils";
 import ImageWithCredit from "@/components/items/ImageWithCredit/ImageWithCredit";
 

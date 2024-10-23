@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./ThirdTabletSection.module.scss";
 import TentImage from "@/assets/images/placeholder.jpeg";
 import Image from "next/image";
-import Sun from "@/assets/images/sun.svg?react";
+import Sun from "@/assets/icons/sun.svg?react";
 import ImageWithCredit from "@/components/items/ImageWithCredit/ImageWithCredit";
 
 type Props = {};

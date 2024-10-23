@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./TentTeaser.module.scss";
 import TentImage from "@/assets/images/placeholder.jpeg";
-import Sun from "@/assets/images/sun.svg?react";
+import Sun from "@/assets/icons/sun.svg?react";
 import Image from "next/image";
 
 type Props = { style: string };

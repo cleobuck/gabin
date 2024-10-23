@@ -3,12 +3,12 @@ import FirstSection from "@/components/sections/tents/FirstSection/FirstSection"
 import Header from "@/components/structure/Header/Header";
 import React from "react";
 import styles from "./page.module.scss";
-import ImageTest2 from "@/assets/images/linkedin.svg?react";
+import ImageTest2 from "@/assets/icons/linkedin.svg?react";
 import TentImage from "@/assets/images/placeholder.jpeg";
 
-import ImageTest1 from "@/assets/images/sun.svg?react";
+import ImageTest1 from "@/assets/icons/sun.svg?react";
 
-import Drops from "@/assets/images/drops.svg?react";
+import Drops from "@/assets/icons/drops.svg?react";
 import CaracSlider from "@/components/sections/carac-slider/CaracSlider";
 import DraggableSlider from "@/components/blocks/Slider/Slider";
 import LogoSection from "@/components/sections/tents/LogoSection/LogoSection";

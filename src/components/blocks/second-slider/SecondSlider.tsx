@@ -1,7 +1,7 @@
 "use client";
 
 import React, { ReactNode } from "react";
-import Arrows from "@/assets/images/arrows.svg?react";
+import Arrows from "@/assets/icons/arrows.svg?react";
 import styling from "./SecondSlider.module.scss";
 
 type Props = {

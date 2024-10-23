@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./ButtonBlock.module.scss";
-import Sun from "@/assets/images/sun.svg?react";
+import Sun from "@/assets/icons/sun.svg?react";
 import TinyLoader from "../../tiny-loader/TinyLoader";
 
 type Props = { isSubmitting: boolean };

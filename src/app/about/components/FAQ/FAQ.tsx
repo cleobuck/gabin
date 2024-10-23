@@ -2,7 +2,7 @@
 
 import React from "react";
 import styles from "./FAQ.module.scss";
-import Sun from "@/assets/images/sun.svg?react";
+import Sun from "@/assets/icons/sun.svg?react";
 import Question from "@/components/blocks/Question/Question";
 import { IsItAPhone } from "@/utils";
 

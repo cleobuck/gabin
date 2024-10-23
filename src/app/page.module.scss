@@ -9,8 +9,9 @@
   min-height: 100vh;
 }
 
-.blueGradientBackground {
+.page {
   background: linear-gradient(179.36deg, #fffce5 12.41%, #9cd6f2 116.6%);
+
   width: 100vw;
 }
 
@@ -19,5 +20,53 @@
   @media #{$tablet} {
     display: block;
     top: 150px !important;
+  }
+}
+
+.devisButton {
+  position: absolute;
+
+  bottom: 25px;
+  left: 50%;
+
+  transform: translateX(-50%);
+  background: $beige !important;
+  color: $strongGreen !important;
+  @media #{$tablet} {
+    position: static;
+    transform: none;
+    width: 113px;
+    height: 54px;
+    font-size: 20px;
+  }
+  @media #{$desktop} {
+    display: none;
+  }
+}
+
+.text {
+  font-family: "Raleway";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 19.5px;
+  text-align: left;
+  width: 319px;
+  margin: 0 auto;
+  margin-bottom: 18px;
+  margin-top: 18px;
+}
+
+.imageWrapper {
+  margin-top: 21px;
+  margin-bottom: 43px;
+  display: flex;
+  justify-content: center;
+
+  .image {
+    width: 319px;
+    height: 375px;
+    img {
+      object-fit: cover;
+    }
   }
 }

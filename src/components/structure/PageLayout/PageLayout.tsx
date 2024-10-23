@@ -10,13 +10,13 @@ import ListSlider from "../../../components/sections/list-slider/ListSlider";
 import Trust from "@/components/blocks/Trust/Trust";
 import TentTeaser from "@/components/TentTeaser/TentTeaser";
 
-import ImageTest2 from "@/assets/images/linkedin.svg?react";
+import ImageTest2 from "@/assets/icons/linkedin.svg?react";
 
-import ImageTest1 from "@/assets/images/sun.svg?react";
+import ImageTest1 from "@/assets/icons/sun.svg?react";
 
-import Drops from "@/assets/images/drops.svg?react";
+import Drops from "@/assets/icons/drops.svg?react";
 import CaracSlider from "@/components/sections/carac-slider/CaracSlider";
-import Sun from "@/assets/images/sun.svg?react";
+import Sun from "@/assets/icons/sun.svg?react";
 import Text from "@/components/blocks/Text/Text";
 import Banner from "@/components/blocks/Banner/Banner";
 import { ResizeScript } from "@/components/ResizeScript";

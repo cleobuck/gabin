@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./ThankYou.module.scss";
-import Sun from "@/assets/images/sun.svg?react";
+import Sun from "@/assets/icons/sun.svg?react";
 
 type Props = {};
 

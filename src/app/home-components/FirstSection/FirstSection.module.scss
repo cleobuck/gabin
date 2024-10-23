@@ -7,12 +7,13 @@
   padding-bottom: 14px;
   h1 {
     font-family: "Sporting Grotesque";
-    font-size: 22px;
-    font-weight: 400;
+    font-size: 20px;
+    font-weight: 700;
     line-height: 1.1;
     text-align: center;
-    color: $strongGreen;
+    color: $beige;
     margin: 0 auto;
+    width: 90%;
     margin-top: 40px;
     @media #{$tablet} {
       width: calc(61vw);
@@ -27,8 +28,7 @@
     }
   }
   .sun {
-    margin-left: auto;
-
+    margin-top: 50px;
     &.desktop {
       display: none;
     }
@@ -83,25 +83,6 @@
 
     .sun {
       @media #{$tablet} {
-        display: none;
-      }
-    }
-    .devisButton {
-      position: absolute;
-
-      left: 50%;
-      transform: translateX(-50%);
-      background: none;
-      border: 1px solid var(--BLEU-FONCE, rgba(13, 41, 61, 1));
-      color: $strongGreen;
-      @media #{$tablet} {
-        position: static;
-        transform: none;
-        width: 113px;
-        height: 54px;
-        font-size: 20px;
-      }
-      @media #{$desktop} {
         display: none;
       }
     }

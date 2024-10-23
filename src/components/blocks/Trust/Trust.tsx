@@ -2,7 +2,7 @@
 
 import React, { forwardRef, useEffect, useRef, useState } from "react";
 import styling from "./Trust.module.scss";
-import Logo from "@/assets/images/logo.svg?react";
+import Logo from "@/assets/icons/logo.svg?react";
 import { IsItAPhone } from "@/utils";
 import ListSlider from "@/components/sections/list-slider/ListSlider";
 

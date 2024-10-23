@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import styling from "./Overlay.module.scss";
-import Xmark from "@/assets/images/xmark.svg?react";
+import Xmark from "@/assets/icons/xmark.svg?react";
 
 type Props = { whichMenuOpen: string; closeMenu: () => void };
 

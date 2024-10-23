@@ -7,37 +7,60 @@ import Banner from "@/components/blocks/Banner/Banner";
 import Trust from "@/components/blocks/Trust/Trust";
 import FirstSection from "./home-components/FirstSection/FirstSection";
 import SecondSection from "./home-components/SecondSection/SecondSection";
-import ThirdSection from "./home-components/ThirdSection/ThirdSection";
-import FourthSection from "./home-components/FourthSection/FourthSection";
+
 import ValueSlider from "../components/sections/ValueSlider/ValueSlider";
-import ThirdTabletSection from "./home-components/ThirdTabletSection/ThirdTabletSection";
 import { ResizeScript } from "@/components/ResizeScript";
+import DevisButton from "@/components/items/Button/DevisButton";
+import ImageWithCredit from "@/components/items/ImageWithCredit/ImageWithCredit";
+import Illu2 from "@/assets/icons/illu2.svg?react";
+
+import Montage from "@/assets/images/montage.jpg";
 
 export default function Home() {
   return (
-    <>
+    <div className={styles.page}>
       <ResizeScript />
 
-      <Header />
-      <main className={styles.main}>
+      <Header style="home">
         <FirstSection />
+        <DevisButton className={styles.devisButton} />
+      </Header>
+      <SideMenu topView className={styles.desktopSideMenu} />
 
-        <SideMenu topView className={styles.desktopSideMenu} />
+      <SecondSection />
 
-        <SecondSection />
-        <div className={styles.blueGradientBackground}>
-          <Banner style="home" />
+      <Banner style="home" />
 
-          <ThirdTabletSection />
-          <ThirdSection />
-          <FourthSection />
+      <p className={styles.text}>
+        {`Parce que sous un chapiteau s’éveille toujours un soupçon de magie,
+        Inouze vous propose ses structures haut de gamme pour donner une
+        nouvelle dimension à votre événement.`}
+      </p>
 
-          <ValueSlider style="home" />
+      <div className={styles.imageWrapper}>
+        <ImageWithCredit
+          src={Montage}
+          alt="tent"
+          className={styles.image}
+          Icon={<Illu2 />}
+        />
+      </div>
 
-          <Trust style="home" />
-        </div>
-      </main>
+      <p className={styles.text}>
+        {`Quel que soit votre événement, nos structures haut de gamme apportent
+        une atmosphère unique et élégante à votre lieu.`}
+      </p>
+
+      <p className={styles.text}>
+        {`Pour un mariage, un événement d’entreprise, ou encore un festival,
+        Inouze s’adapte à vos envies et vos besoins pour créer un cadre
+        remarquable où tout devient possible.`}
+      </p>
+
+      <ValueSlider style="home" />
+
+      <Trust style="home" />
       <Footer />
-    </>
+    </div>
   );
 }

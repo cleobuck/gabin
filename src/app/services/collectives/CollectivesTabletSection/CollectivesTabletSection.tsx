@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./CollectivesTabletSection.module.scss";
 import { ServiceData } from "../../Services.types";
-import Sun from "@/assets/images/sun.svg?react";
+import Sun from "@/assets/icons/sun.svg?react";
 import ImageWithCredit from "@/components/items/ImageWithCredit/ImageWithCredit";
 type Props = { data: ServiceData };
 

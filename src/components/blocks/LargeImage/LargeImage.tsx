@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./LargeImage.module.scss";
-import Sun from "@/assets/images/sun.svg?react";
+import Sun from "@/assets/icons/sun.svg?react";
 import Image, { StaticImageData } from "next/image";
 import ImageWithCredit from "@/components/items/ImageWithCredit/ImageWithCredit";
 

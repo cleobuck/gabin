@@ -1,5 +1,11 @@
 "use client";
-import React, { ReactNode, useEffect, useRef, useState } from "react";
+import React, {
+  ReactElement,
+  ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import styles from "./ImageWithCredit.module.scss";
 import Image, { StaticImageData } from "next/image";
 
@@ -8,6 +14,7 @@ type Props = {
   alt: string;
   className?: string; // className is optional now
   children?: ReactNode;
+  Icon?: ReactElement;
 };
 
 const ImageWithCredit: React.FC<Props> = ({
@@ -15,6 +22,7 @@ const ImageWithCredit: React.FC<Props> = ({
   alt,
   className,
   children,
+  Icon,
 }) => {
   const [isInView, setIsInView] = useState(false); // State to track if the image is in the viewport
   const imageRef = useRef<HTMLElement | null>(null); // Ref to target the image container
@@ -57,6 +65,13 @@ const ImageWithCredit: React.FC<Props> = ({
       />
 
       {children}
+
+      {Icon &&
+        React.cloneElement(Icon, {
+          className: `${styles.icon} ${
+            Icon.props.className ? Icon.props.className : ""
+          }`,
+        })}
 
       <span className={styles.credit}>@Organic-Concept</span>
     </figure>
