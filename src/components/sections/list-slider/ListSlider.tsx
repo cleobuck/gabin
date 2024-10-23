@@ -113,7 +113,7 @@ export default function ListSlider({
           middleArrows ? styling.middleArrowsContainer : styling.arrowsContainer
         }`}
       >
-        {bothWays && (
+        {/* {bothWays && (
           <div
             className={`${styling.arrows} ${styling.leftArrows}`}
             onClick={() => {
@@ -122,15 +122,15 @@ export default function ListSlider({
           >
             <Arrows className={styling[style]} />
           </div>
-        )}
-        <div
+        )} */}
+        {/* <div
           className={`${styling.arrows} ${styling.rightArrows}`}
           onClick={() => {
             handleArrowClick("forwards");
           }}
         >
           <Arrows className={styling[style]} />
-        </div>
+        </div> */}
         <div className={styling.rightArrowLine} />
       </div>
     </div>

@@ -31,7 +31,7 @@ export default function Home() {
 
       <Banner style="home" />
 
-      <p className={styles.text}>
+      <p className={`${styles.text} ${styles.firstText}`}>
         {`Parce que sous un chapiteau s’éveille toujours un soupçon de magie,
         Inouze vous propose ses structures haut de gamme pour donner une
         nouvelle dimension à votre événement.`}

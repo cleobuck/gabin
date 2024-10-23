@@ -78,9 +78,6 @@ export default function SideMenu({
             <li>
               <a href={`${process.env.BASE_URL}/devis`}> DEVIS </a>
             </li>
-            <li>
-              <a href={`${process.env.BASE_URL}/contact`}> CONTACT </a>
-            </li>{" "}
           </>
         ) : (
           <li>

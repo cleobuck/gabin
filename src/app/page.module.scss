@@ -48,17 +48,21 @@
   font-family: "Raleway";
   font-size: 15px;
   font-weight: 400;
-  line-height: 19.5px;
+  line-height: 17.5px;
   text-align: left;
   width: 319px;
   margin: 0 auto;
   margin-bottom: 18px;
   margin-top: 18px;
+  padding-right: 5%;
+  &.firstText {
+    padding-right: 2%;
+  }
 }
 
 .imageWrapper {
   margin-top: 21px;
-  margin-bottom: 43px;
+
   display: flex;
   justify-content: center;
 

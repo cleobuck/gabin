@@ -92,7 +92,11 @@ const DraggableSlider = ({
   };
 
   return (
-    <div className={`${styling.sliderContainer} ${className ? className : ""}`}>
+    <div
+      className={`${styling.sliderContainer} ${className ? className : ""}  ${
+        styling[style]
+      }`}
+    >
       <div
         className={styling.imageFixedContainer}
         ref={imageContainerRef}

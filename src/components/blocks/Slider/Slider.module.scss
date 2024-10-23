@@ -8,6 +8,12 @@
   margin: 20px 0; /* Center align */
 
   overflow: hidden; /* Hide overflow */
+  &.home {
+    width: 319px;
+    margin: 0 auto;
+
+    margin-top: 52px;
+  }
 }
 
 .imageFixedContainer {
@@ -52,6 +58,7 @@
   border-radius: 33px;
   &.home {
     background: $teal;
+    width: 100%;
 
     .sliderBar {
       background: $teal;
