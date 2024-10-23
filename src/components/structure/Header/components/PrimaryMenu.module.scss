@@ -12,7 +12,7 @@
   border-radius: 0;
   font-size: 13px;
   @media #{$desktop} {
-    font-size: clamp(15px, 1vw, 25px);
+    font-size: clamp(15px, 1vw, 40px);
   }
   width: 230px;
   max-width: 250px;
@@ -24,6 +24,12 @@
     &.white {
       color: $beige;
     }
+  }
+
+  @media #{$desktop} {
+    color: $beige;
+    font-weight: 600;
+    size: 20px;
   }
 
   @media #{$tablet} {
@@ -156,6 +162,7 @@
   text-align: center;
   display: flex;
   color: $strongGreen;
+
   align-items: center;
   line-height: 26px;
   .circle {

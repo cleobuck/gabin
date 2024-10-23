@@ -9,12 +9,14 @@
     font-family: "Sporting Grotesque";
     font-size: 20px;
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.2;
+    max-width: 2500px;
     text-align: center;
     color: $beige;
     margin: 0 auto;
     width: 90%;
     margin-top: 40px;
+
     @media #{$tablet} {
       width: calc(61vw);
     }
@@ -23,7 +25,8 @@
       width: 73.82vw;
       text-transform: uppercase;
       margin-bottom: 24px;
-      font-size: clamp(18px, 2.777vw, 40px);
+      margin-top: clamp(85px, 8.3vw, 300px);
+      font-size: clamp(18px, 2.3vw, 80px);
       height: auto;
     }
   }
@@ -98,5 +101,9 @@
 
   @media #{$desktop} {
     display: block;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

@@ -29,8 +29,14 @@
   background-size: auto 100% !important;
   background-position: 35% 0% !important;
   position: relative;
-
   height: 90vh;
+  @media #{$desktop} {
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+
+    height: 64vw;
+  }
+
   .navAndLogo {
     display: flex;
     justify-content: space-between;

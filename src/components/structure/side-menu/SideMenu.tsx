@@ -19,22 +19,34 @@ export default function SideMenu({
   style = "home",
   scrollLimit = undefined,
 }: Props) {
+  const [scrolledDown, setScrolledDown] = useState(false);
+
   const [isVisible, setVisible] = useState(topView);
 
   useEffect(() => {
-    if (!topView) {
+    {
       const handleScroll = () => {
         const scrollPosition = document.body.scrollTop;
         const viewportHeight = window.innerHeight;
 
-        if (
-          scrollLimit
-            ? scrollPosition >= scrollLimit
-            : scrollPosition >= viewportHeight
-        ) {
-          setVisible(true);
+        const sixtyFourVW = 0.64 * window.innerWidth;
+
+        if (!topView) {
+          if (
+            scrollLimit
+              ? scrollPosition >= scrollLimit
+              : scrollPosition >= viewportHeight
+          ) {
+            setVisible(true);
+          } else {
+            setVisible(false);
+          }
+        }
+
+        if (scrollPosition >= sixtyFourVW) {
+          setScrolledDown(true);
         } else {
-          setVisible(false);
+          setScrolledDown(false);
         }
       };
 
@@ -65,6 +77,8 @@ export default function SideMenu({
 
     { condition: !!style, name: styling[style!] },
     { condition: !!className, name: className! },
+
+    { condition: !!scrolledDown, name: styling.isScrolledDown },
   ];
 
   return (

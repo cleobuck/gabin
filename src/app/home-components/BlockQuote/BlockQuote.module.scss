@@ -13,9 +13,9 @@
 
   blockquote {
     font-family: "Sporting Grotesque";
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 400;
-    line-height: 1.12;
+    line-height: 1.26;
     text-align: center;
 
     @media #{$tablet} {
@@ -28,20 +28,23 @@
     @media #{$desktop} {
       font-size: 1.388vw;
       line-height: 1.26;
-      color: $teal;
+      color: $beige;
     }
   }
 
   figcaption {
+    font-family: "Raleway";
     font-size: 12px;
     font-weight: 400;
-    line-height: 1.12;
+    line-height: 1.26;
     text-align: center;
+
     padding: 15px 0;
     display: block;
 
     @media #{$desktop} {
       font-size: 0.833vw;
+      color: $lightGreen;
     }
   }
 }

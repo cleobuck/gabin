@@ -20,8 +20,18 @@
   }
 
   @media #{$tablet} {
-    width: 250px;
-    right: -103px;
+    right: -37px;
+  }
+
+  @media #{$desktop} {
+    &:not(.isScrolledDown) {
+      background: transparent;
+
+      a {
+        color: $beige;
+      }
+      border-color: $beige;
+    }
   }
 
   ul {
@@ -45,6 +55,7 @@
         height: 40px;
         font-size: 15px;
         width: 50%;
+        padding: 0 30px;
       }
     }
   }

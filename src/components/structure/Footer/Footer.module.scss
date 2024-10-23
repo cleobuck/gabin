@@ -137,19 +137,25 @@
 .featuredImage {
   background-size: auto 100% !important;
   background-position: 50% 0% !important;
-  height: 374px;
+  height: 65vw;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: "Sporting Grotesque";
   font-size: 20px;
   font-weight: 700;
-  line-height: 25px;
+  line-height: 1.25;
+  padding-right: calc((100% - 320px) / 2);
+  padding-left: calc((100% - 320px) / 2);
+  @media #{$desktop} {
+    font-family: Sporting Grotesque;
+    font-size: clamp(24px, 2.3vw, 80px);
+    font-weight: 700;
+    padding: 0 20vw;
+  }
   text-align: center;
   color: $beige;
   a {
     text-decoration: underline;
   }
-  padding-right: calc((100% - 320px) / 2);
-  padding-left: calc((100% - 320px) / 2);
 }
