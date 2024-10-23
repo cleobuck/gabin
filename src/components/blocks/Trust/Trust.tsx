@@ -5,10 +5,11 @@ import styling from "./Trust.module.scss";
 import Logo from "@/assets/icons/logo.svg?react";
 import { IsItAPhone } from "@/utils";
 import ListSlider from "@/components/sections/list-slider/ListSlider";
+import Illu3 from "@/assets/icons/illu-3.svg?react";
 
-type Props = { style: string };
+type Props = { style: string; className?: string };
 
-export default function Trust({ style }: Props) {
+export default function Trust({ style, className }: Props) {
   const isPhone = IsItAPhone();
 
   const ref = useRef<HTMLDivElement[]>([]);
@@ -28,15 +29,20 @@ export default function Trust({ style }: Props) {
 
     // This will log the ref after the component has mounted
   }, [ref.current.length]);
-  return (
-    <section className={styling.trust}>
-      <h2> Ils nous font confiance</h2>
 
+  return (
+    <section className={`${styling.trust} ${className ? className : ""}`}>
+      <h2> Ils nous font confiance</h2>
       <ListSlider style={style} positions={positions} bothWays middleArrows>
         <div className={styling.clients}>
           <ScrollableContent ref={ref} />
         </div>
       </ListSlider>
+
+      <div className={styling.illu}>
+        {" "}
+        <Illu3 /> <Illu3 />{" "}
+      </div>
     </section>
   );
 }

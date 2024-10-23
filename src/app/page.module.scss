@@ -57,6 +57,9 @@
   padding-right: 5%;
   &.firstText {
     padding-right: 2%;
+    @media #{$desktop} {
+      display: none;
+    }
   }
 }
 
@@ -72,5 +75,44 @@
     img {
       object-fit: cover;
     }
+  }
+}
+
+.desktopBottomSection {
+  @media #{$desktop} {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    gap: clamp(78px, 7.7vw, 300px);
+    padding: clamp(55px, 5.4vw, 200px) 0;
+    .imageWrapper {
+      order: 1;
+
+      .image {
+        width: clamp(336px, 32.8vw, 1008px);
+        height: clamp(493px, 48vw, 1479px);
+      }
+    }
+
+    .bottomPart {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      justify-content: center;
+      gap: clamp(15px, 1.5vw, 60px);
+
+      .text {
+        font-size: clamp(20px, 1.2vw, 45px);
+        margin: 0;
+        width: clamp(319px, 35.2vw, 1200px);
+        line-height: 1.1;
+      }
+    }
+  }
+}
+
+.desktopHidden {
+  @media #{$desktop} {
+    display: none;
   }
 }

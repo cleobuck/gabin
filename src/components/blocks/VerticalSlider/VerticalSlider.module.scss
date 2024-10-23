@@ -17,9 +17,9 @@
   }
 
   @media #{$desktop} {
-    margin: 95px auto;
-    width: 1000px;
-    height: 600px;
+    margin: 70px auto;
+    width: clamp(355px, 40.72vw, 1000px);
+    height: clamp(205px, 20vw, 600px);
   }
 
   .draggableList {

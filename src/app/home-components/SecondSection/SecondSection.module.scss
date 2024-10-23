@@ -24,21 +24,40 @@
     padding-top: 50px;
   }
 
+  @media #{$desktop} {
+    padding: clamp(59px, 5.8vw, 200px) 0;
+  }
+
   ul {
     list-style-type: none;
     width: 167px;
+
+    @media #{$tablet} {
+      width: auto;
+    }
     margin: 0 auto;
+
+    @media #{$desktop} {
+      margin: 0;
+    }
     margin-bottom: 43px;
     font-family: "Sporting Grotesque";
     font-size: 20px;
+
     font-weight: 400;
-    line-height: 32.6px;
+    line-height: 1.63;
     text-align: left;
+
+    @media #{$desktop} {
+      line-height: 1.47;
+      font-size: clamp(30px, 2.9vw, 100px);
+    }
   }
   p {
     color: $strongGreen;
-    width: 85vw;
     margin: 0 auto;
+    font-size: clamp(20px, 1.2vw, 80px);
+    width: clamp(284px, 27.8vw, 1000px);
   }
 
   .secondSectionImage {
@@ -67,6 +86,12 @@
       img {
         object-fit: cover;
       }
+
+      @media #{$desktop} {
+        width: clamp(389.12px, 38vw, 652px);
+
+        height: clamp(527.36px, 51.5vw, 889px);
+      }
     }
   }
 
@@ -79,109 +104,48 @@
     @media #{$tablet} {
       width: 20px;
     }
+
+    @media #{$desktop} {
+      width: clamp(20px, 1.2vw, 40px);
+    }
   }
 }
 
 .subSection {
-  @media #{$tablet} {
-    margin-top: 80px;
-    width: 100%;
-    position: relative;
+  @media #{$desktop} {
     display: flex;
-    flex-direction: column;
-    padding-left: 50vw;
-    height: 770px;
+    justify-content: center;
 
-    @media #{$desktop} {
-      height: 65.7vw;
+    gap: clamp(78px, 7.7vw, 300px);
+    .rightSection {
+      order: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: clamp(43px, 4.2vw, 100px);
     }
     .secondSectionImage {
-      margin: 0;
-      position: absolute;
-      left: 0;
-      top: 0;
-      .image {
-        width: 50vw;
-        height: 770px;
-        @media #{$desktop} {
-          width: 38.33vw;
-          max-width: 1104px;
-          height: 64.17vw;
-          max-height: 1848px;
-        }
-      }
-    }
-    .text {
       order: 1;
-      margin: 0;
-      margin-left: 40px;
-
-      margin-bottom: 37px;
-      color: $beige;
-      font-size: 16px;
-
-      @media #{$desktop} {
-        font-size: clamp(20px, 1.389vw, 30px);
-      }
-      font-weight: 400;
-      padding-right: 30px;
-      padding-bottom: 50px;
-      line-height: 1.15;
-      text-align: left;
-      width: 38vw;
-      position: relative;
-      .sun {
-        position: absolute;
-        width: 58px;
-        height: 55px;
-        right: 0;
-        bottom: 0;
-        path {
-          fill: $yellow;
-        }
-      }
     }
-    ul {
-      order: 2;
-      font-size: 32px;
-      line-height: 1.63;
-
-      @media #{$desktop} {
-        font-size: clamp(40px, 2.777vw, 60px);
-      }
-      margin: 0;
-      width: auto;
-      margin-left: 40px;
-      position: relative;
-      z-index: 2;
-    }
-  }
-}
-
-.desktopImages {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  z-index: 1;
-  right: 3%;
-  bottom: 9%;
-  order: 3;
-  gap: 12px;
-
-  @media (min-width: 1350px) {
-    bottom: 24%;
-    right: 10%;
-  }
-  .desktopImage {
-    position: relative;
-    width: clamp(200px, 17.71vw, 400px);
-    height: clamp(155px, 13.75vw, 310px);
-    object-fit: cover;
   }
 }
 
 .blockquote {
   @media #{$desktop} {
     display: none;
+  }
+}
+
+.text {
+  display: none;
+
+  @media #{$desktop} {
+    font-size: clamp(20px, 1.389vw, 30px);
+    display: block;
+    color: $darkBlue;
+
+    font-weight: 400;
+    line-height: 1.15;
+    text-align: left;
   }
 }

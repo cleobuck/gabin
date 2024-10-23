@@ -33,7 +33,7 @@
     }
 
     @media #{$desktop} {
-      font-size: clamp(50px, 3.472vw, 70px);
+      font-size: clamp(30px, 2.8vw, 60px);
     }
   }
   p {
@@ -44,7 +44,7 @@
     }
 
     @media #{$desktop} {
-      font-size: clamp(20px, 1.389vw, 30px);
+      font-size: clamp(20px, 1.1vw, 50px);
       line-height: 1.2;
       width: 100%;
     }

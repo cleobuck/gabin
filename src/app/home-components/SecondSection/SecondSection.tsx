@@ -1,8 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 import styles from "./SecondSection.module.scss";
-import Image from "next/image";
-import Logo from "@/assets/logos/logo.png";
+
 import Photo2 from "@/assets/images/photo-2.jpg";
 import BulletPoint from "@/assets/icons/bullet-point.svg?react";
 import { IsItAPhone } from "@/utils";
@@ -35,20 +34,27 @@ const SecondSection: React.FC<Props> = ({}) => {
         </div>
 
         <div className={styles.subSection}>
-          <ul>
-            <li>
-              <BulletPoint className={styles.bulletPoint} /> Mariage
-            </li>
-            <li>
-              <BulletPoint className={styles.bulletPoint} /> Entreprise
-            </li>
-            <li>
-              <BulletPoint className={styles.bulletPoint} /> Collectivité
-            </li>
-            <li>
-              <BulletPoint className={styles.bulletPoint} /> Planner
-            </li>
-          </ul>
+          <div className={styles.rightSection}>
+            <p className={`${styles.text} `}>
+              {`Parce que sous un chapiteau s’éveille toujours un soupçon de magie,
+        Inouze vous propose ses structures haut de gamme pour donner une
+        nouvelle dimension à votre événement.`}
+            </p>
+            <ul>
+              <li>
+                <BulletPoint className={styles.bulletPoint} /> Mariage
+              </li>
+              <li>
+                <BulletPoint className={styles.bulletPoint} /> Entreprise
+              </li>
+              <li>
+                <BulletPoint className={styles.bulletPoint} /> Collectivité
+              </li>
+              <li>
+                <BulletPoint className={styles.bulletPoint} /> Planner
+              </li>
+            </ul>
+          </div>
 
           <div className={styles.secondSectionImage}>
             <ImageWithCredit

@@ -10,6 +10,7 @@ import Facebook from "@/assets/icons/facebook.svg?react";
 
 import TentImage from "@/assets/images/st-trop.jpeg";
 import DevisButton from "@/components/items/Button/DevisButton";
+import Trust from "@/components/blocks/Trust/Trust";
 
 type Props = { noImage?: boolean; className?: string };
 
@@ -26,10 +27,14 @@ export default function Footer({ noImage, className }: Props) {
           <h3>
             NOUS RÉPONDONS À VOS QUESTIONS JUSTE <a href="#">ICI</a>
           </h3>
+
+          <Sun className={styling.desktopSun} />
         </div>
       )}
+
+      <Trust style="home" className={styling.mobileHidden} />
       <div className={styling.footer}>
-        {!noImage && <Sun className={styling.sun} />}
+        {!noImage && <Sun className={`${styling.sun} `} />}
         <Logo className={styling.logo} />
         <nav className={styling.footerNav}>
           <ul>
@@ -66,6 +71,10 @@ export default function Footer({ noImage, className }: Props) {
                 <a href="#">
                   <LinkedIn />
                 </a>
+              </li>
+
+              <li>
+                <DevisButton className={styling.devisButton} />
               </li>
             </div>
           </ul>

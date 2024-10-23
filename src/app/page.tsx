@@ -31,35 +31,38 @@ export default function Home() {
 
       <Banner style="home" />
 
-      <p className={`${styles.text} ${styles.firstText}`}>
-        {`Parce que sous un chapiteau s’éveille toujours un soupçon de magie,
+      <div className={styles.desktopBottomSection}>
+        <p className={`${styles.text} ${styles.firstText}`}>
+          {`Parce que sous un chapiteau s’éveille toujours un soupçon de magie,
         Inouze vous propose ses structures haut de gamme pour donner une
         nouvelle dimension à votre événement.`}
-      </p>
+        </p>
 
-      <div className={styles.imageWrapper}>
-        <ImageWithCredit
-          src={Montage}
-          alt="tent"
-          className={styles.image}
-          Icon={<Illu2 />}
-        />
-      </div>
+        <div className={styles.imageWrapper}>
+          <ImageWithCredit
+            src={Montage}
+            alt="tent"
+            className={styles.image}
+            Icon={<Illu2 />}
+          />
+        </div>
 
-      <p className={styles.text}>
-        {`Quel que soit votre événement, nos structures haut de gamme apportent
+        <div className={styles.bottomPart}>
+          <p className={styles.text}>
+            {`Quel que soit votre événement, nos structures haut de gamme apportent
         une atmosphère unique et élégante à votre lieu.`}
-      </p>
+          </p>
 
-      <p className={styles.text}>
-        {`Pour un mariage, un événement d’entreprise, ou encore un festival,
+          <p className={styles.text}>
+            {`Pour un mariage, un événement d’entreprise, ou encore un festival,
         Inouze s’adapte à vos envies et vos besoins pour créer un cadre
         remarquable où tout devient possible.`}
-      </p>
+          </p>
 
-      <ValueSlider style="home" />
-
-      <Trust style="home" />
+          <ValueSlider style="home" />
+        </div>
+      </div>
+      <Trust style="home" className={styles.desktopHidden} />
       <Footer />
     </div>
   );
