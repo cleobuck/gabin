@@ -3,6 +3,7 @@ import React, { ReactNode, useEffect, useState } from "react";
 import styling from "./PageLayout.module.scss";
 
 import BackgroundImage from "@/assets/images/placeholder.jpeg";
+import WeddingImage from "@/assets/images/wedding.jpeg";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import SideMenu from "../side-menu/SideMenu";
@@ -74,7 +75,11 @@ export default function PageLayout({
       />
       <div
         className={`${className} ${styling.pageHeader}`}
-        style={{ backgroundImage: `url(${BackgroundImage})` }}
+        style={{
+          backgroundImage: `url(${
+            style === "weddings" ? WeddingImage : BackgroundImage
+          })`,
+        }}
       >
         <Sun className={styling.sun} />
 

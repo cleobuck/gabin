@@ -1,5 +1,8 @@
 @import "@styles/variables";
 
+.hidden {
+  display: none;
+}
 .secondaryMenu {
   max-height: 0;
   overflow: hidden;

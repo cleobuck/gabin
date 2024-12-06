@@ -16,7 +16,9 @@ export default function SecondaryMenu({
         aria-controls="main-menu"
         aria-expanded={whichMenuOpen === "secondary"}
         onClick={openMenu}
-        className={` ${styling.button}`}
+        className={` ${styling.button} ${
+          style !== "home" ? styling.hidden : ""
+        }`}
       >
         <MenuButton />
       </button>
